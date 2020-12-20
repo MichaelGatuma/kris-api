@@ -14,6 +14,7 @@ use Illuminate\Notifications\Notifiable;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * Class User
@@ -45,7 +46,7 @@ use Illuminate\Database\Eloquent\Collection;
  */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasApiTokens;
 
     protected $table = 'users';
 
