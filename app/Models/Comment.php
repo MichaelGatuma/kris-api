@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Comment
- * 
+ *
  * @property int $id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -25,18 +25,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Comment extends Model
 {
-	protected $table = 'comments';
+    protected $table = 'comments';
 
-	protected $casts = [
-		'post_id' => 'int',
-		'approved' => 'bool'
-	];
+    protected $casts = [
+        'post_id' => 'int',
+        'approved' => 'bool'
+    ];
 
-	protected $fillable = [
-		'name',
-		'email',
-		'comment',
-		'post_id',
-		'approved'
-	];
+    protected $fillable = [
+        'name',
+        'email',
+        'comment',
+        'post_id',
+        'approved'
+    ];
 }

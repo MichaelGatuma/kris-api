@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Tag
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $slug
@@ -20,28 +20,28 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $order_column
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|Taggable[] $taggables
  *
  * @package App\Models
  */
 class Tag extends Model
 {
-	protected $table = 'tags';
+    protected $table = 'tags';
 
-	protected $casts = [
-		'order_column' => 'int'
-	];
+    protected $casts = [
+        'order_column' => 'int'
+    ];
 
-	protected $fillable = [
-		'name',
-		'slug',
-		'type',
-		'order_column'
-	];
+    protected $fillable = [
+        'name',
+        'slug',
+        'type',
+        'order_column'
+    ];
 
-	public function taggables()
-	{
-		return $this->hasMany(Taggable::class);
-	}
+    public function taggables()
+    {
+        return $this->hasMany(Taggable::class);
+    }
 }

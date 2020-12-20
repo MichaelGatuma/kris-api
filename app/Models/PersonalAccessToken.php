@@ -3,6 +3,7 @@
 namespace Laravel\Sanctum;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Laravel\Sanctum\Contracts\HasAbilities;
 
 class PersonalAccessToken extends Model implements HasAbilities
@@ -38,16 +39,6 @@ class PersonalAccessToken extends Model implements HasAbilities
     ];
 
     /**
-     * Get the tokenable model that the access token belongs to.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
-     */
-    public function tokenable()
-    {
-        return $this->morphTo('tokenable');
-    }
-
-    /**
      * Find the token instance matching the given token.
      *
      * @param  string  $token
@@ -67,15 +58,13 @@ class PersonalAccessToken extends Model implements HasAbilities
     }
 
     /**
-     * Determine if the token has a given ability.
+     * Get the tokenable model that the access token belongs to.
      *
-     * @param  string  $ability
-     * @return bool
+     * @return MorphTo
      */
-    public function can($ability)
+    public function tokenable()
     {
-        return in_array('*', $this->abilities) ||
-            array_key_exists($ability, array_flip($this->abilities));
+        return $this->morphTo('tokenable');
     }
 
     /**
@@ -86,6 +75,18 @@ class PersonalAccessToken extends Model implements HasAbilities
      */
     public function cant($ability)
     {
-        return ! $this->can($ability);
+        return !$this->can($ability);
+    }
+
+    /**
+     * Determine if the token has a given ability.
+     *
+     * @param  string  $ability
+     * @return bool
+     */
+    public function can($ability)
+    {
+        return in_array('*', $this->abilities) ||
+            array_key_exists($ability, array_flip($this->abilities));
     }
 }

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Request
- * 
+ *
  * @property int $Request_ID
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -27,26 +27,26 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Request extends Model
 {
-	protected $table = 'requests';
-	protected $primaryKey = 'Request_ID';
+    protected $table = 'requests';
+    protected $primaryKey = 'Request_ID';
 
-	protected $casts = [
-		'ResearchOwner_ID' => 'int',
-		'RequestedAccess' => 'int',
-		'ResearchProject_ID' => 'int',
-		'User_ID' => 'int',
-		'RequestMessage' => 'int',
-		'RequestReply' => 'int',
-		'Publications_ID' => 'int'
-	];
+    protected $casts = [
+        'ResearchOwner_ID' => 'int',
+        'RequestedAccess' => 'int',
+        'ResearchProject_ID' => 'int',
+        'User_ID' => 'int',
+        'RequestMessage' => 'int',
+        'RequestReply' => 'int',
+        'Publications_ID' => 'int'
+    ];
 
-	protected $fillable = [
-		'ResearchOwner_ID',
-		'RequestedAccess',
-		'ResearchProject_ID',
-		'User_ID',
-		'RequestMessage',
-		'RequestReply',
-		'Publications_ID'
-	];
+    protected $fillable = [
+        'ResearchOwner_ID',
+        'RequestedAccess',
+        'ResearchProject_ID',
+        'User_ID',
+        'RequestMessage',
+        'RequestReply',
+        'Publications_ID'
+    ];
 }

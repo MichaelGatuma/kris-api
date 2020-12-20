@@ -7,13 +7,11 @@
 namespace App\Models;
 
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
@@ -92,35 +90,34 @@ class User extends Authenticatable
         'current_team_id' => 'int'
     ];
 
-	protected $dates = [
-		'email_verified_at',
-		'verified_at'
-	];
+    protected $dates = [
+        'email_verified_at',
+        'verified_at'
+    ];
 
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 
-	public function posts()
-	{
-		return $this->hasMany(Post::class);
-	}
+    public function publications()
+    {
+        return $this->hasMany(Publication::class, 'UserID');
+    }
 
-	public function publications()
-	{
-		return $this->hasMany(Publication::class, 'UserID');
-	}
+    public function researchers()
+    {
+        return $this->hasMany(Researcher::class, 'User_ID');
+    }
 
-	public function researchers()
-	{
-		return $this->hasMany(Researcher::class, 'User_ID');
-	}
+    public function researchersinvolveds()
+    {
+        return $this->hasMany(Researchersinvolved::class, 'User_ID');
+    }
 
-	public function researchersinvolveds()
-	{
-		return $this->hasMany(Researchersinvolved::class, 'User_ID');
-	}
-
-	public function researchprojects()
-	{
-		return $this->hasMany(Researchproject::class, 'User_ID');
-	}
+    public function researchprojects()
+    {
+        return $this->hasMany(Researchproject::class, 'User_ID');
+    }
 }

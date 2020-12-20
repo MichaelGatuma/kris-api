@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class UpcomingeventsKtbl
- * 
+ *
  * @property int $UpcomingEvent_ID
  * @property string $EventName
  * @property string $eventInfor
@@ -26,19 +26,19 @@ use Illuminate\Database\Eloquent\Model;
  */
 class UpcomingeventsKtbl extends Model
 {
-	protected $table = 'upcomingevents_ktbl';
-	protected $primaryKey = 'UpcomingEvent_ID';
+    protected $table = 'upcomingevents_ktbl';
+    protected $primaryKey = 'UpcomingEvent_ID';
 
-	protected $dates = [
-		'EventDate'
-	];
+    protected $dates = [
+        'EventDate'
+    ];
 
-	protected $fillable = [
-		'EventName',
-		'eventInfor',
-		'Venue',
-		'EventDate',
-		'EventURL',
-		'EventImage'
-	];
+    protected $fillable = [
+        'EventName',
+        'eventInfor',
+        'Venue',
+        'EventDate',
+        'EventURL',
+        'EventImage'
+    ];
 }

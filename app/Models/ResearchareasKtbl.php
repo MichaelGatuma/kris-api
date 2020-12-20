@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ResearchareasKtbl
- * 
+ *
  * @property int $ResearchArea_ID
  * @property string $ResearchAreaName
  * @property string $ResearchAreaImage
@@ -22,11 +22,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ResearchareasKtbl extends Model
 {
-	protected $table = 'researchareas_ktbl';
-	protected $primaryKey = 'ResearchArea_ID';
+    protected $table = 'researchareas_ktbl';
+    protected $primaryKey = 'ResearchArea_ID';
 
-	protected $fillable = [
-		'ResearchAreaName',
-		'ResearchAreaImage'
-	];
+    protected $fillable = [
+        'ResearchAreaName',
+        'ResearchAreaImage'
+    ];
 }

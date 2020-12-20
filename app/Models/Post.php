@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Post
- * 
+ *
  * @property int $id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $user_id
  * @property int $Researcher_ID
  * @property string $slug
- * 
+ *
  * @property Researcher $researcher
  * @property User $user
  *
@@ -28,28 +28,28 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Post extends Model
 {
-	protected $table = 'posts';
+    protected $table = 'posts';
 
-	protected $casts = [
-		'user_id' => 'int',
-		'Researcher_ID' => 'int'
-	];
+    protected $casts = [
+        'user_id' => 'int',
+        'Researcher_ID' => 'int'
+    ];
 
-	protected $fillable = [
-		'title',
-		'body',
-		'user_id',
-		'Researcher_ID',
-		'slug'
-	];
+    protected $fillable = [
+        'title',
+        'body',
+        'user_id',
+        'Researcher_ID',
+        'slug'
+    ];
 
-	public function researcher()
-	{
-		return $this->belongsTo(Researcher::class, 'Researcher_ID');
-	}
+    public function researcher()
+    {
+        return $this->belongsTo(Researcher::class, 'Researcher_ID');
+    }
 
-	public function user()
-	{
-		return $this->belongsTo(User::class);
-	}
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

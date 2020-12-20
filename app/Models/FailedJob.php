@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class FailedJob
- * 
+ *
  * @property int $id
  * @property string $uuid
  * @property string $connection
@@ -24,19 +24,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class FailedJob extends Model
 {
-	protected $table = 'failed_jobs';
-	public $timestamps = false;
+    public $timestamps = false;
+    protected $table = 'failed_jobs';
+    protected $dates = [
+        'failed_at'
+    ];
 
-	protected $dates = [
-		'failed_at'
-	];
-
-	protected $fillable = [
-		'uuid',
-		'connection',
-		'queue',
-		'payload',
-		'exception',
-		'failed_at'
-	];
+    protected $fillable = [
+        'uuid',
+        'connection',
+        'queue',
+        'payload',
+        'exception',
+        'failed_at'
+    ];
 }

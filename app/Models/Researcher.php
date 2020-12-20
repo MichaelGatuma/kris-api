@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Researcher
- * 
+ *
  * @property int $Researcher_ID
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -28,7 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool $Approved
  * @property string|null $CV
  * @property string|null $ListofPublications
- * 
+ *
  * @property Department $department
  * @property Researchinstitution $researchinstitution
  * @property User $user
@@ -41,67 +41,67 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Researcher extends Model
 {
-	protected $table = 'researchers';
-	protected $primaryKey = 'Researcher_ID';
+    protected $table = 'researchers';
+    protected $primaryKey = 'Researcher_ID';
 
-	protected $casts = [
-		'User_ID' => 'int',
-		'DepartmentID' => 'int',
-		'ResearchInstitutionID' => 'int',
-		'Approved' => 'bool'
-	];
+    protected $casts = [
+        'User_ID' => 'int',
+        'DepartmentID' => 'int',
+        'ResearchInstitutionID' => 'int',
+        'Approved' => 'bool'
+    ];
 
-	protected $dates = [
-		'DOB'
-	];
+    protected $dates = [
+        'DOB'
+    ];
 
-	protected $fillable = [
-		'User_ID',
-		'Gender',
-		'DOB',
-		'PhoneNumber',
-		'ResearchAreaOfInterest',
-		'DepartmentID',
-		'ResearchInstitutionID',
-		'Affiliation',
-		'AboutResearcher',
-		'Approved',
-		'CV',
-		'ListofPublications'
-	];
+    protected $fillable = [
+        'User_ID',
+        'Gender',
+        'DOB',
+        'PhoneNumber',
+        'ResearchAreaOfInterest',
+        'DepartmentID',
+        'ResearchInstitutionID',
+        'Affiliation',
+        'AboutResearcher',
+        'Approved',
+        'CV',
+        'ListofPublications'
+    ];
 
-	public function department()
-	{
-		return $this->belongsTo(Department::class, 'DepartmentID');
-	}
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'DepartmentID');
+    }
 
-	public function researchinstitution()
-	{
-		return $this->belongsTo(Researchinstitution::class, 'ResearchInstitutionID');
-	}
+    public function researchinstitution()
+    {
+        return $this->belongsTo(Researchinstitution::class, 'ResearchInstitutionID');
+    }
 
-	public function user()
-	{
-		return $this->belongsTo(User::class, 'User_ID');
-	}
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'User_ID');
+    }
 
-	public function posts()
-	{
-		return $this->hasMany(Post::class, 'Researcher_ID');
-	}
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'Researcher_ID');
+    }
 
-	public function publications()
-	{
-		return $this->hasMany(Publication::class, 'Researcher_ID');
-	}
+    public function publications()
+    {
+        return $this->hasMany(Publication::class, 'Researcher_ID');
+    }
 
-	public function researchersinvolveds()
-	{
-		return $this->hasMany(Researchersinvolved::class, 'Researcher_ID');
-	}
+    public function researchersinvolveds()
+    {
+        return $this->hasMany(Researchersinvolved::class, 'Researcher_ID');
+    }
 
-	public function researchprojects()
-	{
-		return $this->hasMany(Researchproject::class, 'Researcher_ID');
-	}
+    public function researchprojects()
+    {
+        return $this->hasMany(Researchproject::class, 'Researcher_ID');
+    }
 }

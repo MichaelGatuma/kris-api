@@ -12,14 +12,14 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Researchinstitution
- * 
+ *
  * @property int $ResearchInstitution_ID
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string $RIName
  * @property string $RIWebsite
  * @property string $RIpostalAddress
- * 
+ *
  * @property Collection|Department[] $departments
  * @property Collection|Researcher[] $researchers
  *
@@ -27,22 +27,22 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Researchinstitution extends Model
 {
-	protected $table = 'researchinstitutions';
-	protected $primaryKey = 'ResearchInstitution_ID';
+    protected $table = 'researchinstitutions';
+    protected $primaryKey = 'ResearchInstitution_ID';
 
-	protected $fillable = [
-		'RIName',
-		'RIWebsite',
-		'RIpostalAddress'
-	];
+    protected $fillable = [
+        'RIName',
+        'RIWebsite',
+        'RIpostalAddress'
+    ];
 
-	public function departments()
-	{
-		return $this->hasMany(Department::class, 'ResearchInstitution_ID');
-	}
+    public function departments()
+    {
+        return $this->hasMany(Department::class, 'ResearchInstitution_ID');
+    }
 
-	public function researchers()
-	{
-		return $this->hasMany(Researcher::class, 'ResearchInstitutionID');
-	}
+    public function researchers()
+    {
+        return $this->hasMany(Researcher::class, 'ResearchInstitutionID');
+    }
 }
