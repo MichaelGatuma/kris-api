@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::get('projects', function () {
+        return response()->json(\App\Models\Researchproject::first());
+    });
+
 });
+//Token or Login Route
+Route::post('token', [\App\Http\Controllers\AuthController::class, 'requestToken']);
+Route::post('register', [\App\Http\Controllers\AuthController::class, 'registerUser']);
+
