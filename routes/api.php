@@ -28,3 +28,5 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::post('token', [\App\Http\Controllers\AuthController::class, 'requestToken']);
 Route::post('register', [\App\Http\Controllers\AuthController::class, 'registerUser']);
 
+
+

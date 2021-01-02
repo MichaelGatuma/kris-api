@@ -22,6 +22,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "infyomlabs/laravel-generator": "8.0.x-dev",
         "infyomlabs/swagger-generator": "dev-master",
+        "infyomlabs/generator-builder": "dev-master",
         "laravel/framework": "^8.12",
         "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.5",
