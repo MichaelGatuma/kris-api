@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         InfyOm\GeneratorBuilder\GeneratorBuilderServiceProvider::class,
+        \InfyOm\RoutesExplorer\RoutesExplorerServiceProvider::class,
     ],
 
     /*
