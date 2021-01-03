@@ -55,17 +55,15 @@
                             <tr>
                                 <td class="content-cell"
                                     style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
-                                    <p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
+                                    <p style="line-break: auto;box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
                                         Hello, <strong
                                             style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">User</strong>,<br>
                                         You're receiving this e-mail because you requested a password reset for your
                                         user account.
-                                        Please go to the following page and choose a new password:</p>
-                                    <pre
-                                        style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-                                        <a href="{{url('user/password-reset', $token)}}"
+                                        Please go to the following page and choose a new password:<br>
+                                        <a style="line-break: anywhere;word-wrap: break-word;hyphens: auto;" href="{{url('user/password-reset', $token)}}"
                                            target="_blank">{{url('user/password-reset', $token)}}</a>
-                                    </pre>
+                                    </p>
                                     <br/>
                                     This Link will be expired in next {{env('REQUEST_EXPIRATION_TIME')}} hour's.
                                     <br/>
