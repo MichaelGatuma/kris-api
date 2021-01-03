@@ -13,6 +13,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Class User
@@ -44,7 +47,7 @@ use Laravel\Sanctum\HasApiTokens;
  */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasApiTokens;
+    use HasFactory, Notifiable, LogsActivity, HasRoles, HasApiTokens, Notifiable;
 
     protected $table = 'users';
 
@@ -57,16 +60,12 @@ class User extends Authenticatable
         'Title',
         'name',
         'email',
-        'email_verified_at',
         'password',
         'two_factor_secret',
         'two_factor_recovery_codes',
         'profPic',
         'isAdmin',
         'remember_token',
-        'current_team_id',
-        'profile_photo_path',
-        'verified_at'
     ];
 
     /**

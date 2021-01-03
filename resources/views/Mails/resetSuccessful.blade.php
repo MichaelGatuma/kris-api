@@ -8,7 +8,8 @@
     <meta name="supported-color-schemes" content="light">
     <title>Password Reset</title>
 </head>
-<body style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #718096; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">
+<body
+    style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #718096; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">
 <style type="text/css">
     @media only screen and (max-width: 600px) {
         .inner-body {
@@ -26,7 +27,6 @@
         }
     }
 </style>
-
 <table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation"
        style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; margin: 0; padding: 0; width: 100%;">
     <tr>
@@ -58,24 +58,13 @@
                                     <p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
                                         Hello, <strong
                                             style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">User</strong>,<br>
-                                        You're receiving this e-mail because you requested a password reset for your
-                                        user account.
-                                        Please go to the following page and choose a new password:</p>
-                                    <pre
-                                        style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-                                        <a href="{{url('user/password-reset', $token)}}"
-                                           target="_blank">{{url('user/password-reset', $token)}}</a>
-                                    </pre>
-                                    <br/>
-                                    This Link will be expired in next {{env('REQUEST_EXPIRATION_TIME')}} hour's.
-                                    <br/>
-                                    If you didn't request this change, you can disregard this email - we have not yet
-                                    reset your password.
-                                    <br/>
-                                    Thanks!
-                                    <br><br>
-                                    Sincerely,
-                                    {{env('APP_NAME')}} team.
+                                        Your password has been reset successfully. Now you can login with new
+                                        credentials.
+                                        <br/>
+                                        Thanks!
+                                        <br><br>
+                                        Sincerely,
+                                        {{env('APP_NAME')}} team.
                                 </td>
                             </tr>
                         </table>
@@ -103,4 +92,3 @@
 </table>
 </body>
 </html>
-
