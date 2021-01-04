@@ -5,6 +5,258 @@
         "version": "1.0.0"
     },
     "basePath": "/api/v1",
-    "paths": {},
-    "definitions": {}
+    "paths": {
+        "/publications": {
+            "get": {
+                "tags": [
+                    "Publication"
+                ],
+                "summary": "Get a listing of the Publications.",
+                "description": "Get all Publications",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Publication"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Publication"
+                ],
+                "summary": "Store a newly created Publication in storage",
+                "description": "Store Publication",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Publication that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Publication"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Publication"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/publications/{id}": {
+            "get": {
+                "tags": [
+                    "Publication"
+                ],
+                "summary": "Display the specified Publication",
+                "description": "Get Publication",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Publication",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Publication"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Publication"
+                ],
+                "summary": "Update the specified Publication in storage",
+                "description": "Update Publication",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Publication",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Publication that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Publication"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Publication"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Publication"
+                ],
+                "summary": "Remove the specified Publication from storage",
+                "description": "Delete Publication",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Publication",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Publication": {
+            "required": [
+                "Researcher_ID",
+                "PublicationTitle",
+                "DateOfPublication",
+                "PublicationURL"
+            ],
+            "properties": {
+                "Publication_ID": {
+                    "description": "Publication_ID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "updated_at": {
+                    "description": "updated_at",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "UserID": {
+                    "description": "UserID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Researcher_ID": {
+                    "description": "Researcher_ID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "PublicationTitle": {
+                    "description": "PublicationTitle",
+                    "type": "string"
+                },
+                "PublicationPath": {
+                    "description": "PublicationPath",
+                    "type": "string"
+                },
+                "DateOfPublication": {
+                    "description": "DateOfPublication",
+                    "type": "string",
+                    "format": "date"
+                },
+                "Collaborators": {
+                    "description": "Collaborators",
+                    "type": "string"
+                },
+                "PublicationURL": {
+                    "description": "PublicationURL",
+                    "type": "string"
+                }
+            }
+        }
+    }
 }

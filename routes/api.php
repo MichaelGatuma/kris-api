@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 
 //Route::middleware('auth:sanctum')->group(function () {
@@ -26,3 +27,6 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('user/toggle-2fa', [\App\Http\Controllers\API\UserController::class, 'toggle2fa']);
 
 });
+
+//Resources
+Route::apiResource('publication', \App\Http\Controllers\API\PublicationAPIController::class);

@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
 /**
  * Class Publication
@@ -29,8 +30,67 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
+
+/**
+ * @SWG\Definition(
+ *      definition="Publication",
+ *      required={"Researcher_ID", "PublicationTitle", "DateOfPublication", "PublicationURL"},
+ *      @SWG\Property(
+ *          property="Publication_ID",
+ *          description="Publication_ID",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="updated_at",
+ *          description="updated_at",
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @SWG\Property(
+ *          property="UserID",
+ *          description="UserID",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="Researcher_ID",
+ *          description="Researcher_ID",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="PublicationTitle",
+ *          description="PublicationTitle",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="PublicationPath",
+ *          description="PublicationPath",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="DateOfPublication",
+ *          description="DateOfPublication",
+ *          type="string",
+ *          format="date"
+ *      ),
+ *      @SWG\Property(
+ *          property="Collaborators",
+ *          description="Collaborators",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="PublicationURL",
+ *          description="PublicationURL",
+ *          type="string"
+ *      )
+ * )
+ */
 class Publication extends Model
 {
+    const VIEW_SUMMARY = 'SUMMARY';
+
     protected $table = 'publications';
     protected $primaryKey = 'Publication_ID';
 
@@ -62,5 +122,11 @@ class Publication extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'UserID');
+    }
+
+    public function scopeLatestPublications($query)
+    {
+        $query->take(2);
+        return $query;
     }
 }
