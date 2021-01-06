@@ -19,14 +19,26 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'Title' => 'required|string',
             'name' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required',
             'profPic' => 'required',
             'device_name' => 'required',
         ]);
+
+        if ($validator->fails()) {
+            $errors = $validator->errors()->all();
+            $error["code"] = 'VALIDATION_ERROR';
+            $error["message"] = $errors[0];
+            return response()->json(
+                [
+                    "success" => false,
+                    "exception" => $error
+                ]
+                , 400);
+        }
         $user = new User();
         $user->Title = $request->Title;
         $user->email = $request->email;
@@ -36,13 +48,17 @@ class AuthController extends Controller
         $user->save();
 
         $tokenResult = $user->createToken($request->device_name)->plainTextToken;
-
-        return response()->json([
-            "success" => [
-                'access_token' => $tokenResult,
-                'token_type' => 'Bearer',
+        return response()->json(
+            [
+                "success" => true,
+                "auth" => [
+                    'access_token' => $tokenResult,
+                    'token_type' => 'Bearer',
+                ],
+                "user" => $user->toArray(),
+                "message" => "Registration Successful"
             ]
-        ], 200);
+            , 200);
 
     }
 
@@ -56,31 +72,37 @@ class AuthController extends Controller
             ]);
             $credentials = request(['email', 'password']);
             if (!Auth::attempt($credentials)) {
-                return response()->json([
-                    "failure" => [
+                return response()->json(
+                    [
+                        "success" => false,
                         'message' => 'Unauthorized',
                     ]
-                ], 500);
+                    , 500);
             }
             $user = User::where('email', $request->email)->first();
             if (!Hash::check($request->password, $user->password, [])) {
                 throw new Exception('Error in Login');
             }
             $tokenResult = $user->createToken($request->device_name)->plainTextToken;
-            return response()->json([
-                "success" => [
-                    'access_token' => $tokenResult,
-                    'token_type' => 'Bearer',
+            return response()->json(
+                [
+                    "success" => true,
+                    "auth" => [
+                        'access_token' => $tokenResult,
+                        'token_type' => 'Bearer',
+                    ],
+                    "message" => "Login Successful"
                 ]
-            ], 200);
+                , 200);
 
         } catch (Exception $error) {
-            return response()->json([
-                "failure" => [
+            return response()->json(
+                [
+                    "success" => false,
                     'message' => 'Error in Login',
-                    'error' => $error,
+                    'exception' => $error,
                 ]
-            ], 500);
+                , 500);
         }
     }
 
@@ -97,7 +119,12 @@ class AuthController extends Controller
             $errors = $validator->errors()->all();
             $error["message"] = $errors[0];
             $error["code"] = 'VALIDATION_ERROR';
-            return response()->json(["error" => $error], 400);
+            return response()->json(
+                [
+                    "success" => false,
+                    "exception" => $error
+                ]
+                , 400);
         }
 
         try {
@@ -107,10 +134,19 @@ class AuthController extends Controller
             ]);
             $token = $passResetToken->token;
             Mail::to($passResetToken->email)->send(new ForgotPasswordRequest($token));
-            $success['message'] = "We have sent instructions to your email for reset password. Please check your inbox.";
-            return response()->json(['success' => $success], 200);
+            return response()->json(
+                [
+                    'success' => true,
+                    'message' => "We have sent instructions to your email for reset password. Please check your inbox."
+                ]
+                , 200);
         } catch (QueryException $exception) {
-            return response()->json($exception, 400);
+            return response()->json(
+                [
+                    'success' => false,
+                    'exception' => $exception
+                ]
+                , 400);
         }
     }
 
@@ -127,26 +163,56 @@ class AuthController extends Controller
             $errors = $validator->errors()->all();
             $error["message"] = $errors[0];
             $error["code"] = 'VALIDATION_ERROR';
-            return response()->json(["error" => $error], 400);
+            return response()->json(
+                [
+                    "success" => false,
+                    "exception" => $error
+                ]
+                , 400);
         } else {
             if (Hash::check($newDetails["current_password"], $user->password)) {
                 // The passwords match...
-                $user['password'] = bcrypt($newDetails['password']);
+                $user->password = bcrypt($newDetails['password']);
                 $user->save();
                 Mail::to($user->email)->send(new PasswordResetSuccessful());
-                return response()->json(["success" => ["message" => "Your password has been reset successfully."]],
-                    200);
+                return response()->json(
+                    [
+                        "success" => true,
+                        "message" => "Your password has been reset successfully."
+                    ]
+                    , 200);
             } else {
                 $error['code'] = "INVALID_CREDENTIALS";
                 $error['message'] = "Your current password is incorrect";
-                return response()->json(["error" => $error], 400);
+                return response()->json(
+                    [
+                        "success" => false,
+                        "exception" => $error
+                    ]
+                    , 400);
             }
         }
     }
 
     public function logout(Request $request)
     {
-        $request->user()->token()->delete();
-        return response()->json(["success" => ["message" => "Logged out Successfully."]], 200);
+        try {
+            $user = $request->user();
+            $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
+            return response()->json(
+                [
+                    "success" => true,
+                    "message" => "Logged out Successfully."
+                ]
+                , 200);
+        } catch (Exception $exception) {
+            return response()->json(
+                [
+                    "success" => false,
+                    "exception" => $exception,
+                    "message" => "Unable to log out"
+                ]
+                , 200);
+        }
     }
 }

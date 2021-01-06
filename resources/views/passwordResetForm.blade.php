@@ -125,7 +125,7 @@
                           <form class="form-horizontal" name="resetForm" method="POST" action="{{ route('updatePassword') }}">
                                           {{csrf_field()}}
                                           <input type="hidden" name="token" value="{{ session('token') }}">
-                                            <p>Link will be expired within {{round(session('expiry'))}} hours</p>
+{{--                                            <p>Link will expire within {{round(session('expiry'))}} hours</p>--}}
 
                                           <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 

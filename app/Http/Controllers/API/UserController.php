@@ -7,14 +7,23 @@ use App\Mail\PasswordResetSuccessful;
 use App\Models\PasswordReset;
 use App\Models\User;
 use App\Models\VerifyUser;
+use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    public function details(Request $request)
+    {
+        return response()->json([
+            "success" => true,
+            "data" => $request->user(),
+            "message" => "User details retrieved successfully"
+        ]);
+    }
+
     //verifying user account by token, sent via mail
     public function verifyUser($token)
     {
@@ -35,37 +44,42 @@ class UserController extends Controller
         return redirect('/message')->with('status', $status);
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $request)
     {
         try {
-            $data = '';
             if ($request->isJson()) {
                 $data = $request->json()->all();
             } else {
                 $data = $request->all();
             }
             $validator = Validator::make($data, [
-                'name' => 'required',
+                'Title' => 'string',
+                'name' => 'string',
+                'email' => 'email',
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors()->all();
                 $error["message"] = $errors[0];
                 $error["code"] = 'VALIDATION_ERROR';
-                return response()->json(["error" => $error], 400);
+                return response()->json([
+                    "success" => false,
+                    "exception" => $error
+                ], 400);
             }
-            $user = User::findOrFail($id);
+            $user = $request->user();
             $user->name = $data["name"];
             $user->save();
-            return response()->json(["success" => $user], 200);
+            return response()->json([
+                "success" => "true", "data" => $user, "message" => "Your profile has been updates successfully"
+            ], 200);
         } catch (QueryException $exception) {
             return response()->json($exception, 400);
         }
     }
 
     public function addUserImage(Request $request)
-    {//fixme: change how profile picture is uploaded and saved
-        $user = Auth::user();
-        $imageDetails = '';
+    {
+        $user = $request->user();
         if ($request->isJson()) {
             $imageDetails = $request->json()->all();
         } else {
@@ -73,38 +87,30 @@ class UserController extends Controller
         }
 
         $validator = Validator::make($imageDetails, [
-            'url' => 'required_without_all:file|url',
             'file' => 'required_without_all:url|image|max:20000'
         ]);
 
         if ($validator->fails()) {
             $errors = $validator->errors()->all();
-            $error["message"] = $errors[0];
             $error["code"] = 'VALIDATION_ERROR';
-            return response()->json(["error" => $error], 400);
+            $error["message"] = $errors[0];
+            return response()->json([
+                "success" => false,
+                "error" => $error,
+                "message" => "Unable to validate"
+            ], 400);
         }
 
         try {
-            if(isset($imageDetails["url"])){
-                $user->addMediaFromUrl($imageDetails["url"])
-                    ->usingName($user["name"]."'s dp")
-                    ->toMediaCollection();
-            }else{
-                $file = $request->file('file');
-                $user->addMedia($file)
-                    ->usingName($user["name"]."'s dp")
-                    ->toMediaCollection();
-            }
-            $image = $user->getMedia()->last();
-            $extension = explode('/',$image->mime_type);
-            $image->file_name = str_random(5).'.'. $extension[1];
-            $image->save();
-            $user["imageUrl"] = $image->getFullUrl();
+            $file = $request->file('file');
+            //store
+            $path = $file->storeAs('ProfilePictures', $user->email);
+            $user->profPic = 'storage/'.$path.'.'.$file->extension();
             $user->save();
-            unset($user->{"media"});
-            return response()->json(["success" => $user], 200);
+            return response()->json(["success" => true, "data" => $user, "message" => "Profile Photo Updated successfully"],
+                200);
         } catch (QueryException $exception) {
-            return response()->json($exception, 400);
+            return response()->json(["success" => false,$exception], 400);
         }
     }
 
@@ -134,14 +140,21 @@ class UserController extends Controller
     {
         $resetToken = PasswordReset::where('token', $token)->first();
         if (isset($resetToken)) {
-            // $resetToken["current_date"] = date('Y-m-d H:i:s', strtotime(gmdate("Y-m-d H:i:s")));
-            // $resetToken["expiry_date"] = date('Y-m-d H:i:s', strtotime($resetToken["created_at"]) + 86400);
-            $expire_within_hours = ((strtotime($resetToken["created_at"]) + (env('REQUEST_EXPIRATION_TIME') * 3600)) - strtotime(gmdate("Y-m-d H:i:s"))) / 3600;
-            $request->session()->put(['email' => $resetToken->email]);
-            $request->session()->put(['token' => $resetToken->token]);
-            $request->session()->put(['expiry' => $expire_within_hours]);
-            if ($expire_within_hours < 0) {
-                return redirect('/message')->with('warning', "Sorry! This link has been expired.");
+//            // $resetToken["current_date"] = date('Y-m-d H:i:s', strtotime(gmdate("Y-m-d H:i:s")));
+//            // $resetToken["expiry_date"] = date('Y-m-d H:i:s', strtotime($resetToken["created_at"]) + 86400);
+//            $expire_within_hours = ((strtotime($resetToken["created_at"]) + (env('REQUEST_EXPIRATION_TIME') * 3600)) - strtotime(gmdate("Y-m-d H:i:s"))) / 3600;
+//            $request->session()->put(['email' => $resetToken->email]);
+//            $request->session()->put(['token' => $resetToken->token]);
+//            $request->session()->put(['expiry' => $expire_within_hours]);
+//            if ($expire_within_hours < 0) {
+//                return redirect('/message')->with('warning', "Sorry! This link has expired.");
+//            }
+            $manufacture_time = Carbon::createFromTimestamp($resetToken->created_at);
+            $life_hours = env('REQUEST_EXPIRATION_TIME');
+            $expiry_time = Carbon::parse($manufacture_time)->addHours($life_hours);
+            $time_left = $manufacture_time->diffInSeconds($expiry_time);
+            if ($time_left < 0) {
+                return redirect('/message')->with('warning', "Sorry! This link has expired.");
             }
             //if token is valid, redirect to reset form
             return view("passwordResetForm", compact('resetToken'));
@@ -173,7 +186,27 @@ class UserController extends Controller
         }
     }
 
-    public function deleteAccount(){
-        //todo
+    public function deleteAccount(Request $request)
+    {
+        try {
+            $user = $request->user();
+            $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
+            if ($user->delete()) {
+                return response()->json(
+                    [
+                        "success" => true,
+                        "message" => "Your account has been deleted successfully"
+                    ]
+                    , 200);
+            }
+        } catch (\Exception $exception) {
+            return response()->json(
+                [
+                    "success" => false,
+                    "exception" => $exception,
+                    "message" => "Your account could not be deleted"
+                ]
+                , 200);
+        }
     }
 }
