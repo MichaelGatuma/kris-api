@@ -25,10 +25,10 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('user/image', [\App\Http\Controllers\API\UserController::class, 'addUserImage']);
     Route::post('user/logout-other-devices', [\App\Http\Controllers\API\UserController::class, 'revokeAllTokens']);
     Route::post('user/toggle-2fa', [\App\Http\Controllers\API\UserController::class, 'toggle2fa']);
-
 });
 
 //Resources
 Route::apiResource('publication', \App\Http\Controllers\API\PublicationAPIController::class);
 Route::apiResource('project', \App\Http\Controllers\API\ProjectAPIController::class);
 Route::apiResource('researcher',\App\Http\Controllers\API\ResearcherAPIController::class);
+Route::apiResource('discussion',\App\Http\Controllers\API\PostAPIController::class);
