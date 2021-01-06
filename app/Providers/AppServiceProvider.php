@@ -17,7 +17,6 @@ class AppServiceProvider extends ServiceProvider
     {
         if ($this->app->environment() == 'local') {
             $this->app->register(CodersServiceProvider::class);
-
         }
     }
 
