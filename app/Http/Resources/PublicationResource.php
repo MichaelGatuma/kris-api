@@ -15,7 +15,7 @@ class PublicationResource extends JsonResource
     public function toArray($request)
     {
 //        return parent::toArray($request);
-        return [
+        return $this->collection->map([
             'id' => $this->Publication_ID,
             'title' => $this->PublicationTitle,
             'publication_path' => $this->PublicationPath,
@@ -23,6 +23,6 @@ class PublicationResource extends JsonResource
             'publication_date' => $this->DateOfPublication,
             'collaborators' => $this->Collaborators,
             'access_level' => $this->Access_Level
-        ];
+        ]);
     }
 }

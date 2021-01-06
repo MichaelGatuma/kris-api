@@ -41,7 +41,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property Collection|Publication[] $publications
  * @property Collection|Researcher[] $researchers
  * @property Collection|Researchersinvolved[] $researchersinvolveds
- * @property Collection|Researchproject[] $researchprojects
+ * @property Collection|Project[] $researchprojects
  *
  * @package App\Models
  */
@@ -117,6 +117,6 @@ class User extends Authenticatable
 
     public function researchprojects()
     {
-        return $this->hasMany(Researchproject::class, 'User_ID');
+        return $this->hasMany(Project::class, 'User_ID');
     }
 }

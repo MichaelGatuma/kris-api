@@ -35,7 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Collection|Post[] $posts
  * @property Collection|Publication[] $publications
  * @property Collection|Researchersinvolved[] $researchersinvolveds
- * @property Collection|Researchproject[] $researchprojects
+ * @property Collection|Project[] $researchprojects
  *
  * @package App\Models
  */
@@ -102,6 +102,6 @@ class Researcher extends Model
 
     public function researchprojects()
     {
-        return $this->hasMany(Researchproject::class, 'Researcher_ID');
+        return $this->hasMany(Project::class, 'Researcher_ID');
     }
 }

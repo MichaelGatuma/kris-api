@@ -30,3 +30,5 @@ Route::group(['middleware' => 'auth:api'], function () {
 
 //Resources
 Route::apiResource('publication', \App\Http\Controllers\API\PublicationAPIController::class);
+Route::apiResource('project', \App\Http\Controllers\API\ProjectAPIController::class);
+Route::get('user/{user}',[\App\Http\Controllers\UserController::class, 'getUserDetails']);

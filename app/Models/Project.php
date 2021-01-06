@@ -37,7 +37,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Researchproject extends Model
+class Project extends Model
 {
     protected $table = 'researchprojects';
     protected $primaryKey = 'Project_ID';
