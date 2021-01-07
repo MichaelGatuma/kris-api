@@ -5,8 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\CreatePublicationAPIRequest;
 use App\Http\Requests\API\UpdatePublicationAPIRequest;
-use App\Http\Resources\PublicationCollection;
-use App\Http\Resources\PublicationResource;
 use App\Models\Publication;
 use App\Repositories\PublicationRepository;
 use Illuminate\Http\Request;
@@ -61,24 +59,28 @@ class PublicationAPIController extends AppBaseController
     public function index(Request $request)
     {
         $publications = collect([]);
-        if ($request->has('view')) {
-            if ($request->view === Publication::VIEW_SUMMARY) {
-                $summary = $this->publicationRepository->summary();
-                $publications = PublicationResource::collection($publications)->additional(
-                    [
-                        'meta' => [
-                            'summary' => $summary,
-                        ]
-                    ]);
-                return $publications->response();
-            }
+//        if ($request->has('view')) {
+//            if ($request->view === Publication::VIEW_SUMMARY) {
+//                $summary = $this->publicationRepository->summary();
+//                $publications = PublicationResource::collection($publications)->additional(
+//                    [
+//                        'meta' => [
+//                            'summary' => $summary,
+//                        ]
+//                    ]);
+//                return $publications->response();
+//            }
+//        }
+        $perPage = $request->has('perPage') ? $request->perPage : 10;
+        $publications = Publication::paginate($perPage);
+        if ($request->has('search')) {
+            $query = $request->search;
         }
 
-        $publications = new PublicationCollection($this->publicationRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        ));
+        if ($request->has('recent')) {
+            $publications = Publication::all()->sortBy('created_at')->take($request->has('limit') ? $request->limit : 10);
+        }
+
         return $this->sendResponse($publications, 'Publications retrieved successfully');
     }
 
@@ -291,5 +293,40 @@ class PublicationAPIController extends AppBaseController
         $publication->delete();
 
         return $this->sendSuccess('Publication deleted successfully');
+    }
+
+    public function requestAccess($id, Request $request)
+    {
+        $publication_id = $id;
+        $user = $request->user();
+        if ($user->id !== Publication::find($publication_id)->user()->id) {
+            $access_request = new \App\Models\Request;
+            $access_request->ResearchOwner_ID = Publication::find($publication_id)->researcher()->id;
+            $access_request->RequestedAccess = 0;
+            $access_request->Publications_ID = $publication_id;
+            $access_request->User_ID = $user->id;
+            $access_request->RequestMessage = $request->has('message') ? $request->message : '';
+            $access_request->save();
+            return $this->sendSuccess('Access Request was successful');
+            //todo: send email to project owner
+        } else {
+            return $this->sendError('You cannot request access to your publication', 403);
+        }
+    }
+
+    public function grantAccess($id, Request $request)
+    {
+        $request_id = $id;
+        $user = $request->user();
+        $access_request = \App\Models\Request::find($request_id);
+        if ($user->id === Publication::find($access_request->Publications_ID)->user()->id) {
+            $access_request->RequestedAccess = 1;
+            $access_request->RequestReply = $request->has('message') ? $request->message : '';
+            $access_request->save();
+            return $this->sendSuccess('Access Request was successful');
+            //todo: send email to access requester
+        } else {
+            return $this->sendError('You do not have such rights to this publication', 403);
+        }
     }
 }

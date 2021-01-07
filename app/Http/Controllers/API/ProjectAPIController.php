@@ -5,8 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\CreateProjectAPIRequest;
 use App\Http\Requests\API\UpdateProjectAPIRequest;
-use App\Http\Resources\ProjectCollection;
-use App\Http\Resources\ProjectResource;
 use App\Models\Project;
 use App\Repositories\ProjectRepository;
 use Illuminate\Http\Request;
@@ -60,15 +58,17 @@ class ProjectAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        return $this->sendResponse(new ProjectCollection(Project::all()), 'Projects Retrieval Successful!');
-        $projects = new ProjectCollection(
-            $this->projectRepository->all(
-                $request->except(['skip', 'limit']),
-                $request->get('skip'),
-                $request->get('limit')
-            ));
+        $perPage = $request->has('perPage') ? $request->perPage : 10;
+        $publications = Project::paginate($perPage);
+        if ($request->has('search')) {
+            $query = $request->search;
+        }
 
-        return $this->sendResponse($projects, 'Projects retrieved successfully');
+        if ($request->has('recent')) {
+            $publications = Project::all()->sortBy('created_at')->take($request->has('limit') ? $request->limit : 10);
+        }
+
+        return $this->sendResponse($publications, 'Projects retrieved successfully');
     }
 
     /**
@@ -280,5 +280,40 @@ class ProjectAPIController extends AppBaseController
         $project->delete();
 
         return $this->sendSuccess('Project deleted successfully');
+    }
+
+    public function requestAccess($id, Request $request)
+    {
+        $project_id = $id;
+        $user = $request->user();
+        if ($user->id !== Project::find($project_id)->user()->id) {
+            $access_request = new \App\Models\Request;
+            $access_request->ResearchOwner_ID = Project::find($project_id)->researcher()->id;
+            $access_request->RequestedAccess = 0;
+            $access_request->ResearchProject_ID = $project_id;
+            $access_request->User_ID = $user->id;
+            $access_request->RequestMessage = $request->has('message') ? $request->message : '';
+            $access_request->save();
+            return $this->sendSuccess('Access Request was successful');
+            //todo: send email to project owner
+        } else {
+            return $this->sendError('You cannot request access to your project', 403);
+        }
+    }
+
+    public function grantAccess($id, Request $request)
+    {
+        $request_id = $id;
+        $user = $request->user();
+        $access_request = \App\Models\Request::find($request_id);
+        if ($user->id === Project::find($access_request->ResearchProject_ID)->user()->id) {
+            $access_request->RequestedAccess = 1;
+            $access_request->RequestReply = $request->has('message') ? $request->message : '';
+            $access_request->save();
+            return $this->sendSuccess('Access Request was successful');
+            //todo: send email to access requester
+        } else {
+            return $this->sendError('You do not have such rights to this project', 403);
+        }
     }
 }
