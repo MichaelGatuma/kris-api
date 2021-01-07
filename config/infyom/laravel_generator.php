@@ -132,7 +132,7 @@ return [
 
         'tables_searchable_default' => false,
 
-        'repository_pattern' => true,
+        'repository_pattern' => false,
 
         'excluded_fields' => ['id'], // Array of columns that doesn't required while creating module
     ],
@@ -164,15 +164,15 @@ return [
 
     'add_on' => [
 
-        'swagger'       => true,
+        'swagger'       => false,
 
-        'tests'         => true,
+        'tests'         => false,
 
         'datatables'    => false,
 
         'menu'          => [
 
-            'enabled'       => true,
+            'enabled'       => false,
 
             'menu_file'     => 'layouts/menu.blade.php',
         ],

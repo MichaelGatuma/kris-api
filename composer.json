@@ -35,6 +35,7 @@
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
+        "knuckleswtf/scribe": "^2.5",
         "laravel-shift/blueprint": "^1.20",
         "laravel/sail": "^0.0.5",
         "mockery/mockery": "^1.4.2",
