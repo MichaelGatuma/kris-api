@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\CreateResearcherAPIRequest;
 use App\Http\Requests\API\UpdateResearcherAPIRequest;
 use App\Models\Researcher;
 use App\Repositories\ResearcherRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class ResearcherController
  * @package App\Http\Controllers\API
  */
-
 class ResearcherAPIController extends AppBaseController
 {
     /** @var  ResearcherRepository */
@@ -26,7 +25,7 @@ class ResearcherAPIController extends AppBaseController
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return Response
      *
      * @SWG\Get(
@@ -59,17 +58,14 @@ class ResearcherAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $researchers = $this->researcherRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        $perPage = $request->has('perPage') ? $request->perPage : 10;
+        $researchers = Researcher::paginate($perPage);
 
-        return $this->sendResponse($researchers->toArray(), 'Researchers retrieved successfully');
+        return $this->sendResponse($researchers, 'Researchers retrieved successfully');
     }
 
     /**
-     * @param CreateResearcherAPIRequest $request
+     * @param  CreateResearcherAPIRequest  $request
      * @return Response
      *
      * @SWG\Post(
@@ -116,7 +112,7 @@ class ResearcherAPIController extends AppBaseController
     }
 
     /**
-     * @param int $id
+     * @param  int  $id
      * @return Response
      *
      * @SWG\Get(
@@ -166,8 +162,8 @@ class ResearcherAPIController extends AppBaseController
     }
 
     /**
-     * @param int $id
-     * @param UpdateResearcherAPIRequest $request
+     * @param  int  $id
+     * @param  UpdateResearcherAPIRequest  $request
      * @return Response
      *
      * @SWG\Put(
@@ -228,7 +224,7 @@ class ResearcherAPIController extends AppBaseController
     }
 
     /**
-     * @param int $id
+     * @param  int  $id
      * @return Response
      *
      * @SWG\Delete(
@@ -277,5 +273,18 @@ class ResearcherAPIController extends AppBaseController
         $researcher->delete();
 
         return $this->sendSuccess('Researcher deleted successfully');
+    }
+
+    public function activeProjects(Request $request)
+    {
+        $user = $request->user();
+        $active_projects = $user->researchprojects()->where('Status', '=', 'Ongoing');
+        return response()->json(
+            [
+                "success" => true,
+                "data" => $active_projects,
+                "message" => "Researcher active projects retrieved successfully"
+            ]
+            , 200);
     }
 }

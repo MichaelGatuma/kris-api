@@ -20,6 +20,7 @@ Route::post('user/forgot-password-request', [\App\Http\Controllers\AuthControlle
 //Route::post('user/reset-password', [\App\Http\Controllers\AuthController::class, 'resetPasswordByAuth']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+
     Route::get('user', [\App\Http\Controllers\API\UserController::class, 'details']);
     Route::post('user/reset-password', [\App\Http\Controllers\AuthController::class, 'resetPasswordByAuth']);
     Route::post('user/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
@@ -30,10 +31,16 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 //    Route::post('user/toggle-2fa', [\App\Http\Controllers\API\UserController::class, 'toggle2fa']);
 
     Route::apiResource('publication', \App\Http\Controllers\API\PublicationAPIController::class);
-    Route::post('publication/{id}/request', [\App\Http\Controllers\API\PublicationAPIController::class,'requestAccess']);
-    Route::post('publication/{id}/grant', [\App\Http\Controllers\API\PublicationAPIController::class,'grantAccess']);
-    Route::post('project/{id}/request', [\App\Http\Controllers\API\ProjectAPIController::class,'requestAccess']);
-    Route::post('project/{id}/grant', [\App\Http\Controllers\API\ProjectAPIController::class,'grantAccess']);
+    Route::post('publication/{id}/request',
+        [\App\Http\Controllers\API\PublicationAPIController::class, 'requestAccess']);
+    Route::post('publication/{id}/grant', [\App\Http\Controllers\API\PublicationAPIController::class, 'grantAccess']);
+
+    Route::apiResource('project', \App\Http\Controllers\API\ProjectAPIController::class);
+    Route::post('project/{id}/request', [\App\Http\Controllers\API\ProjectAPIController::class, 'requestAccess']);
+    Route::post('project/{id}/grant', [\App\Http\Controllers\API\ProjectAPIController::class, 'grantAccess']);
+
+    Route::apiResource('researcher', \App\Http\Controllers\API\ResearcherAPIController::class);
+    Route::get('researcher/activeProjects',[\App\Http\Controllers\API\ResearcherAPIController::class, 'activeProjects']);
 });
 
 //Resources
