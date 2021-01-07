@@ -58,6 +58,13 @@ class PostAPIController extends AppBaseController
      *      )
      * )
      */
+    /**
+     * All Discussions
+     *
+     * This endpoint returns an archive of all discussions.
+     * @authenticated
+     *
+     */
     public function index(Request $request)
     {
         $posts = PostCollection::collection(Post::with('comment:id,name,comment,approved')->get());
@@ -103,7 +110,8 @@ class PostAPIController extends AppBaseController
      *      )
      * )
      */
-    public function store(CreatePostAPIRequest $request)
+
+    public function store(Request $request)
     {
         $input = $request->all();
 

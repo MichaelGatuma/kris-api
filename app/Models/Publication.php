@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model as Model;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model as Model;
 
 /**
  * @SWG\Definition(
@@ -78,42 +77,8 @@ class Publication extends Model
 
     use HasFactory;
 
-    public $table = 'publications';
-
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
-
-
-
-    public $fillable = [
-        'UserID',
-        'Researcher_ID',
-        'PublicationTitle',
-        'PublicationPath',
-        'DateOfPublication',
-        'Collaborators',
-        'PublicationURL',
-        'Access_Level'
-    ];
-
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'Publication_ID' => 'integer',
-        'UserID' => 'integer',
-        'Researcher_ID' => 'integer',
-        'PublicationTitle' => 'string',
-        'PublicationPath' => 'string',
-        'DateOfPublication' => 'date',
-        'Collaborators' => 'string',
-        'PublicationURL' => 'string',
-        'Access_Level' => 'string'
-    ];
-
     /**
      * Validation rules
      *
@@ -130,6 +95,34 @@ class Publication extends Model
         'Collaborators' => 'nullable|string|max:500',
         'PublicationURL' => 'required|string|max:250',
         'Access_Level' => 'nullable|string|max:30'
+    ];
+    public $table = 'publications';
+    public $fillable = [
+        'UserID',
+        'Researcher_ID',
+        'PublicationTitle',
+        'PublicationPath',
+        'DateOfPublication',
+        'Collaborators',
+        'PublicationURL',
+        'Access_Level'
+    ];
+    protected $primaryKey = "Publication_ID";
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'Publication_ID' => 'integer',
+        'UserID' => 'integer',
+        'Researcher_ID' => 'integer',
+        'PublicationTitle' => 'string',
+        'PublicationPath' => 'string',
+        'DateOfPublication' => 'date',
+        'Collaborators' => 'string',
+        'PublicationURL' => 'string',
+        'Access_Level' => 'string'
     ];
 
     /**

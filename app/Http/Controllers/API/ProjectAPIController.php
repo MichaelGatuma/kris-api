@@ -56,6 +56,120 @@ class ProjectAPIController extends AppBaseController
      *      )
      * )
      */
+    /**
+     * Search Publications with pagination
+     *
+     * This endpoint return an archive of the publications.
+     * @authenticated
+     *
+     * @queryParam perPage Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10
+     * @queryParam recent Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides 'perPage') Default: 10
+     * @queryParam limit Specify the limit of entries to return. Must be used together with 'recent' If not specified, the default entries will be returned. Default: 10
+     *
+     * @response scenario=success {
+     * "success": true,
+     * "data": {
+     * "current_page": 1,
+     * "data": [
+     * {
+     * "created_at": null,
+     * "updated_at": null,
+     * "ProjectTitle": "A multi-level text clustering algorithm for retrieval of academic research data",
+     * "Project_ID": 1,
+     * "ProjectAbstract": "Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This \r\nleads to duplication of research, less opportunities for networking, and also contributes to scientific \r\nfraud. Efforts need to be made in order to make academic research data available and accessible\r\n. ",
+     * "Researcher_ID": 1,
+     * "User_ID": 2,
+     * "ProjectResearchAreas": "Information Retrieval",
+     * "ResearchersInvolved": "Damaris Waema, George Okeyo, Petronilla Muriithi",
+     * "Funded": true,
+     * "Funder_ID": 1,
+     * "Status": "Ongoing",
+     * "LinkToPublication": "http://www.jkuat.ac.ke",
+     * "Access_Level": "public",
+     * "projectStart": "2020-11-21",
+     * "projectEnd": "2020-11-21",
+     * "abstractDocumentPath": null,
+     * "otherProjectDocsPath": null,
+     * "RelevantProjectDocuments": null
+     * },
+     * {
+     * "created_at": null,
+     * "updated_at": null,
+     * "ProjectTitle": "A multi-level text clustering algorithm for retrieval of academic research data",
+     * "Project_ID": 2,
+     * "ProjectAbstract": "Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This leads to duplication of research, less opportunities for networking, and also contributes to scientific fraud. Efforts need to be made in order to make academic research data available and accessible. ",
+     * "Researcher_ID": 1,
+     * "User_ID": 2,
+     * "ProjectResearchAreas": "Artificial Intelligence",
+     * "ResearchersInvolved": "Damaris Waema, George Okeyo, Petronilla Muriithi",
+     * "Funded": true,
+     * "Funder_ID": 1,
+     * "Status": "Ongoing",
+     * "LinkToPublication": "http://www.jkuat.ac.ke",
+     * "Access_Level": "public",
+     * "projectStart": "2020-11-21",
+     * "projectEnd": "2020-11-21",
+     * "abstractDocumentPath": null,
+     * "otherProjectDocsPath": null,
+     * "RelevantProjectDocuments": null
+     * }
+     * ],
+     * "first_page_url": "http://localhost:8000/api/project?page=1",
+     * "from": 1,
+     * "last_page": 50,
+     * "last_page_url": "http://localhost:8000/api/project?page=50",
+     * "links": [
+     * {
+     * "url": null,
+     * "label": "&laquo; Previous",
+     * "active": false
+     * },
+     * {
+     * "url": "http://localhost:8000/api/project?page=1",
+     * "label": 1,
+     * "active": true
+     * },
+     * {
+     * "url": "http://localhost:8000/api/project?page=2",
+     * "label": 2,
+     * "active": false
+     * },
+     * {
+     * "url": "http://localhost:8000/api/project?page=3",
+     * "label": 3,
+     * "active": false
+     * },
+     * {
+     * "url": null,
+     * "label": "...",
+     * "active": false
+     * },
+     * {
+     * "url": "http://localhost:8000/api/project?page=49",
+     * "label": 49,
+     * "active": false
+     * },
+     * {
+     * "url": "http://localhost:8000/api/project?page=50",
+     * "label": 50,
+     * "active": false
+     * },
+     * {
+     * "url": "http://localhost:8000/api/project?page=2",
+     * "label": "Next &raquo;",
+     * "active": false
+     * }
+     * ],
+     * "next_page_url": "http://localhost:8000/api/project?page=2",
+     * "path": "http://localhost:8000/api/project",
+     * "per_page": "2",
+     * "prev_page_url": null,
+     * "to": 2,
+     * "total": 100
+     * },
+     * "message": "Projects retrieved successfully"
+     * }
+     */
     public function index(Request $request)
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
@@ -155,6 +269,41 @@ class ProjectAPIController extends AppBaseController
      *          )
      *      )
      * )
+     */
+    /**
+     * Show Publication Details
+     *
+     * This endpoint returns the details of the specified publication by id.
+     * @authenticated
+     *
+     * @response scenario=success {
+     *{
+     * "success": true,
+     * "data": {
+     * "created_at": null,
+     * "updated_at": null,
+     * "ProjectTitle": "A multi-level text clustering algorithm for retrieval of academic research data",
+     * "Project_ID": 2,
+     * "ProjectAbstract": "Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This leads to duplication of research, less opportunities for networking, and also contributes to scientific fraud. Efforts need to be made in order to make academic research data available and accessible. ",
+     * "Researcher_ID": 1,
+     * "User_ID": 2,
+     * "ProjectResearchAreas": "Artificial Intelligence",
+     * "ResearchersInvolved": "Damaris Waema, George Okeyo, Petronilla Muriithi",
+     * "Funded": true,
+     * "Funder_ID": 1,
+     * "Status": "Ongoing",
+     * "LinkToPublication": "http://www.jkuat.ac.ke",
+     * "Access_Level": "public",
+     * "projectStart": "2020-11-21",
+     * "projectEnd": "2020-11-21",
+     * "abstractDocumentPath": null,
+     * "otherProjectDocsPath": null,
+     * "RelevantProjectDocuments": null
+     * },
+     * "message": "Project retrieved successfully"
+     * }
+     * }
+     *
      */
     public function show($id)
     {

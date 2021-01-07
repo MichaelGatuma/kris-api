@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\API\PostAPIController;
+use App\Http\Controllers\API\ProjectAPIController;
+use App\Http\Controllers\API\PublicationAPIController;
+use App\Http\Controllers\API\ResearcherAPIController;
+use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
 //Route::middleware('auth:sanctum')->group(function () {
@@ -21,39 +26,30 @@ Route::post('user/forgot-password-request', [\App\Http\Controllers\AuthControlle
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
 
-    Route::get('user', [\App\Http\Controllers\API\UserController::class, 'details']);
+    Route::get('user', [UserController::class, 'details']);
     Route::post('user/reset-password', [\App\Http\Controllers\AuthController::class, 'resetPasswordByAuth']);
     Route::post('user/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
-    Route::post('user/delete-account', [\App\Http\Controllers\API\UserController::class, 'deleteAccount']);
-    Route::post('user/profile-details', [\App\Http\Controllers\API\UserController::class, 'edit']);
-    Route::post('user/profile-image', [\App\Http\Controllers\API\UserController::class, 'addUserImage']);
-//    Route::post('user/logout-other-devices', [\App\Http\Controllers\API\UserController::class, 'revokeAllTokens']);
-//    Route::post('user/toggle-2fa', [\App\Http\Controllers\API\UserController::class, 'toggle2fa']);
+    Route::post('user/delete-account', [UserController::class, 'deleteAccount']);
+    Route::post('user/profile-details', [UserController::class, 'edit']);
+    Route::post('user/profile-image', [UserController::class, 'addUserImage']);
+//    Route::post('user/logout-other-devices', [UserController::class, 'revokeAllTokens']);
+//    Route::post('user/toggle-2fa', [UserController::class, 'toggle2fa']);
 
-    Route::apiResource('publication', \App\Http\Controllers\API\PublicationAPIController::class);
-    Route::post('publication/{id}/request',
-        [\App\Http\Controllers\API\PublicationAPIController::class, 'requestAccess']);
-    Route::post('publication/{id}/grant', [\App\Http\Controllers\API\PublicationAPIController::class, 'grantAccess']);
+    Route::get('publications', [PublicationAPIController::class, 'index']);
+    Route::get('publication/{id}', [PublicationAPIController::class, 'show']);
+    Route::post('publication/{id}/request', [PublicationAPIController::class, 'requestAccess']);
+    Route::post('publication/{id}/grant', [PublicationAPIController::class, 'grantAccess']);
 
-    Route::apiResource('project', \App\Http\Controllers\API\ProjectAPIController::class);
-    Route::post('project/{id}/request', [\App\Http\Controllers\API\ProjectAPIController::class, 'requestAccess']);
-    Route::post('project/{id}/grant', [\App\Http\Controllers\API\ProjectAPIController::class, 'grantAccess']);
+    Route::get('projects', [PublicationAPIController::class, 'index']);
+    Route::get('project/{id}', [PublicationAPIController::class, 'show']);
+    Route::post('project/{id}/request', [ProjectAPIController::class, 'requestAccess']);
+    Route::post('project/{id}/grant', [ProjectAPIController::class, 'grantAccess']);
 
-    Route::apiResource('researcher', \App\Http\Controllers\API\ResearcherAPIController::class);
-    Route::get('researcher/activeProjects',[\App\Http\Controllers\API\ResearcherAPIController::class, 'activeProjects']);
-    Route::apiResource('discussion', \App\Http\Controllers\API\PostAPIController::class);
+    Route::get('researchers', [PublicationAPIController::class, 'index']);
+    Route::get('researcher/{id}', [PublicationAPIController::class, 'show']);
+    Route::get('researcher/activeProjects', [ResearcherAPIController::class, 'activeProjects']);
+
+    Route::get('discussions', [PostAPIController::class, 'index']);
+    Route::post('discussions', [PostAPIController::class, 'store']);
+    Route::get('discussion/{id', [PostAPIController::class, 'show']);
 });
-
-//Resources
-Route::apiResource('project', \App\Http\Controllers\API\ProjectAPIController::class);
-Route::apiResource('researcher', \App\Http\Controllers\API\ResearcherAPIController::class);
-Route::apiResource('discussion', \App\Http\Controllers\API\PostAPIController::class);
-
-
-Route::resource('posts', App\Http\Controllers\API\PostAPIController::class);
-
-Route::resource('projects', App\Http\Controllers\API\ProjectAPIController::class);
-
-Route::resource('publications', App\Http\Controllers\API\PublicationAPIController::class);
-
-Route::resource('researchers', App\Http\Controllers\API\ResearcherAPIController::class);

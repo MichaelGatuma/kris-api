@@ -100,7 +100,7 @@ class Researcher extends Model
     use HasFactory;
 
     public $table = 'researchers';
-
+    protected $primaryKey = "Researcher_ID";
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 

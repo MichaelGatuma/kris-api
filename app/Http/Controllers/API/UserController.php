@@ -15,6 +15,37 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    /**
+     * User Details
+     *
+     * This endpoint lets you login a user.
+     * @authenticated
+     *
+     * @response scenario=success {
+     * "success": true,
+     * "data": {
+     * "id": 84,
+     * "Title": "",
+     * "name": "Michael Gates",
+     * "email": "mgates4410@gmail.com",
+     * "email_verified_at": null,
+     * "api_token": null,
+     * "two_factor_recovery_codes": null,
+     * "profPic": "storage/ProfilePictures/mgates4410@gmail.com.png",
+     * "isAdmin": true,
+     * "current_team_id": null,
+     * "profile_photo_path": null,
+     * "created_at": "2020-11-24T06:50:33.000000Z",
+     * "updated_at": "2021-01-06T23:39:58.000000Z",
+     * "verified_at": null
+     * },
+     * "message": "User details retrieved successfully"
+     * }
+     *
+     * @response status=400 scenario="Another user with this email exists" {
+     *
+     * }
+     */
     public function details(Request $request)
     {
         return response()->json([
@@ -44,6 +75,23 @@ class UserController extends Controller
         return redirect('/message')->with('status', $status);
     }
 
+    /**
+     * Edit user Details
+     *
+     * This endpoint lets you edit the user details.
+     * @unauthenticated
+     *
+     * @queryParam fields required Comma-separated list of fields to include in the response. Example: title,published_at,is_public
+     *
+     * @bodyParam Title string required The title of the user. Example: Prof.
+     * @bodyParam name string required The full names of the user. Example: John Doe
+     * @bodyParam email string required The email of the user. Example: john@kris.com.
+     *
+     * @response scenario=success {
+     *"success" => "true", "data" => $user, "message" => "Your profile has been updates successfully"
+     * }
+     *
+     */
     public function edit(Request $request)
     {
         try {
@@ -70,13 +118,26 @@ class UserController extends Controller
             $user->name = $data["name"];
             $user->save();
             return response()->json([
-                "success" => "true", "data" => $user, "message" => "Your profile has been updates successfully"
+                "success" => true, "data" => $user, "message" => "Your profile has been updates successfully"
             ], 200);
         } catch (QueryException $exception) {
             return response()->json($exception, 400);
         }
     }
 
+    /**
+     * Add user Image
+     *
+     * This endpoint lets you upload a user profile image.
+     * @unauthenticated
+     *
+     * @bodyParam file file required The file object to be uploaded
+     *
+     * @response scenario=success {
+     *"success" => true, "data" => $user, "message" => "Profile Photo Updated successfully"
+     * }
+     *
+     */
     public function addUserImage(Request $request)
     {
         $user = $request->user();
@@ -107,10 +168,12 @@ class UserController extends Controller
             $path = $file->storeAs('ProfilePictures', $user->email);
             $user->profPic = 'storage/'.$path.'.'.$file->extension();
             $user->save();
-            return response()->json(["success" => true, "data" => $user, "message" => "Profile Photo Updated successfully"],
+            return response()->json([
+                "success" => true, "data" => $user, "message" => "Profile Photo Updated successfully"
+            ],
                 200);
         } catch (QueryException $exception) {
-            return response()->json(["success" => false,$exception], 400);
+            return response()->json(["success" => false, $exception], 400);
         }
     }
 
@@ -186,6 +249,21 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Delete user account
+     *
+     * This endpoint lets you delete the user account.
+     * @authenticated
+     *
+     * @response scenario=success {
+     * "success" => true,
+     * "message" => "Your account has been deleted successfully"
+     * }
+     *
+     * @response status=400 {
+     *"message": "Unauthenticated."
+     * }
+     */
     public function deleteAccount(Request $request)
     {
         try {
@@ -208,5 +286,12 @@ class UserController extends Controller
                 ]
                 , 200);
         }
+        return response()->json(
+            [
+                "success" => false,
+                "message" => "Your account could not be deleted"
+            ]
+            , 200);
     }
+
 }
