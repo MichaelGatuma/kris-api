@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/sensnwug/kris_api_Repo/
+    - /bin/cp -R * $DEPLOYPATH
