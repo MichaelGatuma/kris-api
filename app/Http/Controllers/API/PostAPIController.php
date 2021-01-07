@@ -60,7 +60,7 @@ class PostAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $posts = PostCollection::collection(Post::all());
+        $posts = PostCollection::collection(Post::with('comment:id,name,comment,approved')->get());
 
         return $this->sendResponse($posts, 'Posts retrieved successfully');
     }
@@ -153,7 +153,7 @@ class PostAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Post $post */
-        $post = $this->postRepository->find($id);
+        $post = $this->postRepository->find($id)->with('comment:id,name,comment,approved');
 
         if (empty($post)) {
             return $this->sendError('Post not found');

@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::apiResource('researcher', \App\Http\Controllers\API\ResearcherAPIController::class);
     Route::get('researcher/activeProjects',[\App\Http\Controllers\API\ResearcherAPIController::class, 'activeProjects']);
+    Route::apiResource('discussion', \App\Http\Controllers\API\PostAPIController::class);
 });
 
 //Resources
