@@ -26,38 +26,7 @@ class PostAPIController extends AppBaseController
         $this->postRepository = $postRepo;
     }
 
-    /**
-     * @param Request $request
-     * @return Response
-     *
-     * @SWG\Get(
-     *      path="/posts",
-     *      summary="Get a listing of the Posts.",
-     *      tags={"Post"},
-     *      description="Get all Posts",
-     *      produces={"application/json"},
-     *      @SWG\Response(
-     *          response=200,
-     *          description="successful operation",
-     *          @SWG\Schema(
-     *              type="object",
-     *              @SWG\Property(
-     *                  property="success",
-     *                  type="boolean"
-     *              ),
-     *              @SWG\Property(
-     *                  property="data",
-     *                  type="array",
-     *                  @SWG\Items(ref="#/definitions/Post")
-     *              ),
-     *              @SWG\Property(
-     *                  property="message",
-     *                  type="string"
-     *              )
-     *          )
-     *      )
-     * )
-     */
+
     /**
      * All Discussions
      *
@@ -72,44 +41,7 @@ class PostAPIController extends AppBaseController
         return $this->sendResponse($posts, 'Posts retrieved successfully');
     }
 
-    /**
-     * @param CreatePostAPIRequest $request
-     * @return Response
-     *
-     * @SWG\Post(
-     *      path="/posts",
-     *      summary="Store a newly created Post in storage",
-     *      tags={"Post"},
-     *      description="Store Post",
-     *      produces={"application/json"},
-     *      @SWG\Parameter(
-     *          name="body",
-     *          in="body",
-     *          description="Post that should be stored",
-     *          required=false,
-     *          @SWG\Schema(ref="#/definitions/Post")
-     *      ),
-     *      @SWG\Response(
-     *          response=200,
-     *          description="successful operation",
-     *          @SWG\Schema(
-     *              type="object",
-     *              @SWG\Property(
-     *                  property="success",
-     *                  type="boolean"
-     *              ),
-     *              @SWG\Property(
-     *                  property="data",
-     *                  ref="#/definitions/Post"
-     *              ),
-     *              @SWG\Property(
-     *                  property="message",
-     *                  type="string"
-     *              )
-     *          )
-     *      )
-     * )
-     */
+
 
     public function store(Request $request)
     {
@@ -120,44 +52,7 @@ class PostAPIController extends AppBaseController
         return $this->sendResponse($post->toArray(), 'Post saved successfully');
     }
 
-    /**
-     * @param int $id
-     * @return Response
-     *
-     * @SWG\Get(
-     *      path="/posts/{id}",
-     *      summary="Display the specified Post",
-     *      tags={"Post"},
-     *      description="Get Post",
-     *      produces={"application/json"},
-     *      @SWG\Parameter(
-     *          name="id",
-     *          description="id of Post",
-     *          type="integer",
-     *          required=true,
-     *          in="path"
-     *      ),
-     *      @SWG\Response(
-     *          response=200,
-     *          description="successful operation",
-     *          @SWG\Schema(
-     *              type="object",
-     *              @SWG\Property(
-     *                  property="success",
-     *                  type="boolean"
-     *              ),
-     *              @SWG\Property(
-     *                  property="data",
-     *                  ref="#/definitions/Post"
-     *              ),
-     *              @SWG\Property(
-     *                  property="message",
-     *                  type="string"
-     *              )
-     *          )
-     *      )
-     * )
-     */
+
     public function show($id)
     {
         /** @var Post $post */
@@ -170,52 +65,7 @@ class PostAPIController extends AppBaseController
         return $this->sendResponse($post->toArray(), 'Post retrieved successfully');
     }
 
-    /**
-     * @param int $id
-     * @param UpdatePostAPIRequest $request
-     * @return Response
-     *
-     * @SWG\Put(
-     *      path="/posts/{id}",
-     *      summary="Update the specified Post in storage",
-     *      tags={"Post"},
-     *      description="Update Post",
-     *      produces={"application/json"},
-     *      @SWG\Parameter(
-     *          name="id",
-     *          description="id of Post",
-     *          type="integer",
-     *          required=true,
-     *          in="path"
-     *      ),
-     *      @SWG\Parameter(
-     *          name="body",
-     *          in="body",
-     *          description="Post that should be updated",
-     *          required=false,
-     *          @SWG\Schema(ref="#/definitions/Post")
-     *      ),
-     *      @SWG\Response(
-     *          response=200,
-     *          description="successful operation",
-     *          @SWG\Schema(
-     *              type="object",
-     *              @SWG\Property(
-     *                  property="success",
-     *                  type="boolean"
-     *              ),
-     *              @SWG\Property(
-     *                  property="data",
-     *                  ref="#/definitions/Post"
-     *              ),
-     *              @SWG\Property(
-     *                  property="message",
-     *                  type="string"
-     *              )
-     *          )
-     *      )
-     * )
-     */
+
     public function update($id, UpdatePostAPIRequest $request)
     {
         $input = $request->all();
@@ -232,44 +82,7 @@ class PostAPIController extends AppBaseController
         return $this->sendResponse($post->toArray(), 'Post updated successfully');
     }
 
-    /**
-     * @param int $id
-     * @return Response
-     *
-     * @SWG\Delete(
-     *      path="/posts/{id}",
-     *      summary="Remove the specified Post from storage",
-     *      tags={"Post"},
-     *      description="Delete Post",
-     *      produces={"application/json"},
-     *      @SWG\Parameter(
-     *          name="id",
-     *          description="id of Post",
-     *          type="integer",
-     *          required=true,
-     *          in="path"
-     *      ),
-     *      @SWG\Response(
-     *          response=200,
-     *          description="successful operation",
-     *          @SWG\Schema(
-     *              type="object",
-     *              @SWG\Property(
-     *                  property="success",
-     *                  type="boolean"
-     *              ),
-     *              @SWG\Property(
-     *                  property="data",
-     *                  type="string"
-     *              ),
-     *              @SWG\Property(
-     *                  property="message",
-     *                  type="string"
-     *              )
-     *          )
-     *      )
-     * )
-     */
+
     public function destroy($id)
     {
         /** @var Post $post */
