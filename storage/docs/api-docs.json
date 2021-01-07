@@ -6,6 +6,404 @@
     },
     "basePath": "/api/v1",
     "paths": {
+        "/posts": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Get a listing of the Posts.",
+                "description": "Get all Posts",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Post"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Store a newly created Post in storage",
+                "description": "Store Post",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Post that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Post"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Post"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/posts/{id}": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Display the specified Post",
+                "description": "Get Post",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Post",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Post"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Update the specified Post in storage",
+                "description": "Update Post",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Post",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Post that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Post"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Post"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Remove the specified Post from storage",
+                "description": "Delete Post",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Post",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/projects": {
+            "get": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Get a listing of the Projects.",
+                "description": "Get all Projects",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Project"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Store a newly created Project in storage",
+                "description": "Store Project",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Project that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Project"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Project"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/projects/{id}": {
+            "get": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Display the specified Project",
+                "description": "Get Project",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Project",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Project"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Update the specified Project in storage",
+                "description": "Update Project",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Project",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Project that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Project"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Project"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Project"
+                ],
+                "summary": "Remove the specified Project from storage",
+                "description": "Delete Project",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Project",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
         "/publications": {
             "get": {
                 "tags": [
@@ -204,9 +602,351 @@
                     }
                 }
             }
+        },
+        "/researchers": {
+            "get": {
+                "tags": [
+                    "Researcher"
+                ],
+                "summary": "Get a listing of the Researchers.",
+                "description": "Get all Researchers",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Researcher"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Researcher"
+                ],
+                "summary": "Store a newly created Researcher in storage",
+                "description": "Store Researcher",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Researcher that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Researcher"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Researcher"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/researchers/{id}": {
+            "get": {
+                "tags": [
+                    "Researcher"
+                ],
+                "summary": "Display the specified Researcher",
+                "description": "Get Researcher",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Researcher",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Researcher"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Researcher"
+                ],
+                "summary": "Update the specified Researcher in storage",
+                "description": "Update Researcher",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Researcher",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Researcher that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Researcher"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/Researcher"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Researcher"
+                ],
+                "summary": "Remove the specified Researcher from storage",
+                "description": "Delete Researcher",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of Researcher",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
+        "Post": {
+            "required": [
+                "title",
+                "body",
+                "user_id",
+                "Researcher_ID",
+                "slug"
+            ],
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "created_at": {
+                    "description": "created_at",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "description": "updated_at",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "title": {
+                    "description": "title",
+                    "type": "string"
+                },
+                "body": {
+                    "description": "body",
+                    "type": "string"
+                },
+                "user_id": {
+                    "description": "user_id",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Researcher_ID": {
+                    "description": "Researcher_ID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "slug": {
+                    "description": "slug",
+                    "type": "string"
+                }
+            }
+        },
+        "Project": {
+            "required": [
+                "ProjectTitle",
+                "ProjectAbstract",
+                "Researcher_ID",
+                "ProjectResearchAreas",
+                "Funded",
+                "Status",
+                "Access_Level"
+            ],
+            "properties": {
+                "created_at": {
+                    "description": "created_at",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "description": "updated_at",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ProjectTitle": {
+                    "description": "ProjectTitle",
+                    "type": "string"
+                },
+                "Project_ID": {
+                    "description": "Project_ID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "ProjectAbstract": {
+                    "description": "ProjectAbstract",
+                    "type": "string"
+                },
+                "Researcher_ID": {
+                    "description": "Researcher_ID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "User_ID": {
+                    "description": "User_ID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "ProjectResearchAreas": {
+                    "description": "ProjectResearchAreas",
+                    "type": "string"
+                },
+                "ResearchersInvolved": {
+                    "description": "ResearchersInvolved",
+                    "type": "string"
+                },
+                "Funded": {
+                    "description": "Funded",
+                    "type": "boolean"
+                },
+                "Funder_ID": {
+                    "description": "Funder_ID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Status": {
+                    "description": "Status",
+                    "type": "string"
+                },
+                "LinkToPublication": {
+                    "description": "LinkToPublication",
+                    "type": "string"
+                },
+                "Access_Level": {
+                    "description": "Access_Level",
+                    "type": "string"
+                },
+                "projectStart": {
+                    "description": "projectStart",
+                    "type": "string"
+                },
+                "projectEnd": {
+                    "description": "projectEnd",
+                    "type": "string"
+                },
+                "abstractDocumentPath": {
+                    "description": "abstractDocumentPath",
+                    "type": "string"
+                },
+                "otherProjectDocsPath": {
+                    "description": "otherProjectDocsPath",
+                    "type": "string"
+                },
+                "RelevantProjectDocuments": {
+                    "description": "RelevantProjectDocuments",
+                    "type": "string"
+                }
+            }
+        },
         "Publication": {
             "required": [
                 "Researcher_ID",
@@ -219,6 +959,11 @@
                     "description": "Publication_ID",
                     "type": "integer",
                     "format": "int32"
+                },
+                "created_at": {
+                    "description": "created_at",
+                    "type": "string",
+                    "format": "date-time"
                 },
                 "updated_at": {
                     "description": "updated_at",
@@ -254,6 +999,93 @@
                 },
                 "PublicationURL": {
                     "description": "PublicationURL",
+                    "type": "string"
+                },
+                "Access_Level": {
+                    "description": "Access_Level",
+                    "type": "string"
+                }
+            }
+        },
+        "Researcher": {
+            "required": [
+                "User_ID",
+                "Gender",
+                "DOB",
+                "PhoneNumber",
+                "ResearchAreaOfInterest",
+                "DepartmentID",
+                "ResearchInstitutionID",
+                "Affiliation",
+                "AboutResearcher",
+                "Approved"
+            ],
+            "properties": {
+                "Researcher_ID": {
+                    "description": "Researcher_ID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "created_at": {
+                    "description": "created_at",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "description": "updated_at",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "User_ID": {
+                    "description": "User_ID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Gender": {
+                    "description": "Gender",
+                    "type": "string"
+                },
+                "DOB": {
+                    "description": "DOB",
+                    "type": "string",
+                    "format": "date"
+                },
+                "PhoneNumber": {
+                    "description": "PhoneNumber",
+                    "type": "string"
+                },
+                "ResearchAreaOfInterest": {
+                    "description": "ResearchAreaOfInterest",
+                    "type": "string"
+                },
+                "DepartmentID": {
+                    "description": "DepartmentID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "ResearchInstitutionID": {
+                    "description": "ResearchInstitutionID",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "Affiliation": {
+                    "description": "Affiliation",
+                    "type": "string"
+                },
+                "AboutResearcher": {
+                    "description": "AboutResearcher",
+                    "type": "string"
+                },
+                "Approved": {
+                    "description": "Approved",
+                    "type": "boolean"
+                },
+                "CV": {
+                    "description": "CV",
+                    "type": "string"
+                },
+                "ListofPublications": {
+                    "description": "ListofPublications",
                     "type": "string"
                 }
             }

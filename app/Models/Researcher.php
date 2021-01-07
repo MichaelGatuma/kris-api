@@ -1,61 +1,113 @@
 <?php
 
-/**
- * Created by Reliese Model.
- */
-
 namespace App\Models;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Model;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Researcher
- *
- * @property int $Researcher_ID
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property int $User_ID
- * @property string $Gender
- * @property Carbon $DOB
- * @property string $PhoneNumber
- * @property string $ResearchAreaOfInterest
- * @property int $DepartmentID
- * @property int $ResearchInstitutionID
- * @property string $Affiliation
- * @property string $AboutResearcher
- * @property bool $Approved
- * @property string|null $CV
- * @property string|null $ListofPublications
- *
- * @property Department $department
- * @property Researchinstitution $researchinstitution
- * @property User $user
- * @property Collection|Post[] $posts
- * @property Collection|Publication[] $publications
- * @property Collection|Researchersinvolved[] $researchersinvolveds
- * @property Collection|Project[] $researchprojects
- *
- * @package App\Models
+ * @SWG\Definition(
+ *      definition="Researcher",
+ *      required={"User_ID", "Gender", "DOB", "PhoneNumber", "ResearchAreaOfInterest", "DepartmentID", "ResearchInstitutionID", "Affiliation", "AboutResearcher", "Approved"},
+ *      @SWG\Property(
+ *          property="Researcher_ID",
+ *          description="Researcher_ID",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="created_at",
+ *          description="created_at",
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @SWG\Property(
+ *          property="updated_at",
+ *          description="updated_at",
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @SWG\Property(
+ *          property="User_ID",
+ *          description="User_ID",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="Gender",
+ *          description="Gender",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="DOB",
+ *          description="DOB",
+ *          type="string",
+ *          format="date"
+ *      ),
+ *      @SWG\Property(
+ *          property="PhoneNumber",
+ *          description="PhoneNumber",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="ResearchAreaOfInterest",
+ *          description="ResearchAreaOfInterest",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="DepartmentID",
+ *          description="DepartmentID",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="ResearchInstitutionID",
+ *          description="ResearchInstitutionID",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="Affiliation",
+ *          description="Affiliation",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="AboutResearcher",
+ *          description="AboutResearcher",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="Approved",
+ *          description="Approved",
+ *          type="boolean"
+ *      ),
+ *      @SWG\Property(
+ *          property="CV",
+ *          description="CV",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="ListofPublications",
+ *          description="ListofPublications",
+ *          type="string"
+ *      )
+ * )
  */
 class Researcher extends Model
 {
-    protected $table = 'researchers';
-    protected $primaryKey = 'Researcher_ID';
 
-    protected $casts = [
-        'User_ID' => 'int',
-        'DepartmentID' => 'int',
-        'ResearchInstitutionID' => 'int',
-        'Approved' => 'bool'
-    ];
+    use HasFactory;
 
-    protected $dates = [
-        'DOB'
-    ];
+    public $table = 'researchers';
 
-    protected $fillable = [
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
+
+
+
+
+    public $fillable = [
         'User_ID',
         'Gender',
         'DOB',
@@ -70,38 +122,79 @@ class Researcher extends Model
         'ListofPublications'
     ];
 
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'Researcher_ID' => 'integer',
+        'User_ID' => 'integer',
+        'Gender' => 'string',
+        'DOB' => 'date',
+        'PhoneNumber' => 'string',
+        'ResearchAreaOfInterest' => 'string',
+        'DepartmentID' => 'integer',
+        'ResearchInstitutionID' => 'integer',
+        'Affiliation' => 'string',
+        'AboutResearcher' => 'string',
+        'Approved' => 'boolean',
+        'CV' => 'string',
+        'ListofPublications' => 'string'
+    ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'created_at' => 'nullable',
+        'updated_at' => 'nullable',
+        'User_ID' => 'required|integer',
+        'Gender' => 'required|string|max:250',
+        'DOB' => 'required',
+        'PhoneNumber' => 'required|string|max:250',
+        'ResearchAreaOfInterest' => 'required|string|max:250',
+        'DepartmentID' => 'required|integer',
+        'ResearchInstitutionID' => 'required|integer',
+        'Affiliation' => 'required|string|max:250',
+        'AboutResearcher' => 'required|string',
+        'Approved' => 'required|boolean',
+        'CV' => 'nullable|string|max:191',
+        'ListofPublications' => 'nullable|string|max:5000'
+    ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
     public function department()
     {
-        return $this->belongsTo(Department::class, 'DepartmentID');
+        return $this->belongsTo(\App\Models\Department::class, 'DepartmentID');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
     public function researchinstitution()
     {
-        return $this->belongsTo(Researchinstitution::class, 'ResearchInstitutionID');
+        return $this->belongsTo(\App\Models\Researchinstitution::class, 'ResearchInstitutionID');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
     public function user()
     {
-        return $this->belongsTo(User::class, 'User_ID');
+        return $this->belongsTo(\App\Models\User::class, 'User_ID');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
     public function posts()
     {
-        return $this->hasMany(Post::class, 'Researcher_ID');
+        return $this->hasMany(\App\Models\Post::class, 'Researcher_ID');
     }
 
-    public function publications()
-    {
-        return $this->hasMany(Publication::class, 'Researcher_ID');
-    }
-
-    public function researchersinvolveds()
-    {
-        return $this->hasMany(Researchersinvolved::class, 'Researcher_ID');
-    }
-
-    public function researchprojects()
-    {
-        return $this->hasMany(Project::class, 'Researcher_ID');
-    }
 }

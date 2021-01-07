@@ -48,3 +48,12 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 Route::apiResource('project', \App\Http\Controllers\API\ProjectAPIController::class);
 Route::apiResource('researcher', \App\Http\Controllers\API\ResearcherAPIController::class);
 Route::apiResource('discussion', \App\Http\Controllers\API\PostAPIController::class);
+
+
+Route::resource('posts', App\Http\Controllers\API\PostAPIController::class);
+
+Route::resource('projects', App\Http\Controllers\API\ProjectAPIController::class);
+
+Route::resource('publications', App\Http\Controllers\API\PublicationAPIController::class);
+
+Route::resource('researchers', App\Http\Controllers\API\ResearcherAPIController::class);

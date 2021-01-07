@@ -1,35 +1,10 @@
 <?php
 
-/**
- * Created by Reliese Model.
- */
-
 namespace App\Models;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Model as Model;
 
-/**
- * Class Publication
- *
- * @property int $Publication_ID
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property int|null $UserID
- * @property int $Researcher_ID
- * @property string $PublicationTitle
- * @property string|null $PublicationPath
- * @property Carbon $DateOfPublication
- * @property string|null $Collaborators
- * @property string $PublicationURL
- * @property string|null $Access_Level
- *
- * @property Researcher $researcher
- * @property User|null $user
- *
- * @package App\Models
- */
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @SWG\Definition(
@@ -40,6 +15,12 @@ use Illuminate\Database\Query\Builder;
  *          description="Publication_ID",
  *          type="integer",
  *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="created_at",
+ *          description="created_at",
+ *          type="string",
+ *          format="date-time"
  *      ),
  *      @SWG\Property(
  *          property="updated_at",
@@ -84,26 +65,28 @@ use Illuminate\Database\Query\Builder;
  *          property="PublicationURL",
  *          description="PublicationURL",
  *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="Access_Level",
+ *          description="Access_Level",
+ *          type="string"
  *      )
  * )
  */
 class Publication extends Model
 {
-    const VIEW_SUMMARY = 'SUMMARY';
 
-    protected $table = 'publications';
-    protected $primaryKey = 'Publication_ID';
+    use HasFactory;
 
-    protected $casts = [
-        'UserID' => 'int',
-        'Researcher_ID' => 'int'
-    ];
+    public $table = 'publications';
 
-    protected $dates = [
-        'DateOfPublication'
-    ];
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
 
-    protected $fillable = [
+
+
+
+    public $fillable = [
         'UserID',
         'Researcher_ID',
         'PublicationTitle',
@@ -114,19 +97,54 @@ class Publication extends Model
         'Access_Level'
     ];
 
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'Publication_ID' => 'integer',
+        'UserID' => 'integer',
+        'Researcher_ID' => 'integer',
+        'PublicationTitle' => 'string',
+        'PublicationPath' => 'string',
+        'DateOfPublication' => 'date',
+        'Collaborators' => 'string',
+        'PublicationURL' => 'string',
+        'Access_Level' => 'string'
+    ];
+
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'created_at' => 'nullable',
+        'updated_at' => 'nullable',
+        'UserID' => 'nullable|integer',
+        'Researcher_ID' => 'required|integer',
+        'PublicationTitle' => 'required|string',
+        'PublicationPath' => 'nullable|string|max:1000',
+        'DateOfPublication' => 'required',
+        'Collaborators' => 'nullable|string|max:500',
+        'PublicationURL' => 'required|string|max:250',
+        'Access_Level' => 'nullable|string|max:30'
+    ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
     public function researcher()
     {
-        return $this->belongsTo(Researcher::class, 'Researcher_ID');
+        return $this->belongsTo(\App\Models\Researcher::class, 'Researcher_ID');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
     public function user()
     {
-        return $this->belongsTo(User::class, 'UserID');
-    }
-
-    public function scopeLatestPublications($query)
-    {
-        $query->take(2);
-        return $query;
+        return $this->belongsTo(\App\Models\User::class, 'UserID');
     }
 }
