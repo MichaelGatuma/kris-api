@@ -14,3 +14,4 @@ yarn-error.log
 .idea/php.xml
 .idea/kris-api.iml
 public/docs
+public/vendor/scribe

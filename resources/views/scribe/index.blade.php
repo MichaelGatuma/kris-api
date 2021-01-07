@@ -1,24 +1,85 @@
-# Endpoints
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>KRIS Documentation</title>
 
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
-## Register user
+        <link rel="stylesheet" href="{{ asset("vendor/scribe/css/style.css") }}" media="screen" />
+        <link rel="stylesheet" href="{{ asset("vendor/scribe/css/print.css") }}" media="print" />
+        <script src="{{ asset("vendor/scribe/js/all.js") }}"></script>
 
+        <link rel="stylesheet" href="{{ asset("vendor/scribe/css/highlight-darcula.css") }}" media="" />
+        <script src="{{ asset("vendor/scribe/js/highlight.pack.js") }}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
-This endpoint lets you register a user.
+</head>
 
-> Example request:
+<body class="" data-languages="[&quot;bash&quot;,&quot;javascript&quot;,&quot;python&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        NAV
+            <img src="{{ asset("vendor/scribe/images/navbar.png") }}" alt="-image" class=""/>
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                            <a href="#" data-language-name="python">python</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
 
-```bash
-curl -X POST \
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="{{ route("scribe.postman") }}" target="_blank">View Postman collection</a></li>
+                            <li><a href="{{ route("scribe.openapi") }}" target="_blank">View OpenAPI (Swagger) spec</a></li>
+                            <li><!--<a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a>--></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: January 7 2021</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with KRIS API.
+The API was made available to serve as the backend for the KRIS mobile application and is subject to changes in the future.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+<script>
+    var baseUrl = "http://127.0.0.1:8000";
+</script>
+<script src="{{ asset("vendor/scribe/js/tryitout-2.4.2.js") }}"></script>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://127.0.0.1:8000</code></pre><h1>Authenticating requests</h1>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Endpoints</h1>
+<h2>Register user</h2>
+<p>This endpoint lets you register a user.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/user/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"qui","device_name":"Huawei STK-L21"}'
-
-```
-
-```javascript
-const url = new URL(
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/register"
 );
 
@@ -39,11 +100,8 @@ fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/user/register'
@@ -60,14 +118,11 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "auth": {
         "access_token": "92|Sc4fIj5jvY1mrXTlfaK644x65J5ZGozVFhUTGM3h",
@@ -83,19 +138,17 @@ response.json()
         "id": 99
     },
     "message": "Registration Successful"
-}
-```
-> Example response (400, Another user with this email exists):
-
-```json
-{
+}</code></pre>
+<blockquote>
+<p>Example response (400, Another user with this email exists):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": false,
     "exception": {
         "code": "VALIDATION_ERROR",
         "message": "The email has already been taken."
     }
-}
-```
+}</code></pre>
 <div id="execution-results-POSTapi-user-register" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-user-register"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-user-register"></code></pre>
@@ -143,26 +196,18 @@ The full name of the user.</p>
 The name of the request source device.</p>
 
 </form>
-
-
-## Login user
-
-
-This endpoint lets you login a user.
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>Login user</h2>
+<p>This endpoint lets you login a user.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/user/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"email":"numquam","password":"similique","device_name":"Huawei STK-L21"}'
-
-```
-
-```javascript
-const url = new URL(
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/login"
 );
 
@@ -181,11 +226,8 @@ fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/user/login'
@@ -200,30 +242,25 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "auth": {
         "access_token": "94|64rxh2hoJCgakYH61mmRmUukKDFVqKhLT8uYtwCT",
         "token_type": "Bearer"
     },
     "message": "Login Successful"
-}
-```
-> Example response (401, Invalid email or password):
-
-```json
-{
+}</code></pre>
+<blockquote>
+<p>Example response (401, Invalid email or password):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": false,
     "message": "Unauthorized"
-}
-```
+}</code></pre>
 <div id="execution-results-POSTapi-user-login" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-user-login"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-user-login"></code></pre>
@@ -261,26 +298,18 @@ The password of the user.</p>
 The name of the request source device.</p>
 
 </form>
-
-
-## Forgot_password Reset Request
-
-
-This endpoint lets you request a password reset email.
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>Forgot_password Reset Request</h2>
+<p>This endpoint lets you request a password reset email.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/user/forgot-password-request" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"email":"minus"}'
-
-```
-
-```javascript
-const url = new URL(
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/forgot-password-request"
 );
 
@@ -297,11 +326,8 @@ fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/user/forgot-password-request'
@@ -314,29 +340,24 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "message": "We have sent instructions to your email for reset password. Please check your inbox."
-}
-```
-> Example response (400, User with the email does not exist/ Email validation failed):
-
-```json
-{
+}</code></pre>
+<blockquote>
+<p>Example response (400, User with the email does not exist/ Email validation failed):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": false,
     "exception": {
         "message": "The email must be a valid email address.",
         "code": "VALIDATION_ERROR"
     }
-}
-```
+}</code></pre>
 <div id="execution-results-POSTapi-user-forgot-password-request" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-user-forgot-password-request"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-user-forgot-password-request"></code></pre>
@@ -364,26 +385,18 @@ response.json()
 The user email.</p>
 
 </form>
-
-
-## User Details
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint lets you login a user.
-
-> Example request:
-
-```bash
-curl -X GET \
+<h2>User Details</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint lets you login a user.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
     -G "http://127.0.0.1:8000/api/user" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user"
 );
 
@@ -393,15 +406,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/user'
@@ -412,14 +421,11 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "data": {
         "id": 84,
@@ -438,13 +444,11 @@ response.json()
         "verified_at": null
     },
     "message": "User details retrieved successfully"
-}
-```
-> Example response (400, Another user with this email exists):
-
-```json
-{}
-```
+}</code></pre>
+<blockquote>
+<p>Example response (400, Another user with this email exists):</p>
+</blockquote>
+<pre><code class="language-json">{}</code></pre>
 <div id="execution-results-GETapi-user" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-user"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-user"></code></pre>
@@ -468,28 +472,20 @@ response.json()
 <label id="auth-GETapi-user" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-user" data-component="header"></label>
 </p>
 </form>
-
-
-## Change Password
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint lets you change password.
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>Change Password</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint lets you change password.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/user/reset-password" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"email":"nesciunt","password":"voluptatem","current_password":"veritatis"}'
-
-```
-
-```javascript
-const url = new URL(
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/reset-password"
 );
 
@@ -509,11 +505,8 @@ fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/user/reset-password'
@@ -529,29 +522,24 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers, json=payload)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "message": "Your password has been reset successfully."
-}
-```
-> Example response (401, Another user with this email exists):
-
-```json
-{
+}</code></pre>
+<blockquote>
+<p>Example response (401, Another user with this email exists):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": false,
     "exception": {
         "code": "INVALID_CREDENTIALS",
         "message": "Your current password is incorrect"
     }
-}
-```
+}</code></pre>
 <div id="execution-results-POSTapi-user-reset-password" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-user-reset-password"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-user-reset-password"></code></pre>
@@ -592,26 +580,18 @@ The password of the user.</p>
 The current password of the user.</p>
 
 </form>
-
-
-## Logout user
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint lets you logout a user.
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>Logout user</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint lets you logout a user.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/user/logout" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/logout"
 );
 
@@ -621,15 +601,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "POST",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/user/logout'
@@ -640,19 +616,15 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">
 {
-"success" => true,
-"message" => "Logged out Successfully."
-}
-```
+"success" =&gt; true,
+"message" =&gt; "Logged out Successfully."
+}</code></pre>
 <div id="execution-results-POSTapi-user-logout" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-user-logout"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-user-logout"></code></pre>
@@ -676,26 +648,18 @@ response.json()
 <label id="auth-POSTapi-user-logout" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-user-logout" data-component="header"></label>
 </p>
 </form>
-
-
-## Delete user account
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint lets you delete the user account.
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>Delete user account</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint lets you delete the user account.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/user/delete-account" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/delete-account"
 );
 
@@ -705,15 +669,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "POST",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/user/delete-account'
@@ -724,26 +684,21 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">
 {
-"success" => true,
-"message" => "Your account has been deleted successfully"
-}
-```
-> Example response (400):
-
-```json
-{
+"success" =&gt; true,
+"message" =&gt; "Your account has been deleted successfully"
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
     "message": "Unauthenticated."
-}
-```
+}</code></pre>
 <div id="execution-results-POSTapi-user-delete-account" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-user-delete-account"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-user-delete-account"></code></pre>
@@ -767,26 +722,18 @@ response.json()
 <label id="auth-POSTapi-user-delete-account" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-user-delete-account" data-component="header"></label>
 </p>
 </form>
-
-
-## Edit user Details
-
-
-This endpoint lets you edit the user details.
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>Edit user Details</h2>
+<p>This endpoint lets you edit the user details.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/user/profile-details?fields=title%2Cpublished_at%2Cis_public" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"Title":"Prof.","name":"John Doe","email":"john@kris.com."}'
-
-```
-
-```javascript
-const url = new URL(
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/profile-details"
 );
 
@@ -794,7 +741,7 @@ let params = {
     "fields": "title,published_at,is_public",
 };
 Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -811,11 +758,8 @@ fetch(url, {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/user/profile-details'
@@ -833,18 +777,14 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers, json=payload, params=params)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">
 {
-"success" => "true", "data" => $user, "message" => "Your profile has been updates successfully"
-}
-```
+"success" =&gt; "true", "data" =&gt; $user, "message" =&gt; "Your profile has been updates successfully"
+}</code></pre>
 <div id="execution-results-POSTapi-user-profile-details" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-user-profile-details"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-user-profile-details"></code></pre>
@@ -888,25 +828,17 @@ The full names of the user.</p>
 The email of the user.</p>
 
 </form>
-
-
-## Add user Image
-
-
-This endpoint lets you upload a user profile image.
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>Add user Image</h2>
+<p>This endpoint lets you upload a user profile image.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/user/profile-image" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\USER\AppData\Local\Temp\phpD164.tmp" 
-```
-
-```javascript
-const url = new URL(
+    -F "file=@C:\Users\USER\AppData\Local\Temp\phpD164.tmp" </code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/profile-image"
 );
 
@@ -922,11 +854,8 @@ fetch(url, {
     method: "POST",
     headers,
     body,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/user/profile-image'
@@ -939,18 +868,14 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers, files=files)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">
 {
-"success" => true, "data" => $user, "message" => "Profile Photo Updated successfully"
-}
-```
+"success" =&gt; true, "data" =&gt; $user, "message" =&gt; "Profile Photo Updated successfully"
+}</code></pre>
 <div id="execution-results-POSTapi-user-profile-image" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-user-profile-image"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-user-profile-image"></code></pre>
@@ -978,26 +903,18 @@ response.json()
 The file object to be uploaded</p>
 
 </form>
-
-
-## Search Publications with pagination
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint return an archive of the publications.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications?perPage=15&recent=15&limit=modi" \
+<h2>Search Publications with pagination</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint return an archive of the publications.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/publications?perPage=15&amp;recent=15&amp;limit=modi" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/publications"
 );
 
@@ -1007,7 +924,7 @@ let params = {
     "limit": "modi",
 };
 Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer {YOUR_AUTH_KEY}",
@@ -1015,15 +932,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/publications'
@@ -1039,14 +952,11 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
-response.json()
-```
-
-
-> Example response (200, http://localhost:8000/api/publication?perPage=2):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, <a href="http://localhost:8000/api/publication?perPage=2">http://localhost:8000/api/publication?perPage=2</a>):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "data": {
         "current_page": 1,
@@ -1085,7 +995,7 @@ response.json()
         "links": [
             {
                 "url": null,
-                "label": "&laquo; Previous",
+                "label": "&amp;laquo; Previous",
                 "active": false
             },
             {
@@ -1125,7 +1035,7 @@ response.json()
             },
             {
                 "url": "http:\/\/localhost:8000\/api\/publication?page=2",
-                "label": "Next &raquo;",
+                "label": "Next &amp;raquo;",
                 "active": false
             }
         ],
@@ -1137,12 +1047,11 @@ response.json()
         "total": 107
     },
     "message": "Publications retrieved successfully"
-}
-```
-> Example response (200, http://localhost:8000/api/publication?recent&amp;limit=2):
-
-```json
-{
+}</code></pre>
+<blockquote>
+<p>Example response (200, <a href="http://localhost:8000/api/publication?recent&amp;amp;limit=2">http://localhost:8000/api/publication?recent&amp;amp;limit=2</a>):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "data": {
         "0": {
@@ -1173,8 +1082,7 @@ response.json()
         }
     },
     "message": "Publications retrieved successfully"
-}
-```
+}</code></pre>
 <div id="execution-results-GETapi-publications" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-publications"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-publications"></code></pre>
@@ -1214,26 +1122,18 @@ Specify this to show the most recent projects. If not specified, all entries wil
 <br>
 Specify the limit of entries to return. Must be used together with 'recent' If not specified, the default entries will be returned. Default: 10</p>
 </form>
-
-
-## Show Publication Details
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint returns the details of the specified publication by id.
-
-> Example request:
-
-```bash
-curl -X GET \
+<h2>Show Publication Details</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint returns the details of the specified publication by id.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
     -G "http://127.0.0.1:8000/api/publication/aut" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/publication/aut"
 );
 
@@ -1243,15 +1143,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/publication/aut'
@@ -1262,14 +1158,11 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">
 {
 {
 "success": true,
@@ -1288,8 +1181,7 @@ response.json()
 },
 "message": "Publication retrieved successfully"
 }
-}
-```
+}</code></pre>
 <div id="execution-results-GETapi-publication--id-" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-publication--id-"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-publication--id-"></code></pre>
@@ -1319,24 +1211,15 @@ response.json()
 <br>
 </p>
 </form>
-
-
-## api/publication/{id}/request
-
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>api/publication/{id}/request</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/publication/facere/request" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/publication/facere/request"
 );
 
@@ -1345,15 +1228,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "POST",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/publication/facere/request'
@@ -1363,10 +1242,7 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers)
-response.json()
-```
-
-
+response.json()</code></pre>
 <div id="execution-results-POSTapi-publication--id--request" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-publication--id--request"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-publication--id--request"></code></pre>
@@ -1393,24 +1269,15 @@ response.json()
 <br>
 </p>
 </form>
-
-
-## api/publication/{id}/grant
-
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>api/publication/{id}/grant</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/publication/cum/grant" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/publication/cum/grant"
 );
 
@@ -1419,15 +1286,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "POST",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/publication/cum/grant'
@@ -1437,10 +1300,7 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers)
-response.json()
-```
-
-
+response.json()</code></pre>
 <div id="execution-results-POSTapi-publication--id--grant" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-publication--id--grant"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-publication--id--grant"></code></pre>
@@ -1467,26 +1327,18 @@ response.json()
 <br>
 </p>
 </form>
-
-
-## Search Publications with pagination
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint return an archive of the publications.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://127.0.0.1:8000/api/projects?perPage=11&recent=19&limit=maiores" \
+<h2>Search Publications with pagination</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint return an archive of the publications.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/projects?perPage=11&amp;recent=19&amp;limit=maiores" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/projects"
 );
 
@@ -1496,7 +1348,7 @@ let params = {
     "limit": "maiores",
 };
 Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer {YOUR_AUTH_KEY}",
@@ -1504,15 +1356,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/projects'
@@ -1528,14 +1376,11 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
-response.json()
-```
-
-
-> Example response (200, http://localhost:8000/api/publication?perPage=2):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, <a href="http://localhost:8000/api/publication?perPage=2">http://localhost:8000/api/publication?perPage=2</a>):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "data": {
         "current_page": 1,
@@ -1574,7 +1419,7 @@ response.json()
         "links": [
             {
                 "url": null,
-                "label": "&laquo; Previous",
+                "label": "&amp;laquo; Previous",
                 "active": false
             },
             {
@@ -1614,7 +1459,7 @@ response.json()
             },
             {
                 "url": "http:\/\/localhost:8000\/api\/publication?page=2",
-                "label": "Next &raquo;",
+                "label": "Next &amp;raquo;",
                 "active": false
             }
         ],
@@ -1626,12 +1471,11 @@ response.json()
         "total": 107
     },
     "message": "Publications retrieved successfully"
-}
-```
-> Example response (200, http://localhost:8000/api/publication?recent&amp;limit=2):
-
-```json
-{
+}</code></pre>
+<blockquote>
+<p>Example response (200, <a href="http://localhost:8000/api/publication?recent&amp;amp;limit=2">http://localhost:8000/api/publication?recent&amp;amp;limit=2</a>):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "data": {
         "0": {
@@ -1662,8 +1506,7 @@ response.json()
         }
     },
     "message": "Publications retrieved successfully"
-}
-```
+}</code></pre>
 <div id="execution-results-GETapi-projects" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-projects"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-projects"></code></pre>
@@ -1703,26 +1546,18 @@ Specify this to show the most recent projects. If not specified, all entries wil
 <br>
 Specify the limit of entries to return. Must be used together with 'recent' If not specified, the default entries will be returned. Default: 10</p>
 </form>
-
-
-## Show Publication Details
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint returns the details of the specified publication by id.
-
-> Example request:
-
-```bash
-curl -X GET \
+<h2>Show Publication Details</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint returns the details of the specified publication by id.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
     -G "http://127.0.0.1:8000/api/project/velit" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/project/velit"
 );
 
@@ -1732,15 +1567,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/project/velit'
@@ -1751,14 +1582,11 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">
 {
 {
 "success": true,
@@ -1777,8 +1605,7 @@ response.json()
 },
 "message": "Publication retrieved successfully"
 }
-}
-```
+}</code></pre>
 <div id="execution-results-GETapi-project--id-" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-project--id-"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-project--id-"></code></pre>
@@ -1808,24 +1635,15 @@ response.json()
 <br>
 </p>
 </form>
-
-
-## api/project/{id}/request
-
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>api/project/{id}/request</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/project/distinctio/request" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/project/distinctio/request"
 );
 
@@ -1834,15 +1652,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "POST",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/project/distinctio/request'
@@ -1852,10 +1666,7 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers)
-response.json()
-```
-
-
+response.json()</code></pre>
 <div id="execution-results-POSTapi-project--id--request" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-project--id--request"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-project--id--request"></code></pre>
@@ -1882,24 +1693,15 @@ response.json()
 <br>
 </p>
 </form>
-
-
-## api/project/{id}/grant
-
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>api/project/{id}/grant</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/project/perferendis/grant" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/project/perferendis/grant"
 );
 
@@ -1908,15 +1710,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "POST",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/project/perferendis/grant'
@@ -1926,10 +1724,7 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers)
-response.json()
-```
-
-
+response.json()</code></pre>
 <div id="execution-results-POSTapi-project--id--grant" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-project--id--grant"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-project--id--grant"></code></pre>
@@ -1956,26 +1751,18 @@ response.json()
 <br>
 </p>
 </form>
-
-
-## Search Publications with pagination
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint return an archive of the publications.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://127.0.0.1:8000/api/researchers?perPage=19&recent=4&limit=dolorem" \
+<h2>Search Publications with pagination</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint return an archive of the publications.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://127.0.0.1:8000/api/researchers?perPage=19&amp;recent=4&amp;limit=dolorem" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/researchers"
 );
 
@@ -1985,7 +1772,7 @@ let params = {
     "limit": "dolorem",
 };
 Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer {YOUR_AUTH_KEY}",
@@ -1993,15 +1780,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/researchers'
@@ -2017,14 +1800,11 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers, params=params)
-response.json()
-```
-
-
-> Example response (200, http://localhost:8000/api/publication?perPage=2):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, <a href="http://localhost:8000/api/publication?perPage=2">http://localhost:8000/api/publication?perPage=2</a>):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "data": {
         "current_page": 1,
@@ -2063,7 +1843,7 @@ response.json()
         "links": [
             {
                 "url": null,
-                "label": "&laquo; Previous",
+                "label": "&amp;laquo; Previous",
                 "active": false
             },
             {
@@ -2103,7 +1883,7 @@ response.json()
             },
             {
                 "url": "http:\/\/localhost:8000\/api\/publication?page=2",
-                "label": "Next &raquo;",
+                "label": "Next &amp;raquo;",
                 "active": false
             }
         ],
@@ -2115,12 +1895,11 @@ response.json()
         "total": 107
     },
     "message": "Publications retrieved successfully"
-}
-```
-> Example response (200, http://localhost:8000/api/publication?recent&amp;limit=2):
-
-```json
-{
+}</code></pre>
+<blockquote>
+<p>Example response (200, <a href="http://localhost:8000/api/publication?recent&amp;amp;limit=2">http://localhost:8000/api/publication?recent&amp;amp;limit=2</a>):</p>
+</blockquote>
+<pre><code class="language-json">{
     "success": true,
     "data": {
         "0": {
@@ -2151,8 +1930,7 @@ response.json()
         }
     },
     "message": "Publications retrieved successfully"
-}
-```
+}</code></pre>
 <div id="execution-results-GETapi-researchers" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-researchers"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-researchers"></code></pre>
@@ -2192,26 +1970,18 @@ Specify this to show the most recent projects. If not specified, all entries wil
 <br>
 Specify the limit of entries to return. Must be used together with 'recent' If not specified, the default entries will be returned. Default: 10</p>
 </form>
-
-
-## Show Publication Details
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint returns the details of the specified publication by id.
-
-> Example request:
-
-```bash
-curl -X GET \
+<h2>Show Publication Details</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint returns the details of the specified publication by id.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
     -G "http://127.0.0.1:8000/api/researcher/aperiam" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/researcher/aperiam"
 );
 
@@ -2221,15 +1991,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/researcher/aperiam'
@@ -2240,14 +2006,11 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-> Example response (200, success):
-
-```json
-
+response.json()</code></pre>
+<blockquote>
+<p>Example response (200, success):</p>
+</blockquote>
+<pre><code class="language-json">
 {
 {
 "success": true,
@@ -2266,8 +2029,7 @@ response.json()
 },
 "message": "Publication retrieved successfully"
 }
-}
-```
+}</code></pre>
 <div id="execution-results-GETapi-researcher--id-" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-researcher--id-"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-researcher--id-"></code></pre>
@@ -2297,24 +2059,15 @@ response.json()
 <br>
 </p>
 </form>
-
-
-## api/researcher/activeProjects
-
-
-
-
-> Example request:
-
-```bash
-curl -X GET \
+<h2>api/researcher/activeProjects</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
     -G "http://127.0.0.1:8000/api/researcher/activeProjects" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/researcher/activeProjects"
 );
 
@@ -2323,15 +2076,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/researcher/activeProjects'
@@ -2341,17 +2090,13 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-> Example response (401):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
     "message": "Unauthenticated."
-}
-```
+}</code></pre>
 <div id="execution-results-GETapi-researcher-activeProjects" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-researcher-activeProjects"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-researcher-activeProjects"></code></pre>
@@ -2372,26 +2117,18 @@ response.json()
  <b><code>api/researcher/activeProjects</code></b>
 </p>
 </form>
-
-
-## All Discussions
-
-<small class="badge badge-darkred">requires authentication</small>
-
-This endpoint returns an archive of all discussions.
-
-> Example request:
-
-```bash
-curl -X GET \
+<h2>All Discussions</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>This endpoint returns an archive of all discussions.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
     -G "http://127.0.0.1:8000/api/discussions" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/discussions"
 );
 
@@ -2401,15 +2138,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/discussions'
@@ -2420,17 +2153,13 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-> Example response (401):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
     "message": "Unauthenticated."
-}
-```
+}</code></pre>
 <div id="execution-results-GETapi-discussions" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-discussions"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-discussions"></code></pre>
@@ -2454,24 +2183,15 @@ response.json()
 <label id="auth-GETapi-discussions" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-discussions" data-component="header"></label>
 </p>
 </form>
-
-
-## api/discussions
-
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
+<h2>api/discussions</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
     "http://127.0.0.1:8000/api/discussions" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/discussions"
 );
 
@@ -2480,15 +2200,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "POST",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/discussions'
@@ -2498,10 +2214,7 @@ headers = {
 }
 
 response = requests.request('POST', url, headers=headers)
-response.json()
-```
-
-
+response.json()</code></pre>
 <div id="execution-results-POSTapi-discussions" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-discussions"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-discussions"></code></pre>
@@ -2522,24 +2235,15 @@ response.json()
  <b><code>api/discussions</code></b>
 </p>
 </form>
-
-
-## api/discussion/{id
-
-
-
-
-> Example request:
-
-```bash
-curl -X GET \
+<h2>api/discussion/{id</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
     -G "http://127.0.0.1:8000/api/discussion/{id" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/discussion/{id"
 );
 
@@ -2548,15 +2252,11 @@ let headers = {
     "Accept": "application/json",
 };
 
-
 fetch(url, {
     method: "GET",
     headers,
-}).then(response => response.json());
-```
-
-```python
-import requests
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-python">import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/discussion/{id'
@@ -2566,17 +2266,13 @@ headers = {
 }
 
 response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-> Example response (401):
-
-```json
-{
+response.json()</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
     "message": "Unauthenticated."
-}
-```
+}</code></pre>
 <div id="execution-results-GETapi-discussion--id" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-discussion--id"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-discussion--id"></code></pre>
@@ -2597,6 +2293,20 @@ response.json()
  <b><code>api/discussion/{id</code></b>
 </p>
 </form>
-
-
-
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                                    <a href="#" data-language-name="python">python</a>
+                            </div>
+            </div>
+</div>
+<script>
+    $(function () {
+        var languages = ["bash","javascript","python"];
+        setupLanguages(languages);
+    });
+</script>
+</body>
+</html>
