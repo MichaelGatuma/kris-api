@@ -202,6 +202,8 @@ class PublicationAPIController extends AppBaseController
      * This endpoint returns the details of the specified publication by id.
      * @authenticated
      *
+     * @urlParam id integer required The id of the publication
+     *
      * @response scenario=success {
      *{
      * "success": true,
@@ -265,6 +267,25 @@ class PublicationAPIController extends AppBaseController
         return $this->sendSuccess('Publication deleted successfully');
     }
 
+    /**
+     * Request Private Publication
+     *
+     * This endpoint lets a user request access to a private publication.
+     * @authenticated
+     *
+     * @urlParam id integer required The id of the publication
+     *
+     * @response status=200 {
+     *
+     * }
+     *
+     * @response status=400  {
+     *
+     * }
+     * @param $id
+     * @param  Request  $request
+     * @return
+     */
     public function requestAccess($id, Request $request)
     {
         $publication_id = $id;
@@ -284,6 +305,25 @@ class PublicationAPIController extends AppBaseController
         }
     }
 
+    /**
+     * Grant Access to Private Publication
+     *
+     * This endpoint lets a user (publication owner) grant access to a requested private publication.
+     * @authenticated
+     *
+     * @urlParam id integer required The id of the publication
+     *
+     * @response status=200 {
+     *
+     * }
+     *
+     * @response status=400  {
+     *
+     * }
+     * @param $id
+     * @param  Request  $request
+     * @return
+     */
     public function grantAccess($id, Request $request)
     {
         $request_id = $id;

@@ -42,7 +42,23 @@ class PostAPIController extends AppBaseController
     }
 
 
-
+    /**
+     * Create a new Discussion
+     *
+     * This endpoint lets a user publish a discussion/post.
+     * @authenticated
+     *
+     * @bodyParam title string required The Post Title
+     * @bodyParam body string required The body title
+     *
+     * @response status=200 {
+     *
+     * }
+     *
+     * @response status=400  {
+     *
+     * }
+     */
     public function store(Request $request)
     {
         $input = $request->all();
@@ -52,7 +68,22 @@ class PostAPIController extends AppBaseController
         return $this->sendResponse($post->toArray(), 'Post saved successfully');
     }
 
-
+    /**
+     * Show Discussion Details
+     *
+     * This endpoint returns the discussion details.
+     * @authenticated
+     *
+     * @urlParam id integer required The id of the specified discussion
+     *
+     * @response status=200 {
+     *
+     * }
+     *
+     * @response status=400 {
+     *
+     * }
+     */
     public function show($id)
     {
         /** @var Post $post */

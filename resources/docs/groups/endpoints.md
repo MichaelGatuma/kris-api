@@ -13,7 +13,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"qui","device_name":"Huawei STK-L21"}'
+    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"excepturi","device_name":"Huawei STK-L21"}'
 
 ```
 
@@ -31,7 +31,7 @@ let body = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "qui",
+    "password": "excepturi",
     "device_name": "Huawei STK-L21"
 }
 
@@ -51,7 +51,7 @@ payload = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "qui",
+    "password": "excepturi",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -157,7 +157,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"numquam","password":"similique","device_name":"Huawei STK-L21"}'
+    -d '{"email":"alias","password":"et","device_name":"Huawei STK-L21"}'
 
 ```
 
@@ -172,8 +172,8 @@ let headers = {
 };
 
 let body = {
-    "email": "numquam",
-    "password": "similique",
+    "email": "alias",
+    "password": "et",
     "device_name": "Huawei STK-L21"
 }
 
@@ -190,8 +190,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/login'
 payload = {
-    "email": "numquam",
-    "password": "similique",
+    "email": "alias",
+    "password": "et",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -275,7 +275,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/forgot-password-request" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"minus"}'
+    -d '{"email":"repellendus"}'
 
 ```
 
@@ -290,7 +290,7 @@ let headers = {
 };
 
 let body = {
-    "email": "minus"
+    "email": "repellendus"
 }
 
 fetch(url, {
@@ -306,7 +306,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/forgot-password-request'
 payload = {
-    "email": "minus"
+    "email": "repellendus"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -440,7 +440,7 @@ response.json()
     "message": "User details retrieved successfully"
 }
 ```
-> Example response (400, Another user with this email exists):
+> Example response (400):
 
 ```json
 {}
@@ -484,7 +484,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"nesciunt","password":"voluptatem","current_password":"veritatis"}'
+    -d '{"email":"iure","password":"odio","current_password":"atque"}'
 
 ```
 
@@ -500,9 +500,9 @@ let headers = {
 };
 
 let body = {
-    "email": "nesciunt",
-    "password": "voluptatem",
-    "current_password": "veritatis"
+    "email": "iure",
+    "password": "odio",
+    "current_password": "atque"
 }
 
 fetch(url, {
@@ -518,9 +518,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/reset-password'
 payload = {
-    "email": "nesciunt",
-    "password": "voluptatem",
-    "current_password": "veritatis"
+    "email": "iure",
+    "password": "odio",
+    "current_password": "atque"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -647,10 +647,9 @@ response.json()
 > Example response (200, success):
 
 ```json
-
 {
-"success" => true,
-"message" => "Logged out Successfully."
+    "success": true,
+    "message": "Logged out Successfully."
 }
 ```
 <div id="execution-results-POSTapi-user-logout" hidden>
@@ -731,10 +730,9 @@ response.json()
 > Example response (200, success):
 
 ```json
-
 {
-"success" => true,
-"message" => "Your account has been deleted successfully"
+    "success": true,
+    "message": "Your account has been deleted successfully"
 }
 ```
 > Example response (400):
@@ -771,6 +769,7 @@ response.json()
 
 ## Edit user Details
 
+<small class="badge badge-darkred">requires authentication</small>
 
 This endpoint lets you edit the user details.
 
@@ -779,6 +778,7 @@ This endpoint lets you edit the user details.
 ```bash
 curl -X POST \
     "http://127.0.0.1:8000/api/user/profile-details?fields=title%2Cpublished_at%2Cis_public" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
     -d '{"Title":"Prof.","name":"John Doe","email":"john@kris.com."}'
@@ -797,6 +797,7 @@ Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -828,6 +829,7 @@ params = {
   'fields': 'title,published_at,is_public',
 }
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -842,7 +844,9 @@ response.json()
 ```json
 
 {
-"success" => "true", "data" => $user, "message" => "Your profile has been updates successfully"
+"success" : "true",
+"data" : $user,
+"message" : "Your profile has been updates successfully"
 }
 ```
 <div id="execution-results-POSTapi-user-profile-details" hidden>
@@ -853,7 +857,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-POSTapi-user-profile-details"></code></pre>
 </div>
-<form id="form-POSTapi-user-profile-details" data-method="POST" data-path="api/user/profile-details" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-user-profile-details', this);">
+<form id="form-POSTapi-user-profile-details" data-method="POST" data-path="api/user/profile-details" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-user-profile-details', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-user-profile-details" onclick="tryItOut('POSTapi-user-profile-details');">Try it out ⚡</button>
@@ -863,6 +867,9 @@ response.json()
 <p>
 <small class="badge badge-black">POST</small>
  <b><code>api/user/profile-details</code></b>
+</p>
+<p>
+<label id="auth-POSTapi-user-profile-details" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-user-profile-details" data-component="header"></label>
 </p>
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <p>
@@ -892,6 +899,7 @@ The email of the user.</p>
 
 ## Add user Image
 
+<small class="badge badge-darkred">requires authentication</small>
 
 This endpoint lets you upload a user profile image.
 
@@ -900,9 +908,10 @@ This endpoint lets you upload a user profile image.
 ```bash
 curl -X POST \
     "http://127.0.0.1:8000/api/user/profile-image" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\USER\AppData\Local\Temp\phpD164.tmp" 
+    -F "file=@C:\Users\USER\AppData\Local\Temp\php9313.tmp" 
 ```
 
 ```javascript
@@ -911,6 +920,7 @@ const url = new URL(
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
@@ -931,9 +941,10 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/profile-image'
 files = {
-  'file': open('C:\Users\USER\AppData\Local\Temp\phpD164.tmp', 'rb')
+  'file': open('C:\Users\USER\AppData\Local\Temp\php9313.tmp', 'rb')
 }
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'multipart/form-data',
   'Accept': 'application/json'
 }
@@ -948,7 +959,9 @@ response.json()
 ```json
 
 {
-"success" => true, "data" => $user, "message" => "Profile Photo Updated successfully"
+"success" : true,
+"data" : $user,
+"message" : "Profile Photo Updated successfully"
 }
 ```
 <div id="execution-results-POSTapi-user-profile-image" hidden>
@@ -959,7 +972,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-POSTapi-user-profile-image"></code></pre>
 </div>
-<form id="form-POSTapi-user-profile-image" data-method="POST" data-path="api/user/profile-image" data-authed="0" data-hasfiles="1" data-headers='{"Content-Type":"multipart\/form-data","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-user-profile-image', this);">
+<form id="form-POSTapi-user-profile-image" data-method="POST" data-path="api/user/profile-image" data-authed="1" data-hasfiles="1" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"multipart\/form-data","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-user-profile-image', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-user-profile-image" onclick="tryItOut('POSTapi-user-profile-image');">Try it out ⚡</button>
@@ -969,6 +982,9 @@ response.json()
 <p>
 <small class="badge badge-black">POST</small>
  <b><code>api/user/profile-image</code></b>
+</p>
+<p>
+<label id="auth-POSTapi-user-profile-image" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-user-profile-image" data-component="header"></label>
 </p>
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p>
@@ -990,7 +1006,7 @@ This endpoint return an archive of the publications.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications?perPage=15&recent=15&limit=modi" \
+    -G "http://127.0.0.1:8000/api/publications?perPage=9&recent=13&limit=ab" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1002,9 +1018,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "15",
-    "recent": "15",
-    "limit": "modi",
+    "perPage": "9",
+    "recent": "13",
+    "limit": "ab",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1028,9 +1044,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/publications'
 params = {
-  'perPage': '15',
-  'recent': '15',
-  'limit': 'modi',
+  'perPage': '9',
+  'recent': '13',
+  'limit': 'ab',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1226,7 +1242,7 @@ This endpoint returns the details of the specified publication by id.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publication/aut" \
+    -G "http://127.0.0.1:8000/api/publication/14" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1234,7 +1250,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/aut"
+    "http://127.0.0.1:8000/api/publication/14"
 );
 
 let headers = {
@@ -1254,7 +1270,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/aut'
+url = 'http://127.0.0.1:8000/api/publication/14'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1314,33 +1330,36 @@ response.json()
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
-<b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="id" data-endpoint="GETapi-publication--id-" data-component="url" required  hidden>
+<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="GETapi-publication--id-" data-component="url" required  hidden>
 <br>
-</p>
+The id of the publication</p>
 </form>
 
 
-## api/publication/{id}/request
+## Request Private Publication
 
+<small class="badge badge-darkred">requires authentication</small>
 
-
+This endpoint lets a user request access to a private publication.
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/publication/facere/request" \
+    "http://127.0.0.1:8000/api/publication/15/request" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/facere/request"
+    "http://127.0.0.1:8000/api/publication/15/request"
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1356,8 +1375,9 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/facere/request'
+url = 'http://127.0.0.1:8000/api/publication/15/request'
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -1367,6 +1387,16 @@ response.json()
 ```
 
 
+> Example response (200):
+
+```json
+{}
+```
+> Example response (400):
+
+```json
+{}
+```
 <div id="execution-results-POSTapi-publication--id--request" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-publication--id--request"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-publication--id--request"></code></pre>
@@ -1375,7 +1405,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-POSTapi-publication--id--request"></code></pre>
 </div>
-<form id="form-POSTapi-publication--id--request" data-method="POST" data-path="api/publication/{id}/request" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-publication--id--request', this);">
+<form id="form-POSTapi-publication--id--request" data-method="POST" data-path="api/publication/{id}/request" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-publication--id--request', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-publication--id--request" onclick="tryItOut('POSTapi-publication--id--request');">Try it out ⚡</button>
@@ -1386,35 +1416,41 @@ response.json()
 <small class="badge badge-black">POST</small>
  <b><code>api/publication/{id}/request</code></b>
 </p>
+<p>
+<label id="auth-POSTapi-publication--id--request" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-publication--id--request" data-component="header"></label>
+</p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
-<b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="id" data-endpoint="POSTapi-publication--id--request" data-component="url" required  hidden>
+<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="POSTapi-publication--id--request" data-component="url" required  hidden>
 <br>
-</p>
+The id of the publication</p>
 </form>
 
 
-## api/publication/{id}/grant
+## Grant Access to Private Publication
 
+<small class="badge badge-darkred">requires authentication</small>
 
-
+This endpoint lets a user (publication owner) grant access to a requested private publication.
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/publication/cum/grant" \
+    "http://127.0.0.1:8000/api/publication/3/grant" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/cum/grant"
+    "http://127.0.0.1:8000/api/publication/3/grant"
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1430,8 +1466,9 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/cum/grant'
+url = 'http://127.0.0.1:8000/api/publication/3/grant'
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -1441,6 +1478,16 @@ response.json()
 ```
 
 
+> Example response (200):
+
+```json
+{}
+```
+> Example response (400):
+
+```json
+{}
+```
 <div id="execution-results-POSTapi-publication--id--grant" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-publication--id--grant"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-publication--id--grant"></code></pre>
@@ -1449,7 +1496,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-POSTapi-publication--id--grant"></code></pre>
 </div>
-<form id="form-POSTapi-publication--id--grant" data-method="POST" data-path="api/publication/{id}/grant" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-publication--id--grant', this);">
+<form id="form-POSTapi-publication--id--grant" data-method="POST" data-path="api/publication/{id}/grant" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-publication--id--grant', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-publication--id--grant" onclick="tryItOut('POSTapi-publication--id--grant');">Try it out ⚡</button>
@@ -1460,12 +1507,15 @@ response.json()
 <small class="badge badge-black">POST</small>
  <b><code>api/publication/{id}/grant</code></b>
 </p>
+<p>
+<label id="auth-POSTapi-publication--id--grant" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-publication--id--grant" data-component="header"></label>
+</p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
-<b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="id" data-endpoint="POSTapi-publication--id--grant" data-component="url" required  hidden>
+<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="POSTapi-publication--id--grant" data-component="url" required  hidden>
 <br>
-</p>
+The id of the publication</p>
 </form>
 
 
@@ -1479,7 +1529,7 @@ This endpoint return an archive of the publications.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/projects?perPage=11&recent=19&limit=maiores" \
+    -G "http://127.0.0.1:8000/api/projects?perPage=4&recent=11&limit=eligendi" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1491,9 +1541,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "11",
-    "recent": "19",
-    "limit": "maiores",
+    "perPage": "4",
+    "recent": "11",
+    "limit": "eligendi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1517,9 +1567,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/projects'
 params = {
-  'perPage': '11',
-  'recent': '19',
-  'limit': 'maiores',
+  'perPage': '4',
+  'recent': '11',
+  'limit': 'eligendi',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1715,7 +1765,7 @@ This endpoint returns the details of the specified publication by id.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/project/velit" \
+    -G "http://127.0.0.1:8000/api/project/17" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1723,7 +1773,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/velit"
+    "http://127.0.0.1:8000/api/project/17"
 );
 
 let headers = {
@@ -1743,7 +1793,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/velit'
+url = 'http://127.0.0.1:8000/api/project/17'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1803,33 +1853,36 @@ response.json()
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
-<b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="id" data-endpoint="GETapi-project--id-" data-component="url" required  hidden>
+<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="GETapi-project--id-" data-component="url" required  hidden>
 <br>
-</p>
+The id of the publication</p>
 </form>
 
 
-## api/project/{id}/request
+## Request Private Research Project
 
+<small class="badge badge-darkred">requires authentication</small>
 
-
+This endpoint lets a user request access to a private project.
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/project/distinctio/request" \
+    "http://127.0.0.1:8000/api/project/18/request" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/distinctio/request"
+    "http://127.0.0.1:8000/api/project/18/request"
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1845,8 +1898,9 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/distinctio/request'
+url = 'http://127.0.0.1:8000/api/project/18/request'
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -1856,6 +1910,16 @@ response.json()
 ```
 
 
+> Example response (200):
+
+```json
+{}
+```
+> Example response (400):
+
+```json
+{}
+```
 <div id="execution-results-POSTapi-project--id--request" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-project--id--request"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-project--id--request"></code></pre>
@@ -1864,7 +1928,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-POSTapi-project--id--request"></code></pre>
 </div>
-<form id="form-POSTapi-project--id--request" data-method="POST" data-path="api/project/{id}/request" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-project--id--request', this);">
+<form id="form-POSTapi-project--id--request" data-method="POST" data-path="api/project/{id}/request" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-project--id--request', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-project--id--request" onclick="tryItOut('POSTapi-project--id--request');">Try it out ⚡</button>
@@ -1875,35 +1939,41 @@ response.json()
 <small class="badge badge-black">POST</small>
  <b><code>api/project/{id}/request</code></b>
 </p>
+<p>
+<label id="auth-POSTapi-project--id--request" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-project--id--request" data-component="header"></label>
+</p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
-<b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="id" data-endpoint="POSTapi-project--id--request" data-component="url" required  hidden>
+<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="POSTapi-project--id--request" data-component="url" required  hidden>
 <br>
-</p>
+The id of the project</p>
 </form>
 
 
-## api/project/{id}/grant
+## Grant access to a private project
 
+<small class="badge badge-darkred">requires authentication</small>
 
-
+This endpoint lets a user(owner) grant access to a private project.
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/project/perferendis/grant" \
+    "http://127.0.0.1:8000/api/project/16/grant" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/perferendis/grant"
+    "http://127.0.0.1:8000/api/project/16/grant"
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1919,8 +1989,9 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/perferendis/grant'
+url = 'http://127.0.0.1:8000/api/project/16/grant'
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -1930,6 +2001,16 @@ response.json()
 ```
 
 
+> Example response (200):
+
+```json
+{}
+```
+> Example response (400):
+
+```json
+{}
+```
 <div id="execution-results-POSTapi-project--id--grant" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-project--id--grant"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-project--id--grant"></code></pre>
@@ -1938,7 +2019,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-POSTapi-project--id--grant"></code></pre>
 </div>
-<form id="form-POSTapi-project--id--grant" data-method="POST" data-path="api/project/{id}/grant" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-project--id--grant', this);">
+<form id="form-POSTapi-project--id--grant" data-method="POST" data-path="api/project/{id}/grant" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-project--id--grant', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-project--id--grant" onclick="tryItOut('POSTapi-project--id--grant');">Try it out ⚡</button>
@@ -1949,12 +2030,15 @@ response.json()
 <small class="badge badge-black">POST</small>
  <b><code>api/project/{id}/grant</code></b>
 </p>
+<p>
+<label id="auth-POSTapi-project--id--grant" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-project--id--grant" data-component="header"></label>
+</p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
-<b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="id" data-endpoint="POSTapi-project--id--grant" data-component="url" required  hidden>
+<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="POSTapi-project--id--grant" data-component="url" required  hidden>
 <br>
-</p>
+The id of the project</p>
 </form>
 
 
@@ -1968,7 +2052,7 @@ This endpoint return an archive of the publications.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researchers?perPage=19&recent=4&limit=dolorem" \
+    -G "http://127.0.0.1:8000/api/researchers?perPage=17&recent=10&limit=ipsam" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1980,9 +2064,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "19",
-    "recent": "4",
-    "limit": "dolorem",
+    "perPage": "17",
+    "recent": "10",
+    "limit": "ipsam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2006,9 +2090,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/researchers'
 params = {
-  'perPage': '19',
-  'recent': '4',
-  'limit': 'dolorem',
+  'perPage': '17',
+  'recent': '10',
+  'limit': 'ipsam',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -2204,7 +2288,7 @@ This endpoint returns the details of the specified publication by id.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researcher/aperiam" \
+    -G "http://127.0.0.1:8000/api/researcher/3" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -2212,7 +2296,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/researcher/aperiam"
+    "http://127.0.0.1:8000/api/researcher/3"
 );
 
 let headers = {
@@ -2232,7 +2316,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/researcher/aperiam'
+url = 'http://127.0.0.1:8000/api/researcher/3'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2292,23 +2376,25 @@ response.json()
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
-<b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="id" data-endpoint="GETapi-researcher--id-" data-component="url" required  hidden>
+<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="GETapi-researcher--id-" data-component="url" required  hidden>
 <br>
-</p>
+The id of the publication</p>
 </form>
 
 
-## api/researcher/activeProjects
+## Show Researcher&#039;s Active Projects
 
+<small class="badge badge-darkred">requires authentication</small>
 
-
+This endpoint return the active projects of the authentiated user.
 
 > Example request:
 
 ```bash
 curl -X GET \
     -G "http://127.0.0.1:8000/api/researcher/activeProjects" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2319,6 +2405,7 @@ const url = new URL(
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2336,6 +2423,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/researcher/activeProjects'
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -2345,12 +2433,15 @@ response.json()
 ```
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
-{
-    "message": "Unauthenticated."
-}
+{}
+```
+> Example response (400):
+
+```json
+{}
 ```
 <div id="execution-results-GETapi-researcher-activeProjects" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-researcher-activeProjects"></span>:</blockquote>
@@ -2360,7 +2451,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-researcher-activeProjects"></code></pre>
 </div>
-<form id="form-GETapi-researcher-activeProjects" data-method="GET" data-path="api/researcher/activeProjects" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researcher-activeProjects', this);">
+<form id="form-GETapi-researcher-activeProjects" data-method="GET" data-path="api/researcher/activeProjects" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researcher-activeProjects', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-researcher-activeProjects" onclick="tryItOut('GETapi-researcher-activeProjects');">Try it out ⚡</button>
@@ -2370,6 +2461,9 @@ response.json()
 <p>
 <small class="badge badge-green">GET</small>
  <b><code>api/researcher/activeProjects</code></b>
+</p>
+<p>
+<label id="auth-GETapi-researcher-activeProjects" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-researcher-activeProjects" data-component="header"></label>
 </p>
 </form>
 
@@ -2456,18 +2550,22 @@ response.json()
 </form>
 
 
-## api/discussions
+## Create a new Discussion
 
+<small class="badge badge-darkred">requires authentication</small>
 
-
+This endpoint lets a user publish a discussion/post.
 
 > Example request:
 
 ```bash
 curl -X POST \
     "http://127.0.0.1:8000/api/discussions" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"title":"dolor","body":"labore"}'
+
 ```
 
 ```javascript
@@ -2476,14 +2574,20 @@ const url = new URL(
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "title": "dolor",
+    "body": "labore"
+}
 
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response => response.json());
 ```
 
@@ -2492,16 +2596,31 @@ import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/discussions'
+payload = {
+    "title": "dolor",
+    "body": "labore"
+}
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-response = requests.request('POST', url, headers=headers)
+response = requests.request('POST', url, headers=headers, json=payload)
 response.json()
 ```
 
 
+> Example response (200):
+
+```json
+{}
+```
+> Example response (400):
+
+```json
+{}
+```
 <div id="execution-results-POSTapi-discussions" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-discussions"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-POSTapi-discussions"></code></pre>
@@ -2510,7 +2629,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-POSTapi-discussions"></code></pre>
 </div>
-<form id="form-POSTapi-discussions" data-method="POST" data-path="api/discussions" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-discussions', this);">
+<form id="form-POSTapi-discussions" data-method="POST" data-path="api/discussions" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-discussions', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-discussions" onclick="tryItOut('POSTapi-discussions');">Try it out ⚡</button>
@@ -2521,19 +2640,36 @@ response.json()
 <small class="badge badge-black">POST</small>
  <b><code>api/discussions</code></b>
 </p>
+<p>
+<label id="auth-POSTapi-discussions" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-discussions" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>title</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="title" data-endpoint="POSTapi-discussions" data-component="body" required  hidden>
+<br>
+The Post Title</p>
+<p>
+<b><code>body</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="body" data-endpoint="POSTapi-discussions" data-component="body" required  hidden>
+<br>
+The body title</p>
+
 </form>
 
 
-## api/discussion/{id
+## Show Discussion Details
 
+<small class="badge badge-darkred">requires authentication</small>
 
-
+This endpoint returns the discussion details.
 
 > Example request:
 
 ```bash
 curl -X GET \
     -G "http://127.0.0.1:8000/api/discussion/{id" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2544,6 +2680,7 @@ const url = new URL(
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2561,6 +2698,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/discussion/{id'
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -2570,12 +2708,15 @@ response.json()
 ```
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
-{
-    "message": "Unauthenticated."
-}
+{}
+```
+> Example response (400):
+
+```json
+{}
 ```
 <div id="execution-results-GETapi-discussion--id" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-discussion--id"></span>:</blockquote>
@@ -2585,7 +2726,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-discussion--id"></code></pre>
 </div>
-<form id="form-GETapi-discussion--id" data-method="GET" data-path="api/discussion/{id" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-discussion--id', this);">
+<form id="form-GETapi-discussion--id" data-method="GET" data-path="api/discussion/{id" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-discussion--id', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-discussion--id" onclick="tryItOut('GETapi-discussion--id');">Try it out ⚡</button>
@@ -2596,6 +2737,15 @@ response.json()
 <small class="badge badge-green">GET</small>
  <b><code>api/discussion/{id</code></b>
 </p>
+<p>
+<label id="auth-GETapi-discussion--id" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-discussion--id" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="GETapi-discussion--id" data-component="url" required  hidden>
+<br>
+The id of the specified discussion</p>
 </form>
 
 

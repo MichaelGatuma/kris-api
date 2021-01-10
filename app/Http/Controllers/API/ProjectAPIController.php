@@ -239,6 +239,25 @@ class ProjectAPIController extends AppBaseController
         return $this->sendSuccess('Project deleted successfully');
     }
 
+    /**
+     * Request Private Research Project
+     *
+     * This endpoint lets a user request access to a private project.
+     * @authenticated
+     *
+     * @urlParam id integer required The id of the project
+     *
+     * @response status=200 {
+     *
+     * }
+     *
+     * @response status=400  {
+     *
+     * }
+     * @param $id
+     * @param  Request  $request
+     * @return
+     */
     public function requestAccess($id, Request $request)
     {
         $project_id = $id;
@@ -258,6 +277,25 @@ class ProjectAPIController extends AppBaseController
         }
     }
 
+    /**
+     * Grant access to a private project
+     *
+     * This endpoint lets a user(owner) grant access to a private project.
+     * @authenticated
+     *
+     * @urlParam id integer required The id of the project
+     *
+     * @response status=200 {
+     *
+     * }
+     *
+     * @response status=400  {
+     *
+     * }
+     * @param $id
+     * @param  Request  $request
+     * @return
+     */
     public function grantAccess($id, Request $request)
     {
         $request_id = $id;

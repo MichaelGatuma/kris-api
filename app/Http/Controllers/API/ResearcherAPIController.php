@@ -83,7 +83,20 @@ class ResearcherAPIController extends AppBaseController
 
         return $this->sendSuccess('Researcher deleted successfully');
     }
-
+    /**
+     * Show Researcher's Active Projects
+     *
+     * This endpoint return the active projects of the authentiated user.
+     * @authenticated
+     *
+     * @response status=200 {
+     *
+     * }
+     *
+     * @response status=400  {
+     *
+     * }
+     */
     public function activeProjects(Request $request)
     {
         $user = $request->user();

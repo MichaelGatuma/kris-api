@@ -7,18 +7,6 @@ use App\Http\Controllers\API\ResearcherAPIController;
 use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
-//Route::middleware('auth:sanctum')->group(function () {
-//    Route::get('user', function (Request $request) {
-//        return $request->user();
-//    });
-//
-//    Route::get('projects', function () {
-//        return response()->json(\App\Models\Researchproject::first());
-//    });
-//
-//});
-//Token or Login Route
-
 Route::post('user/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('user/login', [\App\Http\Controllers\AuthController::class, 'login']);
 Route::post('user/forgot-password-request', [\App\Http\Controllers\AuthController::class, 'forgotPasswordRequest']);

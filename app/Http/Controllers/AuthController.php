@@ -307,8 +307,8 @@ class AuthController extends Controller
      * @authenticated
      *
      * @response scenario=success {
-     * "success" => true,
-     * "message" => "Logged out Successfully."
+     * "success" : true,
+     * "message" : "Logged out Successfully."
      * }
      *
      */

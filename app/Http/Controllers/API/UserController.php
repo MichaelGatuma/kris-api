@@ -42,7 +42,7 @@ class UserController extends Controller
      * "message": "User details retrieved successfully"
      * }
      *
-     * @response status=400 scenario="Another user with this email exists" {
+     * @response status=400 {
      *
      * }
      */
@@ -79,7 +79,7 @@ class UserController extends Controller
      * Edit user Details
      *
      * This endpoint lets you edit the user details.
-     * @unauthenticated
+     * @authenticated
      *
      * @queryParam fields required Comma-separated list of fields to include in the response. Example: title,published_at,is_public
      *
@@ -88,7 +88,9 @@ class UserController extends Controller
      * @bodyParam email string required The email of the user. Example: john@kris.com.
      *
      * @response scenario=success {
-     *"success" => "true", "data" => $user, "message" => "Your profile has been updates successfully"
+     *"success" : "true",
+     * "data" : $user,
+     * "message" : "Your profile has been updates successfully"
      * }
      *
      */
@@ -129,12 +131,14 @@ class UserController extends Controller
      * Add user Image
      *
      * This endpoint lets you upload a user profile image.
-     * @unauthenticated
+     * @authenticated
      *
      * @bodyParam file file required The file object to be uploaded
      *
      * @response scenario=success {
-     *"success" => true, "data" => $user, "message" => "Profile Photo Updated successfully"
+     *"success" : true,
+     * "data" : $user,
+     * "message" : "Profile Photo Updated successfully"
      * }
      *
      */
@@ -256,8 +260,8 @@ class UserController extends Controller
      * @authenticated
      *
      * @response scenario=success {
-     * "success" => true,
-     * "message" => "Your account has been deleted successfully"
+     * "success" : true,
+     * "message" : "Your account has been deleted successfully"
      * }
      *
      * @response status=400 {
