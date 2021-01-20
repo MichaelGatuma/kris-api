@@ -12,7 +12,7 @@ Route::post('user/login', [\App\Http\Controllers\AuthController::class, 'login']
 Route::post('user/forgot-password-request', [\App\Http\Controllers\AuthController::class, 'forgotPasswordRequest']);
 //Route::post('user/reset-password', [\App\Http\Controllers\AuthController::class, 'resetPasswordByAuth']);
 
-Route::group(['middleware' => 'auth:api'], function () {
+Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::get('user', [UserController::class, 'details']);
     Route::post('user/reset-password', [\App\Http\Controllers\AuthController::class, 'resetPasswordByAuth']);
@@ -28,13 +28,13 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('publication/{id}/request', [PublicationAPIController::class, 'requestAccess']);
     Route::post('publication/{id}/grant', [PublicationAPIController::class, 'grantAccess']);
 
-    Route::get('projects', [PublicationAPIController::class, 'index']);
-    Route::get('project/{id}', [PublicationAPIController::class, 'show']);
+    Route::get('projects', [ProjectAPIController::class, 'index']);
+    Route::get('project/{id}', [ProjectAPIController::class, 'show']);
     Route::post('project/{id}/request', [ProjectAPIController::class, 'requestAccess']);
     Route::post('project/{id}/grant', [ProjectAPIController::class, 'grantAccess']);
 
-    Route::get('researchers', [PublicationAPIController::class, 'index']);
-    Route::get('researcher/{id}', [PublicationAPIController::class, 'show']);
+    Route::get('researchers', [ResearcherAPIController::class, 'index']);
+    Route::get('researcher/{id}', [ResearcherAPIController::class, 'show']);
     Route::get('researcher/activeProjects', [ResearcherAPIController::class, 'activeProjects']);
 
     Route::get('discussions', [PostAPIController::class, 'index']);

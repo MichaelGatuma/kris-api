@@ -25,9 +25,9 @@ class ProjectAPIController extends AppBaseController
     }
 
     /**
-     * Search Publications with pagination
+     * Search Projects with pagination
      *
-     * This endpoint return an archive of the publications.
+     * This endpoint return an archive of the projects.
      * @authenticated
      *
      * @queryParam perPage Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10
@@ -141,16 +141,16 @@ class ProjectAPIController extends AppBaseController
     public function index(Request $request)
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
-        $publications = Project::paginate($perPage);
+        $projects = Project::paginate($perPage);
         if ($request->has('search')) {
             $query = $request->search;
         }
 
         if ($request->has('recent')) {
-            $publications = Project::all()->sortBy('created_at')->take($request->has('limit') ? $request->limit : 10);
+            $projects = Project::all()->sortBy('created_at')->take($request->has('limit') ? $request->limit : 10);
         }
 
-        return $this->sendResponse($publications, 'Projects retrieved successfully');
+        return $this->sendResponse($projects, 'Projects retrieved successfully');
     }
 
     public function store(CreateProjectAPIRequest $request)
@@ -163,7 +163,7 @@ class ProjectAPIController extends AppBaseController
     }
 
     /**
-     * Show Publication Details
+     * Show Project Details
      *
      * This endpoint returns the details of the specified publication by id.
      * @authenticated
