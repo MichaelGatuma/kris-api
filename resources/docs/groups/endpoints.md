@@ -13,7 +13,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"excepturi","device_name":"Huawei STK-L21"}'
+    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"nostrum","device_name":"Huawei STK-L21"}'
 
 ```
 
@@ -31,7 +31,7 @@ let body = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "excepturi",
+    "password": "nostrum",
     "device_name": "Huawei STK-L21"
 }
 
@@ -51,7 +51,7 @@ payload = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "excepturi",
+    "password": "nostrum",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -157,7 +157,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"alias","password":"et","device_name":"Huawei STK-L21"}'
+    -d '{"email":"aliquid","password":"nam","device_name":"Huawei STK-L21"}'
 
 ```
 
@@ -172,8 +172,8 @@ let headers = {
 };
 
 let body = {
-    "email": "alias",
-    "password": "et",
+    "email": "aliquid",
+    "password": "nam",
     "device_name": "Huawei STK-L21"
 }
 
@@ -190,8 +190,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/login'
 payload = {
-    "email": "alias",
-    "password": "et",
+    "email": "aliquid",
+    "password": "nam",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -275,7 +275,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/forgot-password-request" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"repellendus"}'
+    -d '{"email":"dolorum"}'
 
 ```
 
@@ -290,7 +290,7 @@ let headers = {
 };
 
 let body = {
-    "email": "repellendus"
+    "email": "dolorum"
 }
 
 fetch(url, {
@@ -306,7 +306,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/forgot-password-request'
 payload = {
-    "email": "repellendus"
+    "email": "dolorum"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -484,7 +484,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"iure","password":"odio","current_password":"atque"}'
+    -d '{"email":"et","password":"accusamus","current_password":"harum"}'
 
 ```
 
@@ -500,9 +500,9 @@ let headers = {
 };
 
 let body = {
-    "email": "iure",
-    "password": "odio",
-    "current_password": "atque"
+    "email": "et",
+    "password": "accusamus",
+    "current_password": "harum"
 }
 
 fetch(url, {
@@ -518,9 +518,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/reset-password'
 payload = {
-    "email": "iure",
-    "password": "odio",
-    "current_password": "atque"
+    "email": "et",
+    "password": "accusamus",
+    "current_password": "harum"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -911,7 +911,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\USER\AppData\Local\Temp\php9313.tmp" 
+    -F "file=@C:\Users\USER\AppData\Local\Temp\phpC09A.tmp" 
 ```
 
 ```javascript
@@ -941,7 +941,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/profile-image'
 files = {
-  'file': open('C:\Users\USER\AppData\Local\Temp\php9313.tmp', 'rb')
+  'file': open('C:\Users\USER\AppData\Local\Temp\phpC09A.tmp', 'rb')
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1006,7 +1006,7 @@ This endpoint return an archive of the publications.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications?perPage=9&recent=13&limit=ab" \
+    -G "http://127.0.0.1:8000/api/publications?perPage=12&recent=12&limit=eos" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1018,9 +1018,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "9",
-    "recent": "13",
-    "limit": "ab",
+    "perPage": "12",
+    "recent": "12",
+    "limit": "eos",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1044,9 +1044,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/publications'
 params = {
-  'perPage': '9',
-  'recent': '13',
-  'limit': 'ab',
+  'perPage': '12',
+  'recent': '12',
+  'limit': 'eos',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1242,7 +1242,7 @@ This endpoint returns the details of the specified publication by id.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publication/14" \
+    -G "http://127.0.0.1:8000/api/publication/9" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1250,7 +1250,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/14"
+    "http://127.0.0.1:8000/api/publication/9"
 );
 
 let headers = {
@@ -1270,7 +1270,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/14'
+url = 'http://127.0.0.1:8000/api/publication/9'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1347,7 +1347,7 @@ This endpoint lets a user request access to a private publication.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/publication/15/request" \
+    "http://127.0.0.1:8000/api/publication/12/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1355,7 +1355,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/15/request"
+    "http://127.0.0.1:8000/api/publication/12/request"
 );
 
 let headers = {
@@ -1375,7 +1375,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/15/request'
+url = 'http://127.0.0.1:8000/api/publication/12/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1438,7 +1438,7 @@ This endpoint lets a user (publication owner) grant access to a requested privat
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/publication/3/grant" \
+    "http://127.0.0.1:8000/api/publication/9/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1446,7 +1446,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/3/grant"
+    "http://127.0.0.1:8000/api/publication/9/grant"
 );
 
 let headers = {
@@ -1466,7 +1466,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/3/grant'
+url = 'http://127.0.0.1:8000/api/publication/9/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1519,17 +1519,17 @@ The id of the publication</p>
 </form>
 
 
-## Search Publications with pagination
+## Search Projects with pagination
 
 <small class="badge badge-darkred">requires authentication</small>
 
-This endpoint return an archive of the publications.
+This endpoint return an archive of the projects.
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/projects?perPage=4&recent=11&limit=eligendi" \
+    -G "http://127.0.0.1:8000/api/projects?perPage=12&recent=2&limit=et" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1541,9 +1541,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "4",
-    "recent": "11",
-    "limit": "eligendi",
+    "perPage": "12",
+    "recent": "2",
+    "limit": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1567,9 +1567,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/projects'
 params = {
-  'perPage': '4',
-  'recent': '11',
-  'limit': 'eligendi',
+  'perPage': '12',
+  'recent': '2',
+  'limit': 'et',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1582,136 +1582,91 @@ response.json()
 ```
 
 
-> Example response (200, http://localhost:8000/api/publication?perPage=2):
+> Example response (200, success):
 
 ```json
+
 {
-    "success": true,
-    "data": {
-        "current_page": 1,
-        "data": [
-            {
-                "Publication_ID": 1,
-                "created_at": null,
-                "updated_at": null,
-                "UserID": 14,
-                "Researcher_ID": 13,
-                "PublicationTitle": "The Food Security Equation: What is the role of Gender and Social Amenities in this Paradigm? A\r\nFocus on rural households in Yala division, Siaya district, Kenya.",
-                "PublicationPath": null,
-                "DateOfPublication": "2014-12-08T00:00:00.000000Z",
-                "Collaborators": "Prof. Willis Oluoch-Kosura, Mr.Paswel Phiri Marenya",
-                "PublicationURL": "https:\/\/www.elsevier.com\/en-xm",
-                "Access_Level": null
-            },
-            {
-                "Publication_ID": 2,
-                "created_at": null,
-                "updated_at": null,
-                "UserID": 15,
-                "Researcher_ID": 14,
-                "PublicationTitle": "FOOD SECURITY IN SEMI-ARID AREAS: AN ANALYSIS OF SOCIO-ECONOMIC AND INSTITUTIONAL FACTORS WITH REFERENCE TO MAKUENI DISTRICT, EASTERN KENYA.",
-                "PublicationPath": null,
-                "DateOfPublication": "2008-12-09T00:00:00.000000Z",
-                "Collaborators": "DR. DOROTHY N. MUTISYA, DR. FRED MUGIVANE, Prof. George Kirhoda,",
-                "PublicationURL": "https:\/\/www.elsevier.com\/en-xm",
-                "Access_Level": null
-            }
-        ],
-        "first_page_url": "http:\/\/localhost:8000\/api\/publication?page=1",
-        "from": 1,
-        "last_page": 54,
-        "last_page_url": "http:\/\/localhost:8000\/api\/publication?page=54",
-        "links": [
-            {
-                "url": null,
-                "label": "&laquo; Previous",
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=1",
-                "label": 1,
-                "active": true
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=2",
-                "label": 2,
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=3",
-                "label": 3,
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=4",
-                "label": 4,
-                "active": false
-            },
-            {
-                "url": null,
-                "label": "...",
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=53",
-                "label": 53,
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=54",
-                "label": 54,
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=2",
-                "label": "Next &raquo;",
-                "active": false
-            }
-        ],
-        "next_page_url": "http:\/\/localhost:8000\/api\/publication?page=2",
-        "path": "http:\/\/localhost:8000\/api\/publication",
-        "per_page": "2",
-        "prev_page_url": null,
-        "to": 2,
-        "total": 107
-    },
-    "message": "Publications retrieved successfully"
+"success": true,
+"data": {
+"current_page": 1,
+"data": [
+{
+"created_at": null,
+"updated_at": null,
+"ProjectTitle": "A multi-level text clustering algorithm for retrieval of academic research data",
+"Project_ID": 1,
+"ProjectAbstract": "Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This \r\nleads to duplication of research, less opportunities for networking, and also contributes to scientific \r\nfraud. Efforts need to be made in order to make academic research data available and accessible\r\n. ",
+"Researcher_ID": 1,
+"User_ID": 2,
+"ProjectResearchAreas": "Information Retrieval",
+"ResearchersInvolved": "Damaris Waema, George Okeyo, Petronilla Muriithi",
+"Funded": true,
+"Funder_ID": 1,
+"Status": "Ongoing",
+"LinkToPublication": "http://www.jkuat.ac.ke",
+"Access_Level": "public",
+"projectStart": "2020-11-21",
+"projectEnd": "2020-11-21",
+"abstractDocumentPath": null,
+"otherProjectDocsPath": null,
+"RelevantProjectDocuments": null
+},
+],
+"first_page_url": "http://localhost:8000/api/project?page=1",
+"from": 1,
+"last_page": 50,
+"last_page_url": "http://localhost:8000/api/project?page=50",
+"links": [
+{
+"url": null,
+"label": "&laquo; Previous",
+"active": false
+},
+{
+"url": "http://localhost:8000/api/project?page=1",
+"label": 1,
+"active": true
+},
+{
+"url": "http://localhost:8000/api/project?page=2",
+"label": 2,
+"active": false
+},
+{
+"url": "http://localhost:8000/api/project?page=3",
+"label": 3,
+"active": false
+},
+{
+"url": null,
+"label": "...",
+"active": false
+},
+{
+"url": "http://localhost:8000/api/project?page=49",
+"label": 49,
+"active": false
+},
+{
+"url": "http://localhost:8000/api/project?page=50",
+"label": 50,
+"active": false
+},
+{
+"url": "http://localhost:8000/api/project?page=2",
+"label": "Next &raquo;",
+"active": false
 }
-```
-> Example response (200, http://localhost:8000/api/publication?recent&amp;limit=2):
-
-```json
-{
-    "success": true,
-    "data": {
-        "0": {
-            "Publication_ID": 1,
-            "created_at": null,
-            "updated_at": null,
-            "UserID": 14,
-            "Researcher_ID": 13,
-            "PublicationTitle": "The Food Security Equation: What is the role of Gender and Social Amenities in this Paradigm? A\r\nFocus on rural households in Yala division, Siaya district, Kenya.",
-            "PublicationPath": null,
-            "DateOfPublication": "2014-12-08T00:00:00.000000Z",
-            "Collaborators": "Prof. Willis Oluoch-Kosura, Mr.Paswel Phiri Marenya",
-            "PublicationURL": "https:\/\/www.elsevier.com\/en-xm",
-            "Access_Level": null
-        },
-        "39": {
-            "Publication_ID": 40,
-            "created_at": null,
-            "updated_at": null,
-            "UserID": 50,
-            "Researcher_ID": 49,
-            "PublicationTitle": "Corporate governance, accounting and finance: A review",
-            "PublicationPath": null,
-            "DateOfPublication": "2011-12-08T00:00:00.000000Z",
-            "Collaborators": "",
-            "PublicationURL": "https:\/\/www.elsevier.com\/en-xm",
-            "Access_Level": null
-        }
-    },
-    "message": "Publications retrieved successfully"
+],
+"next_page_url": "http://localhost:8000/api/project?page=2",
+"path": "http://localhost:8000/api/project",
+"per_page": "2",
+"prev_page_url": null,
+"to": 2,
+"total": 100
+},
+"message": "Projects retrieved successfully"
 }
 ```
 <div id="execution-results-GETapi-projects" hidden>
@@ -1755,17 +1710,17 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 </form>
 
 
-## Show Publication Details
+## Show Project Details
 
 <small class="badge badge-darkred">requires authentication</small>
 
-This endpoint returns the details of the specified publication by id.
+This endpoint returns the details of the specified project by id.
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/project/17" \
+    -G "http://127.0.0.1:8000/api/project/vero" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1773,7 +1728,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/17"
+    "http://127.0.0.1:8000/api/project/vero"
 );
 
 let headers = {
@@ -1793,7 +1748,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/17'
+url = 'http://127.0.0.1:8000/api/project/vero'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1813,19 +1768,27 @@ response.json()
 {
 "success": true,
 "data": {
-"Publication_ID": 1,
 "created_at": null,
 "updated_at": null,
-"UserID": 14,
-"Researcher_ID": 13,
-"PublicationTitle": "The Food Security Equation: What is the role of Gender and Social Amenities in this Paradigm? A\r\nFocus on rural households in Yala division, Siaya district, Kenya.",
-"PublicationPath": null,
-"DateOfPublication": "2014-12-08T00:00:00.000000Z",
-"Collaborators": "Prof. Willis Oluoch-Kosura, Mr.Paswel Phiri Marenya",
-"PublicationURL": "https://www.elsevier.com/en-xm",
-"Access_Level": null
+"ProjectTitle": "A multi-level text clustering algorithm for retrieval of academic research data",
+"Project_ID": 1,
+"ProjectAbstract": "Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This \r\nleads to duplication of research, less opportunities for networking, and also contributes to scientific \r\nfraud. Efforts need to be made in order to make academic research data available and accessible\r\n. ",
+"Researcher_ID": 1,
+"User_ID": 2,
+"ProjectResearchAreas": "Information Retrieval",
+"ResearchersInvolved": "Damaris Waema, George Okeyo, Petronilla Muriithi",
+"Funded": true,
+"Funder_ID": 1,
+"Status": "Ongoing",
+"LinkToPublication": "http://www.jkuat.ac.ke",
+"Access_Level": "public",
+"projectStart": "2020-11-21",
+"projectEnd": "2020-11-21",
+"abstractDocumentPath": null,
+"otherProjectDocsPath": null,
+"RelevantProjectDocuments": null
 },
-"message": "Publication retrieved successfully"
+"message": "Project retrieved successfully"
 }
 }
 ```
@@ -1853,10 +1816,10 @@ response.json()
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
-<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="id" data-endpoint="GETapi-project--id-" data-component="url" required  hidden>
+<b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="id" data-endpoint="GETapi-project--id-" data-component="url" required  hidden>
 <br>
-The id of the publication</p>
+</p>
 </form>
 
 
@@ -1870,7 +1833,7 @@ This endpoint lets a user request access to a private project.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/project/18/request" \
+    "http://127.0.0.1:8000/api/project/11/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1878,7 +1841,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/18/request"
+    "http://127.0.0.1:8000/api/project/11/request"
 );
 
 let headers = {
@@ -1898,7 +1861,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/18/request'
+url = 'http://127.0.0.1:8000/api/project/11/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1961,7 +1924,7 @@ This endpoint lets a user(owner) grant access to a private project.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/project/16/grant" \
+    "http://127.0.0.1:8000/api/project/9/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1969,7 +1932,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/16/grant"
+    "http://127.0.0.1:8000/api/project/9/grant"
 );
 
 let headers = {
@@ -1989,7 +1952,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/16/grant'
+url = 'http://127.0.0.1:8000/api/project/9/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2042,18 +2005,16 @@ The id of the project</p>
 </form>
 
 
-## Search Publications with pagination
+## api/researchers
 
-<small class="badge badge-darkred">requires authentication</small>
 
-This endpoint return an archive of the publications.
+
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researchers?perPage=17&recent=10&limit=ipsam" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -G "http://127.0.0.1:8000/api/researchers" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2063,16 +2024,7 @@ const url = new URL(
     "http://127.0.0.1:8000/api/researchers"
 );
 
-let params = {
-    "perPage": "17",
-    "recent": "10",
-    "limit": "ipsam",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2089,152 +2041,21 @@ import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/researchers'
-params = {
-  'perPage': '17',
-  'recent': '10',
-  'limit': 'ipsam',
-}
 headers = {
-  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-response = requests.request('GET', url, headers=headers, params=params)
+response = requests.request('GET', url, headers=headers)
 response.json()
 ```
 
 
-> Example response (200, http://localhost:8000/api/publication?perPage=2):
+> Example response (401):
 
 ```json
 {
-    "success": true,
-    "data": {
-        "current_page": 1,
-        "data": [
-            {
-                "Publication_ID": 1,
-                "created_at": null,
-                "updated_at": null,
-                "UserID": 14,
-                "Researcher_ID": 13,
-                "PublicationTitle": "The Food Security Equation: What is the role of Gender and Social Amenities in this Paradigm? A\r\nFocus on rural households in Yala division, Siaya district, Kenya.",
-                "PublicationPath": null,
-                "DateOfPublication": "2014-12-08T00:00:00.000000Z",
-                "Collaborators": "Prof. Willis Oluoch-Kosura, Mr.Paswel Phiri Marenya",
-                "PublicationURL": "https:\/\/www.elsevier.com\/en-xm",
-                "Access_Level": null
-            },
-            {
-                "Publication_ID": 2,
-                "created_at": null,
-                "updated_at": null,
-                "UserID": 15,
-                "Researcher_ID": 14,
-                "PublicationTitle": "FOOD SECURITY IN SEMI-ARID AREAS: AN ANALYSIS OF SOCIO-ECONOMIC AND INSTITUTIONAL FACTORS WITH REFERENCE TO MAKUENI DISTRICT, EASTERN KENYA.",
-                "PublicationPath": null,
-                "DateOfPublication": "2008-12-09T00:00:00.000000Z",
-                "Collaborators": "DR. DOROTHY N. MUTISYA, DR. FRED MUGIVANE, Prof. George Kirhoda,",
-                "PublicationURL": "https:\/\/www.elsevier.com\/en-xm",
-                "Access_Level": null
-            }
-        ],
-        "first_page_url": "http:\/\/localhost:8000\/api\/publication?page=1",
-        "from": 1,
-        "last_page": 54,
-        "last_page_url": "http:\/\/localhost:8000\/api\/publication?page=54",
-        "links": [
-            {
-                "url": null,
-                "label": "&laquo; Previous",
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=1",
-                "label": 1,
-                "active": true
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=2",
-                "label": 2,
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=3",
-                "label": 3,
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=4",
-                "label": 4,
-                "active": false
-            },
-            {
-                "url": null,
-                "label": "...",
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=53",
-                "label": 53,
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=54",
-                "label": 54,
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost:8000\/api\/publication?page=2",
-                "label": "Next &raquo;",
-                "active": false
-            }
-        ],
-        "next_page_url": "http:\/\/localhost:8000\/api\/publication?page=2",
-        "path": "http:\/\/localhost:8000\/api\/publication",
-        "per_page": "2",
-        "prev_page_url": null,
-        "to": 2,
-        "total": 107
-    },
-    "message": "Publications retrieved successfully"
-}
-```
-> Example response (200, http://localhost:8000/api/publication?recent&amp;limit=2):
-
-```json
-{
-    "success": true,
-    "data": {
-        "0": {
-            "Publication_ID": 1,
-            "created_at": null,
-            "updated_at": null,
-            "UserID": 14,
-            "Researcher_ID": 13,
-            "PublicationTitle": "The Food Security Equation: What is the role of Gender and Social Amenities in this Paradigm? A\r\nFocus on rural households in Yala division, Siaya district, Kenya.",
-            "PublicationPath": null,
-            "DateOfPublication": "2014-12-08T00:00:00.000000Z",
-            "Collaborators": "Prof. Willis Oluoch-Kosura, Mr.Paswel Phiri Marenya",
-            "PublicationURL": "https:\/\/www.elsevier.com\/en-xm",
-            "Access_Level": null
-        },
-        "39": {
-            "Publication_ID": 40,
-            "created_at": null,
-            "updated_at": null,
-            "UserID": 50,
-            "Researcher_ID": 49,
-            "PublicationTitle": "Corporate governance, accounting and finance: A review",
-            "PublicationPath": null,
-            "DateOfPublication": "2011-12-08T00:00:00.000000Z",
-            "Collaborators": "",
-            "PublicationURL": "https:\/\/www.elsevier.com\/en-xm",
-            "Access_Level": null
-        }
-    },
-    "message": "Publications retrieved successfully"
+    "message": "Unauthenticated."
 }
 ```
 <div id="execution-results-GETapi-researchers" hidden>
@@ -2245,7 +2066,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-researchers"></code></pre>
 </div>
-<form id="form-GETapi-researchers" data-method="GET" data-path="api/researchers" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researchers', this);">
+<form id="form-GETapi-researchers" data-method="GET" data-path="api/researchers" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researchers', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-researchers" onclick="tryItOut('GETapi-researchers');">Try it out ⚡</button>
@@ -2256,51 +2077,29 @@ response.json()
 <small class="badge badge-green">GET</small>
  <b><code>api/researchers</code></b>
 </p>
-<p>
-<label id="auth-GETapi-researchers" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-researchers" data-component="header"></label>
-</p>
-<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-<p>
-<b><code>perPage</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="perPage" data-endpoint="GETapi-researchers" data-component="query"  hidden>
-<br>
-Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10</p>
-<p>
-<b><code>recent</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="recent" data-endpoint="GETapi-researchers" data-component="query"  hidden>
-<br>
-Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides 'perPage') Default: 10</p>
-<p>
-<b><code>limit</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="limit" data-endpoint="GETapi-researchers" data-component="query"  hidden>
-<br>
-Specify the limit of entries to return. Must be used together with 'recent' If not specified, the default entries will be returned. Default: 10</p>
 </form>
 
 
-## Show Publication Details
+## api/researcher/{id}
 
-<small class="badge badge-darkred">requires authentication</small>
 
-This endpoint returns the details of the specified publication by id.
+
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researcher/3" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -G "http://127.0.0.1:8000/api/researcher/expedita" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/researcher/3"
+    "http://127.0.0.1:8000/api/researcher/expedita"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2316,9 +2115,8 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/researcher/3'
+url = 'http://127.0.0.1:8000/api/researcher/expedita'
 headers = {
-  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -2328,28 +2126,11 @@ response.json()
 ```
 
 
-> Example response (200, success):
+> Example response (401):
 
 ```json
-
 {
-{
-"success": true,
-"data": {
-"Publication_ID": 1,
-"created_at": null,
-"updated_at": null,
-"UserID": 14,
-"Researcher_ID": 13,
-"PublicationTitle": "The Food Security Equation: What is the role of Gender and Social Amenities in this Paradigm? A\r\nFocus on rural households in Yala division, Siaya district, Kenya.",
-"PublicationPath": null,
-"DateOfPublication": "2014-12-08T00:00:00.000000Z",
-"Collaborators": "Prof. Willis Oluoch-Kosura, Mr.Paswel Phiri Marenya",
-"PublicationURL": "https://www.elsevier.com/en-xm",
-"Access_Level": null
-},
-"message": "Publication retrieved successfully"
-}
+    "message": "Unauthenticated."
 }
 ```
 <div id="execution-results-GETapi-researcher--id-" hidden>
@@ -2360,7 +2141,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-researcher--id-"></code></pre>
 </div>
-<form id="form-GETapi-researcher--id-" data-method="GET" data-path="api/researcher/{id}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researcher--id-', this);">
+<form id="form-GETapi-researcher--id-" data-method="GET" data-path="api/researcher/{id}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researcher--id-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-researcher--id-" onclick="tryItOut('GETapi-researcher--id-');">Try it out ⚡</button>
@@ -2371,15 +2152,12 @@ response.json()
 <small class="badge badge-green">GET</small>
  <b><code>api/researcher/{id}</code></b>
 </p>
-<p>
-<label id="auth-GETapi-researcher--id-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-researcher--id-" data-component="header"></label>
-</p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
-<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="id" data-endpoint="GETapi-researcher--id-" data-component="url" required  hidden>
+<b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="id" data-endpoint="GETapi-researcher--id-" data-component="url" required  hidden>
 <br>
-The id of the publication</p>
+</p>
 </form>
 
 
@@ -2564,7 +2342,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"title":"dolor","body":"labore"}'
+    -d '{"title":"dolorem","body":"aspernatur"}'
 
 ```
 
@@ -2580,8 +2358,8 @@ let headers = {
 };
 
 let body = {
-    "title": "dolor",
-    "body": "labore"
+    "title": "dolorem",
+    "body": "aspernatur"
 }
 
 fetch(url, {
@@ -2597,8 +2375,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/discussions'
 payload = {
-    "title": "dolor",
-    "body": "labore"
+    "title": "dolorem",
+    "body": "aspernatur"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
