@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Fundingopportunity extends Model
 {
-    protected $table = 'fundingopportunities';
+    protected $table = 'FundingOpportunities';
     protected $primaryKey = 'FundingOpportunity_ID';
 
     protected $casts = [

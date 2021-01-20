@@ -29,7 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Department extends Model
 {
-    protected $table = 'departments';
+    protected $table = 'Departments';
     protected $primaryKey = 'Department_ID';
 
     protected $casts = [

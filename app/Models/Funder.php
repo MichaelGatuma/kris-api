@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Funder extends Model
 {
-    protected $table = 'funders';
+    protected $table = 'Funders';
     protected $primaryKey = 'Funder_ID';
 
     protected $fillable = [

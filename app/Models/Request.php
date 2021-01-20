@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Request extends Model
 {
-    protected $table = 'requests';
+    protected $table = 'Requests';
     protected $primaryKey = 'Request_ID';
 
     protected $casts = [

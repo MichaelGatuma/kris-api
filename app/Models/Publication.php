@@ -30,7 +30,7 @@ class Publication extends Model
         'PublicationURL' => 'required|string|max:250',
         'Access_Level' => 'nullable|string|max:30'
     ];
-    public $table = 'publications';
+    public $table = 'Publications';
     public $fillable = [
         'UserID',
         'Researcher_ID',

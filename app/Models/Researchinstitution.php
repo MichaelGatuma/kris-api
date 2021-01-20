@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Researchinstitution extends Model
 {
-    protected $table = 'researchinstitutions';
+    protected $table = 'researchInstitutions';
     protected $primaryKey = 'ResearchInstitution_ID';
 
     protected $fillable = [

@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class UpcomingeventsKtbl extends Model
 {
-    protected $table = 'upcomingevents_ktbl';
+    protected $table = 'UpcomingEvents_KTbl';
     protected $primaryKey = 'UpcomingEvent_ID';
 
     protected $dates = [

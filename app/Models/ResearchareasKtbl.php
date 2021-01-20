@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ResearchareasKtbl extends Model
 {
-    protected $table = 'researchareas_ktbl';
+    protected $table = 'ResearchAreas_KTbl';
     protected $primaryKey = 'ResearchArea_ID';
 
     protected $fillable = [
