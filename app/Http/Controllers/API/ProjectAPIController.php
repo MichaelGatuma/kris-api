@@ -59,27 +59,6 @@ class ProjectAPIController extends AppBaseController
      * "otherProjectDocsPath": null,
      * "RelevantProjectDocuments": null
      * },
-     * {
-     * "created_at": null,
-     * "updated_at": null,
-     * "ProjectTitle": "A multi-level text clustering algorithm for retrieval of academic research data",
-     * "Project_ID": 2,
-     * "ProjectAbstract": "Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This leads to duplication of research, less opportunities for networking, and also contributes to scientific fraud. Efforts need to be made in order to make academic research data available and accessible. ",
-     * "Researcher_ID": 1,
-     * "User_ID": 2,
-     * "ProjectResearchAreas": "Artificial Intelligence",
-     * "ResearchersInvolved": "Damaris Waema, George Okeyo, Petronilla Muriithi",
-     * "Funded": true,
-     * "Funder_ID": 1,
-     * "Status": "Ongoing",
-     * "LinkToPublication": "http://www.jkuat.ac.ke",
-     * "Access_Level": "public",
-     * "projectStart": "2020-11-21",
-     * "projectEnd": "2020-11-21",
-     * "abstractDocumentPath": null,
-     * "otherProjectDocsPath": null,
-     * "RelevantProjectDocuments": null
-     * }
      * ],
      * "first_page_url": "http://localhost:8000/api/project?page=1",
      * "from": 1,
@@ -164,7 +143,7 @@ class ProjectAPIController extends AppBaseController
     /**
      * Show Project Details
      *
-     * This endpoint returns the details of the specified publication by id.
+     * This endpoint returns the details of the specified project by id.
      * @authenticated
      *
      * @response scenario=success {
