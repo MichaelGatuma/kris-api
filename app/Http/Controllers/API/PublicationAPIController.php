@@ -181,7 +181,7 @@ class PublicationAPIController extends AppBaseController
         }
 
         if ($request->has('recent')) {
-            $publications = Publication::all()->sortBy('created_at')->take($request->has('limit') ? $request->limit : 10);
+            $publications=Publication::all()->sortByDesc('created_at')->take($request->has('limit') ? $request->limit : 10)->values();
         }
 
         return $this->sendResponse($publications, 'Publications retrieved successfully');

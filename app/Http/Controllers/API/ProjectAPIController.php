@@ -125,7 +125,7 @@ class ProjectAPIController extends AppBaseController
         }
 
         if ($request->has('recent')) {
-            $projects = Project::all()->sortBy('created_at')->take($request->has('limit') ? $request->limit : 10);
+            $projects = Project::all()->sortByDesc('created_at')->take($request->has('limit') ? $request->limit : 10)->values();
         }
 
         return $this->sendResponse($projects, 'Projects retrieved successfully');
