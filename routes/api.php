@@ -5,7 +5,18 @@ use App\Http\Controllers\API\ProjectAPIController;
 use App\Http\Controllers\API\PublicationAPIController;
 use App\Http\Controllers\API\ResearcherAPIController;
 use App\Http\Controllers\API\UserController;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
+
+//todo: dropdown population
+
+
+//research areas
+//research institutions
+//department
+//funder
+
+//todo: project search criteria
 
 Route::post('user/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('user/login', [\App\Http\Controllers\AuthController::class, 'login']);

@@ -28,7 +28,7 @@ class ResearcherAPIController extends AppBaseController
     public function index(Request $request)
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
-        $researchers = Researcher::paginate($perPage);
+        $researchers = Researcher::with(['user','department','department.researchinstitution'])->paginate($perPage);
 
         return $this->sendResponse($researchers, 'Researchers retrieved successfully');
     }

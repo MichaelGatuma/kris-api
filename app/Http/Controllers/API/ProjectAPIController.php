@@ -119,13 +119,13 @@ class ProjectAPIController extends AppBaseController
     public function index(Request $request)
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
-        $projects = Project::paginate($perPage);
+        $projects=Project::with(['researcher','researcher.user','researcher.department','researcher.department.researchinstitution'])->paginate($perPage);
         if ($request->has('search')) {
             $query = $request->search;
         }
 
         if ($request->has('recent')) {
-            $projects = Project::all()->sortByDesc('created_at')->take($request->has('limit') ? $request->limit : 10)->values();
+            $projects = Project::with(['researcher','researcher.user','researcher.department','researcher.department.researchinstitution'])->orderBy('created_at','desc')->take($request->has('limit') ? $request->limit : 10)->get();
         }
 
         return $this->sendResponse($projects, 'Projects retrieved successfully');

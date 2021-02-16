@@ -175,13 +175,13 @@ class PublicationAPIController extends AppBaseController
 //            }
 //        }
         $perPage = $request->has('perPage') ? $request->perPage : 10;
-        $publications = Publication::paginate($perPage);
+        $publications = Publication::with(['researcher','researcher.user','researcher.department','researcher.department.researchinstitution'])->paginate($perPage);
         if ($request->has('search')) {
             $query = $request->search;
         }
 
         if ($request->has('recent')) {
-            $publications=Publication::all()->sortByDesc('created_at')->take($request->has('limit') ? $request->limit : 10)->values();
+            $publications=Publication::with(['researcher','researcher.user','researcher.department','researcher.department.researchinstitution'])->orderBy('created_at','Desc')->take($request->has('limit') ? $request->limit : 10);
         }
 
         return $this->sendResponse($publications, 'Publications retrieved successfully');

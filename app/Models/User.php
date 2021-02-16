@@ -77,6 +77,10 @@ class User extends Authenticatable
         'password',
         'two_factor_secret',
         'remember_token',
+        'api_token',
+        'two_factor_recovery_codes',
+        'isAdmin',
+        'profile_photo_path'
     ];
 
     /**
