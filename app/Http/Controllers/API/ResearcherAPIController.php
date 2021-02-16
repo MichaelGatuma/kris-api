@@ -86,7 +86,7 @@ class ResearcherAPIController extends AppBaseController
     /**
      * Show Researcher's Active Projects
      *
-     * This endpoint return the active projects of the authentiated user.
+     * This endpoint return the active projects of the authenticated user.
      * @authenticated
      *
      * @response status=200 {

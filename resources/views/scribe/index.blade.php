@@ -45,7 +45,7 @@
                             <li><!--<a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a>--></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: January 20 2021</li>
+            <li>Last updated: February 16 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -65,7 +65,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://127.0.0.1:8000</code></pre><h1>Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Endpoints</h1>
 <h2>Register user</h2>
@@ -77,7 +77,7 @@ You can switch the language used with the tabs at the top right (or from the nav
     "http://127.0.0.1:8000/api/user/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"nostrum","device_name":"Huawei STK-L21"}'
+    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"molestiae","device_name":"Huawei STK-L21"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/register"
@@ -92,7 +92,7 @@ let body = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "nostrum",
+    "password": "molestiae",
     "device_name": "Huawei STK-L21"
 }
 
@@ -109,7 +109,7 @@ payload = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "nostrum",
+    "password": "molestiae",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -205,7 +205,7 @@ The name of the request source device.</p>
     "http://127.0.0.1:8000/api/user/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"aliquid","password":"nam","device_name":"Huawei STK-L21"}'
+    -d '{"email":"tempore","password":"ut","device_name":"Huawei STK-L21"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/login"
@@ -217,8 +217,8 @@ let headers = {
 };
 
 let body = {
-    "email": "aliquid",
-    "password": "nam",
+    "email": "tempore",
+    "password": "ut",
     "device_name": "Huawei STK-L21"
 }
 
@@ -232,8 +232,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/login'
 payload = {
-    "email": "aliquid",
-    "password": "nam",
+    "email": "tempore",
+    "password": "ut",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -307,7 +307,7 @@ The name of the request source device.</p>
     "http://127.0.0.1:8000/api/user/forgot-password-request" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"dolorum"}'
+    -d '{"email":"aut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/forgot-password-request"
@@ -319,7 +319,7 @@ let headers = {
 };
 
 let body = {
-    "email": "dolorum"
+    "email": "aut"
 }
 
 fetch(url, {
@@ -332,7 +332,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/forgot-password-request'
 payload = {
-    "email": "dolorum"
+    "email": "aut"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -483,7 +483,7 @@ response.json()</code></pre>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"et","password":"accusamus","current_password":"harum"}'
+    -d '{"email":"sequi","password":"ea","current_password":"consequatur"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/reset-password"
@@ -496,9 +496,9 @@ let headers = {
 };
 
 let body = {
-    "email": "et",
-    "password": "accusamus",
-    "current_password": "harum"
+    "email": "sequi",
+    "password": "ea",
+    "current_password": "consequatur"
 }
 
 fetch(url, {
@@ -511,9 +511,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/reset-password'
 payload = {
-    "email": "et",
-    "password": "accusamus",
-    "current_password": "harum"
+    "email": "sequi",
+    "password": "ea",
+    "current_password": "consequatur"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -846,7 +846,7 @@ The email of the user.</p>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\USER\AppData\Local\Temp\phpC09A.tmp" </code></pre>
+    -F "file=@C:\Users\USER\AppData\Local\Temp\php6909.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/profile-image"
 );
@@ -870,7 +870,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/profile-image'
 files = {
-  'file': open('C:\Users\USER\AppData\Local\Temp\phpC09A.tmp', 'rb')
+  'file': open('C:\Users\USER\AppData\Local\Temp\php6909.tmp', 'rb')
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -926,7 +926,7 @@ The file object to be uploaded</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications?perPage=12&amp;recent=12&amp;limit=eos" \
+    -G "http://127.0.0.1:8000/api/publications?perPage=6&amp;recent=16&amp;limit=omnis" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -935,9 +935,9 @@ The file object to be uploaded</p>
 );
 
 let params = {
-    "perPage": "12",
-    "recent": "12",
-    "limit": "eos",
+    "perPage": "6",
+    "recent": "16",
+    "limit": "omnis",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -957,9 +957,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/publications'
 params = {
-  'perPage': '12',
-  'recent': '12',
-  'limit': 'eos',
+  'perPage': '6',
+  'recent': '16',
+  'limit': 'omnis',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1145,12 +1145,12 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/publication/9" \
+    -G "http://127.0.0.1:8000/api/publication/11" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/publication/9"
+    "http://127.0.0.1:8000/api/publication/11"
 );
 
 let headers = {
@@ -1166,7 +1166,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/9'
+url = 'http://127.0.0.1:8000/api/publication/11'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1234,12 +1234,12 @@ The id of the publication</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://127.0.0.1:8000/api/publication/12/request" \
+    "http://127.0.0.1:8000/api/publication/9/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/publication/12/request"
+    "http://127.0.0.1:8000/api/publication/9/request"
 );
 
 let headers = {
@@ -1255,7 +1255,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/12/request'
+url = 'http://127.0.0.1:8000/api/publication/9/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1308,12 +1308,12 @@ The id of the publication</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://127.0.0.1:8000/api/publication/9/grant" \
+    "http://127.0.0.1:8000/api/publication/19/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/publication/9/grant"
+    "http://127.0.0.1:8000/api/publication/19/grant"
 );
 
 let headers = {
@@ -1329,7 +1329,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/9/grant'
+url = 'http://127.0.0.1:8000/api/publication/19/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1382,7 +1382,7 @@ The id of the publication</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/projects?perPage=12&amp;recent=2&amp;limit=et" \
+    -G "http://127.0.0.1:8000/api/projects?perPage=2&amp;recent=17&amp;limit=non" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -1391,9 +1391,9 @@ The id of the publication</p>
 );
 
 let params = {
-    "perPage": "12",
-    "recent": "2",
-    "limit": "et",
+    "perPage": "2",
+    "recent": "17",
+    "limit": "non",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1413,9 +1413,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/projects'
 params = {
-  'perPage': '12',
-  'recent': '2',
-  'limit': 'et',
+  'perPage': '2',
+  'recent': '17',
+  'limit': 'non',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1557,12 +1557,12 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/project/vero" \
+    -G "http://127.0.0.1:8000/api/project/id" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/project/vero"
+    "http://127.0.0.1:8000/api/project/id"
 );
 
 let headers = {
@@ -1578,7 +1578,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/vero'
+url = 'http://127.0.0.1:8000/api/project/id'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1654,12 +1654,12 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://127.0.0.1:8000/api/project/11/request" \
+    "http://127.0.0.1:8000/api/project/9/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/project/11/request"
+    "http://127.0.0.1:8000/api/project/9/request"
 );
 
 let headers = {
@@ -1675,7 +1675,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/11/request'
+url = 'http://127.0.0.1:8000/api/project/9/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1728,12 +1728,12 @@ The id of the project</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://127.0.0.1:8000/api/project/9/grant" \
+    "http://127.0.0.1:8000/api/project/2/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/project/9/grant"
+    "http://127.0.0.1:8000/api/project/2/grant"
 );
 
 let headers = {
@@ -1749,7 +1749,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/9/grant'
+url = 'http://127.0.0.1:8000/api/project/2/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1858,11 +1858,11 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/researcher/expedita" \
+    -G "http://127.0.0.1:8000/api/researcher/ipsum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/researcher/expedita"
+    "http://127.0.0.1:8000/api/researcher/ipsum"
 );
 
 let headers = {
@@ -1877,7 +1877,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/researcher/expedita'
+url = 'http://127.0.0.1:8000/api/researcher/ipsum'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -1919,7 +1919,7 @@ response.json()</code></pre>
 </form>
 <h2>Show Researcher&#039;s Active Projects</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
-<p>This endpoint return the active projects of the authentiated user.</p>
+<p>This endpoint return the active projects of the authenticated user.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2062,7 +2062,7 @@ response.json()</code></pre>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"title":"dolorem","body":"aspernatur"}'
+    -d '{"title":"maiores","body":"eaque"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/discussions"
@@ -2075,8 +2075,8 @@ let headers = {
 };
 
 let body = {
-    "title": "dolorem",
-    "body": "aspernatur"
+    "title": "maiores",
+    "body": "eaque"
 }
 
 fetch(url, {
@@ -2089,8 +2089,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/discussions'
 payload = {
-    "title": "dolorem",
-    "body": "aspernatur"
+    "title": "maiores",
+    "body": "eaque"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',

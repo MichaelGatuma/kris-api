@@ -13,7 +13,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"nostrum","device_name":"Huawei STK-L21"}'
+    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"molestiae","device_name":"Huawei STK-L21"}'
 
 ```
 
@@ -31,7 +31,7 @@ let body = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "nostrum",
+    "password": "molestiae",
     "device_name": "Huawei STK-L21"
 }
 
@@ -51,7 +51,7 @@ payload = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "nostrum",
+    "password": "molestiae",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -157,7 +157,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"aliquid","password":"nam","device_name":"Huawei STK-L21"}'
+    -d '{"email":"tempore","password":"ut","device_name":"Huawei STK-L21"}'
 
 ```
 
@@ -172,8 +172,8 @@ let headers = {
 };
 
 let body = {
-    "email": "aliquid",
-    "password": "nam",
+    "email": "tempore",
+    "password": "ut",
     "device_name": "Huawei STK-L21"
 }
 
@@ -190,8 +190,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/login'
 payload = {
-    "email": "aliquid",
-    "password": "nam",
+    "email": "tempore",
+    "password": "ut",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -275,7 +275,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/forgot-password-request" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"dolorum"}'
+    -d '{"email":"aut"}'
 
 ```
 
@@ -290,7 +290,7 @@ let headers = {
 };
 
 let body = {
-    "email": "dolorum"
+    "email": "aut"
 }
 
 fetch(url, {
@@ -306,7 +306,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/forgot-password-request'
 payload = {
-    "email": "dolorum"
+    "email": "aut"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -484,7 +484,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"et","password":"accusamus","current_password":"harum"}'
+    -d '{"email":"sequi","password":"ea","current_password":"consequatur"}'
 
 ```
 
@@ -500,9 +500,9 @@ let headers = {
 };
 
 let body = {
-    "email": "et",
-    "password": "accusamus",
-    "current_password": "harum"
+    "email": "sequi",
+    "password": "ea",
+    "current_password": "consequatur"
 }
 
 fetch(url, {
@@ -518,9 +518,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/reset-password'
 payload = {
-    "email": "et",
-    "password": "accusamus",
-    "current_password": "harum"
+    "email": "sequi",
+    "password": "ea",
+    "current_password": "consequatur"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -911,7 +911,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\USER\AppData\Local\Temp\phpC09A.tmp" 
+    -F "file=@C:\Users\USER\AppData\Local\Temp\php6909.tmp" 
 ```
 
 ```javascript
@@ -941,7 +941,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/profile-image'
 files = {
-  'file': open('C:\Users\USER\AppData\Local\Temp\phpC09A.tmp', 'rb')
+  'file': open('C:\Users\USER\AppData\Local\Temp\php6909.tmp', 'rb')
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1006,7 +1006,7 @@ This endpoint return an archive of the publications.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications?perPage=12&recent=12&limit=eos" \
+    -G "http://127.0.0.1:8000/api/publications?perPage=6&recent=16&limit=omnis" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1018,9 +1018,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "12",
-    "recent": "12",
-    "limit": "eos",
+    "perPage": "6",
+    "recent": "16",
+    "limit": "omnis",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1044,9 +1044,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/publications'
 params = {
-  'perPage': '12',
-  'recent': '12',
-  'limit': 'eos',
+  'perPage': '6',
+  'recent': '16',
+  'limit': 'omnis',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1242,7 +1242,7 @@ This endpoint returns the details of the specified publication by id.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publication/9" \
+    -G "http://127.0.0.1:8000/api/publication/11" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1250,7 +1250,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/9"
+    "http://127.0.0.1:8000/api/publication/11"
 );
 
 let headers = {
@@ -1270,7 +1270,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/9'
+url = 'http://127.0.0.1:8000/api/publication/11'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1347,7 +1347,7 @@ This endpoint lets a user request access to a private publication.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/publication/12/request" \
+    "http://127.0.0.1:8000/api/publication/9/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1355,7 +1355,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/12/request"
+    "http://127.0.0.1:8000/api/publication/9/request"
 );
 
 let headers = {
@@ -1375,7 +1375,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/12/request'
+url = 'http://127.0.0.1:8000/api/publication/9/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1438,7 +1438,7 @@ This endpoint lets a user (publication owner) grant access to a requested privat
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/publication/9/grant" \
+    "http://127.0.0.1:8000/api/publication/19/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1446,7 +1446,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/9/grant"
+    "http://127.0.0.1:8000/api/publication/19/grant"
 );
 
 let headers = {
@@ -1466,7 +1466,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/9/grant'
+url = 'http://127.0.0.1:8000/api/publication/19/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1529,7 +1529,7 @@ This endpoint return an archive of the projects.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/projects?perPage=12&recent=2&limit=et" \
+    -G "http://127.0.0.1:8000/api/projects?perPage=2&recent=17&limit=non" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1541,9 +1541,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "12",
-    "recent": "2",
-    "limit": "et",
+    "perPage": "2",
+    "recent": "17",
+    "limit": "non",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1567,9 +1567,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/projects'
 params = {
-  'perPage': '12',
-  'recent': '2',
-  'limit': 'et',
+  'perPage': '2',
+  'recent': '17',
+  'limit': 'non',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1720,7 +1720,7 @@ This endpoint returns the details of the specified project by id.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/project/vero" \
+    -G "http://127.0.0.1:8000/api/project/id" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1728,7 +1728,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/vero"
+    "http://127.0.0.1:8000/api/project/id"
 );
 
 let headers = {
@@ -1748,7 +1748,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/vero'
+url = 'http://127.0.0.1:8000/api/project/id'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1833,7 +1833,7 @@ This endpoint lets a user request access to a private project.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/project/11/request" \
+    "http://127.0.0.1:8000/api/project/9/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1841,7 +1841,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/11/request"
+    "http://127.0.0.1:8000/api/project/9/request"
 );
 
 let headers = {
@@ -1861,7 +1861,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/11/request'
+url = 'http://127.0.0.1:8000/api/project/9/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1924,7 +1924,7 @@ This endpoint lets a user(owner) grant access to a private project.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/project/9/grant" \
+    "http://127.0.0.1:8000/api/project/2/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -1932,7 +1932,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/9/grant"
+    "http://127.0.0.1:8000/api/project/2/grant"
 );
 
 let headers = {
@@ -1952,7 +1952,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/9/grant'
+url = 'http://127.0.0.1:8000/api/project/2/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2089,14 +2089,14 @@ response.json()
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researcher/expedita" \
+    -G "http://127.0.0.1:8000/api/researcher/ipsum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/researcher/expedita"
+    "http://127.0.0.1:8000/api/researcher/ipsum"
 );
 
 let headers = {
@@ -2115,7 +2115,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/researcher/expedita'
+url = 'http://127.0.0.1:8000/api/researcher/ipsum'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -2165,7 +2165,7 @@ response.json()
 
 <small class="badge badge-darkred">requires authentication</small>
 
-This endpoint return the active projects of the authentiated user.
+This endpoint return the active projects of the authenticated user.
 
 > Example request:
 
@@ -2342,7 +2342,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"title":"dolorem","body":"aspernatur"}'
+    -d '{"title":"maiores","body":"eaque"}'
 
 ```
 
@@ -2358,8 +2358,8 @@ let headers = {
 };
 
 let body = {
-    "title": "dolorem",
-    "body": "aspernatur"
+    "title": "maiores",
+    "body": "eaque"
 }
 
 fetch(url, {
@@ -2375,8 +2375,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/discussions'
 payload = {
-    "title": "dolorem",
-    "body": "aspernatur"
+    "title": "maiores",
+    "body": "eaque"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',

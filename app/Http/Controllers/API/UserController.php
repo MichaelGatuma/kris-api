@@ -9,9 +9,12 @@ use App\Models\User;
 use App\Models\VerifyUser;
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
+use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -163,15 +166,17 @@ class UserController extends Controller
             return response()->json([
                 "success" => false,
                 "error" => $error,
-                "message" => "Unable to validate"
+                "message" => "Unable to validate image"
             ], 400);
         }
 
         try {
             $file = $request->file('file');
             //store
-            $path = $file->storeAs('ProfilePictures', $user->email);
-            $user->profPic = 'storage/'.$path.'.'.$file->extension();
+            $path=Storage::disk('api')->put('ProfilePictures', $file);
+            $profPicPath = str_replace("public/", "", $path);
+//            $path = $file->storeAs('ProfilePictures', $user->email);
+            $user->profPic = 'storage/'.$profPicPath;
             $user->save();
             return response()->json([
                 "success" => true, "data" => $user, "message" => "Profile Photo Updated successfully"
@@ -181,6 +186,7 @@ class UserController extends Controller
             return response()->json(["success" => false, $exception], 400);
         }
     }
+
 
     public function revokeAllTokens(Request $request)
     {
