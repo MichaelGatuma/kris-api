@@ -189,6 +189,9 @@ class UserController extends Controller
     public function getUserImage(Request $request)
     {
         $user = $request->user();
+        if ($request->has('user_id')) {
+            $user = User::find($request->get('user_id'));
+        }
         return URL::asset($user->profPic);
     }
 
