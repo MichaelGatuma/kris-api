@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('user/delete-account', [UserController::class, 'deleteAccount']);
     Route::post('user/profile-details', [UserController::class, 'edit']);
     Route::post('user/profile-image', [UserController::class, 'addUserImage']);
+    Route::get('user/profile-image', [UserController::class, 'getUserImage']);
 //    Route::post('user/logout-other-devices', [UserController::class, 'revokeAllTokens']);
 //    Route::post('user/toggle-2fa', [UserController::class, 'toggle2fa']);
 

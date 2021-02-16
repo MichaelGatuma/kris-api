@@ -9,12 +9,10 @@ use App\Models\User;
 use App\Models\VerifyUser;
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
-use Illuminate\Encryption\Encrypter;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -173,7 +171,7 @@ class UserController extends Controller
         try {
             $file = $request->file('file');
             //store
-            $path=Storage::disk('api')->put('ProfilePictures', $file);
+            $path = Storage::put('ProfilePictures', $file);
             $profPicPath = str_replace("public/", "", $path);
 //            $path = $file->storeAs('ProfilePictures', $user->email);
             $user->profPic = 'storage/'.$profPicPath;
@@ -185,6 +183,13 @@ class UserController extends Controller
         } catch (QueryException $exception) {
             return response()->json(["success" => false, $exception], 400);
         }
+    }
+
+
+    public function getUserImage(Request $request)
+    {
+        $user = $request->user();
+        return URL::asset($user->profPic);
     }
 
 
