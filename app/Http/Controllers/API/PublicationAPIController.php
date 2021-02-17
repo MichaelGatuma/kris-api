@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\CreatePublicationAPIRequest;
 use App\Http\Requests\API\UpdatePublicationAPIRequest;
-use App\Models\Project;
 use App\Models\Publication;
 use App\Repositories\PublicationRepository;
 use Illuminate\Http\Request;
@@ -25,6 +24,7 @@ class PublicationAPIController extends AppBaseController
     }
 
     /**
+     * @group Publication Endpoints
      * Search Publications with pagination
      *
      * This endpoint return an archive of the publications.
@@ -162,27 +162,18 @@ class PublicationAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $publications = collect([]);
-//        if ($request->has('view')) {
-//            if ($request->view === Publication::VIEW_SUMMARY) {
-//                $summary = $this->publicationRepository->summary();
-//                $publications = PublicationResource::collection($publications)->additional(
-//                    [
-//                        'meta' => [
-//                            'summary' => $summary,
-//                        ]
-//                    ]);
-//                return $publications->response();
-//            }
-//        }
         $perPage = $request->has('perPage') ? $request->perPage : 10;
-        $publications = Publication::with(['researcher','researcher.user','researcher.department','researcher.department.researchinstitution'])->paginate($perPage);
+        $publications = Publication::with([
+            'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution'
+        ])->paginate($perPage);
         if ($request->has('search')) {
             $query = $request->search;
         }
 
         if ($request->has('recent')) {
-            $publications=Publication::with(['researcher','researcher.user','researcher.department','researcher.department.researchinstitution'])->orderBy('created_at','Desc')->take($request->has('limit') ? $request->limit : 10);
+            $publications = Publication::with([
+                'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution'
+            ])->orderBy('created_at', 'Desc')->take($request->has('limit') ? $request->limit : 10);
         }
 
         return $this->sendResponse($publications, 'Publications retrieved successfully');
@@ -198,6 +189,8 @@ class PublicationAPIController extends AppBaseController
     }
 
     /**
+     * @group Publication Endpoints
+     *
      * Show Publication Details
      *
      * This endpoint returns the details of the specified publication by id.
@@ -269,6 +262,8 @@ class PublicationAPIController extends AppBaseController
     }
 
     /**
+     * @group Publication Endpoints
+     *
      * Request Private Publication
      *
      * This endpoint lets a user request access to a private publication.
@@ -307,6 +302,8 @@ class PublicationAPIController extends AppBaseController
     }
 
     /**
+     * @group Publication Endpoints
+     *
      * Grant Access to Private Publication
      *
      * This endpoint lets a user (publication owner) grant access to a requested private publication.
@@ -341,6 +338,21 @@ class PublicationAPIController extends AppBaseController
         }
     }
 
+    /**
+     * @param  Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * @group Publication Endpoints
+     *
+     * Deep Search Publications
+     * @authenticated
+     * Search Publications which meet various criteria.
+     *
+     * @queryParam institution The full institution name
+     * @queryParam researcharea The name of the research area
+     * @queryParam department The name of the department
+     * @queryParam funder the funder name
+     */
     public function searchCriteria(Request $request)
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
@@ -348,7 +360,9 @@ class PublicationAPIController extends AppBaseController
         $researcharea = $request->get('researcharea');
         $department = $request->get('department');
         $funder = $request->get('funder');
-        $publications = Publication::with(['researcher', 'researcher.department', 'researcher.department.researchinstitution']);
+        $publications = Publication::with([
+            'researcher', 'researcher.department', 'researcher.department.researchinstitution'
+        ]);
         if ($researcharea !== null) {
             $publications->whereHas('researcher', function ($q) use ($researcharea) {
                 $q->where('ResearchAreaOfInterest', $researcharea);

@@ -1,0 +1,1666 @@
+openapi: 3.0.3
+info:
+    title: KRIS
+    description: ''
+    version: 1.0.0
+servers:
+    -
+        url: 'http://127.0.0.1:8000'
+paths:
+    /api/user/register:
+        post:
+            summary: "Register user\n\nThis endpoint lets you register a user."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: true
+                                    auth: { access_token: 92|Sc4fIj5jvY1mrXTlfaK644x65J5ZGozVFhUTGM3h, token_type: Bearer }
+                                    user: { Title: Prof., email: johndoe2@kris.com, name: 'John Doe', profPic: '', updated_at: '2021-01-07T15:13:54.000000Z', created_at: '2021-01-07T15:13:54.000000Z', id: 99 }
+                                    message: 'Registration Successful'
+                                properties:
+                                    success: { type: boolean, example: true }
+                                    auth: { type: object, example: { access_token: 92|Sc4fIj5jvY1mrXTlfaK644x65J5ZGozVFhUTGM3h, token_type: Bearer } }
+                                    user: { type: object, example: { Title: Prof., email: johndoe2@kris.com, name: 'John Doe', profPic: '', updated_at: '2021-01-07T15:13:54.000000Z', created_at: '2021-01-07T15:13:54.000000Z', id: 99 } }
+                                    message: { type: string, example: 'Registration Successful' }
+                400:
+                    description: '400, Another user with this email exists'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: false
+                                    exception: { code: VALIDATION_ERROR, message: 'The email has already been taken.' }
+                                properties:
+                                    success: { type: boolean, example: false }
+                                    exception: { type: object, example: { code: VALIDATION_ERROR, message: 'The email has already been taken.' } }
+            tags:
+                - 'Authentication Endpoints'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                Title:
+                                    type: string
+                                    description: 'The title of the user.'
+                                    example: Prof.
+                                name:
+                                    type: string
+                                    description: 'The full name of the user.'
+                                    example: 'John Doe'
+                                email:
+                                    type: string
+                                    description: 'The email of the user.'
+                                    example: johndoe2@kris.com
+                                password:
+                                    type: string
+                                    description: 'The full name of the user.'
+                                    example: natus
+                                device_name:
+                                    type: string
+                                    description: 'The name of the request source device.'
+                                    example: 'Huawei STK-L21'
+                            required:
+                                - Title
+                                - name
+                                - email
+                                - password
+            security: []
+    /api/user/login:
+        post:
+            summary: "Login user\n\nThis endpoint lets you login a user."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: true
+                                    auth: { access_token: 94|64rxh2hoJCgakYH61mmRmUukKDFVqKhLT8uYtwCT, token_type: Bearer }
+                                    message: 'Login Successful'
+                                properties:
+                                    success: { type: boolean, example: true }
+                                    auth: { type: object, example: { access_token: 94|64rxh2hoJCgakYH61mmRmUukKDFVqKhLT8uYtwCT, token_type: Bearer } }
+                                    message: { type: string, example: 'Login Successful' }
+                401:
+                    description: '401, Invalid email or password'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: false
+                                    message: Unauthorized
+                                properties:
+                                    success: { type: boolean, example: false }
+                                    message: { type: string, example: Unauthorized }
+            tags:
+                - 'Authentication Endpoints'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    description: 'The email of the user.'
+                                    example: sed
+                                password:
+                                    type: string
+                                    description: 'The password of the user.'
+                                    example: hic
+                                device_name:
+                                    type: string
+                                    description: 'The name of the request source device.'
+                                    example: 'Huawei STK-L21'
+                            required:
+                                - email
+                                - password
+                                - device_name
+            security: []
+    /api/user/forgot-password-request:
+        post:
+            summary: "Forgot_password Reset Request\n\nThis endpoint lets you request a password reset email."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: true
+                                    message: 'We have sent instructions to your email for reset password. Please check your inbox.'
+                                properties:
+                                    success: { type: boolean, example: true }
+                                    message: { type: string, example: 'We have sent instructions to your email for reset password. Please check your inbox.' }
+                400:
+                    description: '400, User with the email does not exist/ Email validation failed'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: false
+                                    exception: { message: 'The email must be a valid email address.', code: VALIDATION_ERROR }
+                                properties:
+                                    success: { type: boolean, example: false }
+                                    exception: { type: object, example: { message: 'The email must be a valid email address.', code: VALIDATION_ERROR } }
+            tags:
+                - 'Authentication Endpoints'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    description: 'The user email.'
+                                    example: ut
+                            required:
+                                - email
+            security: []
+    /api/user/reset-password:
+        post:
+            summary: "Change Password\n\nThis endpoint lets you change password."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: true
+                                    message: 'Your password has been reset successfully.'
+                                properties:
+                                    success: { type: boolean, example: true }
+                                    message: { type: string, example: 'Your password has been reset successfully.' }
+                401:
+                    description: '401, Another user with this email exists'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: false
+                                    exception: { code: INVALID_CREDENTIALS, message: 'Your current password is incorrect' }
+                                properties:
+                                    success: { type: boolean, example: false }
+                                    exception: { type: object, example: { code: INVALID_CREDENTIALS, message: 'Your current password is incorrect' } }
+            tags:
+                - 'Authentication Endpoints'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    description: 'The email of the user.'
+                                    example: tempora
+                                password:
+                                    type: string
+                                    description: 'The password of the user.'
+                                    example: sed
+                                current_password:
+                                    type: string
+                                    description: 'The current password of the user.'
+                                    example: sequi
+                            required:
+                                - email
+                                - password
+                                - current_password
+    /api/user/logout:
+        post:
+            summary: "Logout user\n\nThis endpoint lets you logout a user."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: true
+                                    message: 'Logged out Successfully.'
+                                properties:
+                                    success: { type: boolean, example: true }
+                                    message: { type: string, example: 'Logged out Successfully.' }
+            tags:
+                - 'Authentication Endpoints'
+    /api/discussions:
+        get:
+            summary: "View All Discussions\n\nThis endpoint returns an archive of all discussions."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Discussion Endpoints'
+        post:
+            summary: "Create a new Discussion\n\nThis endpoint lets a user publish a discussion/post."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+                400:
+                    description: '400'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+            tags:
+                - 'Discussion Endpoints'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                title:
+                                    type: string
+                                    description: 'The Post Title'
+                                    example: rerum
+                                body:
+                                    type: string
+                                    description: 'The body title'
+                                    example: est
+                            required:
+                                - title
+                                - body
+    '/api/discussion/{id':
+        get:
+            summary: "Show Discussion Details\n\nThis endpoint returns the discussion details."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+                400:
+                    description: '400'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+            tags:
+                - 'Discussion Endpoints'
+        parameters:
+            -
+                in: path
+                name: id
+                description: 'The id of the specified discussion'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    /api/researchareas:
+        get:
+            summary: 'Research Areas'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Dropdown Inflating Endpoints'
+    /api/institutions:
+        get:
+            summary: Institutions
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Dropdown Inflating Endpoints'
+    /api/departments:
+        get:
+            summary: Departments
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Dropdown Inflating Endpoints'
+    /api/funders:
+        get:
+            summary: Funders
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Dropdown Inflating Endpoints'
+    /api/projects:
+        get:
+            summary: "Search Projects with pagination\n\nThis endpoint return an archive of the projects."
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: perPage
+                    description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
+                    example: 19
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
+                        example: 19
+                -
+                    in: query
+                    name: recent
+                    description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
+                    example: 4
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
+                        example: 4
+                -
+                    in: query
+                    name: limit
+                    description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
+                    example: consequuntur
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
+                        example: consequuntur
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n\"success\": true,\n\"data\": {\n\"current_page\": 1,\n\"data\": [\n{\n\"created_at\": null,\n\"updated_at\": null,\n\"ProjectTitle\": \"A multi-level text clustering algorithm for retrieval of academic research data\",\n\"Project_ID\": 1,\n\"ProjectAbstract\": \"Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This \\r\\nleads to duplication of research, less opportunities for networking, and also contributes to scientific \\r\\nfraud. Efforts need to be made in order to make academic research data available and accessible\\r\\n. \",\n\"Researcher_ID\": 1,\n\"User_ID\": 2,\n\"ProjectResearchAreas\": \"Information Retrieval\",\n\"ResearchersInvolved\": \"Damaris Waema, George Okeyo, Petronilla Muriithi\",\n\"Funded\": true,\n\"Funder_ID\": 1,\n\"Status\": \"Ongoing\",\n\"LinkToPublication\": \"http://www.jkuat.ac.ke\",\n\"Access_Level\": \"public\",\n\"projectStart\": \"2020-11-21\",\n\"projectEnd\": \"2020-11-21\",\n\"abstractDocumentPath\": null,\n\"otherProjectDocsPath\": null,\n\"RelevantProjectDocuments\": null\n},\n],\n\"first_page_url\": \"http://localhost:8000/api/project?page=1\",\n\"from\": 1,\n\"last_page\": 50,\n\"last_page_url\": \"http://localhost:8000/api/project?page=50\",\n\"links\": [\n{\n\"url\": null,\n\"label\": \"&laquo; Previous\",\n\"active\": false\n},\n{\n\"url\": \"http://localhost:8000/api/project?page=1\",\n\"label\": 1,\n\"active\": true\n},\n{\n\"url\": \"http://localhost:8000/api/project?page=2\",\n\"label\": 2,\n\"active\": false\n},\n{\n\"url\": \"http://localhost:8000/api/project?page=3\",\n\"label\": 3,\n\"active\": false\n},\n{\n\"url\": null,\n\"label\": \"...\",\n\"active\": false\n},\n{\n\"url\": \"http://localhost:8000/api/project?page=49\",\n\"label\": 49,\n\"active\": false\n},\n{\n\"url\": \"http://localhost:8000/api/project?page=50\",\n\"label\": 50,\n\"active\": false\n},\n{\n\"url\": \"http://localhost:8000/api/project?page=2\",\n\"label\": \"Next &raquo;\",\n\"active\": false\n}\n],\n\"next_page_url\": \"http://localhost:8000/api/project?page=2\",\n\"path\": \"http://localhost:8000/api/project\",\n\"per_page\": \"2\",\n\"prev_page_url\": null,\n\"to\": 2,\n\"total\": 100\n},\n\"message\": \"Projects retrieved successfully\"\n}"
+            tags:
+                - 'Project Endpoints'
+    /api/projects/search:
+        get:
+            summary: 'Deep Search Projects'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: institution
+                    description: 'The full institution name'
+                    example: minus
+                    required: false
+                    schema:
+                        type: string
+                        description: 'The full institution name'
+                        example: minus
+                -
+                    in: query
+                    name: researcharea
+                    description: 'The name of the research area'
+                    example: consectetur
+                    required: false
+                    schema:
+                        type: string
+                        description: 'The name of the research area'
+                        example: consectetur
+                -
+                    in: query
+                    name: department
+                    description: 'The name of the department'
+                    example: iusto
+                    required: false
+                    schema:
+                        type: string
+                        description: 'The name of the department'
+                        example: iusto
+                -
+                    in: query
+                    name: funder
+                    description: 'the funder name'
+                    example: ea
+                    required: false
+                    schema:
+                        type: string
+                        description: 'the funder name'
+                        example: ea
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Project Endpoints'
+    '/api/project/{id}':
+        get:
+            summary: "Show Project Details\n\nThis endpoint returns the details of the specified project by id."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n{\n\"success\": true,\n\"data\": {\n\"created_at\": null,\n\"updated_at\": null,\n\"ProjectTitle\": \"A multi-level text clustering algorithm for retrieval of academic research data\",\n\"Project_ID\": 1,\n\"ProjectAbstract\": \"Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This \\r\\nleads to duplication of research, less opportunities for networking, and also contributes to scientific \\r\\nfraud. Efforts need to be made in order to make academic research data available and accessible\\r\\n. \",\n\"Researcher_ID\": 1,\n\"User_ID\": 2,\n\"ProjectResearchAreas\": \"Information Retrieval\",\n\"ResearchersInvolved\": \"Damaris Waema, George Okeyo, Petronilla Muriithi\",\n\"Funded\": true,\n\"Funder_ID\": 1,\n\"Status\": \"Ongoing\",\n\"LinkToPublication\": \"http://www.jkuat.ac.ke\",\n\"Access_Level\": \"public\",\n\"projectStart\": \"2020-11-21\",\n\"projectEnd\": \"2020-11-21\",\n\"abstractDocumentPath\": null,\n\"otherProjectDocsPath\": null,\n\"RelevantProjectDocuments\": null\n},\n\"message\": \"Project retrieved successfully\"\n}\n}"
+            tags:
+                - 'Project Endpoints'
+        parameters:
+            -
+                in: path
+                name: id
+                description: ''
+                example: dolore
+                required: true
+                schema:
+                    type: string
+    '/api/project/{id}/request':
+        post:
+            summary: "Request Private Research Project\n\nThis endpoint lets a user request access to a private project."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+                400:
+                    description: '400'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+            tags:
+                - 'Project Endpoints'
+        parameters:
+            -
+                in: path
+                name: id
+                description: 'The id of the project'
+                example: 14
+                required: true
+                schema:
+                    type: integer
+    '/api/project/{id}/grant':
+        post:
+            summary: "Grant access to a private project\n\nThis endpoint lets a user(owner) grant access to a private project."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+                400:
+                    description: '400'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+            tags:
+                - 'Project Endpoints'
+        parameters:
+            -
+                in: path
+                name: id
+                description: 'The id of the project'
+                example: 13
+                required: true
+                schema:
+                    type: integer
+    /api/publications:
+        get:
+            summary: "Search Publications with pagination\n\nThis endpoint return an archive of the publications."
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: perPage
+                    description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
+                    example: 20
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
+                        example: 20
+                -
+                    in: query
+                    name: recent
+                    description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
+                    example: 16
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
+                        example: 16
+                -
+                    in: query
+                    name: limit
+                    description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
+                    example: aut
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
+                        example: aut
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, http://localhost:8000/api/publication?recent&limit=2'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: true
+                                    data: { '0': { Publication_ID: 1, created_at: null, updated_at: null, UserID: 14, Researcher_ID: 13, PublicationTitle: "The Food Security Equation: What is the role of Gender and Social Amenities in this Paradigm? A\r\nFocus on rural households in Yala division, Siaya district, Kenya.", PublicationPath: null, DateOfPublication: '2014-12-08T00:00:00.000000Z', Collaborators: 'Prof. Willis Oluoch-Kosura, Mr.Paswel Phiri Marenya', PublicationURL: 'https://www.elsevier.com/en-xm', Access_Level: null }, '39': { Publication_ID: 40, created_at: null, updated_at: null, UserID: 50, Researcher_ID: 49, PublicationTitle: 'Corporate governance, accounting and finance: A review', PublicationPath: null, DateOfPublication: '2011-12-08T00:00:00.000000Z', Collaborators: '', PublicationURL: 'https://www.elsevier.com/en-xm', Access_Level: null } }
+                                    message: 'Publications retrieved successfully'
+                                properties:
+                                    success: { type: boolean, example: true }
+                                    data: { type: object, example: { '0': { Publication_ID: 1, created_at: null, updated_at: null, UserID: 14, Researcher_ID: 13, PublicationTitle: "The Food Security Equation: What is the role of Gender and Social Amenities in this Paradigm? A\r\nFocus on rural households in Yala division, Siaya district, Kenya.", PublicationPath: null, DateOfPublication: '2014-12-08T00:00:00.000000Z', Collaborators: 'Prof. Willis Oluoch-Kosura, Mr.Paswel Phiri Marenya', PublicationURL: 'https://www.elsevier.com/en-xm', Access_Level: null }, '39': { Publication_ID: 40, created_at: null, updated_at: null, UserID: 50, Researcher_ID: 49, PublicationTitle: 'Corporate governance, accounting and finance: A review', PublicationPath: null, DateOfPublication: '2011-12-08T00:00:00.000000Z', Collaborators: '', PublicationURL: 'https://www.elsevier.com/en-xm', Access_Level: null } } }
+                                    message: { type: string, example: 'Publications retrieved successfully' }
+            tags:
+                - 'Publication Endpoints'
+    /api/publications/search:
+        get:
+            summary: 'Deep Search Publications'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: institution
+                    description: 'The full institution name'
+                    example: est
+                    required: false
+                    schema:
+                        type: string
+                        description: 'The full institution name'
+                        example: est
+                -
+                    in: query
+                    name: researcharea
+                    description: 'The name of the research area'
+                    example: blanditiis
+                    required: false
+                    schema:
+                        type: string
+                        description: 'The name of the research area'
+                        example: blanditiis
+                -
+                    in: query
+                    name: department
+                    description: 'The name of the department'
+                    example: beatae
+                    required: false
+                    schema:
+                        type: string
+                        description: 'The name of the department'
+                        example: beatae
+                -
+                    in: query
+                    name: funder
+                    description: 'the funder name'
+                    example: dolorem
+                    required: false
+                    schema:
+                        type: string
+                        description: 'the funder name'
+                        example: dolorem
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Publication Endpoints'
+    '/api/publication/{id}':
+        get:
+            summary: "Show Publication Details\n\nThis endpoint returns the details of the specified publication by id."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n{\n\"success\": true,\n\"data\": {\n\"Publication_ID\": 1,\n\"created_at\": null,\n\"updated_at\": null,\n\"UserID\": 14,\n\"Researcher_ID\": 13,\n\"PublicationTitle\": \"The Food Security Equation: What is the role of Gender and Social Amenities in this Paradigm? A\\r\\nFocus on rural households in Yala division, Siaya district, Kenya.\",\n\"PublicationPath\": null,\n\"DateOfPublication\": \"2014-12-08T00:00:00.000000Z\",\n\"Collaborators\": \"Prof. Willis Oluoch-Kosura, Mr.Paswel Phiri Marenya\",\n\"PublicationURL\": \"https://www.elsevier.com/en-xm\",\n\"Access_Level\": null\n},\n\"message\": \"Publication retrieved successfully\"\n}\n}"
+            tags:
+                - 'Publication Endpoints'
+        parameters:
+            -
+                in: path
+                name: id
+                description: 'The id of the publication'
+                example: 2
+                required: true
+                schema:
+                    type: integer
+    '/api/publication/{id}/request':
+        post:
+            summary: "Request Private Publication\n\nThis endpoint lets a user request access to a private publication."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+                400:
+                    description: '400'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+            tags:
+                - 'Publication Endpoints'
+        parameters:
+            -
+                in: path
+                name: id
+                description: 'The id of the publication'
+                example: 6
+                required: true
+                schema:
+                    type: integer
+    '/api/publication/{id}/grant':
+        post:
+            summary: "Grant Access to Private Publication\n\nThis endpoint lets a user (publication owner) grant access to a requested private publication."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+                400:
+                    description: '400'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+            tags:
+                - 'Publication Endpoints'
+        parameters:
+            -
+                in: path
+                name: id
+                description: 'The id of the publication'
+                example: 10
+                required: true
+                schema:
+                    type: integer
+    /api/researchers:
+        get:
+            summary: "List all Researchers\n\nThis endpoints returns all researchers"
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Researcher Endpoints'
+            security: []
+    '/api/researcher/{id}':
+        get:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                404:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: ''
+                                    exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                                    file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\AbstractRouteCollection.php'
+                                    line: 43
+                                    trace: [{ file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\RouteCollection.php', line: 162, function: handleMatchedRoute, class: Illuminate\Routing\AbstractRouteCollection, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 646, function: match, class: Illuminate\Routing\RouteCollection, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 635, function: findRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 624, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 86, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 324, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 305, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 236, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 172, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 127, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 119, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 36, function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 93, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 610, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Command\Command.php', line: 255, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 971, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 290, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 166, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }]
+                                properties:
+                                    message: { type: string, example: '' }
+                                    exception: { type: string, example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException }
+                                    file: { type: string, example: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\AbstractRouteCollection.php' }
+                                    line: { type: integer, example: 43 }
+                                    trace: { type: array, example: [{ file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\RouteCollection.php', line: 162, function: handleMatchedRoute, class: Illuminate\Routing\AbstractRouteCollection, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 646, function: match, class: Illuminate\Routing\RouteCollection, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 635, function: findRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 624, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 86, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 324, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 305, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 236, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 172, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 127, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 119, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 36, function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 93, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 610, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Command\Command.php', line: 255, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 971, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 290, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 166, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }], items: { type: object } }
+            tags:
+                - 'Researcher Endpoints'
+        parameters:
+            -
+                in: path
+                name: id
+                description: 'The specified researcher id.'
+                example: null
+                required: true
+                schema:
+                    type: integer
+    /api/researcher/activeProjects:
+        get:
+            summary: "Show Researcher's Active Projects\n\nThis endpoint return the active projects of the authenticated user."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+                400:
+                    description: '400'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+            tags:
+                - 'Researcher Endpoints'
+    /api/user:
+        get:
+            summary: "User Details\n\nThis endpoint lets you login a user."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: true
+                                    data: { id: 84, Title: '', name: 'Michael Gates', email: mgates4410@gmail.com, email_verified_at: null, api_token: null, two_factor_recovery_codes: null, profPic: storage/ProfilePictures/mgates4410@gmail.com.png, isAdmin: true, current_team_id: null, profile_photo_path: null, created_at: '2020-11-24T06:50:33.000000Z', updated_at: '2021-01-06T23:39:58.000000Z', verified_at: null }
+                                    message: 'User details retrieved successfully'
+                                properties:
+                                    success: { type: boolean, example: true }
+                                    data: { type: object, example: { id: 84, Title: '', name: 'Michael Gates', email: mgates4410@gmail.com, email_verified_at: null, api_token: null, two_factor_recovery_codes: null, profPic: storage/ProfilePictures/mgates4410@gmail.com.png, isAdmin: true, current_team_id: null, profile_photo_path: null, created_at: '2020-11-24T06:50:33.000000Z', updated_at: '2021-01-06T23:39:58.000000Z', verified_at: null } }
+                                    message: { type: string, example: 'User details retrieved successfully' }
+                400:
+                    description: '400'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example: {  }
+                                properties: {  }
+            tags:
+                - 'User Management Endpoints'
+    /api/user/delete-account:
+        post:
+            summary: "Delete user account\n\nThis endpoint lets you delete the user account."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    success: true
+                                    message: 'Your account has been deleted successfully'
+                                properties:
+                                    success: { type: boolean, example: true }
+                                    message: { type: string, example: 'Your account has been deleted successfully' }
+                400:
+                    description: '400'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'User Management Endpoints'
+    /api/user/profile-details:
+        post:
+            summary: "Edit user Details\n\nThis endpoint lets you edit the user details."
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: fields
+                    description: 'Comma-separated list of fields to include in the response.'
+                    example: 'title,published_at,is_public'
+                    required: true
+                    schema:
+                        type: string
+                        description: 'Comma-separated list of fields to include in the response.'
+                        example: 'title,published_at,is_public'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n\"success\" : \"true\",\n\"data\" : $user,\n\"message\" : \"Your profile has been updates successfully\"\n}"
+            tags:
+                - 'User Management Endpoints'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                Title:
+                                    type: string
+                                    description: 'The title of the user.'
+                                    example: Prof.
+                                name:
+                                    type: string
+                                    description: 'The full names of the user.'
+                                    example: 'John Doe'
+                                email:
+                                    type: string
+                                    description: 'The email of the user.'
+                                    example: john@kris.com.
+                            required:
+                                - Title
+                                - name
+                                - email
+    /api/user/profile-image:
+        post:
+            summary: "Add user Image\n\nThis endpoint lets you upload a user profile image."
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: multipart/form-data
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200, success'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n\"success\" : true,\n\"data\" : $user,\n\"message\" : \"Profile Photo Updated successfully\"\n}"
+            tags:
+                - 'User Management Endpoints'
+            requestBody:
+                required: true
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                file:
+                                    type: string
+                                    format: binary
+                                    description: 'The file object to be uploaded'
+                            required:
+                                - file
+        get:
+            summary: "Get user Image Url\n\nThis endpoint lets you fetch a logged in user profile image or fetch a user image by user id."
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: user_id
+                    description: 'The specified user''s id'
+                    example: 8
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'The specified user''s id'
+                        example: 8
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'User Management Endpoints'
+components:
+    securitySchemes:
+        default:
+            type: http
+            scheme: bearer
+            description: ''
+security:
+    -
+        default: []

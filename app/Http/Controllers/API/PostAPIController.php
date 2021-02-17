@@ -28,7 +28,9 @@ class PostAPIController extends AppBaseController
 
 
     /**
-     * All Discussions
+     * @group Discussion Endpoints
+     *
+     * View All Discussions
      *
      * This endpoint returns an archive of all discussions.
      * @authenticated
@@ -43,6 +45,8 @@ class PostAPIController extends AppBaseController
 
 
     /**
+     * @group Discussion Endpoints
+     *
      * Create a new Discussion
      *
      * This endpoint lets a user publish a discussion/post.
@@ -69,6 +73,7 @@ class PostAPIController extends AppBaseController
     }
 
     /**
+     * @group Discussion Endpoints
      * Show Discussion Details
      *
      * This endpoint returns the discussion details.

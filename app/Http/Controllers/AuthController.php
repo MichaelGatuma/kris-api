@@ -18,6 +18,8 @@ use Illuminate\Support\Str;
 class AuthController extends Controller
 {
     /**
+     * @group Authentication Endpoints
+     *
      * Register user
      *
      * This endpoint lets you register a user.
@@ -101,6 +103,8 @@ class AuthController extends Controller
     }
 
     /**
+     * @group Authentication Endpoints
+     *
      * Login user
      *
      * This endpoint lets you login a user.
@@ -169,6 +173,8 @@ class AuthController extends Controller
     }
 
     /**
+     * @group Authentication Endpoints
+     *
      * Forgot_password Reset Request
      *
      * This endpoint lets you request a password reset email.
@@ -234,6 +240,8 @@ class AuthController extends Controller
     }
 
     /**
+     * @group Authentication Endpoints
+     *
      * Change Password
      *
      * This endpoint lets you change password.
@@ -301,6 +309,8 @@ class AuthController extends Controller
     }
 
     /**
+     * @group Authentication Endpoints
+     *
      * Logout user
      *
      * This endpoint lets you logout a user.

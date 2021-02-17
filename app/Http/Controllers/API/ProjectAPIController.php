@@ -24,6 +24,8 @@ class ProjectAPIController extends AppBaseController
     }
 
     /**
+     * @group Project Endpoints
+     *
      * Search Projects with pagination
      *
      * This endpoint return an archive of the projects.
@@ -145,6 +147,8 @@ class ProjectAPIController extends AppBaseController
     }
 
     /**
+     * @group Project Endpoints
+     *
      * Show Project Details
      *
      * This endpoint returns the details of the specified project by id.
@@ -222,6 +226,8 @@ class ProjectAPIController extends AppBaseController
     }
 
     /**
+     * @group Project Endpoints
+     *
      * Request Private Research Project
      *
      * This endpoint lets a user request access to a private project.
@@ -260,6 +266,8 @@ class ProjectAPIController extends AppBaseController
     }
 
     /**
+     * @group Project Endpoints
+     *
      * Grant access to a private project
      *
      * This endpoint lets a user(owner) grant access to a private project.
@@ -293,7 +301,21 @@ class ProjectAPIController extends AppBaseController
             return $this->sendError('You do not have such rights to this project', 403);
         }
     }
-
+    /**
+     * @param  Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * @group Project Endpoints
+     *
+     * Deep Search Projects
+     * @authenticated
+     * Search Projects which meet various criteria.
+     *
+     * @queryParam institution The full institution name
+     * @queryParam researcharea The name of the research area
+     * @queryParam department The name of the department
+     * @queryParam funder the funder name
+     */
     public function searchCriteria(Request $request)
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;

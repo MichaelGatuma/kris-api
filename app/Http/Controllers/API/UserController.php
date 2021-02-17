@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     /**
+     * @group User Management Endpoints
+     *
      * User Details
      *
      * This endpoint lets you login a user.
@@ -78,6 +80,8 @@ class UserController extends Controller
     }
 
     /**
+     * @group User Management Endpoints
+     *
      * Edit user Details
      *
      * This endpoint lets you edit the user details.
@@ -130,6 +134,8 @@ class UserController extends Controller
     }
 
     /**
+     * @group User Management Endpoints
+     *
      * Add user Image
      *
      * This endpoint lets you upload a user profile image.
@@ -185,7 +191,17 @@ class UserController extends Controller
         }
     }
 
-
+    /**
+     * @group User Management Endpoints
+     *
+     * Get user Image Url
+     *
+     * This endpoint lets you fetch a logged in user profile image or fetch a user image by user id.
+     * @authenticated
+     *
+     * @queryParam user_id integer The specified user's id
+     *
+     */
     public function getUserImage(Request $request)
     {
         $user = $request->user();
@@ -269,6 +285,8 @@ class UserController extends Controller
     }
 
     /**
+     * @group User Management Endpoints
+     *
      * Delete user account
      *
      * This endpoint lets you delete the user account.

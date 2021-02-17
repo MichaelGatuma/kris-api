@@ -24,7 +24,16 @@ class ResearcherAPIController extends AppBaseController
         $this->researcherRepository = $researcherRepo;
     }
 
-
+    /**
+     * @group Researcher Endpoints
+     *
+     * List all Researchers
+     *
+     * This endpoints returns all researchers
+     *
+     * @param  Request  $request
+     * @return mixed
+     */
     public function index(Request $request)
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
@@ -42,6 +51,18 @@ class ResearcherAPIController extends AppBaseController
         return $this->sendResponse($researcher->toArray(), 'Researcher saved successfully');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * @group Researcher Endpoints
+     * @authenticated
+     *
+     * View a single researcher
+     *
+     * @urlParam id integer required The specified researcher id. No-example
+     *
+     */
     public function show($id)
     {
         /** @var Researcher $researcher */
@@ -84,6 +105,7 @@ class ResearcherAPIController extends AppBaseController
         return $this->sendSuccess('Researcher deleted successfully');
     }
     /**
+     * @group Researcher Endpoints
      * Show Researcher's Active Projects
      *
      * This endpoint return the active projects of the authenticated user.
