@@ -12,7 +12,7 @@ This endpoints returns all researchers
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researchers" \
+    -G "http://127.0.0.1:8000/api/researchers?institution=assumenda&researcharea=non&department=dolores" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -21,6 +21,14 @@ curl -X GET \
 const url = new URL(
     "http://127.0.0.1:8000/api/researchers"
 );
+
+let params = {
+    "institution": "assumenda",
+    "researcharea": "non",
+    "department": "dolores",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -39,21 +47,58 @@ import requests
 import json
 
 url = 'http://127.0.0.1:8000/api/researchers'
+params = {
+  'institution': 'assumenda',
+  'researcharea': 'non',
+  'department': 'dolores',
+}
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-response = requests.request('GET', url, headers=headers)
+response = requests.request('GET', url, headers=headers, params=params)
 response.json()
 ```
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "success": true,
+    "data": {
+        "current_page": 1,
+        "data": [],
+        "first_page_url": "http:\/\/localhost\/api\/researchers?page=1",
+        "from": null,
+        "last_page": 1,
+        "last_page_url": "http:\/\/localhost\/api\/researchers?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/localhost\/api\/researchers?page=1",
+                "label": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/localhost\/api\/researchers",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": null,
+        "total": 0
+    },
+    "message": "Researchers retrieved successfully"
 }
 ```
 <div id="execution-results-GETapi-researchers" hidden>
@@ -75,6 +120,22 @@ response.json()
 <small class="badge badge-green">GET</small>
  <b><code>api/researchers</code></b>
 </p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>institution</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="institution" data-endpoint="GETapi-researchers" data-component="query"  hidden>
+<br>
+Search by the given research institution</p>
+<p>
+<b><code>researcharea</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="researcharea" data-endpoint="GETapi-researchers" data-component="query"  hidden>
+<br>
+Search by the given research area</p>
+<p>
+<b><code>department</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="department" data-endpoint="GETapi-researchers" data-component="query"  hidden>
+<br>
+Search by the given department</p>
 </form>
 
 

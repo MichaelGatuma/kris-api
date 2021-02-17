@@ -79,7 +79,7 @@ paths:
                                 password:
                                     type: string
                                     description: 'The full name of the user.'
-                                    example: natus
+                                    example: voluptate
                                 device_name:
                                     type: string
                                     description: 'The name of the request source device.'
@@ -148,11 +148,11 @@ paths:
                                 email:
                                     type: string
                                     description: 'The email of the user.'
-                                    example: sed
+                                    example: non
                                 password:
                                     type: string
                                     description: 'The password of the user.'
-                                    example: hic
+                                    example: assumenda
                                 device_name:
                                     type: string
                                     description: 'The name of the request source device.'
@@ -218,7 +218,7 @@ paths:
                                 email:
                                     type: string
                                     description: 'The user email.'
-                                    example: ut
+                                    example: consequatur
                             required:
                                 - email
             security: []
@@ -285,15 +285,15 @@ paths:
                                 email:
                                     type: string
                                     description: 'The email of the user.'
-                                    example: tempora
+                                    example: tempore
                                 password:
                                     type: string
                                     description: 'The password of the user.'
-                                    example: sed
+                                    example: impedit
                                 current_password:
                                     type: string
                                     description: 'The current password of the user.'
-                                    example: sequi
+                                    example: sunt
                             required:
                                 - email
                                 - password
@@ -432,11 +432,11 @@ paths:
                                 title:
                                     type: string
                                     description: 'The Post Title'
-                                    example: rerum
+                                    example: doloribus
                                 body:
                                     type: string
                                     description: 'The body title'
-                                    example: est
+                                    example: iure
                             required:
                                 - title
                                 - body
@@ -490,7 +490,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the specified discussion'
-                example: 1
+                example: 10
                 required: true
                 schema:
                     type: integer
@@ -650,6 +650,71 @@ paths:
                                     message: { type: string, example: Unauthenticated. }
             tags:
                 - 'Dropdown Inflating Endpoints'
+    /api/xxx:
+        get:
+            summary: ''
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    Researcher_ID: 2
+                                    created_at: null
+                                    updated_at: null
+                                    User_ID: 3
+                                    Gender: Female
+                                    DOB: '1993-06-25T00:00:00.000000Z'
+                                    PhoneNumber: '0721822586'
+                                    ResearchAreaOfInterest: 'Food Security'
+                                    DepartmentID: 8
+                                    ResearchInstitutionID: 3
+                                    Affiliation: 'Agricultural Engineering (AGEN) - Egerton University'
+                                    AboutResearcher: 'Food security researcher.'
+                                    Approved: false
+                                    CV: storage/CVs/CV1.pdf
+                                    ListofPublications: null
+                                    projects: [{ created_at: null, updated_at: null, ProjectTitle: 'An investigation to the challenges that Integrated Financial Management Information System(IFMIS) faces.', Project_ID: 7, ProjectAbstract: 'Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This leads to duplication of research, less opportunities for networking, and also contributes to scientific fraud. Efforts need to be made in order to make academic research data available and accessible. ', Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: Accounting, ResearchersInvolved: 'George Okeyo', Funded: true, Funder_ID: 2, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: public, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: null, updated_at: null, ProjectTitle: 'An investigation to the challenges that Integrated Financial Management Information System(IFMIS) faces.', Project_ID: 8, ProjectAbstract: 'Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This leads to duplication of research, less opportunities for networking, and also contributes to scientific fraud. Efforts need to be made in order to make academic research data available and accessible. ', Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Machine Learning', ResearchersInvolved: 'George Okeyo', Funded: true, Funder_ID: 2, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: private, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: '2020-10-28T11:22:52.000000Z', updated_at: '2020-10-28T11:22:52.000000Z', ProjectTitle: 'Test Project', Project_ID: 19, ProjectAbstract: abstract, Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Information Retrieval', ResearchersInvolved: J.M, Funded: false, Funder_ID: null, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: private, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: '2020-10-28T11:34:13.000000Z', updated_at: '2020-10-28T11:34:13.000000Z', ProjectTitle: 'Test Project 2', Project_ID: 20, ProjectAbstract: abstract, Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Molecular Biology', ResearchersInvolved: 'J.M 2', Funded: false, Funder_ID: null, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: public, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: '2020-10-28T16:12:27.000000Z', updated_at: '2020-10-28T16:12:27.000000Z', ProjectTitle: 'Test Project 3', Project_ID: 21, ProjectAbstract: 'This is an abstract', Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Artificial Intelligence', ResearchersInvolved: Mwenda, Funded: false, Funder_ID: null, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: private, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: '2020-10-31T08:50:22.000000Z', updated_at: '2020-10-31T08:50:22.000000Z', ProjectTitle: 'Test Project 24', Project_ID: 23, ProjectAbstract: 'My abstract', Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Information Retrieval', ResearchersInvolved: 'Sigey J.K.', Funded: false, Funder_ID: null, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: private, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: '2020-11-17T11:22:40.000000Z', updated_at: '2020-11-17T11:22:40.000000Z', ProjectTitle: 'New Public Project', Project_ID: 24, ProjectAbstract: 'No abstract is abstract too', Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Information Retrieval', ResearchersInvolved: Mwenda, Funded: false, Funder_ID: null, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: public, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }]
+                                    publications: []
+                                properties:
+                                    Researcher_ID: { type: integer, example: 2 }
+                                    created_at: { type: string, example: null }
+                                    updated_at: { type: string, example: null }
+                                    User_ID: { type: integer, example: 3 }
+                                    Gender: { type: string, example: Female }
+                                    DOB: { type: string, example: '1993-06-25T00:00:00.000000Z' }
+                                    PhoneNumber: { type: string, example: '0721822586' }
+                                    ResearchAreaOfInterest: { type: string, example: 'Food Security' }
+                                    DepartmentID: { type: integer, example: 8 }
+                                    ResearchInstitutionID: { type: integer, example: 3 }
+                                    Affiliation: { type: string, example: 'Agricultural Engineering (AGEN) - Egerton University' }
+                                    AboutResearcher: { type: string, example: 'Food security researcher.' }
+                                    Approved: { type: boolean, example: false }
+                                    CV: { type: string, example: storage/CVs/CV1.pdf }
+                                    ListofPublications: { type: string, example: null }
+                                    projects: { type: array, example: [{ created_at: null, updated_at: null, ProjectTitle: 'An investigation to the challenges that Integrated Financial Management Information System(IFMIS) faces.', Project_ID: 7, ProjectAbstract: 'Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This leads to duplication of research, less opportunities for networking, and also contributes to scientific fraud. Efforts need to be made in order to make academic research data available and accessible. ', Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: Accounting, ResearchersInvolved: 'George Okeyo', Funded: true, Funder_ID: 2, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: public, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: null, updated_at: null, ProjectTitle: 'An investigation to the challenges that Integrated Financial Management Information System(IFMIS) faces.', Project_ID: 8, ProjectAbstract: 'Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This leads to duplication of research, less opportunities for networking, and also contributes to scientific fraud. Efforts need to be made in order to make academic research data available and accessible. ', Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Machine Learning', ResearchersInvolved: 'George Okeyo', Funded: true, Funder_ID: 2, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: private, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: '2020-10-28T11:22:52.000000Z', updated_at: '2020-10-28T11:22:52.000000Z', ProjectTitle: 'Test Project', Project_ID: 19, ProjectAbstract: abstract, Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Information Retrieval', ResearchersInvolved: J.M, Funded: false, Funder_ID: null, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: private, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: '2020-10-28T11:34:13.000000Z', updated_at: '2020-10-28T11:34:13.000000Z', ProjectTitle: 'Test Project 2', Project_ID: 20, ProjectAbstract: abstract, Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Molecular Biology', ResearchersInvolved: 'J.M 2', Funded: false, Funder_ID: null, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: public, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: '2020-10-28T16:12:27.000000Z', updated_at: '2020-10-28T16:12:27.000000Z', ProjectTitle: 'Test Project 3', Project_ID: 21, ProjectAbstract: 'This is an abstract', Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Artificial Intelligence', ResearchersInvolved: Mwenda, Funded: false, Funder_ID: null, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: private, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: '2020-10-31T08:50:22.000000Z', updated_at: '2020-10-31T08:50:22.000000Z', ProjectTitle: 'Test Project 24', Project_ID: 23, ProjectAbstract: 'My abstract', Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Information Retrieval', ResearchersInvolved: 'Sigey J.K.', Funded: false, Funder_ID: null, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: private, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }, { created_at: '2020-11-17T11:22:40.000000Z', updated_at: '2020-11-17T11:22:40.000000Z', ProjectTitle: 'New Public Project', Project_ID: 24, ProjectAbstract: 'No abstract is abstract too', Researcher_ID: 2, User_ID: 3, ProjectResearchAreas: 'Information Retrieval', ResearchersInvolved: Mwenda, Funded: false, Funder_ID: null, Status: Ongoing, LinkToPublication: 'http://www.jkuat.ac.ke', Access_Level: public, projectStart: '2020-11-21', projectEnd: '2020-11-21', abstractDocumentPath: null, otherProjectDocsPath: null, RelevantProjectDocuments: null }], items: { type: object } }
+                                    publications: { type: array, example: [] }
+            tags:
+                - Endpoints
+            security: []
     /api/projects:
         get:
             summary: "Search Projects with pagination\n\nThis endpoint return an archive of the projects."
@@ -659,32 +724,32 @@ paths:
                     in: query
                     name: perPage
                     description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                    example: 19
+                    example: 13
                     required: false
                     schema:
                         type: integer
                         description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                        example: 19
+                        example: 13
                 -
                     in: query
                     name: recent
                     description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                    example: 4
+                    example: 3
                     required: false
                     schema:
                         type: integer
                         description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                        example: 4
+                        example: 3
                 -
                     in: query
                     name: limit
                     description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                    example: consequuntur
+                    example: laboriosam
                     required: false
                     schema:
                         type: string
                         description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                        example: consequuntur
+                        example: laboriosam
                 -
                     in: header
                     name: Authorization
@@ -725,42 +790,42 @@ paths:
                     in: query
                     name: institution
                     description: 'The full institution name'
-                    example: minus
+                    example: cumque
                     required: false
                     schema:
                         type: string
                         description: 'The full institution name'
-                        example: minus
+                        example: cumque
                 -
                     in: query
                     name: researcharea
                     description: 'The name of the research area'
-                    example: consectetur
+                    example: at
                     required: false
                     schema:
                         type: string
                         description: 'The name of the research area'
-                        example: consectetur
+                        example: at
                 -
                     in: query
                     name: department
                     description: 'The name of the department'
-                    example: iusto
+                    example: non
                     required: false
                     schema:
                         type: string
                         description: 'The name of the department'
-                        example: iusto
+                        example: non
                 -
                     in: query
                     name: funder
                     description: 'the funder name'
-                    example: ea
+                    example: aut
                     required: false
                     schema:
                         type: string
                         description: 'the funder name'
-                        example: ea
+                        example: aut
                 -
                     in: header
                     name: Authorization
@@ -783,16 +848,20 @@ paths:
                     schema:
                         type: string
             responses:
-                401:
+                200:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    message: Unauthenticated.
+                                    success: true
+                                    data: { current_page: 1, data: [], first_page_url: 'http://localhost/api/projects/search?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/projects/search?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/projects/search?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/projects/search', per_page: 10, prev_page_url: null, to: null, total: 0 }
+                                    message: 'Projects retrieved successfully'
                                 properties:
-                                    message: { type: string, example: Unauthenticated. }
+                                    success: { type: boolean, example: true }
+                                    data: { type: object, example: { current_page: 1, data: [], first_page_url: 'http://localhost/api/projects/search?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/projects/search?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/projects/search?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/projects/search', per_page: 10, prev_page_url: null, to: null, total: 0 } }
+                                    message: { type: string, example: 'Projects retrieved successfully' }
             tags:
                 - 'Project Endpoints'
     '/api/project/{id}':
@@ -836,7 +905,7 @@ paths:
                 in: path
                 name: id
                 description: ''
-                example: dolore
+                example: ipsa
                 required: true
                 schema:
                     type: string
@@ -890,7 +959,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the project'
-                example: 14
+                example: 2
                 required: true
                 schema:
                     type: integer
@@ -944,7 +1013,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the project'
-                example: 13
+                example: 20
                 required: true
                 schema:
                     type: integer
@@ -957,32 +1026,32 @@ paths:
                     in: query
                     name: perPage
                     description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                    example: 20
+                    example: 11
                     required: false
                     schema:
                         type: integer
                         description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                        example: 20
+                        example: 11
                 -
                     in: query
                     name: recent
                     description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                    example: 16
+                    example: 4
                     required: false
                     schema:
                         type: integer
                         description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                        example: 16
+                        example: 4
                 -
                     in: query
                     name: limit
                     description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                    example: aut
+                    example: dicta
                     required: false
                     schema:
                         type: string
                         description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                        example: aut
+                        example: dicta
                 -
                     in: header
                     name: Authorization
@@ -1030,42 +1099,42 @@ paths:
                     in: query
                     name: institution
                     description: 'The full institution name'
-                    example: est
+                    example: incidunt
                     required: false
                     schema:
                         type: string
                         description: 'The full institution name'
-                        example: est
+                        example: incidunt
                 -
                     in: query
                     name: researcharea
                     description: 'The name of the research area'
-                    example: blanditiis
+                    example: quas
                     required: false
                     schema:
                         type: string
                         description: 'The name of the research area'
-                        example: blanditiis
+                        example: quas
                 -
                     in: query
                     name: department
                     description: 'The name of the department'
-                    example: beatae
+                    example: id
                     required: false
                     schema:
                         type: string
                         description: 'The name of the department'
-                        example: beatae
+                        example: id
                 -
                     in: query
                     name: funder
                     description: 'the funder name'
-                    example: dolorem
+                    example: quaerat
                     required: false
                     schema:
                         type: string
                         description: 'the funder name'
-                        example: dolorem
+                        example: quaerat
                 -
                     in: header
                     name: Authorization
@@ -1088,16 +1157,20 @@ paths:
                     schema:
                         type: string
             responses:
-                401:
+                200:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    message: Unauthenticated.
+                                    success: true
+                                    data: { current_page: 1, data: [], first_page_url: 'http://localhost/api/publications/search?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/publications/search?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/publications/search?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/publications/search', per_page: 10, prev_page_url: null, to: null, total: 0 }
+                                    message: 'Publications retrieved successfully'
                                 properties:
-                                    message: { type: string, example: Unauthenticated. }
+                                    success: { type: boolean, example: true }
+                                    data: { type: object, example: { current_page: 1, data: [], first_page_url: 'http://localhost/api/publications/search?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/publications/search?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/publications/search?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/publications/search', per_page: 10, prev_page_url: null, to: null, total: 0 } }
+                                    message: { type: string, example: 'Publications retrieved successfully' }
             tags:
                 - 'Publication Endpoints'
     '/api/publication/{id}':
@@ -1141,7 +1214,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 2
+                example: 16
                 required: true
                 schema:
                     type: integer
@@ -1195,7 +1268,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 6
+                example: 18
                 required: true
                 schema:
                     type: integer
@@ -1249,7 +1322,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 10
+                example: 7
                 required: true
                 schema:
                     type: integer
@@ -1258,6 +1331,36 @@ paths:
             summary: "List all Researchers\n\nThis endpoints returns all researchers"
             description: ''
             parameters:
+                -
+                    in: query
+                    name: institution
+                    description: 'Search by the given research institution'
+                    example: assumenda
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Search by the given research institution'
+                        example: assumenda
+                -
+                    in: query
+                    name: researcharea
+                    description: 'Search by the given research area'
+                    example: non
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Search by the given research area'
+                        example: non
+                -
+                    in: query
+                    name: department
+                    description: 'Search by the given department'
+                    example: dolores
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Search by the given department'
+                        example: dolores
                 -
                     in: header
                     name: Content-Type
@@ -1273,16 +1376,20 @@ paths:
                     schema:
                         type: string
             responses:
-                401:
+                200:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    message: Unauthenticated.
+                                    success: true
+                                    data: { current_page: 1, data: [], first_page_url: 'http://localhost/api/researchers?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/researchers?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/researchers?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/researchers', per_page: 10, prev_page_url: null, to: null, total: 0 }
+                                    message: 'Researchers retrieved successfully'
                                 properties:
-                                    message: { type: string, example: Unauthenticated. }
+                                    success: { type: boolean, example: true }
+                                    data: { type: object, example: { current_page: 1, data: [], first_page_url: 'http://localhost/api/researchers?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/researchers?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/researchers?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/researchers', per_page: 10, prev_page_url: null, to: null, total: 0 } }
+                                    message: { type: string, example: 'Researchers retrieved successfully' }
             tags:
                 - 'Researcher Endpoints'
             security: []
@@ -1615,12 +1722,12 @@ paths:
                     in: query
                     name: user_id
                     description: 'The specified user''s id'
-                    example: 8
+                    example: 16
                     required: false
                     schema:
                         type: integer
                         description: 'The specified user''s id'
-                        example: 8
+                        example: 16
                 -
                     in: header
                     name: Authorization

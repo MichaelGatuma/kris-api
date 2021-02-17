@@ -13,7 +13,7 @@ This endpoint return an archive of the publications.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications?perPage=20&recent=16&limit=aut" \
+    -G "http://127.0.0.1:8000/api/publications?perPage=11&recent=4&limit=dicta" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -25,9 +25,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "20",
-    "recent": "16",
-    "limit": "aut",
+    "perPage": "11",
+    "recent": "4",
+    "limit": "dicta",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -51,9 +51,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/publications'
 params = {
-  'perPage': '20',
-  'recent': '16',
-  'limit': 'aut',
+  'perPage': '11',
+  'recent': '4',
+  'limit': 'dicta',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -249,7 +249,7 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications/search?institution=est&researcharea=blanditiis&department=beatae&funder=dolorem" \
+    -G "http://127.0.0.1:8000/api/publications/search?institution=incidunt&researcharea=quas&department=id&funder=quaerat" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -261,10 +261,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "est",
-    "researcharea": "blanditiis",
-    "department": "beatae",
-    "funder": "dolorem",
+    "institution": "incidunt",
+    "researcharea": "quas",
+    "department": "id",
+    "funder": "quaerat",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -288,10 +288,10 @@ import json
 
 url = 'http://127.0.0.1:8000/api/publications/search'
 params = {
-  'institution': 'est',
-  'researcharea': 'blanditiis',
-  'department': 'beatae',
-  'funder': 'dolorem',
+  'institution': 'incidunt',
+  'researcharea': 'quas',
+  'department': 'id',
+  'funder': 'quaerat',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -304,11 +304,43 @@ response.json()
 ```
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "success": true,
+    "data": {
+        "current_page": 1,
+        "data": [],
+        "first_page_url": "http:\/\/localhost\/api\/publications\/search?page=1",
+        "from": null,
+        "last_page": 1,
+        "last_page_url": "http:\/\/localhost\/api\/publications\/search?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/localhost\/api\/publications\/search?page=1",
+                "label": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/localhost\/api\/publications\/search",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": null,
+        "total": 0
+    },
+    "message": "Publications retrieved successfully"
 }
 ```
 <div id="execution-results-GETapi-publications-search" hidden>
@@ -369,7 +401,7 @@ This endpoint returns the details of the specified publication by id.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publication/2" \
+    -G "http://127.0.0.1:8000/api/publication/16" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -377,7 +409,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/2"
+    "http://127.0.0.1:8000/api/publication/16"
 );
 
 let headers = {
@@ -397,7 +429,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/2'
+url = 'http://127.0.0.1:8000/api/publication/16'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -476,7 +508,7 @@ This endpoint lets a user request access to a private publication.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/publication/6/request" \
+    "http://127.0.0.1:8000/api/publication/18/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -484,7 +516,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/6/request"
+    "http://127.0.0.1:8000/api/publication/18/request"
 );
 
 let headers = {
@@ -504,7 +536,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/6/request'
+url = 'http://127.0.0.1:8000/api/publication/18/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -569,7 +601,7 @@ This endpoint lets a user (publication owner) grant access to a requested privat
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/publication/10/grant" \
+    "http://127.0.0.1:8000/api/publication/7/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -577,7 +609,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/10/grant"
+    "http://127.0.0.1:8000/api/publication/7/grant"
 );
 
 let headers = {
@@ -597,7 +629,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/10/grant'
+url = 'http://127.0.0.1:8000/api/publication/7/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',

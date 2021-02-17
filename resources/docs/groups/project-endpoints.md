@@ -13,7 +13,7 @@ This endpoint return an archive of the projects.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/projects?perPage=19&recent=4&limit=consequuntur" \
+    -G "http://127.0.0.1:8000/api/projects?perPage=13&recent=3&limit=laboriosam" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -25,9 +25,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "19",
-    "recent": "4",
-    "limit": "consequuntur",
+    "perPage": "13",
+    "recent": "3",
+    "limit": "laboriosam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -51,9 +51,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/projects'
 params = {
-  'perPage': '19',
-  'recent': '4',
-  'limit': 'consequuntur',
+  'perPage': '13',
+  'recent': '3',
+  'limit': 'laboriosam',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -204,7 +204,7 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/projects/search?institution=minus&researcharea=consectetur&department=iusto&funder=ea" \
+    -G "http://127.0.0.1:8000/api/projects/search?institution=cumque&researcharea=at&department=non&funder=aut" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -216,10 +216,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "minus",
-    "researcharea": "consectetur",
-    "department": "iusto",
-    "funder": "ea",
+    "institution": "cumque",
+    "researcharea": "at",
+    "department": "non",
+    "funder": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -243,10 +243,10 @@ import json
 
 url = 'http://127.0.0.1:8000/api/projects/search'
 params = {
-  'institution': 'minus',
-  'researcharea': 'consectetur',
-  'department': 'iusto',
-  'funder': 'ea',
+  'institution': 'cumque',
+  'researcharea': 'at',
+  'department': 'non',
+  'funder': 'aut',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -259,11 +259,43 @@ response.json()
 ```
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "success": true,
+    "data": {
+        "current_page": 1,
+        "data": [],
+        "first_page_url": "http:\/\/localhost\/api\/projects\/search?page=1",
+        "from": null,
+        "last_page": 1,
+        "last_page_url": "http:\/\/localhost\/api\/projects\/search?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/localhost\/api\/projects\/search?page=1",
+                "label": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/localhost\/api\/projects\/search",
+        "per_page": 10,
+        "prev_page_url": null,
+        "to": null,
+        "total": 0
+    },
+    "message": "Projects retrieved successfully"
 }
 ```
 <div id="execution-results-GETapi-projects-search" hidden>
@@ -324,7 +356,7 @@ This endpoint returns the details of the specified project by id.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/project/dolore" \
+    -G "http://127.0.0.1:8000/api/project/ipsa" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -332,7 +364,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/dolore"
+    "http://127.0.0.1:8000/api/project/ipsa"
 );
 
 let headers = {
@@ -352,7 +384,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/dolore'
+url = 'http://127.0.0.1:8000/api/project/ipsa'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -439,7 +471,7 @@ This endpoint lets a user request access to a private project.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/project/14/request" \
+    "http://127.0.0.1:8000/api/project/2/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -447,7 +479,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/14/request"
+    "http://127.0.0.1:8000/api/project/2/request"
 );
 
 let headers = {
@@ -467,7 +499,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/14/request'
+url = 'http://127.0.0.1:8000/api/project/2/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -532,7 +564,7 @@ This endpoint lets a user(owner) grant access to a private project.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/project/13/grant" \
+    "http://127.0.0.1:8000/api/project/20/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -540,7 +572,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/project/13/grant"
+    "http://127.0.0.1:8000/api/project/20/grant"
 );
 
 let headers = {
@@ -560,7 +592,7 @@ fetch(url, {
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/13/grant'
+url = 'http://127.0.0.1:8000/api/project/20/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',

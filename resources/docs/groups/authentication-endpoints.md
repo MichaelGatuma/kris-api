@@ -15,7 +15,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"natus","device_name":"Huawei STK-L21"}'
+    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"voluptate","device_name":"Huawei STK-L21"}'
 
 ```
 
@@ -33,7 +33,7 @@ let body = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "natus",
+    "password": "voluptate",
     "device_name": "Huawei STK-L21"
 }
 
@@ -53,7 +53,7 @@ payload = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "natus",
+    "password": "voluptate",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -161,7 +161,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"sed","password":"hic","device_name":"Huawei STK-L21"}'
+    -d '{"email":"non","password":"assumenda","device_name":"Huawei STK-L21"}'
 
 ```
 
@@ -176,8 +176,8 @@ let headers = {
 };
 
 let body = {
-    "email": "sed",
-    "password": "hic",
+    "email": "non",
+    "password": "assumenda",
     "device_name": "Huawei STK-L21"
 }
 
@@ -194,8 +194,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/login'
 payload = {
-    "email": "sed",
-    "password": "hic",
+    "email": "non",
+    "password": "assumenda",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -281,7 +281,7 @@ curl -X POST \
     "http://127.0.0.1:8000/api/user/forgot-password-request" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"ut"}'
+    -d '{"email":"consequatur"}'
 
 ```
 
@@ -296,7 +296,7 @@ let headers = {
 };
 
 let body = {
-    "email": "ut"
+    "email": "consequatur"
 }
 
 fetch(url, {
@@ -312,7 +312,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/forgot-password-request'
 payload = {
-    "email": "ut"
+    "email": "consequatur"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -388,7 +388,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"tempora","password":"sed","current_password":"sequi"}'
+    -d '{"email":"tempore","password":"impedit","current_password":"sunt"}'
 
 ```
 
@@ -404,9 +404,9 @@ let headers = {
 };
 
 let body = {
-    "email": "tempora",
-    "password": "sed",
-    "current_password": "sequi"
+    "email": "tempore",
+    "password": "impedit",
+    "current_password": "sunt"
 }
 
 fetch(url, {
@@ -422,9 +422,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/reset-password'
 payload = {
-    "email": "tempora",
-    "password": "sed",
-    "current_password": "sequi"
+    "email": "tempore",
+    "password": "impedit",
+    "current_password": "sunt"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
