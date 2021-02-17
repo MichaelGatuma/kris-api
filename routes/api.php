@@ -5,16 +5,8 @@ use App\Http\Controllers\API\ProjectAPIController;
 use App\Http\Controllers\API\PublicationAPIController;
 use App\Http\Controllers\API\ResearcherAPIController;
 use App\Http\Controllers\API\UserController;
-use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
-//todo: dropdown population
-
-
-//research areas
-//research institutions
-//department
-//funder
 
 //todo: project search criteria
 
@@ -37,11 +29,13 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 //    Route::post('user/toggle-2fa', [UserController::class, 'toggle2fa']);
 
     Route::get('publications', [PublicationAPIController::class, 'index']);
+    Route::get('publications/search', [PublicationAPIController::class, 'searchCriteria']);
     Route::get('publication/{id}', [PublicationAPIController::class, 'show']);
     Route::post('publication/{id}/request', [PublicationAPIController::class, 'requestAccess']);
     Route::post('publication/{id}/grant', [PublicationAPIController::class, 'grantAccess']);
 
     Route::get('projects', [ProjectAPIController::class, 'index']);
+    Route::get('projects/search', [ProjectAPIController::class, 'searchCriteria']);
     Route::get('project/{id}', [ProjectAPIController::class, 'show']);
     Route::post('project/{id}/request', [ProjectAPIController::class, 'requestAccess']);
     Route::post('project/{id}/grant', [ProjectAPIController::class, 'grantAccess']);
@@ -53,4 +47,22 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('discussions', [PostAPIController::class, 'index']);
     Route::post('discussions', [PostAPIController::class, 'store']);
     Route::get('discussion/{id', [PostAPIController::class, 'show']);
+
+    //dropdown population
+    Route::get('researchareas', function () {
+        $researchAreas = \App\Models\Researcharea::all()->pluck('ResearchAreaName', 'ResearchArea_ID');
+        return response()->json($researchAreas);
+    });
+    Route::get('institutions', function () {
+        $institutions = \App\Models\Researchinstitution::all()->pluck('RIName', 'ResearchInstitution_ID');
+        return response()->json($institutions);
+    });
+    Route::get('departments', function () {
+        $departments = \App\Models\Department::all()->pluck('DptName', 'Department_ID');
+        return response()->json($departments);
+    });
+    Route::get('funders', function () {
+        $funders = \App\Models\Funder::all()->pluck('FunderName', 'Funder_ID');
+        return response()->json($funders);
+    });
 });

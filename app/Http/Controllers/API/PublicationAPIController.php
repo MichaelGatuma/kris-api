@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\API\CreatePublicationAPIRequest;
 use App\Http\Requests\API\UpdatePublicationAPIRequest;
+use App\Models\Project;
 use App\Models\Publication;
 use App\Repositories\PublicationRepository;
 use Illuminate\Http\Request;
@@ -338,5 +339,41 @@ class PublicationAPIController extends AppBaseController
         } else {
             return $this->sendError('You do not have such rights to this publication', 403);
         }
+    }
+
+    public function searchCriteria(Request $request)
+    {
+        $perPage = $request->has('perPage') ? $request->perPage : 10;
+        $institution = $request->get('institution');
+        $researcharea = $request->get('researcharea');
+        $department = $request->get('department');
+        $funder = $request->get('funder');
+        $publications = Publication::with(['researcher', 'researcher.department', 'researcher.department.researchinstitution']);
+        if ($researcharea !== null) {
+            $publications->whereHas('researcher', function ($q) use ($researcharea) {
+                $q->where('ResearchAreaOfInterest', $researcharea);
+            });
+        }
+        if ($department !== null) {
+            $publications->whereHas('researcher.department', function ($q) use ($department) {
+                $q->where('DptName', $department);
+            });
+        }
+        if ($institution !== null) {
+            $publications->whereHas('researcher.department.researchinstitution', function ($q) use ($institution) {
+                $q->where('RIName', $institution);
+            });
+        }
+        if ($funder !== null) {
+            $publications->whereHas('funder', function ($q) use ($funder) {
+                $q->where('FunderName', $funder);
+            });
+        }
+
+        if ($request->has('sortby')) {
+            $publications->orderBy('created_at', $request->get('sortby'));
+        }
+        return $this->sendResponse($publications->paginate($perPage),
+            'Publications retrieved successfully');
     }
 }

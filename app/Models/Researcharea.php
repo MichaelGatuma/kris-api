@@ -10,7 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class ResearchareasKtbl
+ * Class Researcharea
  *
  * @property int $ResearchArea_ID
  * @property string $ResearchAreaName
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class ResearchareasKtbl extends Model
+class Researcharea extends Model
 {
     protected $table = 'ResearchAreas_KTbl';
     protected $primaryKey = 'ResearchArea_ID';

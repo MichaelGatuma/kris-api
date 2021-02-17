@@ -142,6 +142,7 @@
       <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
       <path value="$PROJECT_DIR$/vendor/mpociot/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-activitylog" />
+      <path value="$PROJECT_DIR$/vendor/tucker-eric/eloquentfilter" />
     </include_path>
   </component>
   <component name="PhpUnit">

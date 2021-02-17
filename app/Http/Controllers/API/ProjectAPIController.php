@@ -119,13 +119,17 @@ class ProjectAPIController extends AppBaseController
     public function index(Request $request)
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
-        $projects=Project::with(['researcher','researcher.user','researcher.department','researcher.department.researchinstitution'])->paginate($perPage);
+        $projects = Project::with([
+            'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution'
+        ])->paginate($perPage);
         if ($request->has('search')) {
             $query = $request->search;
         }
 
         if ($request->has('recent')) {
-            $projects = Project::with(['researcher','researcher.user','researcher.department','researcher.department.researchinstitution'])->orderBy('created_at','desc')->take($request->has('limit') ? $request->limit : 10)->get();
+            $projects = Project::with([
+                'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution'
+            ])->orderBy('created_at', 'desc')->take($request->has('limit') ? $request->limit : 10)->get();
         }
 
         return $this->sendResponse($projects, 'Projects retrieved successfully');
@@ -288,5 +292,40 @@ class ProjectAPIController extends AppBaseController
         } else {
             return $this->sendError('You do not have such rights to this project', 403);
         }
+    }
+
+    public function searchCriteria(Request $request)
+    {
+        $perPage = $request->has('perPage') ? $request->perPage : 10;
+        $institution = $request->get('institution');
+        $researcharea = $request->get('researcharea');
+        $department = $request->get('department');
+        $funder = $request->get('funder');
+        $projects = Project::with(['researcher', 'researcher.department', 'researcher.department.researchinstitution']);
+        if ($researcharea !== null) {
+            $projects->whereHas('researcher', function ($q) use ($researcharea) {
+                $q->where('ResearchAreaOfInterest', $researcharea);
+            });
+        }
+        if ($department !== null) {
+            $projects->whereHas('researcher.department', function ($q) use ($department) {
+                $q->where('DptName', $department);
+            });
+        }
+        if ($institution !== null) {
+            $projects->whereHas('researcher.department.researchinstitution', function ($q) use ($institution) {
+                $q->where('RIName', $institution);
+            });
+        }
+        if ($funder !== null) {
+            $projects->whereHas('funder', function ($q) use ($funder) {
+                $q->where('FunderName', $funder);
+            });
+        }
+        if ($request->has('sortby')) {
+            $projects->orderBy('created_at', $request->get('sortby'));
+        }
+        return $this->sendResponse($projects->paginate($perPage),
+            'Projects retrieved successfully');
     }
 }
