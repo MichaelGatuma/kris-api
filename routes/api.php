@@ -8,7 +8,6 @@ use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-//todo: project search criteria
 
 Route::post('user/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('user/login', [\App\Http\Controllers\AuthController::class, 'login']);
@@ -54,3 +53,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('departments', [\App\Http\Controllers\API\InflationController::class, 'departments']);
     Route::get('funders', [\App\Http\Controllers\API\InflationController::class, 'funders']);
 });
+
+//todo: remove these endpoints
+Route::get('publications/search', [PublicationAPIController::class, 'searchCriteria']);
+Route::get('projects/search', [ProjectAPIController::class, 'searchCriteria']);
