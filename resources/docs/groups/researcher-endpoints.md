@@ -11,7 +11,7 @@
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researchers?institution=id&researcharea=alias&department=omnis" \
+    -G "http://127.0.0.1:8000/api/researchers?institution=non&researcharea=illo&department=inventore" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -23,9 +23,9 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "id",
-    "researcharea": "alias",
-    "department": "omnis",
+    "institution": "non",
+    "researcharea": "illo",
+    "department": "inventore",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -49,9 +49,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/researchers'
 params = {
-  'institution': 'id',
-  'researcharea': 'alias',
-  'department': 'omnis',
+  'institution': 'non',
+  'researcharea': 'illo',
+  'department': 'inventore',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',

@@ -65,7 +65,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://127.0.0.1:8000</code></pre><h1>Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Authentication Endpoints</h1>
 <h2>Register user</h2>
@@ -77,7 +77,7 @@ You can switch the language used with the tabs at the top right (or from the nav
     "http://127.0.0.1:8000/api/user/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"qui","device_name":"Huawei STK-L21"}'
+    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"exercitationem","device_name":"Huawei STK-L21"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/register"
@@ -92,7 +92,7 @@ let body = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "qui",
+    "password": "exercitationem",
     "device_name": "Huawei STK-L21"
 }
 
@@ -109,7 +109,7 @@ payload = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "qui",
+    "password": "exercitationem",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -205,7 +205,7 @@ The name of the request source device.</p>
     "http://127.0.0.1:8000/api/user/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"magni","password":"quo","device_name":"Huawei STK-L21"}'
+    -d '{"email":"voluptatem","password":"incidunt","device_name":"Huawei STK-L21"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/login"
@@ -217,8 +217,8 @@ let headers = {
 };
 
 let body = {
-    "email": "magni",
-    "password": "quo",
+    "email": "voluptatem",
+    "password": "incidunt",
     "device_name": "Huawei STK-L21"
 }
 
@@ -232,8 +232,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/login'
 payload = {
-    "email": "magni",
-    "password": "quo",
+    "email": "voluptatem",
+    "password": "incidunt",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -307,7 +307,7 @@ The name of the request source device.</p>
     "http://127.0.0.1:8000/api/user/forgot-password-request" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"velit"}'
+    -d '{"email":"beatae"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/forgot-password-request"
@@ -319,7 +319,7 @@ let headers = {
 };
 
 let body = {
-    "email": "velit"
+    "email": "beatae"
 }
 
 fetch(url, {
@@ -332,7 +332,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/forgot-password-request'
 payload = {
-    "email": "velit"
+    "email": "beatae"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -396,7 +396,7 @@ The user email.</p>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"est","password":"sit","current_password":"quas"}'
+    -d '{"email":"rerum","password":"quia","current_password":"sit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/reset-password"
@@ -409,9 +409,9 @@ let headers = {
 };
 
 let body = {
-    "email": "est",
-    "password": "sit",
-    "current_password": "quas"
+    "email": "rerum",
+    "password": "quia",
+    "current_password": "sit"
 }
 
 fetch(url, {
@@ -424,9 +424,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/reset-password'
 payload = {
-    "email": "est",
-    "password": "sit",
-    "current_password": "quas"
+    "email": "rerum",
+    "password": "quia",
+    "current_password": "sit"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -637,7 +637,7 @@ response.json()</code></pre>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"title":"occaecati","body":"sed"}'
+    -d '{"title":"magni","body":"omnis"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/discussions"
@@ -650,8 +650,8 @@ let headers = {
 };
 
 let body = {
-    "title": "occaecati",
-    "body": "sed"
+    "title": "magni",
+    "body": "omnis"
 }
 
 fetch(url, {
@@ -664,8 +664,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/discussions'
 payload = {
-    "title": "occaecati",
-    "body": "sed"
+    "title": "magni",
+    "body": "omnis"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1051,228 +1051,6 @@ response.json()</code></pre>
 <p>
 <label id="auth-GETapi-funders" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-funders" data-component="header"></label>
 </p>
-</form><h1>Endpoints</h1>
-<h2>api/xxx</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/xxx" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/xxx"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre>
-<pre><code class="language-python">import requests
-import json
-
-url = 'http://127.0.0.1:8000/api/xxx'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()</code></pre>
-<blockquote>
-<p>Example response (200):</p>
-</blockquote>
-<pre><code class="language-json">{
-    "Researcher_ID": 2,
-    "created_at": null,
-    "updated_at": null,
-    "User_ID": 3,
-    "Gender": "Female",
-    "DOB": "1993-06-25T00:00:00.000000Z",
-    "PhoneNumber": "0721822586",
-    "ResearchAreaOfInterest": "Food Security",
-    "DepartmentID": 8,
-    "ResearchInstitutionID": 3,
-    "Affiliation": "Agricultural Engineering (AGEN) - Egerton University",
-    "AboutResearcher": "Food security researcher.",
-    "Approved": false,
-    "CV": "storage\/CVs\/CV1.pdf",
-    "ListofPublications": null,
-    "projects": [
-        {
-            "created_at": null,
-            "updated_at": null,
-            "ProjectTitle": "An investigation to the challenges that Integrated Financial Management Information System(IFMIS) faces.",
-            "Project_ID": 7,
-            "ProjectAbstract": "Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This leads to duplication of research, less opportunities for networking, and also contributes to scientific fraud. Efforts need to be made in order to make academic research data available and accessible. ",
-            "Researcher_ID": 2,
-            "User_ID": 3,
-            "ProjectResearchAreas": "Accounting",
-            "ResearchersInvolved": "George Okeyo",
-            "Funded": true,
-            "Funder_ID": 2,
-            "Status": "Ongoing",
-            "LinkToPublication": "http:\/\/www.jkuat.ac.ke",
-            "Access_Level": "public",
-            "projectStart": "2020-11-21",
-            "projectEnd": "2020-11-21",
-            "abstractDocumentPath": null,
-            "otherProjectDocsPath": null,
-            "RelevantProjectDocuments": null
-        },
-        {
-            "created_at": null,
-            "updated_at": null,
-            "ProjectTitle": "An investigation to the challenges that Integrated Financial Management Information System(IFMIS) faces.",
-            "Project_ID": 8,
-            "ProjectAbstract": "Lack of or limited access to research data is one of the major challenges facing the academic researchers in Kenyan institutions of higher learning, as well as its research institutes. This leads to duplication of research, less opportunities for networking, and also contributes to scientific fraud. Efforts need to be made in order to make academic research data available and accessible. ",
-            "Researcher_ID": 2,
-            "User_ID": 3,
-            "ProjectResearchAreas": "Machine Learning",
-            "ResearchersInvolved": "George Okeyo",
-            "Funded": true,
-            "Funder_ID": 2,
-            "Status": "Ongoing",
-            "LinkToPublication": "http:\/\/www.jkuat.ac.ke",
-            "Access_Level": "private",
-            "projectStart": "2020-11-21",
-            "projectEnd": "2020-11-21",
-            "abstractDocumentPath": null,
-            "otherProjectDocsPath": null,
-            "RelevantProjectDocuments": null
-        },
-        {
-            "created_at": "2020-10-28T11:22:52.000000Z",
-            "updated_at": "2020-10-28T11:22:52.000000Z",
-            "ProjectTitle": "Test Project",
-            "Project_ID": 19,
-            "ProjectAbstract": "abstract",
-            "Researcher_ID": 2,
-            "User_ID": 3,
-            "ProjectResearchAreas": "Information Retrieval",
-            "ResearchersInvolved": "J.M",
-            "Funded": false,
-            "Funder_ID": null,
-            "Status": "Ongoing",
-            "LinkToPublication": "http:\/\/www.jkuat.ac.ke",
-            "Access_Level": "private",
-            "projectStart": "2020-11-21",
-            "projectEnd": "2020-11-21",
-            "abstractDocumentPath": null,
-            "otherProjectDocsPath": null,
-            "RelevantProjectDocuments": null
-        },
-        {
-            "created_at": "2020-10-28T11:34:13.000000Z",
-            "updated_at": "2020-10-28T11:34:13.000000Z",
-            "ProjectTitle": "Test Project 2",
-            "Project_ID": 20,
-            "ProjectAbstract": "abstract",
-            "Researcher_ID": 2,
-            "User_ID": 3,
-            "ProjectResearchAreas": "Molecular Biology",
-            "ResearchersInvolved": "J.M 2",
-            "Funded": false,
-            "Funder_ID": null,
-            "Status": "Ongoing",
-            "LinkToPublication": "http:\/\/www.jkuat.ac.ke",
-            "Access_Level": "public",
-            "projectStart": "2020-11-21",
-            "projectEnd": "2020-11-21",
-            "abstractDocumentPath": null,
-            "otherProjectDocsPath": null,
-            "RelevantProjectDocuments": null
-        },
-        {
-            "created_at": "2020-10-28T16:12:27.000000Z",
-            "updated_at": "2020-10-28T16:12:27.000000Z",
-            "ProjectTitle": "Test Project 3",
-            "Project_ID": 21,
-            "ProjectAbstract": "This is an abstract",
-            "Researcher_ID": 2,
-            "User_ID": 3,
-            "ProjectResearchAreas": "Artificial Intelligence",
-            "ResearchersInvolved": "Mwenda",
-            "Funded": false,
-            "Funder_ID": null,
-            "Status": "Ongoing",
-            "LinkToPublication": "http:\/\/www.jkuat.ac.ke",
-            "Access_Level": "private",
-            "projectStart": "2020-11-21",
-            "projectEnd": "2020-11-21",
-            "abstractDocumentPath": null,
-            "otherProjectDocsPath": null,
-            "RelevantProjectDocuments": null
-        },
-        {
-            "created_at": "2020-10-31T08:50:22.000000Z",
-            "updated_at": "2020-10-31T08:50:22.000000Z",
-            "ProjectTitle": "Test Project 24",
-            "Project_ID": 23,
-            "ProjectAbstract": "My abstract",
-            "Researcher_ID": 2,
-            "User_ID": 3,
-            "ProjectResearchAreas": "Information Retrieval",
-            "ResearchersInvolved": "Sigey J.K.",
-            "Funded": false,
-            "Funder_ID": null,
-            "Status": "Ongoing",
-            "LinkToPublication": "http:\/\/www.jkuat.ac.ke",
-            "Access_Level": "private",
-            "projectStart": "2020-11-21",
-            "projectEnd": "2020-11-21",
-            "abstractDocumentPath": null,
-            "otherProjectDocsPath": null,
-            "RelevantProjectDocuments": null
-        },
-        {
-            "created_at": "2020-11-17T11:22:40.000000Z",
-            "updated_at": "2020-11-17T11:22:40.000000Z",
-            "ProjectTitle": "New Public Project",
-            "Project_ID": 24,
-            "ProjectAbstract": "No abstract is abstract too",
-            "Researcher_ID": 2,
-            "User_ID": 3,
-            "ProjectResearchAreas": "Information Retrieval",
-            "ResearchersInvolved": "Mwenda",
-            "Funded": false,
-            "Funder_ID": null,
-            "Status": "Ongoing",
-            "LinkToPublication": "http:\/\/www.jkuat.ac.ke",
-            "Access_Level": "public",
-            "projectStart": "2020-11-21",
-            "projectEnd": "2020-11-21",
-            "abstractDocumentPath": null,
-            "otherProjectDocsPath": null,
-            "RelevantProjectDocuments": null
-        }
-    ],
-    "publications": []
-}</code></pre>
-<div id="execution-results-GETapi-xxx" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETapi-xxx"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-xxx"></code></pre>
-</div>
-<div id="execution-error-GETapi-xxx" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-xxx"></code></pre>
-</div>
-<form id="form-GETapi-xxx" data-method="GET" data-path="api/xxx" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-xxx', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-xxx" onclick="tryItOut('GETapi-xxx');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-xxx" onclick="cancelTryOut('GETapi-xxx');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-xxx" hidden>Send Request 💥</button>
-    </h3>
-<p>
-<small class="badge badge-green">GET</small>
- <b><code>api/xxx</code></b>
-</p>
 </form><h1>Project Endpoints</h1>
 <h2>Search Projects with pagination</h2>
 <p>This endpoint return an archive of the projects.</p>
@@ -1281,7 +1059,7 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/projects?perPage=14&amp;recent=14&amp;limit=aut" \
+    -G "http://127.0.0.1:8000/api/projects?perPage=17&amp;recent=1&amp;limit=sit" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -1290,9 +1068,9 @@ response.json()</code></pre>
 );
 
 let params = {
-    "perPage": "14",
-    "recent": "14",
-    "limit": "aut",
+    "perPage": "17",
+    "recent": "1",
+    "limit": "sit",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1312,9 +1090,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/projects'
 params = {
-  'perPage': '14',
-  'recent': '14',
-  'limit': 'aut',
+  'perPage': '17',
+  'recent': '1',
+  'limit': 'sit',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1455,7 +1233,7 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/projects/search?institution=delectus&amp;researcharea=perspiciatis&amp;department=fugit&amp;funder=nam" \
+    -G "http://127.0.0.1:8000/api/projects/search?institution=odit&amp;researcharea=aut&amp;department=ut&amp;funder=dolorum" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -1464,10 +1242,10 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 );
 
 let params = {
-    "institution": "delectus",
-    "researcharea": "perspiciatis",
-    "department": "fugit",
-    "funder": "nam",
+    "institution": "odit",
+    "researcharea": "aut",
+    "department": "ut",
+    "funder": "dolorum",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1487,10 +1265,10 @@ import json
 
 url = 'http://127.0.0.1:8000/api/projects/search'
 params = {
-  'institution': 'delectus',
-  'researcharea': 'perspiciatis',
-  'department': 'fugit',
-  'funder': 'nam',
+  'institution': 'odit',
+  'researcharea': 'aut',
+  'department': 'ut',
+  'funder': 'dolorum',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1589,12 +1367,12 @@ the funder name</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/project/eveniet" \
+    -G "http://127.0.0.1:8000/api/project/adipisci" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/project/eveniet"
+    "http://127.0.0.1:8000/api/project/adipisci"
 );
 
 let headers = {
@@ -1610,7 +1388,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/eveniet'
+url = 'http://127.0.0.1:8000/api/project/adipisci'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1686,12 +1464,12 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://127.0.0.1:8000/api/project/20/request" \
+    "http://127.0.0.1:8000/api/project/13/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/project/20/request"
+    "http://127.0.0.1:8000/api/project/13/request"
 );
 
 let headers = {
@@ -1707,7 +1485,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/20/request'
+url = 'http://127.0.0.1:8000/api/project/13/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1760,12 +1538,12 @@ The id of the project</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://127.0.0.1:8000/api/project/17/grant" \
+    "http://127.0.0.1:8000/api/project/1/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/project/17/grant"
+    "http://127.0.0.1:8000/api/project/1/grant"
 );
 
 let headers = {
@@ -1781,7 +1559,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/project/17/grant'
+url = 'http://127.0.0.1:8000/api/project/1/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -1834,7 +1612,7 @@ The id of the project</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications?perPage=12&amp;recent=20&amp;limit=temporibus" \
+    -G "http://127.0.0.1:8000/api/publications?perPage=2&amp;recent=19&amp;limit=velit" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -1843,9 +1621,9 @@ The id of the project</p>
 );
 
 let params = {
-    "perPage": "12",
-    "recent": "20",
-    "limit": "temporibus",
+    "perPage": "2",
+    "recent": "19",
+    "limit": "velit",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1865,9 +1643,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/publications'
 params = {
-  'perPage': '12',
-  'recent': '20',
-  'limit': 'temporibus',
+  'perPage': '2',
+  'recent': '19',
+  'limit': 'velit',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -2052,7 +1830,7 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications/search?institution=iure&amp;researcharea=a&amp;department=aut&amp;funder=incidunt" \
+    -G "http://127.0.0.1:8000/api/publications/search?institution=itaque&amp;researcharea=nihil&amp;department=consequuntur&amp;funder=qui" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -2061,10 +1839,10 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 );
 
 let params = {
-    "institution": "iure",
-    "researcharea": "a",
-    "department": "aut",
-    "funder": "incidunt",
+    "institution": "itaque",
+    "researcharea": "nihil",
+    "department": "consequuntur",
+    "funder": "qui",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2084,10 +1862,10 @@ import json
 
 url = 'http://127.0.0.1:8000/api/publications/search'
 params = {
-  'institution': 'iure',
-  'researcharea': 'a',
-  'department': 'aut',
-  'funder': 'incidunt',
+  'institution': 'itaque',
+  'researcharea': 'nihil',
+  'department': 'consequuntur',
+  'funder': 'qui',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -2186,12 +1964,12 @@ the funder name</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/publication/9" \
+    -G "http://127.0.0.1:8000/api/publication/5" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/publication/9"
+    "http://127.0.0.1:8000/api/publication/5"
 );
 
 let headers = {
@@ -2207,7 +1985,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/9'
+url = 'http://127.0.0.1:8000/api/publication/5'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2275,12 +2053,12 @@ The id of the publication</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://127.0.0.1:8000/api/publication/4/request" \
+    "http://127.0.0.1:8000/api/publication/20/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/publication/4/request"
+    "http://127.0.0.1:8000/api/publication/20/request"
 );
 
 let headers = {
@@ -2296,7 +2074,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/4/request'
+url = 'http://127.0.0.1:8000/api/publication/20/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2349,12 +2127,12 @@ The id of the publication</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://127.0.0.1:8000/api/publication/15/grant" \
+    "http://127.0.0.1:8000/api/publication/6/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/publication/15/grant"
+    "http://127.0.0.1:8000/api/publication/6/grant"
 );
 
 let headers = {
@@ -2370,7 +2148,7 @@ fetch(url, {
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/15/grant'
+url = 'http://127.0.0.1:8000/api/publication/6/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2422,7 +2200,7 @@ The id of the publication</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/researchers?institution=id&amp;researcharea=alias&amp;department=omnis" \
+    -G "http://127.0.0.1:8000/api/researchers?institution=non&amp;researcharea=illo&amp;department=inventore" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -2431,9 +2209,9 @@ The id of the publication</p>
 );
 
 let params = {
-    "institution": "id",
-    "researcharea": "alias",
-    "department": "omnis",
+    "institution": "non",
+    "researcharea": "illo",
+    "department": "inventore",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2453,9 +2231,9 @@ import json
 
 url = 'http://127.0.0.1:8000/api/researchers'
 params = {
-  'institution': 'id',
-  'researcharea': 'alias',
-  'department': 'omnis',
+  'institution': 'non',
+  'researcharea': 'illo',
+  'department': 'inventore',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -3287,7 +3065,7 @@ The email of the user.</p>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\USER\AppData\Local\Temp\phpEABB.tmp" </code></pre>
+    -F "file=@C:\Users\USER\AppData\Local\Temp\php7EC8.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://127.0.0.1:8000/api/user/profile-image"
 );
@@ -3311,7 +3089,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/profile-image'
 files = {
-  'file': open('C:\Users\USER\AppData\Local\Temp\phpEABB.tmp', 'rb')
+  'file': open('C:\Users\USER\AppData\Local\Temp\php7EC8.tmp', 'rb')
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -3367,7 +3145,7 @@ The file object to be uploaded</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://127.0.0.1:8000/api/user/profile-image?user_id=6" \
+    -G "http://127.0.0.1:8000/api/user/profile-image?user_id=8" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -3376,7 +3154,7 @@ The file object to be uploaded</p>
 );
 
 let params = {
-    "user_id": "6",
+    "user_id": "8",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3396,7 +3174,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/profile-image'
 params = {
-  'user_id': '6',
+  'user_id': '8',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
