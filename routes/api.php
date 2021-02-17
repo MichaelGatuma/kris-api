@@ -24,7 +24,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('user/profile-details', [UserController::class, 'edit']);
     Route::post('user/profile-image', [UserController::class, 'addUserImage']);
     Route::get('user/profile-image', [UserController::class, 'getUserImage']);
-    Route::get('user/profile-image/{user_id}', [UserController::class, 'getUserImage']);
+    Route::get('user/profile-image', [UserController::class, 'getUserImage']);
 //    Route::post('user/logout-other-devices', [UserController::class, 'revokeAllTokens']);
 //    Route::post('user/toggle-2fa', [UserController::class, 'toggle2fa']);
 
@@ -49,20 +49,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('discussion/{id', [PostAPIController::class, 'show']);
 
     //dropdown population
-    Route::get('researchareas', function () {
-        $researchAreas = \App\Models\Researcharea::all()->pluck('ResearchAreaName', 'ResearchArea_ID');
-        return response()->json($researchAreas);
-    });
-    Route::get('institutions', function () {
-        $institutions = \App\Models\Researchinstitution::all()->pluck('RIName', 'ResearchInstitution_ID');
-        return response()->json($institutions);
-    });
-    Route::get('departments', function () {
-        $departments = \App\Models\Department::all()->pluck('DptName', 'Department_ID');
-        return response()->json($departments);
-    });
-    Route::get('funders', function () {
-        $funders = \App\Models\Funder::all()->pluck('FunderName', 'Funder_ID');
-        return response()->json($funders);
-    });
+    Route::get('researchareas', [\App\Http\Controllers\API\InflationController::class, 'researchAreas']);
+    Route::get('institutions', [\App\Http\Controllers\API\InflationController::class, 'institutions']);
+    Route::get('departments', [\App\Http\Controllers\API\InflationController::class, 'departments']);
+    Route::get('funders', [\App\Http\Controllers\API\InflationController::class, 'funders']);
 });
