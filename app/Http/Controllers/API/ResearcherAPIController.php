@@ -31,15 +31,35 @@ class ResearcherAPIController extends AppBaseController
      *
      * This endpoints returns all researchers
      *
+     * @queryParam institution string Search by the given research institution
+     * @queryParam researcharea string Search by the given research area
+     * @queryParam department string Search by the given department
+     *
      * @param  Request  $request
      * @return mixed
      */
     public function index(Request $request)
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
-        $researchers = Researcher::with(['user','department','department.researchinstitution'])->paginate($perPage);
+        $institution = $request->get('institution');
+        $researcharea = $request->get('researcharea');
+        $department = $request->get('department');
 
-        return $this->sendResponse($researchers, 'Researchers retrieved successfully');
+        $researchers = Researcher::with(['user', 'department', 'department.researchinstitution']);
+        if ($department !== null) {
+            $researchers = $researchers->whereHas('department', function ($q) use ($department) {
+                $q->where('DptName', $department);
+            });
+        }
+        if ($institution !== null) {
+            $researchers = $researchers->whereHas('department.researchinstitution', function ($q) use ($institution) {
+                $q->where('RIName', $institution);
+            });
+        }
+        if ($researcharea !== null) {
+            $researchers = $researchers->where('ResearchAreaOfInterest', $researcharea);
+        }
+        return $this->sendResponse($researchers->paginate($perPage), 'Researchers retrieved successfully');
     }
 
     public function store(CreateResearcherAPIRequest $request)
@@ -52,6 +72,7 @@ class ResearcherAPIController extends AppBaseController
     }
 
     /**
+     * @param $request
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      *
@@ -60,19 +81,22 @@ class ResearcherAPIController extends AppBaseController
      *
      * View a single researcher
      *
+     * Display a researcher by id and all related projects and publications
      * @urlParam id integer required The specified researcher id. No-example
      *
      */
     public function show($id)
     {
         /** @var Researcher $researcher */
-        $researcher = $this->researcherRepository->find($id);
+        $researcher = Researcher::with([
+            'projects', 'publications'
+        ])->find($id);
 
         if (empty($researcher)) {
             return $this->sendError('Researcher not found');
         }
 
-        return $this->sendResponse($researcher->toArray(), 'Researcher retrieved successfully');
+        return $this->sendResponse($researcher, 'Researcher retrieved successfully');
     }
 
     public function update($id, UpdateResearcherAPIRequest $request)
@@ -104,6 +128,7 @@ class ResearcherAPIController extends AppBaseController
 
         return $this->sendSuccess('Researcher deleted successfully');
     }
+
     /**
      * @group Researcher Endpoints
      * Show Researcher's Active Projects

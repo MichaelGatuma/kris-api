@@ -57,3 +57,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 //todo: remove these endpoints
 Route::get('publications/search', [PublicationAPIController::class, 'searchCriteria']);
 Route::get('projects/search', [ProjectAPIController::class, 'searchCriteria']);
+Route::get('researchers', [ResearcherAPIController::class, 'index']);
+Route::get('researcher/{id}', [ResearcherAPIController::class, 'show']);
+Route::get('xxx',function (){
+    return response()->json(\App\Models\Researcher::with(['projects','publications'])->find(2));
+});
