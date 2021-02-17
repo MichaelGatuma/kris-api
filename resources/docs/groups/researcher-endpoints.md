@@ -3,8 +3,7 @@
 
 ## List all Researchers
 
-This endpoints returns all researchers
-
+<small class="badge badge-darkred">requires authentication</small>
 
 
 
@@ -12,7 +11,8 @@ This endpoints returns all researchers
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researchers?institution=assumenda&researcharea=non&department=dolores" \
+    -G "http://127.0.0.1:8000/api/researchers?institution=id&researcharea=alias&department=omnis" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -23,14 +23,15 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "assumenda",
-    "researcharea": "non",
-    "department": "dolores",
+    "institution": "id",
+    "researcharea": "alias",
+    "department": "omnis",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -48,11 +49,12 @@ import json
 
 url = 'http://127.0.0.1:8000/api/researchers'
 params = {
-  'institution': 'assumenda',
-  'researcharea': 'non',
-  'department': 'dolores',
+  'institution': 'id',
+  'researcharea': 'alias',
+  'department': 'omnis',
 }
 headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
@@ -109,7 +111,7 @@ response.json()
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-researchers"></code></pre>
 </div>
-<form id="form-GETapi-researchers" data-method="GET" data-path="api/researchers" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researchers', this);">
+<form id="form-GETapi-researchers" data-method="GET" data-path="api/researchers" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researchers', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-researchers" onclick="tryItOut('GETapi-researchers');">Try it out ⚡</button>
@@ -119,6 +121,9 @@ response.json()
 <p>
 <small class="badge badge-green">GET</small>
  <b><code>api/researchers</code></b>
+</p>
+<p>
+<label id="auth-GETapi-researchers" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-researchers" data-component="header"></label>
 </p>
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <p>
@@ -139,7 +144,7 @@ Search by the given department</p>
 </form>
 
 
-## api/researcher/{id}
+## View a single researcher
 
 <small class="badge badge-darkred">requires authentication</small>
 

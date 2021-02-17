@@ -28,6 +28,7 @@ class ResearcherAPIController extends AppBaseController
      * @group Researcher Endpoints
      *
      * List all Researchers
+     * @authenticated
      *
      * This endpoints returns all researchers
      *
@@ -72,16 +73,14 @@ class ResearcherAPIController extends AppBaseController
     }
 
     /**
-     * @param $request
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
      *
      * @group Researcher Endpoints
-     * @authenticated
      *
      * View a single researcher
+     * @authenticated
      *
      * Display a researcher by id and all related projects and publications
+     *
      * @urlParam id integer required The specified researcher id. No-example
      *
      */

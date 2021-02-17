@@ -347,7 +347,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\USER\AppData\Local\Temp\phpF245.tmp" 
+    -F "file=@C:\Users\USER\AppData\Local\Temp\phpEABB.tmp" 
 ```
 
 ```javascript
@@ -377,7 +377,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/profile-image'
 files = {
-  'file': open('C:\Users\USER\AppData\Local\Temp\phpF245.tmp', 'rb')
+  'file': open('C:\Users\USER\AppData\Local\Temp\phpEABB.tmp', 'rb')
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -444,7 +444,7 @@ This endpoint lets you fetch a logged in user profile image or fetch a user imag
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/user/profile-image?user_id=16" \
+    -G "http://127.0.0.1:8000/api/user/profile-image?user_id=6" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -456,7 +456,7 @@ const url = new URL(
 );
 
 let params = {
-    "user_id": "16",
+    "user_id": "6",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -480,7 +480,7 @@ import json
 
 url = 'http://127.0.0.1:8000/api/user/profile-image'
 params = {
-  'user_id': '16',
+  'user_id': '6',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',

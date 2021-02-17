@@ -101,7 +101,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"title":"doloribus","body":"iure"}'
+    -d '{"title":"occaecati","body":"sed"}'
 
 ```
 
@@ -117,8 +117,8 @@ let headers = {
 };
 
 let body = {
-    "title": "doloribus",
-    "body": "iure"
+    "title": "occaecati",
+    "body": "sed"
 }
 
 fetch(url, {
@@ -134,8 +134,8 @@ import json
 
 url = 'http://127.0.0.1:8000/api/discussions'
 payload = {
-    "title": "doloribus",
-    "body": "iure"
+    "title": "occaecati",
+    "body": "sed"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
