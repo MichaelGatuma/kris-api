@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model as Model;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model as Model;
 
 
 class Researcher extends Model
@@ -12,50 +11,8 @@ class Researcher extends Model
 
     use HasFactory;
 
-    public $table = 'Researchers';
-    protected $primaryKey = "Researcher_ID";
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
-
-
-
-    public $fillable = [
-        'User_ID',
-        'Gender',
-        'DOB',
-        'PhoneNumber',
-        'ResearchAreaOfInterest',
-        'DepartmentID',
-        'ResearchInstitutionID',
-        'Affiliation',
-        'AboutResearcher',
-        'Approved',
-        'CV',
-        'ListofPublications'
-    ];
-
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'Researcher_ID' => 'integer',
-        'User_ID' => 'integer',
-        'Gender' => 'string',
-        'DOB' => 'date',
-        'PhoneNumber' => 'string',
-        'ResearchAreaOfInterest' => 'string',
-        'DepartmentID' => 'integer',
-        'ResearchInstitutionID' => 'integer',
-        'Affiliation' => 'string',
-        'AboutResearcher' => 'string',
-        'Approved' => 'boolean',
-        'CV' => 'string',
-        'ListofPublications' => 'string'
-    ];
-
     /**
      * Validation rules
      *
@@ -76,6 +33,42 @@ class Researcher extends Model
         'Approved' => 'required|boolean',
         'CV' => 'nullable|string|max:191',
         'ListofPublications' => 'nullable|string|max:5000'
+    ];
+    public $table = 'Researchers';
+    public $fillable = [
+        'User_ID',
+        'Gender',
+        'DOB',
+        'PhoneNumber',
+        'ResearchAreaOfInterest',
+        'DepartmentID',
+        'ResearchInstitutionID',
+        'Affiliation',
+        'AboutResearcher',
+        'Approved',
+        'CV',
+        'ListofPublications'
+    ];
+    protected $primaryKey = "Researcher_ID";
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'Researcher_ID' => 'integer',
+        'User_ID' => 'integer',
+        'Gender' => 'string',
+        'DOB' => 'date',
+        'PhoneNumber' => 'string',
+        'ResearchAreaOfInterest' => 'string',
+        'DepartmentID' => 'integer',
+        'ResearchInstitutionID' => 'integer',
+        'Affiliation' => 'string',
+        'AboutResearcher' => 'string',
+        'Approved' => 'boolean',
+        'CV' => 'string',
+        'ListofPublications' => 'string'
     ];
 
     /**
@@ -108,6 +101,22 @@ class Researcher extends Model
     public function posts()
     {
         return $this->hasMany(\App\Models\Post::class, 'Researcher_ID');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function publications()
+    {
+        return $this->hasMany(Publication::class, 'Researcher_ID');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'Researcher_ID');
     }
 
 }

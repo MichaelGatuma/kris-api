@@ -74,4 +74,12 @@ class Publication extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'UserID');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function funder()
+    {
+        return $this->hasOne(Funder::class, 'Funder_ID');
+    }
 }

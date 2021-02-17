@@ -361,31 +361,32 @@ class PublicationAPIController extends AppBaseController
         $department = $request->get('department');
         $funder = $request->get('funder');
         $publications = Publication::with([
-            'researcher', 'researcher.department', 'researcher.department.researchinstitution'
+            'researcher', 'researcher.department', 'researcher.department.researchinstitution', 'funder'
         ]);
         if ($researcharea !== null) {
-            $publications->whereHas('researcher', function ($q) use ($researcharea) {
+            $publications = $publications->whereHas('researcher', function ($q) use ($researcharea) {
                 $q->where('ResearchAreaOfInterest', $researcharea);
             });
         }
         if ($department !== null) {
-            $publications->whereHas('researcher.department', function ($q) use ($department) {
+            $publications = $publications->whereHas('researcher.department', function ($q) use ($department) {
                 $q->where('DptName', $department);
             });
         }
         if ($institution !== null) {
-            $publications->whereHas('researcher.department.researchinstitution', function ($q) use ($institution) {
-                $q->where('RIName', $institution);
-            });
+            $publications = $publications->whereHas('researcher.department.researchinstitution',
+                function ($q) use ($institution) {
+                    $q->where('RIName', $institution);
+                });
         }
         if ($funder !== null) {
-            $publications->whereHas('funder', function ($q) use ($funder) {
+            $publications = $publications->whereHas('funder', function ($q) use ($funder) {
                 $q->where('FunderName', $funder);
             });
         }
 
         if ($request->has('sortby')) {
-            $publications->orderBy('created_at', $request->get('sortby'));
+            $publications = $publications->orderBy('created_at', $request->get('sortby'));
         }
         return $this->sendResponse($publications->paginate($perPage),
             'Publications retrieved successfully');

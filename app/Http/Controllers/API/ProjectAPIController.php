@@ -301,6 +301,7 @@ class ProjectAPIController extends AppBaseController
             return $this->sendError('You do not have such rights to this project', 403);
         }
     }
+
     /**
      * @param  Request  $request
      * @return \Illuminate\Http\JsonResponse
@@ -323,29 +324,31 @@ class ProjectAPIController extends AppBaseController
         $researcharea = $request->get('researcharea');
         $department = $request->get('department');
         $funder = $request->get('funder');
-        $projects = Project::with(['researcher', 'researcher.department', 'researcher.department.researchinstitution']);
+        $projects = Project::with([
+            'researcher', 'researcher.department', 'researcher.department.researchinstitution', 'funder'
+        ]);
         if ($researcharea !== null) {
-            $projects->whereHas('researcher', function ($q) use ($researcharea) {
+            $projects = $projects->whereHas('researcher', function ($q) use ($researcharea) {
                 $q->where('ResearchAreaOfInterest', $researcharea);
             });
         }
         if ($department !== null) {
-            $projects->whereHas('researcher.department', function ($q) use ($department) {
+            $projects = $projects->whereHas('researcher.department', function ($q) use ($department) {
                 $q->where('DptName', $department);
             });
         }
         if ($institution !== null) {
-            $projects->whereHas('researcher.department.researchinstitution', function ($q) use ($institution) {
+            $projects = $projects->whereHas('researcher.department.researchinstitution', function ($q) use ($institution) {
                 $q->where('RIName', $institution);
             });
         }
         if ($funder !== null) {
-            $projects->whereHas('funder', function ($q) use ($funder) {
+            $projects = $projects->whereHas('funder', function ($q) use ($funder) {
                 $q->where('FunderName', $funder);
             });
         }
         if ($request->has('sortby')) {
-            $projects->orderBy('created_at', $request->get('sortby'));
+            $projects = $projects->orderBy('created_at', $request->get('sortby'));
         }
         return $this->sendResponse($projects->paginate($perPage),
             'Projects retrieved successfully');
