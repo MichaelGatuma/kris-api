@@ -8,7 +8,6 @@ use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-
 Route::post('user/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('user/login', [\App\Http\Controllers\AuthController::class, 'login']);
 Route::post('user/forgot-password-request', [\App\Http\Controllers\AuthController::class, 'forgotPasswordRequest']);
@@ -55,7 +54,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 });
 
 //todo: remove these endpoints
-Route::get('publications/search', [PublicationAPIController::class, 'searchCriteria']);
-Route::get('projects/search', [ProjectAPIController::class, 'searchCriteria']);
-Route::get('researchers', [ResearcherAPIController::class, 'index']);
-Route::get('researcher/{id}', [ResearcherAPIController::class, 'show']);
+//Route::get('publications/search', [PublicationAPIController::class, 'searchCriteria']);
+//Route::get('projects/search', [ProjectAPIController::class, 'searchCriteria']);
+//Route::get('researchers', [ResearcherAPIController::class, 'index']);
+//Route::get('researcher/{id}', [ResearcherAPIController::class, 'show']);

@@ -13,7 +13,7 @@ This endpoint lets you login a user.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/user" \
+    -G "http://api.sensenventures.com/api/user" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -21,7 +21,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/user"
+    "http://api.sensenventures.com/api/user"
 );
 
 let headers = {
@@ -37,11 +37,28 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/user',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/user'
+url = 'http://api.sensenventures.com/api/user'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -119,7 +136,7 @@ This endpoint lets you delete the user account.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/user/delete-account" \
+    "http://api.sensenventures.com/api/user/delete-account" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -127,7 +144,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/user/delete-account"
+    "http://api.sensenventures.com/api/user/delete-account"
 );
 
 let headers = {
@@ -143,11 +160,28 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/user/delete-account',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/user/delete-account'
+url = 'http://api.sensenventures.com/api/user/delete-account'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -211,7 +245,7 @@ This endpoint lets you edit the user details.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/user/profile-details?fields=title%2Cpublished_at%2Cis_public" \
+    "http://api.sensenventures.com/api/user/profile-details?fields=title%2Cpublished_at%2Cis_public" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
@@ -221,7 +255,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/user/profile-details"
+    "http://api.sensenventures.com/api/user/profile-details"
 );
 
 let params = {
@@ -249,11 +283,36 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/user/profile-details',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'fields'=> 'title,published_at,is_public',
+        ],
+        'json' => [
+            'Title' => 'Prof.',
+            'name' => 'John Doe',
+            'email' => 'john@kris.com.',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/user/profile-details'
+url = 'http://api.sensenventures.com/api/user/profile-details'
 payload = {
     "Title": "Prof.",
     "name": "John Doe",
@@ -343,16 +402,16 @@ This endpoint lets you upload a user profile image.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/user/profile-image" \
+    "http://api.sensenventures.com/api/user/profile-image" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\USER\AppData\Local\Temp\php7EC8.tmp" 
+    -F "file=@C:\Users\USER\AppData\Local\Temp\php5F82.tmp" 
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/user/profile-image"
+    "http://api.sensenventures.com/api/user/profile-image"
 );
 
 let headers = {
@@ -371,13 +430,36 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/user/profile-image',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'multipart/form-data',
+            'Accept' => 'application/json',
+        ],
+        'multipart' => [
+            [
+                'name' => 'file',
+                'contents' => fopen('C:\Users\USER\AppData\Local\Temp\php5F82.tmp', 'r')
+            ],
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/user/profile-image'
+url = 'http://api.sensenventures.com/api/user/profile-image'
 files = {
-  'file': open('C:\Users\USER\AppData\Local\Temp\php7EC8.tmp', 'rb')
+  'file': open('C:\Users\USER\AppData\Local\Temp\php5F82.tmp', 'rb')
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -444,7 +526,7 @@ This endpoint lets you fetch a logged in user profile image or fetch a user imag
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/user/profile-image?user_id=8" \
+    -G "http://api.sensenventures.com/api/user/profile-image?user_id=6" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -452,11 +534,11 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/user/profile-image"
+    "http://api.sensenventures.com/api/user/profile-image"
 );
 
 let params = {
-    "user_id": "8",
+    "user_id": "6",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -474,13 +556,33 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/user/profile-image',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'user_id'=> '6',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/user/profile-image'
+url = 'http://api.sensenventures.com/api/user/profile-image'
 params = {
-  'user_id': '8',
+  'user_id': '6',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',

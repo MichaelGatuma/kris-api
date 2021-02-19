@@ -5,7 +5,7 @@ info:
     version: 1.0.0
 servers:
     -
-        url: 'http://127.0.0.1:8000'
+        url: 'http://api.sensenventures.com'
 paths:
     /api/user/register:
         post:
@@ -79,7 +79,7 @@ paths:
                                 password:
                                     type: string
                                     description: 'The full name of the user.'
-                                    example: exercitationem
+                                    example: aspernatur
                                 device_name:
                                     type: string
                                     description: 'The name of the request source device.'
@@ -148,11 +148,11 @@ paths:
                                 email:
                                     type: string
                                     description: 'The email of the user.'
-                                    example: voluptatem
+                                    example: omnis
                                 password:
                                     type: string
                                     description: 'The password of the user.'
-                                    example: incidunt
+                                    example: vitae
                                 device_name:
                                     type: string
                                     description: 'The name of the request source device.'
@@ -218,7 +218,7 @@ paths:
                                 email:
                                     type: string
                                     description: 'The user email.'
-                                    example: beatae
+                                    example: delectus
                             required:
                                 - email
             security: []
@@ -285,15 +285,15 @@ paths:
                                 email:
                                     type: string
                                     description: 'The email of the user.'
-                                    example: rerum
+                                    example: harum
                                 password:
                                     type: string
                                     description: 'The password of the user.'
-                                    example: quia
+                                    example: dolores
                                 current_password:
                                     type: string
                                     description: 'The current password of the user.'
-                                    example: sit
+                                    example: aut
                             required:
                                 - email
                                 - password
@@ -432,11 +432,11 @@ paths:
                                 title:
                                     type: string
                                     description: 'The Post Title'
-                                    example: magni
+                                    example: aut
                                 body:
                                     type: string
                                     description: 'The body title'
-                                    example: omnis
+                                    example: dolorem
                             required:
                                 - title
                                 - body
@@ -490,7 +490,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the specified discussion'
-                example: 18
+                example: 6
                 required: true
                 schema:
                     type: integer
@@ -659,22 +659,22 @@ paths:
                     in: query
                     name: perPage
                     description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                    example: 17
+                    example: 8
                     required: false
                     schema:
                         type: integer
                         description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                        example: 17
+                        example: 8
                 -
                     in: query
                     name: recent
                     description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                    example: 1
+                    example: 4
                     required: false
                     schema:
                         type: integer
                         description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                        example: 1
+                        example: 4
                 -
                     in: query
                     name: limit
@@ -725,42 +725,42 @@ paths:
                     in: query
                     name: institution
                     description: 'The full institution name'
-                    example: odit
+                    example: non
                     required: false
                     schema:
                         type: string
                         description: 'The full institution name'
-                        example: odit
+                        example: non
                 -
                     in: query
                     name: researcharea
                     description: 'The name of the research area'
-                    example: aut
+                    example: consequatur
                     required: false
                     schema:
                         type: string
                         description: 'The name of the research area'
-                        example: aut
+                        example: consequatur
                 -
                     in: query
                     name: department
                     description: 'The name of the department'
-                    example: ut
+                    example: voluptatem
                     required: false
                     schema:
                         type: string
                         description: 'The name of the department'
-                        example: ut
+                        example: voluptatem
                 -
                     in: query
                     name: funder
                     description: 'the funder name'
-                    example: dolorum
+                    example: rem
                     required: false
                     schema:
                         type: string
                         description: 'the funder name'
-                        example: dolorum
+                        example: rem
                 -
                     in: header
                     name: Authorization
@@ -840,7 +840,7 @@ paths:
                 in: path
                 name: id
                 description: ''
-                example: adipisci
+                example: delectus
                 required: true
                 schema:
                     type: string
@@ -894,7 +894,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the project'
-                example: 13
+                example: 12
                 required: true
                 schema:
                     type: integer
@@ -961,12 +961,12 @@ paths:
                     in: query
                     name: perPage
                     description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                    example: 2
+                    example: 20
                     required: false
                     schema:
                         type: integer
                         description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                        example: 2
+                        example: 20
                 -
                     in: query
                     name: recent
@@ -981,12 +981,12 @@ paths:
                     in: query
                     name: limit
                     description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                    example: velit
+                    example: quo
                     required: false
                     schema:
                         type: string
                         description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                        example: velit
+                        example: quo
                 -
                     in: header
                     name: Authorization
@@ -1034,42 +1034,42 @@ paths:
                     in: query
                     name: institution
                     description: 'The full institution name'
-                    example: itaque
+                    example: aut
                     required: false
                     schema:
                         type: string
                         description: 'The full institution name'
-                        example: itaque
+                        example: aut
                 -
                     in: query
                     name: researcharea
                     description: 'The name of the research area'
-                    example: nihil
+                    example: facere
                     required: false
                     schema:
                         type: string
                         description: 'The name of the research area'
-                        example: nihil
+                        example: facere
                 -
                     in: query
                     name: department
                     description: 'The name of the department'
-                    example: consequuntur
-                    required: false
-                    schema:
-                        type: string
-                        description: 'The name of the department'
-                        example: consequuntur
-                -
-                    in: query
-                    name: funder
-                    description: 'the funder name'
                     example: qui
                     required: false
                     schema:
                         type: string
-                        description: 'the funder name'
+                        description: 'The name of the department'
                         example: qui
+                -
+                    in: query
+                    name: funder
+                    description: 'the funder name'
+                    example: eligendi
+                    required: false
+                    schema:
+                        type: string
+                        description: 'the funder name'
+                        example: eligendi
                 -
                     in: header
                     name: Authorization
@@ -1149,7 +1149,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 5
+                example: 3
                 required: true
                 schema:
                     type: integer
@@ -1203,7 +1203,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 20
+                example: 4
                 required: true
                 schema:
                     type: integer
@@ -1257,7 +1257,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 6
+                example: 18
                 required: true
                 schema:
                     type: integer
@@ -1270,32 +1270,32 @@ paths:
                     in: query
                     name: institution
                     description: 'Search by the given research institution'
-                    example: non
+                    example: assumenda
                     required: false
                     schema:
                         type: string
                         description: 'Search by the given research institution'
-                        example: non
+                        example: assumenda
                 -
                     in: query
                     name: researcharea
                     description: 'Search by the given research area'
-                    example: illo
+                    example: voluptatem
                     required: false
                     schema:
                         type: string
                         description: 'Search by the given research area'
-                        example: illo
+                        example: voluptatem
                 -
                     in: query
                     name: department
                     description: 'Search by the given department'
-                    example: inventore
+                    example: omnis
                     required: false
                     schema:
                         type: string
                         description: 'Search by the given department'
-                        example: inventore
+                        example: omnis
                 -
                     in: header
                     name: Authorization
@@ -1663,12 +1663,12 @@ paths:
                     in: query
                     name: user_id
                     description: 'The specified user''s id'
-                    example: 8
+                    example: 6
                     required: false
                     schema:
                         type: integer
                         description: 'The specified user''s id'
-                        example: 8
+                        example: 6
                 -
                     in: header
                     name: Authorization

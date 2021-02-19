@@ -12,16 +12,16 @@ This endpoint lets you register a user.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/user/register" \
+    "http://api.sensenventures.com/api/user/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"exercitationem","device_name":"Huawei STK-L21"}'
+    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"aspernatur","device_name":"Huawei STK-L21"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/user/register"
+    "http://api.sensenventures.com/api/user/register"
 );
 
 let headers = {
@@ -33,7 +33,7 @@ let body = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "exercitationem",
+    "password": "aspernatur",
     "device_name": "Huawei STK-L21"
 }
 
@@ -44,16 +44,39 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/user/register',
+    [
+        'headers' => [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'json' => [
+            'Title' => 'Prof.',
+            'name' => 'John Doe',
+            'email' => 'johndoe2@kris.com',
+            'password' => 'aspernatur',
+            'device_name' => 'Huawei STK-L21',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/user/register'
+url = 'http://api.sensenventures.com/api/user/register'
 payload = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "exercitationem",
+    "password": "aspernatur",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -158,16 +181,16 @@ This endpoint lets you login a user.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/user/login" \
+    "http://api.sensenventures.com/api/user/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"voluptatem","password":"incidunt","device_name":"Huawei STK-L21"}'
+    -d '{"email":"omnis","password":"vitae","device_name":"Huawei STK-L21"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/user/login"
+    "http://api.sensenventures.com/api/user/login"
 );
 
 let headers = {
@@ -176,8 +199,8 @@ let headers = {
 };
 
 let body = {
-    "email": "voluptatem",
-    "password": "incidunt",
+    "email": "omnis",
+    "password": "vitae",
     "device_name": "Huawei STK-L21"
 }
 
@@ -188,14 +211,35 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/user/login',
+    [
+        'headers' => [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'json' => [
+            'email' => 'omnis',
+            'password' => 'vitae',
+            'device_name' => 'Huawei STK-L21',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/user/login'
+url = 'http://api.sensenventures.com/api/user/login'
 payload = {
-    "email": "voluptatem",
-    "password": "incidunt",
+    "email": "omnis",
+    "password": "vitae",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -278,16 +322,16 @@ This endpoint lets you request a password reset email.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/user/forgot-password-request" \
+    "http://api.sensenventures.com/api/user/forgot-password-request" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"beatae"}'
+    -d '{"email":"delectus"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/user/forgot-password-request"
+    "http://api.sensenventures.com/api/user/forgot-password-request"
 );
 
 let headers = {
@@ -296,7 +340,7 @@ let headers = {
 };
 
 let body = {
-    "email": "beatae"
+    "email": "delectus"
 }
 
 fetch(url, {
@@ -306,13 +350,32 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/user/forgot-password-request',
+    [
+        'headers' => [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'json' => [
+            'email' => 'delectus',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/user/forgot-password-request'
+url = 'http://api.sensenventures.com/api/user/forgot-password-request'
 payload = {
-    "email": "beatae"
+    "email": "delectus"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -384,17 +447,17 @@ This endpoint lets you change password.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/user/reset-password" \
+    "http://api.sensenventures.com/api/user/reset-password" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"rerum","password":"quia","current_password":"sit"}'
+    -d '{"email":"harum","password":"dolores","current_password":"aut"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/user/reset-password"
+    "http://api.sensenventures.com/api/user/reset-password"
 );
 
 let headers = {
@@ -404,9 +467,9 @@ let headers = {
 };
 
 let body = {
-    "email": "rerum",
-    "password": "quia",
-    "current_password": "sit"
+    "email": "harum",
+    "password": "dolores",
+    "current_password": "aut"
 }
 
 fetch(url, {
@@ -416,15 +479,37 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/user/reset-password',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'json' => [
+            'email' => 'harum',
+            'password' => 'dolores',
+            'current_password' => 'aut',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/user/reset-password'
+url = 'http://api.sensenventures.com/api/user/reset-password'
 payload = {
-    "email": "rerum",
-    "password": "quia",
-    "current_password": "sit"
+    "email": "harum",
+    "password": "dolores",
+    "current_password": "aut"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -510,7 +595,7 @@ This endpoint lets you logout a user.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/user/logout" \
+    "http://api.sensenventures.com/api/user/logout" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -518,7 +603,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/user/logout"
+    "http://api.sensenventures.com/api/user/logout"
 );
 
 let headers = {
@@ -534,11 +619,28 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/user/logout',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/user/logout'
+url = 'http://api.sensenventures.com/api/user/logout'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',

@@ -238,13 +238,14 @@ INTRO
     'example_languages' => [
         'bash',
         'javascript',
+        'php',
         'python',
     ],
 
     /*
      * The base URL to be used in examples. If this is empty, Scribe will use the value of config('app.url').
      */
-    'base_url' => null,
+    'base_url' => 'http://api.sensenventures.com',
 
     /*
      * Generate a Postman collection (v2.1.0) in addition to HTML docs.
@@ -283,7 +284,7 @@ INTRO
     /*
      * Name for the group of endpoints which do not have a @group set.
      */
-    'default_group' => 'Endpoints',
+    'default_group' => 'Other Endpoints',
 
     /*
      * Custom logo path. This will be used as the value of the src attribute for the <img> tag,

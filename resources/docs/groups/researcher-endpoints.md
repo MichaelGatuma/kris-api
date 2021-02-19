@@ -11,7 +11,7 @@
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researchers?institution=non&researcharea=illo&department=inventore" \
+    -G "http://api.sensenventures.com/api/researchers?institution=assumenda&researcharea=voluptatem&department=omnis" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -19,13 +19,13 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/researchers"
+    "http://api.sensenventures.com/api/researchers"
 );
 
 let params = {
-    "institution": "non",
-    "researcharea": "illo",
-    "department": "inventore",
+    "institution": "assumenda",
+    "researcharea": "voluptatem",
+    "department": "omnis",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -43,15 +43,37 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/researchers',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'institution'=> 'assumenda',
+            'researcharea'=> 'voluptatem',
+            'department'=> 'omnis',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/researchers'
+url = 'http://api.sensenventures.com/api/researchers'
 params = {
-  'institution': 'non',
-  'researcharea': 'illo',
-  'department': 'inventore',
+  'institution': 'assumenda',
+  'researcharea': 'voluptatem',
+  'department': 'omnis',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -154,7 +176,7 @@ Search by the given department</p>
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researcher/" \
+    -G "http://api.sensenventures.com/api/researcher/" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -162,7 +184,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/researcher/"
+    "http://api.sensenventures.com/api/researcher/"
 );
 
 let headers = {
@@ -178,11 +200,28 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/researcher/',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/researcher/'
+url = 'http://api.sensenventures.com/api/researcher/'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -564,7 +603,7 @@ This endpoint return the active projects of the authenticated user.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/researcher/activeProjects" \
+    -G "http://api.sensenventures.com/api/researcher/activeProjects" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -572,7 +611,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/researcher/activeProjects"
+    "http://api.sensenventures.com/api/researcher/activeProjects"
 );
 
 let headers = {
@@ -588,11 +627,28 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/researcher/activeProjects',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/researcher/activeProjects'
+url = 'http://api.sensenventures.com/api/researcher/activeProjects'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',

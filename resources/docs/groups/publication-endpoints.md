@@ -13,7 +13,7 @@ This endpoint return an archive of the publications.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications?perPage=2&recent=19&limit=velit" \
+    -G "http://api.sensenventures.com/api/publications?perPage=20&recent=19&limit=quo" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -21,13 +21,13 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publications"
+    "http://api.sensenventures.com/api/publications"
 );
 
 let params = {
-    "perPage": "2",
+    "perPage": "20",
     "recent": "19",
-    "limit": "velit",
+    "limit": "quo",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -45,15 +45,37 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/publications',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'perPage'=> '20',
+            'recent'=> '19',
+            'limit'=> 'quo',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publications'
+url = 'http://api.sensenventures.com/api/publications'
 params = {
-  'perPage': '2',
+  'perPage': '20',
   'recent': '19',
-  'limit': 'velit',
+  'limit': 'quo',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -249,7 +271,7 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publications/search?institution=itaque&researcharea=nihil&department=consequuntur&funder=qui" \
+    -G "http://api.sensenventures.com/api/publications/search?institution=aut&researcharea=facere&department=qui&funder=eligendi" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -257,14 +279,14 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publications/search"
+    "http://api.sensenventures.com/api/publications/search"
 );
 
 let params = {
-    "institution": "itaque",
-    "researcharea": "nihil",
-    "department": "consequuntur",
-    "funder": "qui",
+    "institution": "aut",
+    "researcharea": "facere",
+    "department": "qui",
+    "funder": "eligendi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -282,16 +304,39 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/publications/search',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'institution'=> 'aut',
+            'researcharea'=> 'facere',
+            'department'=> 'qui',
+            'funder'=> 'eligendi',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publications/search'
+url = 'http://api.sensenventures.com/api/publications/search'
 params = {
-  'institution': 'itaque',
-  'researcharea': 'nihil',
-  'department': 'consequuntur',
-  'funder': 'qui',
+  'institution': 'aut',
+  'researcharea': 'facere',
+  'department': 'qui',
+  'funder': 'eligendi',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -401,7 +446,7 @@ This endpoint returns the details of the specified publication by id.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/publication/5" \
+    -G "http://api.sensenventures.com/api/publication/3" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -409,7 +454,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/5"
+    "http://api.sensenventures.com/api/publication/3"
 );
 
 let headers = {
@@ -425,11 +470,28 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/publication/3',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/5'
+url = 'http://api.sensenventures.com/api/publication/3'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -508,7 +570,7 @@ This endpoint lets a user request access to a private publication.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/publication/20/request" \
+    "http://api.sensenventures.com/api/publication/4/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -516,7 +578,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/20/request"
+    "http://api.sensenventures.com/api/publication/4/request"
 );
 
 let headers = {
@@ -532,11 +594,28 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/publication/4/request',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/20/request'
+url = 'http://api.sensenventures.com/api/publication/4/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -601,7 +680,7 @@ This endpoint lets a user (publication owner) grant access to a requested privat
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/publication/6/grant" \
+    "http://api.sensenventures.com/api/publication/18/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -609,7 +688,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/publication/6/grant"
+    "http://api.sensenventures.com/api/publication/18/grant"
 );
 
 let headers = {
@@ -625,11 +704,28 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/publication/18/grant',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/publication/6/grant'
+url = 'http://api.sensenventures.com/api/publication/18/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',

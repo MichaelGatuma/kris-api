@@ -13,7 +13,7 @@ This endpoint returns an archive of all discussions.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/discussions" \
+    -G "http://api.sensenventures.com/api/discussions" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -21,7 +21,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/discussions"
+    "http://api.sensenventures.com/api/discussions"
 );
 
 let headers = {
@@ -37,11 +37,28 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/discussions',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/discussions'
+url = 'http://api.sensenventures.com/api/discussions'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -97,17 +114,17 @@ This endpoint lets a user publish a discussion/post.
 
 ```bash
 curl -X POST \
-    "http://127.0.0.1:8000/api/discussions" \
+    "http://api.sensenventures.com/api/discussions" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"title":"magni","body":"omnis"}'
+    -d '{"title":"aut","body":"dolorem"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/discussions"
+    "http://api.sensenventures.com/api/discussions"
 );
 
 let headers = {
@@ -117,8 +134,8 @@ let headers = {
 };
 
 let body = {
-    "title": "magni",
-    "body": "omnis"
+    "title": "aut",
+    "body": "dolorem"
 }
 
 fetch(url, {
@@ -128,14 +145,35 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->post(
+    'http://api.sensenventures.com/api/discussions',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+        'json' => [
+            'title' => 'aut',
+            'body' => 'dolorem',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/discussions'
+url = 'http://api.sensenventures.com/api/discussions'
 payload = {
-    "title": "magni",
-    "body": "omnis"
+    "title": "aut",
+    "body": "dolorem"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -207,7 +245,7 @@ This endpoint returns the discussion details.
 
 ```bash
 curl -X GET \
-    -G "http://127.0.0.1:8000/api/discussion/{id" \
+    -G "http://api.sensenventures.com/api/discussion/{id" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -215,7 +253,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://127.0.0.1:8000/api/discussion/{id"
+    "http://api.sensenventures.com/api/discussion/{id"
 );
 
 let headers = {
@@ -231,11 +269,28 @@ fetch(url, {
 }).then(response => response.json());
 ```
 
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/discussion/{id',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
 ```python
 import requests
 import json
 
-url = 'http://127.0.0.1:8000/api/discussion/{id'
+url = 'http://api.sensenventures.com/api/discussion/{id'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',

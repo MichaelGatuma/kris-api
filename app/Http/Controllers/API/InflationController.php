@@ -18,7 +18,7 @@ class InflationController extends AppBaseController
      */
     public function researchAreas()
     {
-        $researchAreas = \App\Models\Researcharea::all()->pluck('ResearchAreaName', 'ResearchArea_ID');
+        $researchAreas = \App\Models\Researcharea::all()->pluck('ResearchAreaName');
         return $this->sendResponse($researchAreas, 'Research Areas retrieved successfully');
     }
 
@@ -34,7 +34,7 @@ class InflationController extends AppBaseController
      */
     public function institutions()
     {
-        $institutions = \App\Models\Researchinstitution::all()->pluck('RIName', 'ResearchInstitution_ID');
+        $institutions = \App\Models\Researchinstitution::all()->pluck('RIName');
         return $this->sendResponse($institutions, 'Institutions retrieved successfully');
     }
 
@@ -50,7 +50,7 @@ class InflationController extends AppBaseController
      */
     public function departments()
     {
-        $departments = \App\Models\Department::all()->pluck('DptName', 'Department_ID');
+        $departments = \App\Models\Department::all()->pluck('DptName');
         return $this->sendResponse($departments, 'Departments retrieved successfully');
     }
 
@@ -66,7 +66,7 @@ class InflationController extends AppBaseController
      */
     public function funders()
     {
-        $funders = \App\Models\Funder::all()->pluck('FunderName', 'Funder_ID');
+        $funders = \App\Models\Funder::all()->pluck('FunderName');
         return $this->sendResponse($funders, 'Funders retrieved successfully');
     }
 }
