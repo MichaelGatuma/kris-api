@@ -37,7 +37,7 @@ return [
 
         'api' => [
             'driver' => 'local',
-            'root' => storage_path('../../kris.sensenventures.com/app/public'),
+            'root' => storage_path('../../kris.sensenventures.com/storage/app/public/ProfilePictures'),
         ],
 
         'public' => [

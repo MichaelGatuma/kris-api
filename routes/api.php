@@ -5,9 +5,29 @@ use App\Http\Controllers\API\ProjectAPIController;
 use App\Http\Controllers\API\PublicationAPIController;
 use App\Http\Controllers\API\ResearcherAPIController;
 use App\Http\Controllers\API\UserController;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
+Route::get('img', function () {
+    return \Illuminate\Support\Facades\Storage::disk('api')->get('ProfilePictures/P78sAXZjz9faEgCWJjcr6MsHfZOrEnkVmJyXodaF.jpg')->path();
+    $profile_path = \App\Models\User::find(104)->profPic;
+    $file_path = \Illuminate\Support\Str::of($profile_path)->afterLast('/');
+    $full_filePath = config('filesystems.disks.api.root').'/'.$file_path;
+    return $full_filePath;
+    $full_filePath = '../../kris.sensenventures.com/storage/app/public/ProfilePictures/P78sAXZjz9faEgCWJjcr6MsHfZOrEnkVmJyXodaF.jpg';
+//return $full_filePath;
+//    return \Illuminate\Support\Facades\Storage::disk('api')->path('');
+//    $path = 'path_to_your_folder/';
 
+    $file = File::get($full_filePath);
+    $type = File::mimeType($full_filePath);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
 Route::post('user/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('user/login', [\App\Http\Controllers\AuthController::class, 'login']);
 Route::post('user/forgot-password-request', [\App\Http\Controllers\AuthController::class, 'forgotPasswordRequest']);

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::view('/','welcome');
 Route::get('/user/verify/{token}', [\App\Http\Controllers\API\UserController::class, 'verifyUser']);
 Route::get('/user/password-reset/{token}', [\App\Http\Controllers\API\UserController::class, 'verifyForgotPasswordToken']);
 Route::post('/user/reset-password', [\App\Http\Controllers\API\UserController::class, 'resetPassword'])->name('updatePassword');

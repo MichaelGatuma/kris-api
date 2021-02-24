@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -126,7 +127,7 @@ class UserController extends Controller
             $user->name = $data["name"];
             $user->save();
             return response()->json([
-                "success" => true, "data" => $user, "message" => "Your profile has been updates successfully"
+                "success" => true, "data" => $user, "message" => "Your profile has been updated successfully"
             ], 200);
         } catch (QueryException $exception) {
             return response()->json($exception, 400);
@@ -177,10 +178,9 @@ class UserController extends Controller
         try {
             $file = $request->file('file');
             //store
-            $path = Storage::put('ProfilePictures', $file);
-            $profPicPath = str_replace("public/", "", $path);
-//            $path = $file->storeAs('ProfilePictures', $user->email);
-            $user->profPic = 'storage/'.$profPicPath;
+            $path = Storage::disk('api')->put('ProfilePictures', $file);
+
+            $user->profPic = 'storage/app/public/'.$path;
             $user->save();
             return response()->json([
                 "success" => true, "data" => $user, "message" => "Profile Photo Updated successfully"
