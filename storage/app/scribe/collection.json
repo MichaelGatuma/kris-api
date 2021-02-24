@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "KRIS",
-        "_postman_id": "c24b7943-fdd7-4be0-a3d0-d65c9541953b",
+        "_postman_id": "817b3470-3321-4cd3-a647-1dc435de8ca5",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -42,7 +42,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"Title\": \"Prof.\",\n    \"name\": \"John Doe\",\n    \"email\": \"johndoe2@kris.com\",\n    \"password\": \"aspernatur\",\n    \"device_name\": \"Huawei STK-L21\"\n}"
+                            "raw": "{\n    \"Title\": \"Prof.\",\n    \"name\": \"John Doe\",\n    \"email\": \"johndoe2@kris.com\",\n    \"password\": \"et\",\n    \"device_name\": \"Huawei STK-L21\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -74,7 +74,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"omnis\",\n    \"password\": \"vitae\",\n    \"device_name\": \"Huawei STK-L21\"\n}"
+                            "raw": "{\n    \"email\": \"facilis\",\n    \"password\": \"perferendis\",\n    \"device_name\": \"Huawei STK-L21\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -106,7 +106,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"delectus\"\n}"
+                            "raw": "{\n    \"email\": \"sit\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -138,7 +138,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"harum\",\n    \"password\": \"dolores\",\n    \"current_password\": \"aut\"\n}"
+                            "raw": "{\n    \"email\": \"rerum\",\n    \"password\": \"voluptas\",\n    \"current_password\": \"animi\"\n}"
                         },
                         "description": ""
                     },
@@ -225,7 +225,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": \"aut\",\n    \"body\": \"dolorem\"\n}"
+                            "raw": "{\n    \"title\": \"voluptatem\",\n    \"body\": \"iste\"\n}"
                         },
                         "description": ""
                     },
@@ -244,7 +244,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "6",
+                                    "value": "15",
                                     "description": "The id of the specified discussion"
                                 }
                             ]
@@ -330,8 +330,15 @@
                             "protocol": "http",
                             "host": "{{baseUrl}}",
                             "path": "api\/departments",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/departments"
+                            "query": [
+                                {
+                                    "key": "institution",
+                                    "value": "dolores",
+                                    "description": "Search department by the insitution name.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/departments?institution=dolores"
                         },
                         "method": "GET",
                         "header": [
@@ -391,24 +398,24 @@
                             "query": [
                                 {
                                     "key": "perPage",
-                                    "value": "8",
+                                    "value": "15",
                                     "description": "Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10",
                                     "disabled": false
                                 },
                                 {
                                     "key": "recent",
-                                    "value": "4",
+                                    "value": "5",
                                     "description": "Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides 'perPage') Default: 10",
                                     "disabled": false
                                 },
                                 {
                                     "key": "limit",
-                                    "value": "sit",
+                                    "value": "id",
                                     "description": "Specify the limit of entries to return. Must be used together with 'recent' If not specified, the default entries will be returned. Default: 10",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/projects?perPage=8&recent=4&limit=sit"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/projects?perPage=15&recent=5&limit=id"
                         },
                         "method": "GET",
                         "header": [
@@ -436,30 +443,30 @@
                             "query": [
                                 {
                                     "key": "institution",
-                                    "value": "non",
+                                    "value": "repudiandae",
                                     "description": "The full institution name",
                                     "disabled": false
                                 },
                                 {
                                     "key": "researcharea",
-                                    "value": "consequatur",
+                                    "value": "tempore",
                                     "description": "The name of the research area",
                                     "disabled": false
                                 },
                                 {
                                     "key": "department",
-                                    "value": "voluptatem",
+                                    "value": "quas",
                                     "description": "The name of the department",
                                     "disabled": false
                                 },
                                 {
                                     "key": "funder",
-                                    "value": "rem",
+                                    "value": "et",
                                     "description": "the funder name",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/projects\/search?institution=non&researcharea=consequatur&department=voluptatem&funder=rem"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/projects\/search?institution=repudiandae&researcharea=tempore&department=quas&funder=et"
                         },
                         "method": "GET",
                         "header": [
@@ -490,7 +497,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "delectus",
+                                    "value": "cumque",
                                     "description": ""
                                 }
                             ]
@@ -524,7 +531,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "12",
+                                    "value": "16",
                                     "description": "The id of the project"
                                 }
                             ]
@@ -558,7 +565,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "15",
                                     "description": "The id of the project"
                                 }
                             ]
@@ -595,7 +602,7 @@
                             "query": [
                                 {
                                     "key": "perPage",
-                                    "value": "20",
+                                    "value": "18",
                                     "description": "Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10",
                                     "disabled": false
                                 },
@@ -607,12 +614,12 @@
                                 },
                                 {
                                     "key": "limit",
-                                    "value": "quo",
+                                    "value": "expedita",
                                     "description": "Specify the limit of entries to return. Must be used together with 'recent' If not specified, the default entries will be returned. Default: 10",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/publications?perPage=20&recent=19&limit=quo"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/publications?perPage=18&recent=19&limit=expedita"
                         },
                         "method": "GET",
                         "header": [
@@ -640,30 +647,30 @@
                             "query": [
                                 {
                                     "key": "institution",
-                                    "value": "aut",
+                                    "value": "saepe",
                                     "description": "The full institution name",
                                     "disabled": false
                                 },
                                 {
                                     "key": "researcharea",
-                                    "value": "facere",
+                                    "value": "in",
                                     "description": "The name of the research area",
                                     "disabled": false
                                 },
                                 {
                                     "key": "department",
-                                    "value": "qui",
+                                    "value": "quis",
                                     "description": "The name of the department",
                                     "disabled": false
                                 },
                                 {
                                     "key": "funder",
-                                    "value": "eligendi",
+                                    "value": "veniam",
                                     "description": "the funder name",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/publications\/search?institution=aut&researcharea=facere&department=qui&funder=eligendi"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/publications\/search?institution=saepe&researcharea=in&department=quis&funder=veniam"
                         },
                         "method": "GET",
                         "header": [
@@ -694,7 +701,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "3",
+                                    "value": "4",
                                     "description": "The id of the publication"
                                 }
                             ]
@@ -728,7 +735,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "4",
+                                    "value": "1",
                                     "description": "The id of the publication"
                                 }
                             ]
@@ -762,7 +769,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "18",
+                                    "value": "14",
                                     "description": "The id of the publication"
                                 }
                             ]
@@ -799,24 +806,30 @@
                             "query": [
                                 {
                                     "key": "institution",
-                                    "value": "assumenda",
+                                    "value": "architecto",
                                     "description": "Search by the given research institution",
                                     "disabled": false
                                 },
                                 {
                                     "key": "researcharea",
-                                    "value": "voluptatem",
+                                    "value": "atque",
                                     "description": "Search by the given research area",
                                     "disabled": false
                                 },
                                 {
                                     "key": "department",
-                                    "value": "omnis",
+                                    "value": "saepe",
                                     "description": "Search by the given department",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "name",
+                                    "value": "quasi",
+                                    "description": "Search researcher by their name",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/researchers?institution=assumenda&researcharea=voluptatem&department=omnis"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/researchers?institution=architecto&researcharea=atque&department=saepe&name=quasi"
                         },
                         "method": "GET",
                         "header": [
@@ -1033,12 +1046,12 @@
                             "query": [
                                 {
                                     "key": "user_id",
-                                    "value": "6",
+                                    "value": "3",
                                     "description": "The specified user's id",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/user\/profile-image?user_id=6"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/user\/profile-image?user_id=3"
                         },
                         "method": "GET",
                         "header": [

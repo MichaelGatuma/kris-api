@@ -35,6 +35,7 @@ class ResearcherAPIController extends AppBaseController
      * @queryParam institution string Search by the given research institution
      * @queryParam researcharea string Search by the given research area
      * @queryParam department string Search by the given department
+     * @queryParam name string Search researcher by their name
      *
      * @param  Request  $request
      * @return mixed

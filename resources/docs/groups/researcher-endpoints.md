@@ -11,7 +11,7 @@
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/researchers?institution=assumenda&researcharea=voluptatem&department=omnis" \
+    -G "http://api.sensenventures.com/api/researchers?institution=architecto&researcharea=atque&department=saepe&name=quasi" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -23,9 +23,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "assumenda",
-    "researcharea": "voluptatem",
-    "department": "omnis",
+    "institution": "architecto",
+    "researcharea": "atque",
+    "department": "saepe",
+    "name": "quasi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -55,9 +56,10 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'institution'=> 'assumenda',
-            'researcharea'=> 'voluptatem',
-            'department'=> 'omnis',
+            'institution'=> 'architecto',
+            'researcharea'=> 'atque',
+            'department'=> 'saepe',
+            'name'=> 'quasi',
         ],
     ]
 );
@@ -71,9 +73,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/researchers'
 params = {
-  'institution': 'assumenda',
-  'researcharea': 'voluptatem',
-  'department': 'omnis',
+  'institution': 'architecto',
+  'researcharea': 'atque',
+  'department': 'saepe',
+  'name': 'quasi',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -86,43 +89,11 @@ response.json()
 ```
 
 
-> Example response (200):
+> Example response (401):
 
 ```json
 {
-    "success": true,
-    "data": {
-        "current_page": 1,
-        "data": [],
-        "first_page_url": "http:\/\/localhost\/api\/researchers?page=1",
-        "from": null,
-        "last_page": 1,
-        "last_page_url": "http:\/\/localhost\/api\/researchers?page=1",
-        "links": [
-            {
-                "url": null,
-                "label": "&laquo; Previous",
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost\/api\/researchers?page=1",
-                "label": 1,
-                "active": true
-            },
-            {
-                "url": null,
-                "label": "Next &raquo;",
-                "active": false
-            }
-        ],
-        "next_page_url": null,
-        "path": "http:\/\/localhost\/api\/researchers",
-        "per_page": 10,
-        "prev_page_url": null,
-        "to": null,
-        "total": 0
-    },
-    "message": "Researchers retrieved successfully"
+    "message": "Unauthenticated."
 }
 ```
 <div id="execution-results-GETapi-researchers" hidden>
@@ -163,6 +134,11 @@ Search by the given research area</p>
 <input type="text" name="department" data-endpoint="GETapi-researchers" data-component="query"  hidden>
 <br>
 Search by the given department</p>
+<p>
+<b><code>name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="name" data-endpoint="GETapi-researchers" data-component="query"  hidden>
+<br>
+Search researcher by their name</p>
 </form>
 
 

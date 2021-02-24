@@ -209,7 +209,7 @@ response.json()
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/departments" \
+    -G "http://api.sensenventures.com/api/departments?institution=dolores" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -219,6 +219,12 @@ curl -X GET \
 const url = new URL(
     "http://api.sensenventures.com/api/departments"
 );
+
+let params = {
+    "institution": "dolores",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Authorization": "Bearer {YOUR_AUTH_KEY}",
@@ -244,6 +250,9 @@ $response = $client->get(
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ],
+        'query' => [
+            'institution'=> 'dolores',
+        ],
     ]
 );
 $body = $response->getBody();
@@ -255,13 +264,16 @@ import requests
 import json
 
 url = 'http://api.sensenventures.com/api/departments'
+params = {
+  'institution': 'dolores',
+}
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
   'Accept': 'application/json'
 }
 
-response = requests.request('GET', url, headers=headers)
+response = requests.request('GET', url, headers=headers, params=params)
 response.json()
 ```
 
@@ -295,6 +307,12 @@ response.json()
 <p>
 <label id="auth-GETapi-departments" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-departments" data-component="header"></label>
 </p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>institution</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="institution" data-endpoint="GETapi-departments" data-component="query"  hidden>
+<br>
+Search department by the insitution name.</p>
 </form>
 
 

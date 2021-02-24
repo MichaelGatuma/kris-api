@@ -49,6 +49,8 @@ class InflationController extends AppBaseController
      * @authenticated
      *
      * A list of departments returned with their id.
+     *
+     * @queryParam institution string Search department by the insitution name.
      */
     public function departments(Request $request)
     {

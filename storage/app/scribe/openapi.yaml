@@ -79,7 +79,7 @@ paths:
                                 password:
                                     type: string
                                     description: 'The full name of the user.'
-                                    example: aspernatur
+                                    example: et
                                 device_name:
                                     type: string
                                     description: 'The name of the request source device.'
@@ -148,11 +148,11 @@ paths:
                                 email:
                                     type: string
                                     description: 'The email of the user.'
-                                    example: omnis
+                                    example: facilis
                                 password:
                                     type: string
                                     description: 'The password of the user.'
-                                    example: vitae
+                                    example: perferendis
                                 device_name:
                                     type: string
                                     description: 'The name of the request source device.'
@@ -218,7 +218,7 @@ paths:
                                 email:
                                     type: string
                                     description: 'The user email.'
-                                    example: delectus
+                                    example: sit
                             required:
                                 - email
             security: []
@@ -285,15 +285,15 @@ paths:
                                 email:
                                     type: string
                                     description: 'The email of the user.'
-                                    example: harum
+                                    example: rerum
                                 password:
                                     type: string
                                     description: 'The password of the user.'
-                                    example: dolores
+                                    example: voluptas
                                 current_password:
                                     type: string
                                     description: 'The current password of the user.'
-                                    example: aut
+                                    example: animi
                             required:
                                 - email
                                 - password
@@ -432,11 +432,11 @@ paths:
                                 title:
                                     type: string
                                     description: 'The Post Title'
-                                    example: aut
+                                    example: voluptatem
                                 body:
                                     type: string
                                     description: 'The body title'
-                                    example: dolorem
+                                    example: iste
                             required:
                                 - title
                                 - body
@@ -490,7 +490,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the specified discussion'
-                example: 6
+                example: 15
                 required: true
                 schema:
                     type: integer
@@ -578,6 +578,16 @@ paths:
             description: ''
             parameters:
                 -
+                    in: query
+                    name: institution
+                    description: 'Search department by the insitution name.'
+                    example: dolores
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Search department by the insitution name.'
+                        example: dolores
+                -
                     in: header
                     name: Authorization
                     description: ''
@@ -659,32 +669,32 @@ paths:
                     in: query
                     name: perPage
                     description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                    example: 8
+                    example: 15
                     required: false
                     schema:
                         type: integer
                         description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                        example: 8
+                        example: 15
                 -
                     in: query
                     name: recent
                     description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                    example: 4
+                    example: 5
                     required: false
                     schema:
                         type: integer
                         description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                        example: 4
+                        example: 5
                 -
                     in: query
                     name: limit
                     description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                    example: sit
+                    example: id
                     required: false
                     schema:
                         type: string
                         description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                        example: sit
+                        example: id
                 -
                     in: header
                     name: Authorization
@@ -725,42 +735,42 @@ paths:
                     in: query
                     name: institution
                     description: 'The full institution name'
-                    example: non
+                    example: repudiandae
                     required: false
                     schema:
                         type: string
                         description: 'The full institution name'
-                        example: non
+                        example: repudiandae
                 -
                     in: query
                     name: researcharea
                     description: 'The name of the research area'
-                    example: consequatur
+                    example: tempore
                     required: false
                     schema:
                         type: string
                         description: 'The name of the research area'
-                        example: consequatur
+                        example: tempore
                 -
                     in: query
                     name: department
                     description: 'The name of the department'
-                    example: voluptatem
+                    example: quas
                     required: false
                     schema:
                         type: string
                         description: 'The name of the department'
-                        example: voluptatem
+                        example: quas
                 -
                     in: query
                     name: funder
                     description: 'the funder name'
-                    example: rem
+                    example: et
                     required: false
                     schema:
                         type: string
                         description: 'the funder name'
-                        example: rem
+                        example: et
                 -
                     in: header
                     name: Authorization
@@ -783,20 +793,16 @@ paths:
                     schema:
                         type: string
             responses:
-                200:
+                401:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    success: true
-                                    data: { current_page: 1, data: [], first_page_url: 'http://localhost/api/projects/search?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/projects/search?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/projects/search?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/projects/search', per_page: 10, prev_page_url: null, to: null, total: 0 }
-                                    message: 'Projects retrieved successfully'
+                                    message: Unauthenticated.
                                 properties:
-                                    success: { type: boolean, example: true }
-                                    data: { type: object, example: { current_page: 1, data: [], first_page_url: 'http://localhost/api/projects/search?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/projects/search?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/projects/search?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/projects/search', per_page: 10, prev_page_url: null, to: null, total: 0 } }
-                                    message: { type: string, example: 'Projects retrieved successfully' }
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - 'Project Endpoints'
     '/api/project/{id}':
@@ -840,7 +846,7 @@ paths:
                 in: path
                 name: id
                 description: ''
-                example: delectus
+                example: cumque
                 required: true
                 schema:
                     type: string
@@ -894,7 +900,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the project'
-                example: 12
+                example: 16
                 required: true
                 schema:
                     type: integer
@@ -948,7 +954,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the project'
-                example: 1
+                example: 15
                 required: true
                 schema:
                     type: integer
@@ -961,12 +967,12 @@ paths:
                     in: query
                     name: perPage
                     description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                    example: 20
+                    example: 18
                     required: false
                     schema:
                         type: integer
                         description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                        example: 20
+                        example: 18
                 -
                     in: query
                     name: recent
@@ -981,12 +987,12 @@ paths:
                     in: query
                     name: limit
                     description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                    example: quo
+                    example: expedita
                     required: false
                     schema:
                         type: string
                         description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                        example: quo
+                        example: expedita
                 -
                     in: header
                     name: Authorization
@@ -1034,42 +1040,42 @@ paths:
                     in: query
                     name: institution
                     description: 'The full institution name'
-                    example: aut
+                    example: saepe
                     required: false
                     schema:
                         type: string
                         description: 'The full institution name'
-                        example: aut
+                        example: saepe
                 -
                     in: query
                     name: researcharea
                     description: 'The name of the research area'
-                    example: facere
+                    example: in
                     required: false
                     schema:
                         type: string
                         description: 'The name of the research area'
-                        example: facere
+                        example: in
                 -
                     in: query
                     name: department
                     description: 'The name of the department'
-                    example: qui
+                    example: quis
                     required: false
                     schema:
                         type: string
                         description: 'The name of the department'
-                        example: qui
+                        example: quis
                 -
                     in: query
                     name: funder
                     description: 'the funder name'
-                    example: eligendi
+                    example: veniam
                     required: false
                     schema:
                         type: string
                         description: 'the funder name'
-                        example: eligendi
+                        example: veniam
                 -
                     in: header
                     name: Authorization
@@ -1092,20 +1098,16 @@ paths:
                     schema:
                         type: string
             responses:
-                200:
+                401:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    success: true
-                                    data: { current_page: 1, data: [], first_page_url: 'http://localhost/api/publications/search?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/publications/search?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/publications/search?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/publications/search', per_page: 10, prev_page_url: null, to: null, total: 0 }
-                                    message: 'Publications retrieved successfully'
+                                    message: Unauthenticated.
                                 properties:
-                                    success: { type: boolean, example: true }
-                                    data: { type: object, example: { current_page: 1, data: [], first_page_url: 'http://localhost/api/publications/search?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/publications/search?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/publications/search?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/publications/search', per_page: 10, prev_page_url: null, to: null, total: 0 } }
-                                    message: { type: string, example: 'Publications retrieved successfully' }
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - 'Publication Endpoints'
     '/api/publication/{id}':
@@ -1149,7 +1151,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 3
+                example: 4
                 required: true
                 schema:
                     type: integer
@@ -1203,7 +1205,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 4
+                example: 1
                 required: true
                 schema:
                     type: integer
@@ -1257,7 +1259,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 18
+                example: 14
                 required: true
                 schema:
                     type: integer
@@ -1270,32 +1272,42 @@ paths:
                     in: query
                     name: institution
                     description: 'Search by the given research institution'
-                    example: assumenda
+                    example: architecto
                     required: false
                     schema:
                         type: string
                         description: 'Search by the given research institution'
-                        example: assumenda
+                        example: architecto
                 -
                     in: query
                     name: researcharea
                     description: 'Search by the given research area'
-                    example: voluptatem
+                    example: atque
                     required: false
                     schema:
                         type: string
                         description: 'Search by the given research area'
-                        example: voluptatem
+                        example: atque
                 -
                     in: query
                     name: department
                     description: 'Search by the given department'
-                    example: omnis
+                    example: saepe
                     required: false
                     schema:
                         type: string
                         description: 'Search by the given department'
-                        example: omnis
+                        example: saepe
+                -
+                    in: query
+                    name: name
+                    description: 'Search researcher by their name'
+                    example: quasi
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Search researcher by their name'
+                        example: quasi
                 -
                     in: header
                     name: Authorization
@@ -1318,20 +1330,16 @@ paths:
                     schema:
                         type: string
             responses:
-                200:
+                401:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    success: true
-                                    data: { current_page: 1, data: [], first_page_url: 'http://localhost/api/researchers?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/researchers?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/researchers?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/researchers', per_page: 10, prev_page_url: null, to: null, total: 0 }
-                                    message: 'Researchers retrieved successfully'
+                                    message: Unauthenticated.
                                 properties:
-                                    success: { type: boolean, example: true }
-                                    data: { type: object, example: { current_page: 1, data: [], first_page_url: 'http://localhost/api/researchers?page=1', from: null, last_page: 1, last_page_url: 'http://localhost/api/researchers?page=1', links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/researchers?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], next_page_url: null, path: 'http://localhost/api/researchers', per_page: 10, prev_page_url: null, to: null, total: 0 } }
-                                    message: { type: string, example: 'Researchers retrieved successfully' }
+                                    message: { type: string, example: Unauthenticated. }
             tags:
                 - 'Researcher Endpoints'
     '/api/researcher/{id}':
@@ -1663,12 +1671,12 @@ paths:
                     in: query
                     name: user_id
                     description: 'The specified user''s id'
-                    example: 6
+                    example: 3
                     required: false
                     schema:
                         type: integer
                         description: 'The specified user''s id'
-                        example: 6
+                        example: 3
                 -
                     in: header
                     name: Authorization

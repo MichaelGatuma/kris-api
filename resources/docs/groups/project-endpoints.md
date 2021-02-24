@@ -13,7 +13,7 @@ This endpoint return an archive of the projects.
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/projects?perPage=8&recent=4&limit=sit" \
+    -G "http://api.sensenventures.com/api/projects?perPage=15&recent=5&limit=id" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -25,9 +25,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "8",
-    "recent": "4",
-    "limit": "sit",
+    "perPage": "15",
+    "recent": "5",
+    "limit": "id",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -57,9 +57,9 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'perPage'=> '8',
-            'recent'=> '4',
-            'limit'=> 'sit',
+            'perPage'=> '15',
+            'recent'=> '5',
+            'limit'=> 'id',
         ],
     ]
 );
@@ -73,9 +73,9 @@ import json
 
 url = 'http://api.sensenventures.com/api/projects'
 params = {
-  'perPage': '8',
-  'recent': '4',
-  'limit': 'sit',
+  'perPage': '15',
+  'recent': '5',
+  'limit': 'id',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -226,7 +226,7 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/projects/search?institution=non&researcharea=consequatur&department=voluptatem&funder=rem" \
+    -G "http://api.sensenventures.com/api/projects/search?institution=repudiandae&researcharea=tempore&department=quas&funder=et" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -238,10 +238,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "non",
-    "researcharea": "consequatur",
-    "department": "voluptatem",
-    "funder": "rem",
+    "institution": "repudiandae",
+    "researcharea": "tempore",
+    "department": "quas",
+    "funder": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -271,10 +271,10 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'institution'=> 'non',
-            'researcharea'=> 'consequatur',
-            'department'=> 'voluptatem',
-            'funder'=> 'rem',
+            'institution'=> 'repudiandae',
+            'researcharea'=> 'tempore',
+            'department'=> 'quas',
+            'funder'=> 'et',
         ],
     ]
 );
@@ -288,10 +288,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/projects/search'
 params = {
-  'institution': 'non',
-  'researcharea': 'consequatur',
-  'department': 'voluptatem',
-  'funder': 'rem',
+  'institution': 'repudiandae',
+  'researcharea': 'tempore',
+  'department': 'quas',
+  'funder': 'et',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -304,43 +304,11 @@ response.json()
 ```
 
 
-> Example response (200):
+> Example response (401):
 
 ```json
 {
-    "success": true,
-    "data": {
-        "current_page": 1,
-        "data": [],
-        "first_page_url": "http:\/\/localhost\/api\/projects\/search?page=1",
-        "from": null,
-        "last_page": 1,
-        "last_page_url": "http:\/\/localhost\/api\/projects\/search?page=1",
-        "links": [
-            {
-                "url": null,
-                "label": "&laquo; Previous",
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost\/api\/projects\/search?page=1",
-                "label": 1,
-                "active": true
-            },
-            {
-                "url": null,
-                "label": "Next &raquo;",
-                "active": false
-            }
-        ],
-        "next_page_url": null,
-        "path": "http:\/\/localhost\/api\/projects\/search",
-        "per_page": 10,
-        "prev_page_url": null,
-        "to": null,
-        "total": 0
-    },
-    "message": "Projects retrieved successfully"
+    "message": "Unauthenticated."
 }
 ```
 <div id="execution-results-GETapi-projects-search" hidden>
@@ -401,7 +369,7 @@ This endpoint returns the details of the specified project by id.
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/project/delectus" \
+    -G "http://api.sensenventures.com/api/project/cumque" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -409,7 +377,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://api.sensenventures.com/api/project/delectus"
+    "http://api.sensenventures.com/api/project/cumque"
 );
 
 let headers = {
@@ -429,7 +397,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.sensenventures.com/api/project/delectus',
+    'http://api.sensenventures.com/api/project/cumque',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -446,7 +414,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://api.sensenventures.com/api/project/delectus'
+url = 'http://api.sensenventures.com/api/project/cumque'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -533,7 +501,7 @@ This endpoint lets a user request access to a private project.
 
 ```bash
 curl -X POST \
-    "http://api.sensenventures.com/api/project/12/request" \
+    "http://api.sensenventures.com/api/project/16/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -541,7 +509,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://api.sensenventures.com/api/project/12/request"
+    "http://api.sensenventures.com/api/project/16/request"
 );
 
 let headers = {
@@ -561,7 +529,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.sensenventures.com/api/project/12/request',
+    'http://api.sensenventures.com/api/project/16/request',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -578,7 +546,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://api.sensenventures.com/api/project/12/request'
+url = 'http://api.sensenventures.com/api/project/16/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -643,7 +611,7 @@ This endpoint lets a user(owner) grant access to a private project.
 
 ```bash
 curl -X POST \
-    "http://api.sensenventures.com/api/project/1/grant" \
+    "http://api.sensenventures.com/api/project/15/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -651,7 +619,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://api.sensenventures.com/api/project/1/grant"
+    "http://api.sensenventures.com/api/project/15/grant"
 );
 
 let headers = {
@@ -671,7 +639,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.sensenventures.com/api/project/1/grant',
+    'http://api.sensenventures.com/api/project/15/grant',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -688,7 +656,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://api.sensenventures.com/api/project/1/grant'
+url = 'http://api.sensenventures.com/api/project/15/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
