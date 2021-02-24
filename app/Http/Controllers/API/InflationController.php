@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\AppBaseController;
+use App\Models\Department;
+use Illuminate\Http\Request;
 
 class InflationController extends AppBaseController
 {
@@ -48,9 +50,16 @@ class InflationController extends AppBaseController
      *
      * A list of departments returned with their id.
      */
-    public function departments()
+    public function departments(Request $request)
     {
+        $institution = $request->get('institution');
         $departments = \App\Models\Department::all()->pluck('DptName');
+        if ($institution !== null) {
+            $departments = Department::with('researchinstitution')->whereHas('researchinstitution',
+                function ($q) use ($institution) {
+                    $q->where('RIName', $institution);
+                })->pluck('DptName');
+        }
         return $this->sendResponse($departments, 'Departments retrieved successfully');
     }
 
