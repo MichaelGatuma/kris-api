@@ -45,6 +45,7 @@ class ResearcherAPIController extends AppBaseController
         $institution = $request->get('institution');
         $researcharea = $request->get('researcharea');
         $department = $request->get('department');
+        $name=$request->get('name');
 
         $researchers = Researcher::with(['user', 'department', 'department.researchinstitution']);
         if ($department !== null) {
@@ -59,6 +60,11 @@ class ResearcherAPIController extends AppBaseController
         }
         if ($researcharea !== null) {
             $researchers = $researchers->where('ResearchAreaOfInterest', $researcharea);
+        }
+        if ($name !== null) {
+            $researchers = $researchers->whereHas('user', function ($q) use ($name) {
+                $q->where('name','LIKE', '%'.$name.'%');
+            });
         }
         return $this->sendResponse($researchers->paginate($perPage), 'Researchers retrieved successfully');
     }
