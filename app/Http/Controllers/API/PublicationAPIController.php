@@ -164,7 +164,7 @@ class PublicationAPIController extends AppBaseController
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
         $publications = Publication::with([
-            'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution'
+            'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution','funder'
         ])->paginate($perPage);
         if ($request->has('search')) {
             $query = $request->search;

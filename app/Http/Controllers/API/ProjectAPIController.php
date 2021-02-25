@@ -122,7 +122,7 @@ class ProjectAPIController extends AppBaseController
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
         $projects = Project::with([
-            'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution'
+            'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution','funder'
         ])->paginate($perPage);
         if ($request->has('search')) {
             $query = $request->search;
