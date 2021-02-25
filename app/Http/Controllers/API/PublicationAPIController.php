@@ -361,7 +361,7 @@ class PublicationAPIController extends AppBaseController
         $department = $request->get('department');
         $funder = $request->get('funder');
         $publications = Publication::with([
-            'researcher', 'researcher.department', 'researcher.department.researchinstitution', 'funder'
+            'researcher','researcher.user', 'researcher.department', 'researcher.department.researchinstitution', 'funder'
         ]);
         if ($researcharea !== null) {
             $publications = $publications->whereHas('researcher', function ($q) use ($researcharea) {

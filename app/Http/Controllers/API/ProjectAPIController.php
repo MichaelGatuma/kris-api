@@ -325,7 +325,8 @@ class ProjectAPIController extends AppBaseController
         $department = $request->get('department');
         $funder = $request->get('funder');
         $projects = Project::with([
-            'researcher', 'researcher.department', 'researcher.department.researchinstitution', 'funder'
+            'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution',
+            'funder'
         ]);
         if ($researcharea !== null) {
             $projects = $projects->whereHas('researcher', function ($q) use ($researcharea) {
@@ -338,9 +339,10 @@ class ProjectAPIController extends AppBaseController
             });
         }
         if ($institution !== null) {
-            $projects = $projects->whereHas('researcher.department.researchinstitution', function ($q) use ($institution) {
-                $q->where('RIName', $institution);
-            });
+            $projects = $projects->whereHas('researcher.department.researchinstitution',
+                function ($q) use ($institution) {
+                    $q->where('RIName', $institution);
+                });
         }
         if ($funder !== null) {
             $projects = $projects->whereHas('funder', function ($q) use ($funder) {
