@@ -98,7 +98,14 @@ class User extends Authenticatable
         'verified_at'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
 
+        static::retrieved(function($model){
+            $model->profPic = 'https://kris.sensenventures.com/'.$model->profPic;
+        });
+    }
     public function posts()
     {
         return $this->hasMany(Post::class);

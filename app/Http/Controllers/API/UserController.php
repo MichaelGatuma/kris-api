@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -178,9 +179,12 @@ class UserController extends Controller
         try {
             $file = $request->file('file');
             //store
-            $path = Storage::disk('api')->put('ProfilePictures', $file);
-
-            $user->profPic = 'storage/app/public/'.$path;
+            $path = Storage::disk('public')->put('ProfilePictures', $file);
+            if ($user->profPic !== null) {
+                //remove previous pic
+                Storage::disk('public')->delete('ProfilePictures/'.Str::of($user->profPic)->afterLast('/'));
+            }
+            $user->profPic = 'storage/'.$path;
             $user->save();
             return response()->json([
                 "success" => true, "data" => $user, "message" => "Profile Photo Updated successfully"
@@ -204,6 +208,9 @@ class UserController extends Controller
      */
     public function getUserImage(Request $request)
     {
+//return str_replace('storage/','',User::findOrFail($request->get('user_id'))->profPic);
+        
+        return Image::make('https://kris.sensenventures.com/storage/ProfilePictures/6Fh5S0NCvZEJKVDRyRmvwNz83BoPkXS6rj42wgdx.jpeg');
         $user = $request->user();
         if ($request->has('user_id')) {
             $user = User::find($request->get('user_id'));
