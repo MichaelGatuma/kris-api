@@ -74,7 +74,7 @@ response.json()
     "trace": [
         {
             "file": "C:\\laragon\\www\\kris-api\\routes\\api.php",
-            "line": 16,
+            "line": 15,
             "function": "get",
             "class": "Illuminate\\Filesystem\\FilesystemAdapter",
             "type": "->"

@@ -79,7 +79,7 @@ paths:
                                 password:
                                     type: string
                                     description: 'The full name of the user.'
-                                    example: ut
+                                    example: minima
                                 device_name:
                                     type: string
                                     description: 'The name of the request source device.'
@@ -148,11 +148,11 @@ paths:
                                 email:
                                     type: string
                                     description: 'The email of the user.'
-                                    example: corrupti
+                                    example: enim
                                 password:
                                     type: string
                                     description: 'The password of the user.'
-                                    example: consectetur
+                                    example: quia
                                 device_name:
                                     type: string
                                     description: 'The name of the request source device.'
@@ -218,7 +218,7 @@ paths:
                                 email:
                                     type: string
                                     description: 'The user email.'
-                                    example: porro
+                                    example: quod
                             required:
                                 - email
             security: []
@@ -285,15 +285,15 @@ paths:
                                 email:
                                     type: string
                                     description: 'The email of the user.'
-                                    example: accusamus
+                                    example: quos
                                 password:
                                     type: string
                                     description: 'The password of the user.'
-                                    example: deserunt
+                                    example: et
                                 current_password:
                                     type: string
                                     description: 'The current password of the user.'
-                                    example: tenetur
+                                    example: voluptatem
                             required:
                                 - email
                                 - password
@@ -432,11 +432,11 @@ paths:
                                 title:
                                     type: string
                                     description: 'The Post Title'
-                                    example: magni
+                                    example: mollitia
                                 body:
                                     type: string
                                     description: 'The body title'
-                                    example: minima
+                                    example: magni
                             required:
                                 - title
                                 - body
@@ -490,7 +490,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the specified discussion'
-                example: 4
+                example: 17
                 required: true
                 schema:
                     type: integer
@@ -581,12 +581,12 @@ paths:
                     in: query
                     name: institution
                     description: 'Search department by the insitution name.'
-                    example: aut
+                    example: eos
                     required: false
                     schema:
                         type: string
                         description: 'Search department by the insitution name.'
-                        example: aut
+                        example: eos
                 -
                     in: header
                     name: Authorization
@@ -691,13 +691,13 @@ paths:
                                     exception: Illuminate\Contracts\Filesystem\FileNotFoundException
                                     file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Filesystem\FilesystemAdapter.php'
                                     line: 152
-                                    trace: [{ file: 'C:\laragon\www\kris-api\routes\api.php', line: 16, function: get, class: Illuminate\Filesystem\FilesystemAdapter, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 230, function: '{closure}', class: Illuminate\Routing\RouteFileRegistrar, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 200, function: runCallable, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 692, function: run, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Routing\{closure}', class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php', line: 41, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\SubstituteBindings, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 127, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 103, function: handleRequest, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 55, function: handleRequestUsingNamedLimiter, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 33, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Laravel\Sanctum\Http\Middleware\{closure}', class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 34, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 694, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 669, function: runRouteWithinStack, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 635, function: runRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 624, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 86, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 324, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 305, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 236, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 172, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 127, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 119, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 36, function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 93, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 610, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Command\Command.php', line: 255, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 971, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 290, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 166, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }]
+                                    trace: [{ file: 'C:\laragon\www\kris-api\routes\api.php', line: 15, function: get, class: Illuminate\Filesystem\FilesystemAdapter, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 230, function: '{closure}', class: Illuminate\Routing\RouteFileRegistrar, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 200, function: runCallable, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 692, function: run, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Routing\{closure}', class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php', line: 41, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\SubstituteBindings, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 127, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 103, function: handleRequest, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 55, function: handleRequestUsingNamedLimiter, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 33, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Laravel\Sanctum\Http\Middleware\{closure}', class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 34, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 694, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 669, function: runRouteWithinStack, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 635, function: runRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 624, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 86, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 324, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 305, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 236, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 172, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 127, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 119, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 36, function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 93, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 610, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Command\Command.php', line: 255, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 971, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 290, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 166, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }]
                                 properties:
                                     message: { type: string, example: 'File not found at path: ProfilePictures/P78sAXZjz9faEgCWJjcr6MsHfZOrEnkVmJyXodaF.jpg' }
                                     exception: { type: string, example: Illuminate\Contracts\Filesystem\FileNotFoundException }
                                     file: { type: string, example: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Filesystem\FilesystemAdapter.php' }
                                     line: { type: integer, example: 152 }
-                                    trace: { type: array, example: [{ file: 'C:\laragon\www\kris-api\routes\api.php', line: 16, function: get, class: Illuminate\Filesystem\FilesystemAdapter, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 230, function: '{closure}', class: Illuminate\Routing\RouteFileRegistrar, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 200, function: runCallable, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 692, function: run, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Routing\{closure}', class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php', line: 41, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\SubstituteBindings, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 127, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 103, function: handleRequest, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 55, function: handleRequestUsingNamedLimiter, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 33, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Laravel\Sanctum\Http\Middleware\{closure}', class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 34, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 694, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 669, function: runRouteWithinStack, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 635, function: runRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 624, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 86, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 324, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 305, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 236, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 172, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 127, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 119, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 36, function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 93, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 610, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Command\Command.php', line: 255, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 971, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 290, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 166, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }], items: { type: object } }
+                                    trace: { type: array, example: [{ file: 'C:\laragon\www\kris-api\routes\api.php', line: 15, function: get, class: Illuminate\Filesystem\FilesystemAdapter, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 230, function: '{closure}', class: Illuminate\Routing\RouteFileRegistrar, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Route.php', line: 200, function: runCallable, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 692, function: run, class: Illuminate\Routing\Route, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Routing\{closure}', class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php', line: 41, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\SubstituteBindings, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 127, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 103, function: handleRequest, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php', line: 55, function: handleRequestUsingNamedLimiter, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Routing\Middleware\ThrottleRequests, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 33, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Laravel\Sanctum\Http\Middleware\{closure}', class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\sanctum\src\Http\Middleware\EnsureFrontendRequestsAreStateful.php', line: 34, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 694, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 669, function: runRouteWithinStack, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 635, function: runRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Routing\Router.php', line: 624, function: dispatchToRoute, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 166, function: dispatch, class: Illuminate\Routing\Router, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 128, function: 'Illuminate\Foundation\Http\{closure}', class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php', line: 21, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\TransformsRequest, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php', line: 27, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\ValidatePostSize, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php', line: 86, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fruitcake\laravel-cors\src\HandleCors.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fruitcake\Cors\HandleCors, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\fideloper\proxy\src\TrustProxies.php', line: 57, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 167, function: handle, class: Fideloper\Proxy\TrustProxies, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php', line: 103, function: 'Illuminate\Pipeline\{closure}', class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 141, function: then, class: Illuminate\Pipeline\Pipeline, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php', line: 110, function: sendRequestThroughRouter, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 324, function: handle, class: Illuminate\Foundation\Http\Kernel, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 305, function: callLaravelOrLumenRoute, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 76, function: makeApiCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 51, function: makeResponseCall, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php', line: 41, function: makeResponseCallIfEnabledAndNoSuccessResponses, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 236, function: __invoke, class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 172, function: iterateThroughStrategies, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Extracting\Generator.php', line: 127, function: fetchResponses, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 119, function: processRoute, class: Knuckles\Scribe\Extracting\Generator, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php', line: 73, function: processRoutes, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 36, function: handle, class: Knuckles\Scribe\Commands\GenerateDocumentation, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Util.php', line: 40, function: 'Illuminate\Container\{closure}', class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 93, function: unwrapIfClosure, class: Illuminate\Container\Util, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php', line: 37, function: callBoundMethod, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Container\Container.php', line: 610, function: call, class: Illuminate\Container\BoundMethod, type: '::' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 136, function: call, class: Illuminate\Container\Container, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Command\Command.php', line: 255, function: execute, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Command.php', line: 121, function: run, class: Symfony\Component\Console\Command\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 971, function: run, class: Illuminate\Console\Command, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 290, function: doRunCommand, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\symfony\console\Application.php', line: 166, function: doRun, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Console\Application.php', line: 93, function: run, class: Symfony\Component\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php', line: 129, function: run, class: Illuminate\Console\Application, type: '->' }, { file: 'C:\laragon\www\kris-api\artisan', line: 37, function: handle, class: Illuminate\Foundation\Console\Kernel, type: '->' }], items: { type: object } }
             tags:
                 - 'Other Endpoints'
             security: []
@@ -710,32 +710,32 @@ paths:
                     in: query
                     name: perPage
                     description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                    example: 3
+                    example: 14
                     required: false
                     schema:
                         type: integer
                         description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                        example: 3
+                        example: 14
                 -
                     in: query
                     name: recent
                     description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                    example: 13
+                    example: 8
                     required: false
                     schema:
                         type: integer
                         description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                        example: 13
+                        example: 8
                 -
                     in: query
                     name: limit
                     description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                    example: aut
+                    example: libero
                     required: false
                     schema:
                         type: string
                         description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                        example: aut
+                        example: libero
                 -
                     in: header
                     name: Authorization
@@ -776,42 +776,42 @@ paths:
                     in: query
                     name: institution
                     description: 'The full institution name'
-                    example: rerum
+                    example: voluptatem
                     required: false
                     schema:
                         type: string
                         description: 'The full institution name'
-                        example: rerum
+                        example: voluptatem
                 -
                     in: query
                     name: researcharea
                     description: 'The name of the research area'
-                    example: sunt
+                    example: in
                     required: false
                     schema:
                         type: string
                         description: 'The name of the research area'
-                        example: sunt
+                        example: in
                 -
                     in: query
                     name: department
                     description: 'The name of the department'
-                    example: ut
+                    example: dolor
                     required: false
                     schema:
                         type: string
                         description: 'The name of the department'
-                        example: ut
+                        example: dolor
                 -
                     in: query
                     name: funder
                     description: 'the funder name'
-                    example: aut
+                    example: id
                     required: false
                     schema:
                         type: string
                         description: 'the funder name'
-                        example: aut
+                        example: id
                 -
                     in: header
                     name: Authorization
@@ -887,7 +887,7 @@ paths:
                 in: path
                 name: id
                 description: ''
-                example: rerum
+                example: dolorum
                 required: true
                 schema:
                     type: string
@@ -941,7 +941,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the project'
-                example: 18
+                example: 2
                 required: true
                 schema:
                     type: integer
@@ -995,7 +995,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the project'
-                example: 20
+                example: 14
                 required: true
                 schema:
                     type: integer
@@ -1008,32 +1008,32 @@ paths:
                     in: query
                     name: perPage
                     description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                    example: 18
+                    example: 10
                     required: false
                     schema:
                         type: integer
                         description: 'Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10'
-                        example: 18
+                        example: 10
                 -
                     in: query
                     name: recent
                     description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                    example: 20
+                    example: 11
                     required: false
                     schema:
                         type: integer
                         description: 'Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides ''perPage'') Default: 10'
-                        example: 20
+                        example: 11
                 -
                     in: query
                     name: limit
                     description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                    example: dolor
+                    example: sit
                     required: false
                     schema:
                         type: string
                         description: 'Specify the limit of entries to return. Must be used together with ''recent'' If not specified, the default entries will be returned. Default: 10'
-                        example: dolor
+                        example: sit
                 -
                     in: header
                     name: Authorization
@@ -1081,42 +1081,42 @@ paths:
                     in: query
                     name: institution
                     description: 'The full institution name'
-                    example: culpa
+                    example: asperiores
                     required: false
                     schema:
                         type: string
                         description: 'The full institution name'
-                        example: culpa
+                        example: asperiores
                 -
                     in: query
                     name: researcharea
                     description: 'The name of the research area'
-                    example: odit
+                    example: nulla
                     required: false
                     schema:
                         type: string
                         description: 'The name of the research area'
-                        example: odit
+                        example: nulla
                 -
                     in: query
                     name: department
                     description: 'The name of the department'
-                    example: aut
+                    example: veniam
                     required: false
                     schema:
                         type: string
                         description: 'The name of the department'
-                        example: aut
+                        example: veniam
                 -
                     in: query
                     name: funder
                     description: 'the funder name'
-                    example: natus
+                    example: consectetur
                     required: false
                     schema:
                         type: string
                         description: 'the funder name'
-                        example: natus
+                        example: consectetur
                 -
                     in: header
                     name: Authorization
@@ -1192,7 +1192,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 9
+                example: 11
                 required: true
                 schema:
                     type: integer
@@ -1246,7 +1246,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 16
+                example: 11
                 required: true
                 schema:
                     type: integer
@@ -1300,7 +1300,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the publication'
-                example: 14
+                example: 15
                 required: true
                 schema:
                     type: integer
@@ -1313,42 +1313,42 @@ paths:
                     in: query
                     name: institution
                     description: 'Search by the given research institution'
-                    example: voluptatibus
+                    example: fugit
                     required: false
                     schema:
                         type: string
                         description: 'Search by the given research institution'
-                        example: voluptatibus
+                        example: fugit
                 -
                     in: query
                     name: researcharea
                     description: 'Search by the given research area'
-                    example: nulla
+                    example: harum
                     required: false
                     schema:
                         type: string
                         description: 'Search by the given research area'
-                        example: nulla
+                        example: harum
                 -
                     in: query
                     name: department
                     description: 'Search by the given department'
-                    example: numquam
+                    example: eum
                     required: false
                     schema:
                         type: string
                         description: 'Search by the given department'
-                        example: numquam
+                        example: eum
                 -
                     in: query
                     name: name
                     description: 'Search researcher by their name'
-                    example: facere
+                    example: dicta
                     required: false
                     schema:
                         type: string
                         description: 'Search researcher by their name'
-                        example: facere
+                        example: dicta
                 -
                     in: header
                     name: Authorization
@@ -1439,6 +1439,93 @@ paths:
                 required: true
                 schema:
                     type: integer
+    /api/researcher/user:
+        get:
+            summary: 'View a researcher profile of the authenticated user'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Researcher Endpoints'
+    '/api/researcher/user/{id}':
+        get:
+            summary: 'View a single researcher'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                401:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: Unauthenticated.
+                                properties:
+                                    message: { type: string, example: Unauthenticated. }
+            tags:
+                - 'Researcher Endpoints'
+        parameters:
+            -
+                in: path
+                name: id
+                description: 'The specified user id.'
+                example: null
+                required: true
+                schema:
+                    type: integer
     /api/researcher/activeProjects:
         get:
             summary: "Show Researcher's Active Projects\n\nThis endpoint return the active projects of the authenticated user."
@@ -1493,22 +1580,22 @@ paths:
                     in: query
                     name: skip
                     description: 'Skip the first specified number of entries'
-                    example: 15
+                    example: 4
                     required: false
                     schema:
                         type: integer
                         description: 'Skip the first specified number of entries'
-                        example: 15
+                        example: 4
                 -
                     in: query
                     name: limit
                     description: 'Limit the response to the specified number of entries'
-                    example: 10
+                    example: 7
                     required: false
                     schema:
                         type: integer
                         description: 'Limit the response to the specified number of entries'
-                        example: 10
+                        example: 7
                 -
                     in: header
                     name: Content-Type
@@ -1581,7 +1668,7 @@ paths:
                 in: path
                 name: event_id
                 description: ''
-                example: magnam
+                example: temporibus
                 required: true
                 schema:
                     type: string
@@ -1589,7 +1676,7 @@ paths:
                 in: path
                 name: id
                 description: 'The id of the specified Upcoming Event'
-                example: 17
+                example: 19
                 required: true
                 schema:
                     type: integer
@@ -1821,12 +1908,12 @@ paths:
                     in: query
                     name: user_id
                     description: 'The specified user''s id'
-                    example: 12
+                    example: 14
                     required: false
                     schema:
                         type: integer
                         description: 'The specified user''s id'
-                        example: 12
+                        example: 14
                 -
                     in: header
                     name: Authorization

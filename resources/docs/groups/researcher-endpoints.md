@@ -11,7 +11,7 @@
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/researchers?institution=voluptatibus&researcharea=nulla&department=numquam&name=facere" \
+    -G "http://api.sensenventures.com/api/researchers?institution=fugit&researcharea=harum&department=eum&name=dicta" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -23,10 +23,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "voluptatibus",
-    "researcharea": "nulla",
-    "department": "numquam",
-    "name": "facere",
+    "institution": "fugit",
+    "researcharea": "harum",
+    "department": "eum",
+    "name": "dicta",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -56,10 +56,10 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'institution'=> 'voluptatibus',
-            'researcharea'=> 'nulla',
-            'department'=> 'numquam',
-            'name'=> 'facere',
+            'institution'=> 'fugit',
+            'researcharea'=> 'harum',
+            'department'=> 'eum',
+            'name'=> 'dicta',
         ],
     ]
 );
@@ -73,10 +73,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/researchers'
 params = {
-  'institution': 'voluptatibus',
-  'researcharea': 'nulla',
-  'department': 'numquam',
-  'name': 'facere',
+  'institution': 'fugit',
+  'researcharea': 'harum',
+  'department': 'eum',
+  'name': 'dicta',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -564,6 +564,210 @@ response.json()
 <input type="number" name="id" data-endpoint="GETapi-researcher--id-" data-component="url" required  hidden>
 <br>
 The specified researcher id.</p>
+</form>
+
+
+## View a researcher profile of the authenticated user
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://api.sensenventures.com/api/researcher/user" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://api.sensenventures.com/api/researcher/user"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/researcher/user',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://api.sensenventures.com/api/researcher/user'
+headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+<div id="execution-results-GETapi-researcher-user" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-researcher-user"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-researcher-user"></code></pre>
+</div>
+<div id="execution-error-GETapi-researcher-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-researcher-user"></code></pre>
+</div>
+<form id="form-GETapi-researcher-user" data-method="GET" data-path="api/researcher/user" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researcher-user', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-researcher-user" onclick="tryItOut('GETapi-researcher-user');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-researcher-user" onclick="cancelTryOut('GETapi-researcher-user');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-researcher-user" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/researcher/user</code></b>
+</p>
+<p>
+<label id="auth-GETapi-researcher-user" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-researcher-user" data-component="header"></label>
+</p>
+</form>
+
+
+## View a single researcher
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://api.sensenventures.com/api/researcher/user/" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://api.sensenventures.com/api/researcher/user/"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'http://api.sensenventures.com/api/researcher/user/',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+```python
+import requests
+import json
+
+url = 'http://api.sensenventures.com/api/researcher/user/'
+headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+<div id="execution-results-GETapi-researcher-user--id-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-researcher-user--id-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-researcher-user--id-"></code></pre>
+</div>
+<div id="execution-error-GETapi-researcher-user--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-researcher-user--id-"></code></pre>
+</div>
+<form id="form-GETapi-researcher-user--id-" data-method="GET" data-path="api/researcher/user/{id}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researcher-user--id-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-researcher-user--id-" onclick="tryItOut('GETapi-researcher-user--id-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-researcher-user--id-" onclick="cancelTryOut('GETapi-researcher-user--id-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-researcher-user--id-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/researcher/user/{id}</code></b>
+</p>
+<p>
+<label id="auth-GETapi-researcher-user--id-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-researcher-user--id-" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="GETapi-researcher-user--id-" data-component="url" required  hidden>
+<br>
+The specified user id.</p>
 </form>
 
 

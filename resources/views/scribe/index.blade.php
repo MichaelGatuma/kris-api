@@ -77,7 +77,7 @@ You can switch the language used with the tabs at the top right (or from the nav
     "http://api.sensenventures.com/api/user/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"ut","device_name":"Huawei STK-L21"}'
+    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"minima","device_name":"Huawei STK-L21"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://api.sensenventures.com/api/user/register"
@@ -92,7 +92,7 @@ let body = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "ut",
+    "password": "minima",
     "device_name": "Huawei STK-L21"
 }
 
@@ -114,7 +114,7 @@ $response = $client-&gt;post(
             'Title' =&gt; 'Prof.',
             'name' =&gt; 'John Doe',
             'email' =&gt; 'johndoe2@kris.com',
-            'password' =&gt; 'ut',
+            'password' =&gt; 'minima',
             'device_name' =&gt; 'Huawei STK-L21',
         ],
     ]
@@ -129,7 +129,7 @@ payload = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "ut",
+    "password": "minima",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -225,7 +225,7 @@ The name of the request source device.</p>
     "http://api.sensenventures.com/api/user/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"corrupti","password":"consectetur","device_name":"Huawei STK-L21"}'
+    -d '{"email":"enim","password":"quia","device_name":"Huawei STK-L21"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://api.sensenventures.com/api/user/login"
@@ -237,8 +237,8 @@ let headers = {
 };
 
 let body = {
-    "email": "corrupti",
-    "password": "consectetur",
+    "email": "enim",
+    "password": "quia",
     "device_name": "Huawei STK-L21"
 }
 
@@ -257,8 +257,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'corrupti',
-            'password' =&gt; 'consectetur',
+            'email' =&gt; 'enim',
+            'password' =&gt; 'quia',
             'device_name' =&gt; 'Huawei STK-L21',
         ],
     ]
@@ -270,8 +270,8 @@ import json
 
 url = 'http://api.sensenventures.com/api/user/login'
 payload = {
-    "email": "corrupti",
-    "password": "consectetur",
+    "email": "enim",
+    "password": "quia",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -345,7 +345,7 @@ The name of the request source device.</p>
     "http://api.sensenventures.com/api/user/forgot-password-request" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"porro"}'
+    -d '{"email":"quod"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://api.sensenventures.com/api/user/forgot-password-request"
@@ -357,7 +357,7 @@ let headers = {
 };
 
 let body = {
-    "email": "porro"
+    "email": "quod"
 }
 
 fetch(url, {
@@ -375,7 +375,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'porro',
+            'email' =&gt; 'quod',
         ],
     ]
 );
@@ -386,7 +386,7 @@ import json
 
 url = 'http://api.sensenventures.com/api/user/forgot-password-request'
 payload = {
-    "email": "porro"
+    "email": "quod"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -450,7 +450,7 @@ The user email.</p>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"accusamus","password":"deserunt","current_password":"tenetur"}'
+    -d '{"email":"quos","password":"et","current_password":"voluptatem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://api.sensenventures.com/api/user/reset-password"
@@ -463,9 +463,9 @@ let headers = {
 };
 
 let body = {
-    "email": "accusamus",
-    "password": "deserunt",
-    "current_password": "tenetur"
+    "email": "quos",
+    "password": "et",
+    "current_password": "voluptatem"
 }
 
 fetch(url, {
@@ -484,9 +484,9 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'email' =&gt; 'accusamus',
-            'password' =&gt; 'deserunt',
-            'current_password' =&gt; 'tenetur',
+            'email' =&gt; 'quos',
+            'password' =&gt; 'et',
+            'current_password' =&gt; 'voluptatem',
         ],
     ]
 );
@@ -497,9 +497,9 @@ import json
 
 url = 'http://api.sensenventures.com/api/user/reset-password'
 payload = {
-    "email": "accusamus",
-    "password": "deserunt",
-    "current_password": "tenetur"
+    "email": "quos",
+    "password": "et",
+    "current_password": "voluptatem"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -738,7 +738,7 @@ response.json()</code></pre>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"title":"magni","body":"minima"}'
+    -d '{"title":"mollitia","body":"magni"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://api.sensenventures.com/api/discussions"
@@ -751,8 +751,8 @@ let headers = {
 };
 
 let body = {
-    "title": "magni",
-    "body": "minima"
+    "title": "mollitia",
+    "body": "magni"
 }
 
 fetch(url, {
@@ -771,8 +771,8 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'title' =&gt; 'magni',
-            'body' =&gt; 'minima',
+            'title' =&gt; 'mollitia',
+            'body' =&gt; 'magni',
         ],
     ]
 );
@@ -783,8 +783,8 @@ import json
 
 url = 'http://api.sensenventures.com/api/discussions'
 payload = {
-    "title": "magni",
-    "body": "minima"
+    "title": "mollitia",
+    "body": "magni"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1089,7 +1089,7 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/departments?institution=aut" \
+    -G "http://api.sensenventures.com/api/departments?institution=eos" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -1098,7 +1098,7 @@ response.json()</code></pre>
 );
 
 let params = {
-    "institution": "aut",
+    "institution": "eos",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1124,7 +1124,7 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'institution'=&gt; 'aut',
+            'institution'=&gt; 'eos',
         ],
     ]
 );
@@ -1135,7 +1135,7 @@ import json
 
 url = 'http://api.sensenventures.com/api/departments'
 params = {
-  'institution': 'aut',
+  'institution': 'eos',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1315,7 +1315,7 @@ response.json()</code></pre>
     "trace": [
         {
             "file": "C:\\laragon\\www\\kris-api\\routes\\api.php",
-            "line": 16,
+            "line": 15,
             "function": "get",
             "class": "Illuminate\\Filesystem\\FilesystemAdapter",
             "type": "-&gt;"
@@ -1776,7 +1776,7 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/projects?perPage=3&amp;recent=13&amp;limit=aut" \
+    -G "http://api.sensenventures.com/api/projects?perPage=14&amp;recent=8&amp;limit=libero" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -1785,9 +1785,9 @@ response.json()</code></pre>
 );
 
 let params = {
-    "perPage": "3",
-    "recent": "13",
-    "limit": "aut",
+    "perPage": "14",
+    "recent": "8",
+    "limit": "libero",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1813,9 +1813,9 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'perPage'=&gt; '3',
-            'recent'=&gt; '13',
-            'limit'=&gt; 'aut',
+            'perPage'=&gt; '14',
+            'recent'=&gt; '8',
+            'limit'=&gt; 'libero',
         ],
     ]
 );
@@ -1826,9 +1826,9 @@ import json
 
 url = 'http://api.sensenventures.com/api/projects'
 params = {
-  'perPage': '3',
-  'recent': '13',
-  'limit': 'aut',
+  'perPage': '14',
+  'recent': '8',
+  'limit': 'libero',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -1969,7 +1969,7 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/projects/search?institution=rerum&amp;researcharea=sunt&amp;department=ut&amp;funder=aut" \
+    -G "http://api.sensenventures.com/api/projects/search?institution=voluptatem&amp;researcharea=in&amp;department=dolor&amp;funder=id" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -1978,10 +1978,10 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 );
 
 let params = {
-    "institution": "rerum",
-    "researcharea": "sunt",
-    "department": "ut",
-    "funder": "aut",
+    "institution": "voluptatem",
+    "researcharea": "in",
+    "department": "dolor",
+    "funder": "id",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2007,10 +2007,10 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'institution'=&gt; 'rerum',
-            'researcharea'=&gt; 'sunt',
-            'department'=&gt; 'ut',
-            'funder'=&gt; 'aut',
+            'institution'=&gt; 'voluptatem',
+            'researcharea'=&gt; 'in',
+            'department'=&gt; 'dolor',
+            'funder'=&gt; 'id',
         ],
     ]
 );
@@ -2021,10 +2021,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/projects/search'
 params = {
-  'institution': 'rerum',
-  'researcharea': 'sunt',
-  'department': 'ut',
-  'funder': 'aut',
+  'institution': 'voluptatem',
+  'researcharea': 'in',
+  'department': 'dolor',
+  'funder': 'id',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -2091,12 +2091,12 @@ the funder name</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/project/rerum" \
+    -G "http://api.sensenventures.com/api/project/dolorum" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.sensenventures.com/api/project/rerum"
+    "http://api.sensenventures.com/api/project/dolorum"
 );
 
 let headers = {
@@ -2112,7 +2112,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.sensenventures.com/api/project/rerum',
+    'http://api.sensenventures.com/api/project/dolorum',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2126,7 +2126,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://api.sensenventures.com/api/project/rerum'
+url = 'http://api.sensenventures.com/api/project/dolorum'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2202,12 +2202,12 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.sensenventures.com/api/project/18/request" \
+    "http://api.sensenventures.com/api/project/2/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.sensenventures.com/api/project/18/request"
+    "http://api.sensenventures.com/api/project/2/request"
 );
 
 let headers = {
@@ -2223,7 +2223,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.sensenventures.com/api/project/18/request',
+    'http://api.sensenventures.com/api/project/2/request',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2237,7 +2237,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://api.sensenventures.com/api/project/18/request'
+url = 'http://api.sensenventures.com/api/project/2/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2290,12 +2290,12 @@ The id of the project</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.sensenventures.com/api/project/20/grant" \
+    "http://api.sensenventures.com/api/project/14/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.sensenventures.com/api/project/20/grant"
+    "http://api.sensenventures.com/api/project/14/grant"
 );
 
 let headers = {
@@ -2311,7 +2311,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.sensenventures.com/api/project/20/grant',
+    'http://api.sensenventures.com/api/project/14/grant',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2325,7 +2325,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://api.sensenventures.com/api/project/20/grant'
+url = 'http://api.sensenventures.com/api/project/14/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2378,7 +2378,7 @@ The id of the project</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/publications?perPage=18&amp;recent=20&amp;limit=dolor" \
+    -G "http://api.sensenventures.com/api/publications?perPage=10&amp;recent=11&amp;limit=sit" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -2387,9 +2387,9 @@ The id of the project</p>
 );
 
 let params = {
-    "perPage": "18",
-    "recent": "20",
-    "limit": "dolor",
+    "perPage": "10",
+    "recent": "11",
+    "limit": "sit",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2415,9 +2415,9 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'perPage'=&gt; '18',
-            'recent'=&gt; '20',
-            'limit'=&gt; 'dolor',
+            'perPage'=&gt; '10',
+            'recent'=&gt; '11',
+            'limit'=&gt; 'sit',
         ],
     ]
 );
@@ -2428,9 +2428,9 @@ import json
 
 url = 'http://api.sensenventures.com/api/publications'
 params = {
-  'perPage': '18',
-  'recent': '20',
-  'limit': 'dolor',
+  'perPage': '10',
+  'recent': '11',
+  'limit': 'sit',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -2615,7 +2615,7 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/publications/search?institution=culpa&amp;researcharea=odit&amp;department=aut&amp;funder=natus" \
+    -G "http://api.sensenventures.com/api/publications/search?institution=asperiores&amp;researcharea=nulla&amp;department=veniam&amp;funder=consectetur" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -2624,10 +2624,10 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 );
 
 let params = {
-    "institution": "culpa",
-    "researcharea": "odit",
-    "department": "aut",
-    "funder": "natus",
+    "institution": "asperiores",
+    "researcharea": "nulla",
+    "department": "veniam",
+    "funder": "consectetur",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2653,10 +2653,10 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'institution'=&gt; 'culpa',
-            'researcharea'=&gt; 'odit',
-            'department'=&gt; 'aut',
-            'funder'=&gt; 'natus',
+            'institution'=&gt; 'asperiores',
+            'researcharea'=&gt; 'nulla',
+            'department'=&gt; 'veniam',
+            'funder'=&gt; 'consectetur',
         ],
     ]
 );
@@ -2667,10 +2667,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/publications/search'
 params = {
-  'institution': 'culpa',
-  'researcharea': 'odit',
-  'department': 'aut',
-  'funder': 'natus',
+  'institution': 'asperiores',
+  'researcharea': 'nulla',
+  'department': 'veniam',
+  'funder': 'consectetur',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -2737,12 +2737,12 @@ the funder name</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/publication/9" \
+    -G "http://api.sensenventures.com/api/publication/11" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.sensenventures.com/api/publication/9"
+    "http://api.sensenventures.com/api/publication/11"
 );
 
 let headers = {
@@ -2758,7 +2758,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.sensenventures.com/api/publication/9',
+    'http://api.sensenventures.com/api/publication/11',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2772,7 +2772,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://api.sensenventures.com/api/publication/9'
+url = 'http://api.sensenventures.com/api/publication/11'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2840,12 +2840,12 @@ The id of the publication</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.sensenventures.com/api/publication/16/request" \
+    "http://api.sensenventures.com/api/publication/11/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.sensenventures.com/api/publication/16/request"
+    "http://api.sensenventures.com/api/publication/11/request"
 );
 
 let headers = {
@@ -2861,7 +2861,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.sensenventures.com/api/publication/16/request',
+    'http://api.sensenventures.com/api/publication/11/request',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2875,7 +2875,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://api.sensenventures.com/api/publication/16/request'
+url = 'http://api.sensenventures.com/api/publication/11/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -2928,12 +2928,12 @@ The id of the publication</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.sensenventures.com/api/publication/14/grant" \
+    "http://api.sensenventures.com/api/publication/15/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.sensenventures.com/api/publication/14/grant"
+    "http://api.sensenventures.com/api/publication/15/grant"
 );
 
 let headers = {
@@ -2949,7 +2949,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.sensenventures.com/api/publication/14/grant',
+    'http://api.sensenventures.com/api/publication/15/grant',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2963,7 +2963,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://api.sensenventures.com/api/publication/14/grant'
+url = 'http://api.sensenventures.com/api/publication/15/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -3015,7 +3015,7 @@ The id of the publication</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/researchers?institution=voluptatibus&amp;researcharea=nulla&amp;department=numquam&amp;name=facere" \
+    -G "http://api.sensenventures.com/api/researchers?institution=fugit&amp;researcharea=harum&amp;department=eum&amp;name=dicta" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -3024,10 +3024,10 @@ The id of the publication</p>
 );
 
 let params = {
-    "institution": "voluptatibus",
-    "researcharea": "nulla",
-    "department": "numquam",
-    "name": "facere",
+    "institution": "fugit",
+    "researcharea": "harum",
+    "department": "eum",
+    "name": "dicta",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3053,10 +3053,10 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'institution'=&gt; 'voluptatibus',
-            'researcharea'=&gt; 'nulla',
-            'department'=&gt; 'numquam',
-            'name'=&gt; 'facere',
+            'institution'=&gt; 'fugit',
+            'researcharea'=&gt; 'harum',
+            'department'=&gt; 'eum',
+            'name'=&gt; 'dicta',
         ],
     ]
 );
@@ -3067,10 +3067,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/researchers'
 params = {
-  'institution': 'voluptatibus',
-  'researcharea': 'nulla',
-  'department': 'numquam',
-  'name': 'facere',
+  'institution': 'fugit',
+  'researcharea': 'harum',
+  'department': 'eum',
+  'name': 'dicta',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -3535,6 +3535,170 @@ response.json()</code></pre>
 <br>
 The specified researcher id.</p>
 </form>
+<h2>View a researcher profile of the authenticated user</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.sensenventures.com/api/researcher/user" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.sensenventures.com/api/researcher/user"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.sensenventures.com/api/researcher/user',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.sensenventures.com/api/researcher/user'
+headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETapi-researcher-user" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-researcher-user"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-researcher-user"></code></pre>
+</div>
+<div id="execution-error-GETapi-researcher-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-researcher-user"></code></pre>
+</div>
+<form id="form-GETapi-researcher-user" data-method="GET" data-path="api/researcher/user" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researcher-user', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-researcher-user" onclick="tryItOut('GETapi-researcher-user');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-researcher-user" onclick="cancelTryOut('GETapi-researcher-user');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-researcher-user" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/researcher/user</code></b>
+</p>
+<p>
+<label id="auth-GETapi-researcher-user" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-researcher-user" data-component="header"></label>
+</p>
+</form>
+<h2>View a single researcher</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.sensenventures.com/api/researcher/user/" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.sensenventures.com/api/researcher/user/"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.sensenventures.com/api/researcher/user/',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-python">import requests
+import json
+
+url = 'http://api.sensenventures.com/api/researcher/user/'
+headers = {
+  'Authorization': 'Bearer {YOUR_AUTH_KEY}',
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+response = requests.request('GET', url, headers=headers)
+response.json()</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETapi-researcher-user--id-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-researcher-user--id-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-researcher-user--id-"></code></pre>
+</div>
+<div id="execution-error-GETapi-researcher-user--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-researcher-user--id-"></code></pre>
+</div>
+<form id="form-GETapi-researcher-user--id-" data-method="GET" data-path="api/researcher/user/{id}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-researcher-user--id-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-researcher-user--id-" onclick="tryItOut('GETapi-researcher-user--id-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-researcher-user--id-" onclick="cancelTryOut('GETapi-researcher-user--id-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-researcher-user--id-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/researcher/user/{id}</code></b>
+</p>
+<p>
+<label id="auth-GETapi-researcher-user--id-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-researcher-user--id-" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="id" data-endpoint="GETapi-researcher-user--id-" data-component="url" required  hidden>
+<br>
+The specified user id.</p>
+</form>
 <h2>Show Researcher&#039;s Active Projects</h2>
 <p>This endpoint return the active projects of the authenticated user.</p>
 <p><small class="badge badge-darkred">requires authentication</small></p>
@@ -3622,7 +3786,7 @@ response.json()</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/events?skip=15&amp;limit=10" \
+    -G "http://api.sensenventures.com/api/events?skip=4&amp;limit=7" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3630,8 +3794,8 @@ response.json()</code></pre>
 );
 
 let params = {
-    "skip": "15",
-    "limit": "10",
+    "skip": "4",
+    "limit": "7",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3655,8 +3819,8 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'skip'=&gt; '15',
-            'limit'=&gt; '10',
+            'skip'=&gt; '4',
+            'limit'=&gt; '7',
         ],
     ]
 );
@@ -3667,8 +3831,8 @@ import json
 
 url = 'http://api.sensenventures.com/api/events'
 params = {
-  'skip': '15',
-  'limit': '10',
+  'skip': '4',
+  'limit': '7',
 }
 headers = {
   'Content-Type': 'application/json',
@@ -3721,11 +3885,11 @@ Limit the response to the specified number of entries</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/events/magnam" \
+    -G "http://api.sensenventures.com/api/events/temporibus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.sensenventures.com/api/events/magnam"
+    "http://api.sensenventures.com/api/events/temporibus"
 );
 
 let headers = {
@@ -3740,7 +3904,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.sensenventures.com/api/events/magnam',
+    'http://api.sensenventures.com/api/events/temporibus',
     [
         'headers' =&gt; [
             'Content-Type' =&gt; 'application/json',
@@ -3753,7 +3917,7 @@ print_r(json_decode((string) $body));</code></pre>
 <pre><code class="language-python">import requests
 import json
 
-url = 'http://api.sensenventures.com/api/events/magnam'
+url = 'http://api.sensenventures.com/api/events/temporibus'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -4135,7 +4299,7 @@ The email of the user.</p>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\USER\AppData\Local\Temp\php42AA.tmp" </code></pre>
+    -F "file=@C:\Users\USER\AppData\Local\Temp\php148F.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://api.sensenventures.com/api/user/profile-image"
 );
@@ -4167,7 +4331,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'file',
-                'contents' =&gt; fopen('C:\Users\USER\AppData\Local\Temp\php42AA.tmp', 'r')
+                'contents' =&gt; fopen('C:\Users\USER\AppData\Local\Temp\php148F.tmp', 'r')
             ],
         ],
     ]
@@ -4179,7 +4343,7 @@ import json
 
 url = 'http://api.sensenventures.com/api/user/profile-image'
 files = {
-  'file': open('C:\Users\USER\AppData\Local\Temp\php42AA.tmp', 'rb')
+  'file': open('C:\Users\USER\AppData\Local\Temp\php148F.tmp', 'rb')
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -4235,7 +4399,7 @@ The file object to be uploaded</p>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.sensenventures.com/api/user/profile-image?user_id=12" \
+    -G "http://api.sensenventures.com/api/user/profile-image?user_id=14" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
@@ -4244,7 +4408,7 @@ The file object to be uploaded</p>
 );
 
 let params = {
-    "user_id": "12",
+    "user_id": "14",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -4270,7 +4434,7 @@ $response = $client-&gt;get(
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
-            'user_id'=&gt; '12',
+            'user_id'=&gt; '14',
         ],
     ]
 );
@@ -4281,7 +4445,7 @@ import json
 
 url = 'http://api.sensenventures.com/api/user/profile-image'
 params = {
-  'user_id': '12',
+  'user_id': '14',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
