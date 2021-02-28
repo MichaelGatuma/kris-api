@@ -8,9 +8,10 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 /**
- * Class UpcomingeventsKtbl
+ * Class UpcomingEvent
  *
  * @property int $UpcomingEvent_ID
  * @property string $EventName
@@ -24,7 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class UpcomingeventsKtbl extends Model
+class UpcomingEvent extends Model
 {
     protected $table = 'UpcomingEvents_KTbl';
     protected $primaryKey = 'UpcomingEvent_ID';
@@ -41,4 +42,12 @@ class UpcomingeventsKtbl extends Model
         'EventURL',
         'EventImage'
     ];
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::retrieved(function($model){
+            $model->EventImage = 'https://kris.sensenventures.com/images/ResearchAreasImages/'.Str::afterLast($model->EventImage,'/');
+        });
+    }
 }

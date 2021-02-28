@@ -9,6 +9,9 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
+
+Route::get('events',[\App\Http\Controllers\API\UpcomingEventAPIController::class,'index']);
+Route::get('events/{event_id}',[\App\Http\Controllers\API\UpcomingEventAPIController::class,'show']);
 Route::get('img', function () {
     return \Illuminate\Support\Facades\Storage::disk('api')->get('ProfilePictures/P78sAXZjz9faEgCWJjcr6MsHfZOrEnkVmJyXodaF.jpg')->path();
     $profile_path = \App\Models\User::find(104)->profPic;

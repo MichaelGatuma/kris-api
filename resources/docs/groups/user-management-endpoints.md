@@ -406,7 +406,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "file=@C:\Users\USER\AppData\Local\Temp\phpC5CE.tmp" 
+    -F "file=@C:\Users\USER\AppData\Local\Temp\php4065.tmp" 
 ```
 
 ```javascript
@@ -444,7 +444,7 @@ $response = $client->post(
         'multipart' => [
             [
                 'name' => 'file',
-                'contents' => fopen('C:\Users\USER\AppData\Local\Temp\phpC5CE.tmp', 'r')
+                'contents' => fopen('C:\Users\USER\AppData\Local\Temp\php4065.tmp', 'r')
             ],
         ],
     ]
@@ -459,7 +459,7 @@ import json
 
 url = 'http://api.sensenventures.com/api/user/profile-image'
 files = {
-  'file': open('C:\Users\USER\AppData\Local\Temp\phpC5CE.tmp', 'rb')
+  'file': open('C:\Users\USER\AppData\Local\Temp\php4065.tmp', 'rb')
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -526,7 +526,7 @@ This endpoint lets you fetch a logged in user profile image or fetch a user imag
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/user/profile-image?user_id=3" \
+    -G "http://api.sensenventures.com/api/user/profile-image?user_id=11" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -538,7 +538,7 @@ const url = new URL(
 );
 
 let params = {
-    "user_id": "3",
+    "user_id": "11",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -568,7 +568,7 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'user_id'=> '3',
+            'user_id'=> '11',
         ],
     ]
 );
@@ -582,7 +582,7 @@ import json
 
 url = 'http://api.sensenventures.com/api/user/profile-image'
 params = {
-  'user_id': '3',
+  'user_id': '11',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',

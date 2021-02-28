@@ -15,7 +15,7 @@ curl -X POST \
     "http://api.sensenventures.com/api/user/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"et","device_name":"Huawei STK-L21"}'
+    -d '{"Title":"Prof.","name":"John Doe","email":"johndoe2@kris.com","password":"sint","device_name":"Huawei STK-L21"}'
 
 ```
 
@@ -33,7 +33,7 @@ let body = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "et",
+    "password": "sint",
     "device_name": "Huawei STK-L21"
 }
 
@@ -58,7 +58,7 @@ $response = $client->post(
             'Title' => 'Prof.',
             'name' => 'John Doe',
             'email' => 'johndoe2@kris.com',
-            'password' => 'et',
+            'password' => 'sint',
             'device_name' => 'Huawei STK-L21',
         ],
     ]
@@ -76,7 +76,7 @@ payload = {
     "Title": "Prof.",
     "name": "John Doe",
     "email": "johndoe2@kris.com",
-    "password": "et",
+    "password": "sint",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -184,7 +184,7 @@ curl -X POST \
     "http://api.sensenventures.com/api/user/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"facilis","password":"perferendis","device_name":"Huawei STK-L21"}'
+    -d '{"email":"officia","password":"earum","device_name":"Huawei STK-L21"}'
 
 ```
 
@@ -199,8 +199,8 @@ let headers = {
 };
 
 let body = {
-    "email": "facilis",
-    "password": "perferendis",
+    "email": "officia",
+    "password": "earum",
     "device_name": "Huawei STK-L21"
 }
 
@@ -222,8 +222,8 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'email' => 'facilis',
-            'password' => 'perferendis',
+            'email' => 'officia',
+            'password' => 'earum',
             'device_name' => 'Huawei STK-L21',
         ],
     ]
@@ -238,8 +238,8 @@ import json
 
 url = 'http://api.sensenventures.com/api/user/login'
 payload = {
-    "email": "facilis",
-    "password": "perferendis",
+    "email": "officia",
+    "password": "earum",
     "device_name": "Huawei STK-L21"
 }
 headers = {
@@ -325,7 +325,7 @@ curl -X POST \
     "http://api.sensenventures.com/api/user/forgot-password-request" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"sit"}'
+    -d '{"email":"soluta"}'
 
 ```
 
@@ -340,7 +340,7 @@ let headers = {
 };
 
 let body = {
-    "email": "sit"
+    "email": "soluta"
 }
 
 fetch(url, {
@@ -361,7 +361,7 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'email' => 'sit',
+            'email' => 'soluta',
         ],
     ]
 );
@@ -375,7 +375,7 @@ import json
 
 url = 'http://api.sensenventures.com/api/user/forgot-password-request'
 payload = {
-    "email": "sit"
+    "email": "soluta"
 }
 headers = {
   'Content-Type': 'application/json',
@@ -451,7 +451,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"rerum","password":"voluptas","current_password":"animi"}'
+    -d '{"email":"officia","password":"nihil","current_password":"porro"}'
 
 ```
 
@@ -467,9 +467,9 @@ let headers = {
 };
 
 let body = {
-    "email": "rerum",
-    "password": "voluptas",
-    "current_password": "animi"
+    "email": "officia",
+    "password": "nihil",
+    "current_password": "porro"
 }
 
 fetch(url, {
@@ -491,9 +491,9 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'email' => 'rerum',
-            'password' => 'voluptas',
-            'current_password' => 'animi',
+            'email' => 'officia',
+            'password' => 'nihil',
+            'current_password' => 'porro',
         ],
     ]
 );
@@ -507,9 +507,9 @@ import json
 
 url = 'http://api.sensenventures.com/api/user/reset-password'
 payload = {
-    "email": "rerum",
-    "password": "voluptas",
-    "current_password": "animi"
+    "email": "officia",
+    "password": "nihil",
+    "current_password": "porro"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
