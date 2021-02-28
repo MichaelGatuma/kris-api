@@ -11,7 +11,7 @@
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/researchers?institution=eum&researcharea=et&department=perferendis&name=voluptas" \
+    -G "http://api.sensenventures.com/api/researchers?institution=dolorem&researcharea=est&department=tenetur&name=distinctio" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -23,10 +23,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "eum",
-    "researcharea": "et",
-    "department": "perferendis",
-    "name": "voluptas",
+    "institution": "dolorem",
+    "researcharea": "est",
+    "department": "tenetur",
+    "name": "distinctio",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -56,10 +56,10 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'institution'=> 'eum',
-            'researcharea'=> 'et',
-            'department'=> 'perferendis',
-            'name'=> 'voluptas',
+            'institution'=> 'dolorem',
+            'researcharea'=> 'est',
+            'department'=> 'tenetur',
+            'name'=> 'distinctio',
         ],
     ]
 );
@@ -73,10 +73,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/researchers'
 params = {
-  'institution': 'eum',
-  'researcharea': 'et',
-  'department': 'perferendis',
-  'name': 'voluptas',
+  'institution': 'dolorem',
+  'researcharea': 'est',
+  'department': 'tenetur',
+  'name': 'distinctio',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -142,7 +142,7 @@ Search researcher by their name</p>
 </form>
 
 
-## View a single researcher by user id
+## View a single researcher
 
 <small class="badge badge-darkred">requires authentication</small>
 

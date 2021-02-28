@@ -84,7 +84,7 @@ class ResearcherAPIController extends AppBaseController
      *
      * @group Researcher Endpoints
      *
-     * View a single researcher by user id
+     * View a single researcher
      * @authenticated
      *
      * Display a researcher by id and all related projects and publications

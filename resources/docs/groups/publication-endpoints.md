@@ -13,7 +13,7 @@ This endpoint return an archive of the publications.
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/publications?perPage=3&recent=4&limit=eveniet" \
+    -G "http://api.sensenventures.com/api/publications?perPage=4&recent=17&limit=nobis" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -25,9 +25,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "3",
-    "recent": "4",
-    "limit": "eveniet",
+    "perPage": "4",
+    "recent": "17",
+    "limit": "nobis",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -57,9 +57,9 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'perPage'=> '3',
-            'recent'=> '4',
-            'limit'=> 'eveniet',
+            'perPage'=> '4',
+            'recent'=> '17',
+            'limit'=> 'nobis',
         ],
     ]
 );
@@ -73,9 +73,9 @@ import json
 
 url = 'http://api.sensenventures.com/api/publications'
 params = {
-  'perPage': '3',
-  'recent': '4',
-  'limit': 'eveniet',
+  'perPage': '4',
+  'recent': '17',
+  'limit': 'nobis',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -271,7 +271,7 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/publications/search?institution=harum&researcharea=illo&department=ut&funder=quaerat" \
+    -G "http://api.sensenventures.com/api/publications/search?institution=laudantium&researcharea=ut&department=et&funder=est" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -283,10 +283,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "harum",
-    "researcharea": "illo",
-    "department": "ut",
-    "funder": "quaerat",
+    "institution": "laudantium",
+    "researcharea": "ut",
+    "department": "et",
+    "funder": "est",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -316,10 +316,10 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'institution'=> 'harum',
-            'researcharea'=> 'illo',
-            'department'=> 'ut',
-            'funder'=> 'quaerat',
+            'institution'=> 'laudantium',
+            'researcharea'=> 'ut',
+            'department'=> 'et',
+            'funder'=> 'est',
         ],
     ]
 );
@@ -333,10 +333,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/publications/search'
 params = {
-  'institution': 'harum',
-  'researcharea': 'illo',
-  'department': 'ut',
-  'funder': 'quaerat',
+  'institution': 'laudantium',
+  'researcharea': 'ut',
+  'department': 'et',
+  'funder': 'est',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -414,7 +414,7 @@ This endpoint returns the details of the specified publication by id.
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/publication/19" \
+    -G "http://api.sensenventures.com/api/publication/16" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -422,7 +422,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://api.sensenventures.com/api/publication/19"
+    "http://api.sensenventures.com/api/publication/16"
 );
 
 let headers = {
@@ -442,7 +442,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.sensenventures.com/api/publication/19',
+    'http://api.sensenventures.com/api/publication/16',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -459,7 +459,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://api.sensenventures.com/api/publication/19'
+url = 'http://api.sensenventures.com/api/publication/16'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -538,7 +538,7 @@ This endpoint lets a user request access to a private publication.
 
 ```bash
 curl -X POST \
-    "http://api.sensenventures.com/api/publication/16/request" \
+    "http://api.sensenventures.com/api/publication/1/request" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -546,7 +546,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://api.sensenventures.com/api/publication/16/request"
+    "http://api.sensenventures.com/api/publication/1/request"
 );
 
 let headers = {
@@ -566,7 +566,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.sensenventures.com/api/publication/16/request',
+    'http://api.sensenventures.com/api/publication/1/request',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -583,7 +583,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://api.sensenventures.com/api/publication/16/request'
+url = 'http://api.sensenventures.com/api/publication/1/request'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -648,7 +648,7 @@ This endpoint lets a user (publication owner) grant access to a requested privat
 
 ```bash
 curl -X POST \
-    "http://api.sensenventures.com/api/publication/18/grant" \
+    "http://api.sensenventures.com/api/publication/7/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -656,7 +656,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://api.sensenventures.com/api/publication/18/grant"
+    "http://api.sensenventures.com/api/publication/7/grant"
 );
 
 let headers = {
@@ -676,7 +676,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.sensenventures.com/api/publication/18/grant',
+    'http://api.sensenventures.com/api/publication/7/grant',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -693,7 +693,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://api.sensenventures.com/api/publication/18/grant'
+url = 'http://api.sensenventures.com/api/publication/7/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
