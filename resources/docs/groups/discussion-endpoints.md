@@ -118,7 +118,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"title":"inventore","body":"eos"}'
+    -d '{"title":"magni","body":"minima"}'
 
 ```
 
@@ -134,8 +134,8 @@ let headers = {
 };
 
 let body = {
-    "title": "inventore",
-    "body": "eos"
+    "title": "magni",
+    "body": "minima"
 }
 
 fetch(url, {
@@ -157,8 +157,8 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'title' => 'inventore',
-            'body' => 'eos',
+            'title' => 'magni',
+            'body' => 'minima',
         ],
     ]
 );
@@ -172,8 +172,8 @@ import json
 
 url = 'http://api.sensenventures.com/api/discussions'
 payload = {
-    "title": "inventore",
-    "body": "eos"
+    "title": "magni",
+    "body": "minima"
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',

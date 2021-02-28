@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "KRIS",
-        "_postman_id": "5d8e6f7c-8358-439e-ba69-1ffba20a50ec",
+        "_postman_id": "d7878df2-3375-4068-b45e-314e09cdab55",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -42,7 +42,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"Title\": \"Prof.\",\n    \"name\": \"John Doe\",\n    \"email\": \"johndoe2@kris.com\",\n    \"password\": \"sed\",\n    \"device_name\": \"Huawei STK-L21\"\n}"
+                            "raw": "{\n    \"Title\": \"Prof.\",\n    \"name\": \"John Doe\",\n    \"email\": \"johndoe2@kris.com\",\n    \"password\": \"ut\",\n    \"device_name\": \"Huawei STK-L21\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -74,7 +74,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"blanditiis\",\n    \"password\": \"rerum\",\n    \"device_name\": \"Huawei STK-L21\"\n}"
+                            "raw": "{\n    \"email\": \"corrupti\",\n    \"password\": \"consectetur\",\n    \"device_name\": \"Huawei STK-L21\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -106,7 +106,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"ut\"\n}"
+                            "raw": "{\n    \"email\": \"porro\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -138,7 +138,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"corporis\",\n    \"password\": \"sint\",\n    \"current_password\": \"ea\"\n}"
+                            "raw": "{\n    \"email\": \"accusamus\",\n    \"password\": \"deserunt\",\n    \"current_password\": \"tenetur\"\n}"
                         },
                         "description": ""
                     },
@@ -225,7 +225,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"title\": \"inventore\",\n    \"body\": \"eos\"\n}"
+                            "raw": "{\n    \"title\": \"magni\",\n    \"body\": \"minima\"\n}"
                         },
                         "description": ""
                     },
@@ -244,7 +244,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "7",
+                                    "value": "4",
                                     "description": "The id of the specified discussion"
                                 }
                             ]
@@ -333,12 +333,12 @@
                             "query": [
                                 {
                                     "key": "institution",
-                                    "value": "rem",
+                                    "value": "aut",
                                     "description": "Search department by the insitution name.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/departments?institution=rem"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/departments?institution=aut"
                         },
                         "method": "GET",
                         "header": [
@@ -433,24 +433,24 @@
                             "query": [
                                 {
                                     "key": "perPage",
-                                    "value": "11",
+                                    "value": "3",
                                     "description": "Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10",
                                     "disabled": false
                                 },
                                 {
                                     "key": "recent",
-                                    "value": "19",
+                                    "value": "13",
                                     "description": "Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides 'perPage') Default: 10",
                                     "disabled": false
                                 },
                                 {
                                     "key": "limit",
-                                    "value": "ut",
+                                    "value": "aut",
                                     "description": "Specify the limit of entries to return. Must be used together with 'recent' If not specified, the default entries will be returned. Default: 10",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/projects?perPage=11&recent=19&limit=ut"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/projects?perPage=3&recent=13&limit=aut"
                         },
                         "method": "GET",
                         "header": [
@@ -478,13 +478,13 @@
                             "query": [
                                 {
                                     "key": "institution",
-                                    "value": "totam",
+                                    "value": "rerum",
                                     "description": "The full institution name",
                                     "disabled": false
                                 },
                                 {
                                     "key": "researcharea",
-                                    "value": "pariatur",
+                                    "value": "sunt",
                                     "description": "The name of the research area",
                                     "disabled": false
                                 },
@@ -496,12 +496,12 @@
                                 },
                                 {
                                     "key": "funder",
-                                    "value": "ad",
+                                    "value": "aut",
                                     "description": "the funder name",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/projects\/search?institution=totam&researcharea=pariatur&department=ut&funder=ad"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/projects\/search?institution=rerum&researcharea=sunt&department=ut&funder=aut"
                         },
                         "method": "GET",
                         "header": [
@@ -532,7 +532,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "autem",
+                                    "value": "rerum",
                                     "description": ""
                                 }
                             ]
@@ -600,7 +600,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "5",
+                                    "value": "20",
                                     "description": "The id of the project"
                                 }
                             ]
@@ -637,24 +637,24 @@
                             "query": [
                                 {
                                     "key": "perPage",
-                                    "value": "2",
+                                    "value": "18",
                                     "description": "Specify the entries to return in every page. If not specified, the default entries will be returned. Default: 10",
                                     "disabled": false
                                 },
                                 {
                                     "key": "recent",
-                                    "value": "6",
+                                    "value": "20",
                                     "description": "Specify this to show the most recent projects. If not specified, all entries will be returned with pagination. (Overrides 'perPage') Default: 10",
                                     "disabled": false
                                 },
                                 {
                                     "key": "limit",
-                                    "value": "deleniti",
+                                    "value": "dolor",
                                     "description": "Specify the limit of entries to return. Must be used together with 'recent' If not specified, the default entries will be returned. Default: 10",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/publications?perPage=2&recent=6&limit=deleniti"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/publications?perPage=18&recent=20&limit=dolor"
                         },
                         "method": "GET",
                         "header": [
@@ -682,30 +682,30 @@
                             "query": [
                                 {
                                     "key": "institution",
-                                    "value": "sapiente",
+                                    "value": "culpa",
                                     "description": "The full institution name",
                                     "disabled": false
                                 },
                                 {
                                     "key": "researcharea",
-                                    "value": "quis",
+                                    "value": "odit",
                                     "description": "The name of the research area",
                                     "disabled": false
                                 },
                                 {
                                     "key": "department",
-                                    "value": "quo",
+                                    "value": "aut",
                                     "description": "The name of the department",
                                     "disabled": false
                                 },
                                 {
                                     "key": "funder",
-                                    "value": "et",
+                                    "value": "natus",
                                     "description": "the funder name",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/publications\/search?institution=sapiente&researcharea=quis&department=quo&funder=et"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/publications\/search?institution=culpa&researcharea=odit&department=aut&funder=natus"
                         },
                         "method": "GET",
                         "header": [
@@ -736,7 +736,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "14",
+                                    "value": "9",
                                     "description": "The id of the publication"
                                 }
                             ]
@@ -770,7 +770,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "10",
+                                    "value": "16",
                                     "description": "The id of the publication"
                                 }
                             ]
@@ -804,7 +804,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "20",
+                                    "value": "14",
                                     "description": "The id of the publication"
                                 }
                             ]
@@ -832,49 +832,6 @@
             "description": "",
             "item": [
                 {
-                    "name": "Display the specified Upcoming Event.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/events\/:event_id",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/events\/:event_id",
-                            "variable": [
-                                {
-                                    "id": "event_id",
-                                    "key": "event_id",
-                                    "value": "consectetur",
-                                    "description": ""
-                                },
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "6",
-                                    "description": "The id of the specified Upcoming Event"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
                     "name": "List all Researchers",
                     "request": {
                         "url": {
@@ -884,30 +841,30 @@
                             "query": [
                                 {
                                     "key": "institution",
-                                    "value": "corrupti",
+                                    "value": "voluptatibus",
                                     "description": "Search by the given research institution",
                                     "disabled": false
                                 },
                                 {
                                     "key": "researcharea",
-                                    "value": "omnis",
+                                    "value": "nulla",
                                     "description": "Search by the given research area",
                                     "disabled": false
                                 },
                                 {
                                     "key": "department",
-                                    "value": "aut",
+                                    "value": "numquam",
                                     "description": "Search by the given department",
                                     "disabled": false
                                 },
                                 {
                                     "key": "name",
-                                    "value": "fugiat",
+                                    "value": "facere",
                                     "description": "Search researcher by their name",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/researchers?institution=corrupti&researcharea=omnis&department=aut&name=fugiat"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/researchers?institution=voluptatibus&researcharea=nulla&department=numquam&name=facere"
                         },
                         "method": "GET",
                         "header": [
@@ -1001,18 +958,61 @@
                             "query": [
                                 {
                                     "key": "skip",
-                                    "value": "18",
+                                    "value": "15",
                                     "description": "Skip the first specified number of entries",
                                     "disabled": false
                                 },
                                 {
                                     "key": "limit",
-                                    "value": "1",
+                                    "value": "10",
                                     "description": "Limit the response to the specified number of entries",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/events?skip=18&limit=1"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/events?skip=15&limit=10"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display the specified Upcoming Event.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/events\/:event_id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/events\/:event_id",
+                            "variable": [
+                                {
+                                    "id": "event_id",
+                                    "key": "event_id",
+                                    "value": "magnam",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "17",
+                                    "description": "The id of the specified Upcoming Event"
+                                }
+                            ]
                         },
                         "method": "GET",
                         "header": [
@@ -1172,12 +1172,12 @@
                             "query": [
                                 {
                                     "key": "user_id",
-                                    "value": "16",
+                                    "value": "12",
                                     "description": "The specified user's id",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/user\/profile-image?user_id=16"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/user\/profile-image?user_id=12"
                         },
                         "method": "GET",
                         "header": [

@@ -1,109 +1,6 @@
 # Researcher Endpoints
 
 
-## Display the specified Upcoming Event.
-
-
-
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://api.sensenventures.com/api/events/consectetur" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://api.sensenventures.com/api/events/consectetur"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response => response.json());
-```
-
-```php
-
-$client = new \GuzzleHttp\Client();
-$response = $client->get(
-    'http://api.sensenventures.com/api/events/consectetur',
-    [
-        'headers' => [
-            'Content-Type' => 'application/json',
-            'Accept' => 'application/json',
-        ],
-    ]
-);
-$body = $response->getBody();
-print_r(json_decode((string) $body));
-```
-
-```python
-import requests
-import json
-
-url = 'http://api.sensenventures.com/api/events/consectetur'
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-response = requests.request('GET', url, headers=headers)
-response.json()
-```
-
-
-> Example response (404):
-
-```json
-{
-    "success": false,
-    "message": "Upcoming Event not found"
-}
-```
-<div id="execution-results-GETapi-events--event_id-" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETapi-events--event_id-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-events--event_id-"></code></pre>
-</div>
-<div id="execution-error-GETapi-events--event_id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-events--event_id-"></code></pre>
-</div>
-<form id="form-GETapi-events--event_id-" data-method="GET" data-path="api/events/{event_id}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-events--event_id-', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-events--event_id-" onclick="tryItOut('GETapi-events--event_id-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-events--event_id-" onclick="cancelTryOut('GETapi-events--event_id-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-events--event_id-" hidden>Send Request 💥</button>
-    </h3>
-<p>
-<small class="badge badge-green">GET</small>
- <b><code>api/events/{event_id}</code></b>
-</p>
-<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-<p>
-<b><code>event_id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="event_id" data-endpoint="GETapi-events--event_id-" data-component="url" required  hidden>
-<br>
-</p>
-<p>
-<b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="id" data-endpoint="GETapi-events--event_id-" data-component="url" required  hidden>
-<br>
-The id of the specified Upcoming Event</p>
-</form>
-
-
 ## List all Researchers
 
 <small class="badge badge-darkred">requires authentication</small>
@@ -114,7 +11,7 @@ The id of the specified Upcoming Event</p>
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/researchers?institution=corrupti&researcharea=omnis&department=aut&name=fugiat" \
+    -G "http://api.sensenventures.com/api/researchers?institution=voluptatibus&researcharea=nulla&department=numquam&name=facere" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -126,10 +23,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "corrupti",
-    "researcharea": "omnis",
-    "department": "aut",
-    "name": "fugiat",
+    "institution": "voluptatibus",
+    "researcharea": "nulla",
+    "department": "numquam",
+    "name": "facere",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -159,10 +56,10 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'institution'=> 'corrupti',
-            'researcharea'=> 'omnis',
-            'department'=> 'aut',
-            'name'=> 'fugiat',
+            'institution'=> 'voluptatibus',
+            'researcharea'=> 'nulla',
+            'department'=> 'numquam',
+            'name'=> 'facere',
         ],
     ]
 );
@@ -176,10 +73,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/researchers'
 params = {
-  'institution': 'corrupti',
-  'researcharea': 'omnis',
-  'department': 'aut',
-  'name': 'fugiat',
+  'institution': 'voluptatibus',
+  'researcharea': 'nulla',
+  'department': 'numquam',
+  'name': 'facere',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',

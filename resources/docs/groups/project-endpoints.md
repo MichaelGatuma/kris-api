@@ -13,7 +13,7 @@ This endpoint return an archive of the projects.
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/projects?perPage=11&recent=19&limit=ut" \
+    -G "http://api.sensenventures.com/api/projects?perPage=3&recent=13&limit=aut" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -25,9 +25,9 @@ const url = new URL(
 );
 
 let params = {
-    "perPage": "11",
-    "recent": "19",
-    "limit": "ut",
+    "perPage": "3",
+    "recent": "13",
+    "limit": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -57,9 +57,9 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'perPage'=> '11',
-            'recent'=> '19',
-            'limit'=> 'ut',
+            'perPage'=> '3',
+            'recent'=> '13',
+            'limit'=> 'aut',
         ],
     ]
 );
@@ -73,9 +73,9 @@ import json
 
 url = 'http://api.sensenventures.com/api/projects'
 params = {
-  'perPage': '11',
-  'recent': '19',
-  'limit': 'ut',
+  'perPage': '3',
+  'recent': '13',
+  'limit': 'aut',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -226,7 +226,7 @@ Specify the limit of entries to return. Must be used together with 'recent' If n
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/projects/search?institution=totam&researcharea=pariatur&department=ut&funder=ad" \
+    -G "http://api.sensenventures.com/api/projects/search?institution=rerum&researcharea=sunt&department=ut&funder=aut" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -238,10 +238,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "totam",
-    "researcharea": "pariatur",
+    "institution": "rerum",
+    "researcharea": "sunt",
     "department": "ut",
-    "funder": "ad",
+    "funder": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -271,10 +271,10 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'institution'=> 'totam',
-            'researcharea'=> 'pariatur',
+            'institution'=> 'rerum',
+            'researcharea'=> 'sunt',
             'department'=> 'ut',
-            'funder'=> 'ad',
+            'funder'=> 'aut',
         ],
     ]
 );
@@ -288,10 +288,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/projects/search'
 params = {
-  'institution': 'totam',
-  'researcharea': 'pariatur',
+  'institution': 'rerum',
+  'researcharea': 'sunt',
   'department': 'ut',
-  'funder': 'ad',
+  'funder': 'aut',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -369,7 +369,7 @@ This endpoint returns the details of the specified project by id.
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/project/autem" \
+    -G "http://api.sensenventures.com/api/project/rerum" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -377,7 +377,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://api.sensenventures.com/api/project/autem"
+    "http://api.sensenventures.com/api/project/rerum"
 );
 
 let headers = {
@@ -397,7 +397,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.sensenventures.com/api/project/autem',
+    'http://api.sensenventures.com/api/project/rerum',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -414,7 +414,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://api.sensenventures.com/api/project/autem'
+url = 'http://api.sensenventures.com/api/project/rerum'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',
@@ -611,7 +611,7 @@ This endpoint lets a user(owner) grant access to a private project.
 
 ```bash
 curl -X POST \
-    "http://api.sensenventures.com/api/project/5/grant" \
+    "http://api.sensenventures.com/api/project/20/grant" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -619,7 +619,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://api.sensenventures.com/api/project/5/grant"
+    "http://api.sensenventures.com/api/project/20/grant"
 );
 
 let headers = {
@@ -639,7 +639,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.sensenventures.com/api/project/5/grant',
+    'http://api.sensenventures.com/api/project/20/grant',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -656,7 +656,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://api.sensenventures.com/api/project/5/grant'
+url = 'http://api.sensenventures.com/api/project/20/grant'
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
   'Content-Type': 'application/json',

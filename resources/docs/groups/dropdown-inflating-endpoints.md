@@ -209,7 +209,7 @@ response.json()
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/departments?institution=rem" \
+    -G "http://api.sensenventures.com/api/departments?institution=aut" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -221,7 +221,7 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "rem",
+    "institution": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -251,7 +251,7 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'institution'=> 'rem',
+            'institution'=> 'aut',
         ],
     ]
 );
@@ -265,7 +265,7 @@ import json
 
 url = 'http://api.sensenventures.com/api/departments'
 params = {
-  'institution': 'rem',
+  'institution': 'aut',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',

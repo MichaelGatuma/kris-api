@@ -65,7 +65,7 @@ class UpcomingEventAPIController extends AppBaseController
     }
 
     /**
-     * @group Researcher Endpoints
+     * @group Upcoming Events Endpoints
      *
      * Display the specified Upcoming Event.
      * @unauthenticated
