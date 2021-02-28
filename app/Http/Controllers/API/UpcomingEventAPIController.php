@@ -19,7 +19,7 @@ class UpcomingEventAPIController extends AppBaseController
     /**
      * @group Upcoming Events Endpoints
      *
-     * Display a listing of the UpcomingEvent.
+     * Display a listing of the Upcoming Events.
      * @unauthenticated
      *
      * @queryParam skip integer Skip the first specified number of entries
@@ -71,8 +71,6 @@ class UpcomingEventAPIController extends AppBaseController
      * @unauthenticated
      *
      * @urlParam id integer required The id of the specified Upcoming Event
-     *
-     * GET|HEAD /upcomingEvents/{id}
      *
      * @param int $id
      *

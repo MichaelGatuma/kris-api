@@ -1,7 +1,7 @@
 # Upcoming Events Endpoints
 
 
-## Display a listing of the UpcomingEvent.
+## Display a listing of the Upcoming Events.
 
 
 
@@ -10,7 +10,7 @@
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/events?skip=4&limit=6" \
+    -G "http://api.sensenventures.com/api/events?skip=18&limit=1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -21,8 +21,8 @@ const url = new URL(
 );
 
 let params = {
-    "skip": "4",
-    "limit": "6",
+    "skip": "18",
+    "limit": "1",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -50,8 +50,8 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'skip'=> '4',
-            'limit'=> '6',
+            'skip'=> '18',
+            'limit'=> '1',
         ],
     ]
 );
@@ -65,8 +65,8 @@ import json
 
 url = 'http://api.sensenventures.com/api/events'
 params = {
-  'skip': '4',
-  'limit': '6',
+  'skip': '18',
+  'limit': '1',
 }
 headers = {
   'Content-Type': 'application/json',

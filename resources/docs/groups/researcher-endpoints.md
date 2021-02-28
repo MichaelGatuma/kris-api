@@ -10,14 +10,14 @@
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/events/omnis" \
+    -G "http://api.sensenventures.com/api/events/consectetur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.sensenventures.com/api/events/omnis"
+    "http://api.sensenventures.com/api/events/consectetur"
 );
 
 let headers = {
@@ -36,7 +36,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.sensenventures.com/api/events/omnis',
+    'http://api.sensenventures.com/api/events/consectetur',
     [
         'headers' => [
             'Content-Type' => 'application/json',
@@ -52,7 +52,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://api.sensenventures.com/api/events/omnis'
+url = 'http://api.sensenventures.com/api/events/consectetur'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'
@@ -100,9 +100,7 @@ response.json()
 <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
 <input type="number" name="id" data-endpoint="GETapi-events--event_id-" data-component="url" required  hidden>
 <br>
-The id of the specified Upcoming Event
-
-GET|HEAD /upcomingEvents/{id}</p>
+The id of the specified Upcoming Event</p>
 </form>
 
 
@@ -116,7 +114,7 @@ GET|HEAD /upcomingEvents/{id}</p>
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/researchers?institution=voluptatibus&researcharea=perferendis&department=et&name=tempore" \
+    -G "http://api.sensenventures.com/api/researchers?institution=corrupti&researcharea=omnis&department=aut&name=fugiat" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -128,10 +126,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "voluptatibus",
-    "researcharea": "perferendis",
-    "department": "et",
-    "name": "tempore",
+    "institution": "corrupti",
+    "researcharea": "omnis",
+    "department": "aut",
+    "name": "fugiat",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -161,10 +159,10 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'institution'=> 'voluptatibus',
-            'researcharea'=> 'perferendis',
-            'department'=> 'et',
-            'name'=> 'tempore',
+            'institution'=> 'corrupti',
+            'researcharea'=> 'omnis',
+            'department'=> 'aut',
+            'name'=> 'fugiat',
         ],
     ]
 );
@@ -178,10 +176,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/researchers'
 params = {
-  'institution': 'voluptatibus',
-  'researcharea': 'perferendis',
-  'department': 'et',
-  'name': 'tempore',
+  'institution': 'corrupti',
+  'researcharea': 'omnis',
+  'department': 'aut',
+  'name': 'fugiat',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
