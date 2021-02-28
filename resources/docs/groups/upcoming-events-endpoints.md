@@ -10,7 +10,7 @@
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/events?skip=4&limit=7" \
+    -G "http://api.sensenventures.com/api/events?skip=11&limit=2" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -21,8 +21,8 @@ const url = new URL(
 );
 
 let params = {
-    "skip": "4",
-    "limit": "7",
+    "skip": "11",
+    "limit": "2",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -50,8 +50,8 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'skip'=> '4',
-            'limit'=> '7',
+            'skip'=> '11',
+            'limit'=> '2',
         ],
     ]
 );
@@ -65,8 +65,8 @@ import json
 
 url = 'http://api.sensenventures.com/api/events'
 params = {
-  'skip': '4',
-  'limit': '7',
+  'skip': '11',
+  'limit': '2',
 }
 headers = {
   'Content-Type': 'application/json',
@@ -129,14 +129,14 @@ Limit the response to the specified number of entries</p>
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/events/temporibus" \
+    -G "http://api.sensenventures.com/api/events/rem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.sensenventures.com/api/events/temporibus"
+    "http://api.sensenventures.com/api/events/rem"
 );
 
 let headers = {
@@ -155,7 +155,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.sensenventures.com/api/events/temporibus',
+    'http://api.sensenventures.com/api/events/rem',
     [
         'headers' => [
             'Content-Type' => 'application/json',
@@ -171,7 +171,7 @@ print_r(json_decode((string) $body));
 import requests
 import json
 
-url = 'http://api.sensenventures.com/api/events/temporibus'
+url = 'http://api.sensenventures.com/api/events/rem'
 headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json'

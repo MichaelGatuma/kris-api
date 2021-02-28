@@ -11,7 +11,7 @@
 
 ```bash
 curl -X GET \
-    -G "http://api.sensenventures.com/api/researchers?institution=fugit&researcharea=harum&department=eum&name=dicta" \
+    -G "http://api.sensenventures.com/api/researchers?institution=eum&researcharea=et&department=perferendis&name=voluptas" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -23,10 +23,10 @@ const url = new URL(
 );
 
 let params = {
-    "institution": "fugit",
-    "researcharea": "harum",
-    "department": "eum",
-    "name": "dicta",
+    "institution": "eum",
+    "researcharea": "et",
+    "department": "perferendis",
+    "name": "voluptas",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -56,10 +56,10 @@ $response = $client->get(
             'Accept' => 'application/json',
         ],
         'query' => [
-            'institution'=> 'fugit',
-            'researcharea'=> 'harum',
-            'department'=> 'eum',
-            'name'=> 'dicta',
+            'institution'=> 'eum',
+            'researcharea'=> 'et',
+            'department'=> 'perferendis',
+            'name'=> 'voluptas',
         ],
     ]
 );
@@ -73,10 +73,10 @@ import json
 
 url = 'http://api.sensenventures.com/api/researchers'
 params = {
-  'institution': 'fugit',
-  'researcharea': 'harum',
-  'department': 'eum',
-  'name': 'dicta',
+  'institution': 'eum',
+  'researcharea': 'et',
+  'department': 'perferendis',
+  'name': 'voluptas',
 }
 headers = {
   'Authorization': 'Bearer {YOUR_AUTH_KEY}',
@@ -142,7 +142,7 @@ Search researcher by their name</p>
 </form>
 
 
-## View a single researcher
+## View a single researcher by user id
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -567,7 +567,7 @@ The specified researcher id.</p>
 </form>
 
 
-## View a researcher profile of the authenticated user
+## View a researcher by authenticated user
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -666,7 +666,7 @@ response.json()
 </form>
 
 
-## View a single researcher
+## View a researcher by User id
 
 <small class="badge badge-darkred">requires authentication</small>
 

@@ -22,6 +22,8 @@ class UpcomingEventAPIController extends AppBaseController
      * Display a listing of the Upcoming Events.
      * @unauthenticated
      *
+     * Display a listing of all the Upcoming Events.
+     *
      * @queryParam skip integer Skip the first specified number of entries
      * @queryParam limit integer Limit the response to the specified number of entries
      *
@@ -69,6 +71,8 @@ class UpcomingEventAPIController extends AppBaseController
      *
      * Display the specified Upcoming Event.
      * @unauthenticated
+     *
+     * Display details of an upcoming event
      *
      * @urlParam id integer required The id of the specified Upcoming Event
      *

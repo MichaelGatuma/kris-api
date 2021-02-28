@@ -84,7 +84,7 @@ class ResearcherAPIController extends AppBaseController
      *
      * @group Researcher Endpoints
      *
-     * View a single researcher
+     * View a single researcher by user id
      * @authenticated
      *
      * Display a researcher by id and all related projects and publications
@@ -109,7 +109,7 @@ class ResearcherAPIController extends AppBaseController
     /**
      * @group Researcher Endpoints
      *
-     * View a single researcher
+     * View a researcher by User id
      * @authenticated
      *
      * Display a researcher profile and all related projects and publications by user id
@@ -138,9 +138,10 @@ class ResearcherAPIController extends AppBaseController
     /**
      * @group Researcher Endpoints
      *
-     * View a researcher profile of the authenticated user
+     * View a researcher by authenticated user
      * @authenticated
      *
+     * Display a researcher profile and all related projects and publications of the authenticated user
      */
     public function showByAuthUser()
     {
