@@ -10,6 +10,7 @@ use App\Models\VerifyUser;
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
@@ -56,7 +57,7 @@ class UserController extends Controller
     {
         return response()->json([
             "success" => true,
-            "data" => $request->user(),
+            "data" => $request->user()->id,
             "message" => "User details retrieved successfully"
         ]);
     }
@@ -209,7 +210,7 @@ class UserController extends Controller
     public function getUserImage(Request $request)
     {
 //return str_replace('storage/','',User::findOrFail($request->get('user_id'))->profPic);
-        
+
         return Image::make('https://kris.sensenventures.com/storage/ProfilePictures/6Fh5S0NCvZEJKVDRyRmvwNz83BoPkXS6rj42wgdx.jpeg');
         $user = $request->user();
         if ($request->has('user_id')) {

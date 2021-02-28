@@ -8,6 +8,7 @@ use App\Http\Requests\API\UpdateResearcherAPIRequest;
 use App\Models\Researcher;
 use App\Repositories\ResearcherRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 /**
@@ -46,7 +47,7 @@ class ResearcherAPIController extends AppBaseController
         $institution = $request->get('institution');
         $researcharea = $request->get('researcharea');
         $department = $request->get('department');
-        $name=$request->get('name');
+        $name = $request->get('name');
 
         $researchers = Researcher::with(['user', 'department', 'department.researchinstitution']);
         if ($department !== null) {
@@ -64,7 +65,7 @@ class ResearcherAPIController extends AppBaseController
         }
         if ($name !== null) {
             $researchers = $researchers->whereHas('user', function ($q) use ($name) {
-                $q->where('name','LIKE', '%'.$name.'%');
+                $q->where('name', 'LIKE', '%'.$name.'%');
             });
         }
         return $this->sendResponse($researchers->paginate($perPage), 'Researchers retrieved successfully');
@@ -105,7 +106,61 @@ class ResearcherAPIController extends AppBaseController
         return $this->sendResponse($researcher, 'Researcher retrieved successfully');
     }
 
-    public function update($id, UpdateResearcherAPIRequest $request)
+    /**
+     * @group Researcher Endpoints
+     *
+     * View a single researcher
+     * @authenticated
+     *
+     * Display a researcher profile and all related projects and publications by user id
+     *
+     * @urlParam id integer required The specified user id. No-example
+     *
+     */
+    public function showByUser($id)
+    {
+        /** @var Researcher $researcher */
+        $researcher = Researcher::with([
+            'user', 'projects', 'publications'
+        ])->whereHas('user', function ($q) use ($id) {
+            $q->where('id', $id);
+        });
+
+        if (empty($researcher)) {
+            return $this->sendError('User\'s Researcher Profile not found');
+        }
+        if ($researcher->count() < 1) {
+            return $this->sendError('Researcher not found');
+        }
+        return $this->sendResponse($researcher->get(), 'User\'s Researcher Profile retrieved successfully');
+    }
+
+    /**
+     * @group Researcher Endpoints
+     *
+     * View a researcher profile of the authenticated user
+     * @authenticated
+     *
+     */
+    public function showByAuthUser()
+    {
+        /** @var Researcher $researcher */
+        $researcher = Researcher::with([
+            'user', 'projects', 'publications'
+        ])->whereHas('user', function ($q) {
+            $q->where('id', Auth::id());
+        });
+
+        if (empty($researcher)) {
+            return $this->sendError('User\'s Researcher Profile not found');
+        }
+        if ($researcher->count() < 1) {
+            return $this->sendError('Researcher not found');
+        }
+        return $this->sendResponse($researcher->get(), 'User\'s Researcher Profile retrieved successfully');
+
+    }
+        public function update($id, UpdateResearcherAPIRequest $request)
     {
         $input = $request->all();
 

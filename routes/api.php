@@ -9,7 +9,6 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('events',[\App\Http\Controllers\API\UpcomingEventAPIController::class,'index']);
 Route::get('events/{event_id}',[\App\Http\Controllers\API\UpcomingEventAPIController::class,'show']);
 Route::get('img', function () {
@@ -63,6 +62,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::get('researchers', [ResearcherAPIController::class, 'index']);
     Route::get('researcher/{id}', [ResearcherAPIController::class, 'show']);
+    Route::get('researcher/user', [ResearcherAPIController::class, 'showByAuthUser']);
+    Route::get('researcher/user/{id}', [ResearcherAPIController::class, 'showByUser']);
     Route::get('researcher/activeProjects', [ResearcherAPIController::class, 'activeProjects']);
 
     Route::get('discussions', [PostAPIController::class, 'index']);
