@@ -57,7 +57,7 @@ class UserController extends Controller
     {
         return response()->json([
             "success" => true,
-            "data" => $request->user()->id,
+            "data" => $request->user(),
             "message" => "User details retrieved successfully"
         ]);
     }
