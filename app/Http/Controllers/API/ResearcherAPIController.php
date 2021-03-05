@@ -161,7 +161,8 @@ class ResearcherAPIController extends AppBaseController
         return $this->sendResponse($researcher->get(), 'User\'s Researcher Profile retrieved successfully');
 
     }
-        public function update($id, UpdateResearcherAPIRequest $request)
+
+    public function update($id, UpdateResearcherAPIRequest $request)
     {
         $input = $request->all();
 

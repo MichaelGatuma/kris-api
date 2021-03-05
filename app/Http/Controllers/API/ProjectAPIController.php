@@ -122,7 +122,8 @@ class ProjectAPIController extends AppBaseController
     {
         $perPage = $request->has('perPage') ? $request->perPage : 10;
         $projects = Project::with([
-            'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution','funder'
+            'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution',
+            'funder'
         ])->paginate($perPage);
         if ($request->has('search')) {
             $query = $request->search;
@@ -316,6 +317,7 @@ class ProjectAPIController extends AppBaseController
      * @queryParam researcharea The name of the research area
      * @queryParam department The name of the department
      * @queryParam funder the funder name
+     * @queryParam name the project name (keyword search)
      */
     public function searchCriteria(Request $request)
     {
@@ -328,6 +330,9 @@ class ProjectAPIController extends AppBaseController
             'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution',
             'funder'
         ]);
+        if ($request->has('name')) {
+            $projects = $projects->where('ProjectTitle', 'LIKE', '%'.$request->get('name').'%');
+        }
         if ($researcharea !== null) {
             $projects = $projects->whereHas('researcher', function ($q) use ($researcharea) {
                 $q->where('ResearchAreaOfInterest', $researcharea);
