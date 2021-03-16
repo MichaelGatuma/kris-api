@@ -326,17 +326,19 @@ class ProjectAPIController extends AppBaseController
         $researcharea = $request->get('researcharea');
         $department = $request->get('department');
         $funder = $request->get('funder');
+        $name = $request->get('name');
         $projects = Project::with([
-            'researcher', 'researcher.user', 'researcher.department', 'researcher.department.researchinstitution',
+            'researcher.user', 'researcher.department', 'researcher.department.researchinstitution',
             'funder'
         ]);
-        if ($request->has('name')) {
-            $projects = $projects->where('ProjectTitle', 'LIKE', '%'.$request->get('name').'%');
+        if ($name !== null) {
+            $projectsbyTitle = $projects->where('ProjectTitle', 'LIKE', '%'.$name.'%')->orWhereHas('researcher.user',
+                function ($q) use ($name) {
+                    $q->where('name', 'LIKE', '%'.$name.'%');
+                });
         }
         if ($researcharea !== null) {
-            $projects = $projects->whereHas('researcher', function ($q) use ($researcharea) {
-                $q->where('ResearchAreaOfInterest', $researcharea);
-            });
+            $projects = $projects->where('ProjectResearchAreas', $researcharea);
         }
         if ($department !== null) {
             $projects = $projects->whereHas('researcher.department', function ($q) use ($department) {
